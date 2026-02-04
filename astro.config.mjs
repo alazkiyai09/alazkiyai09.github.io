@@ -4,7 +4,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://alazkiyai09.github.io',
-  base: '/alazkiyai09.github.io',
   integrations: [
     tailwind({
       applyBaseStyles: false,
