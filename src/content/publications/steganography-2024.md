@@ -145,7 +145,7 @@ Future work includes:
 
 ## Code
 
-Implementation available at: [github.com/azka/adaptive-steganography](https://github.com/azka/adaptive-steganography)
+Implementation available at: [github.com/alazkiyai09/adaptive-steganography](https://github.com/alazkiyai09/adaptive-steganography)
 
 ## Citation
 

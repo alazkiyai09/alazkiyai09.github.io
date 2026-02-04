@@ -22,11 +22,7 @@ metrics:
   experimentsRun: 45
 startDate: "2026-01-24"
 completedDate: "2026-01-26"
-repository: "https://github.com/azka/signguard"
-researchConnection:
-  supervisor: "Prof. Russello"
-  university: "University of Auckland"
-  relevance: "Core research contribution for thesis on verifiable federated learning"
+repository: "https://github.com/alazkiyai09/signguard"
 ---
 
 ## Overview

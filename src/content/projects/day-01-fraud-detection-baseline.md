@@ -21,10 +21,6 @@ metrics:
   experimentsRun: 8
 startDate: "2026-01-15"
 completedDate: "2026-01-15"
-researchConnection:
-  supervisor: "Prof. Russello"
-  university: "University of Auckland"
-  relevance: "Foundational work for banking fraud detection systems"
 ---
 
 ## Overview
