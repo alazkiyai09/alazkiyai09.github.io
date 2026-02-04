@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://azka.github.io',
+  site: 'https://alazkiyai09.github.io',
   integrations: [
     tailwind({
       applyBaseStyles: false,
