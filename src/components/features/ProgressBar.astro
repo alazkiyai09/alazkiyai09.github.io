@@ -1,0 +1,37 @@
+---
+interface Props {
+  progress: number; // 0-100
+  label?: string;
+  showPercentage?: boolean;
+  color?: 'blue' | 'green' | 'purple' | 'orange';
+}
+
+const { progress, label, showPercentage = true, color = 'blue' } = Astro.props;
+const clampedProgress = Math.min(100, Math.max(0, progress));
+
+const getColorClasses = () => {
+  switch(color) {
+    case 'green': return 'from-green-500 to-green-600';
+    case 'purple': return 'from-purple-500 to-purple-600';
+    case 'orange': return 'from-orange-500 to-orange-600';
+    default: return 'from-blue-500 to-blue-600';
+  }
+};
+---
+
+<div class="w-full">
+  {label && (
+    <div class="flex justify-between items-center mb-2">
+      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">{label}</span>
+      {showPercentage && (
+        <span class="text-sm text-slate-600 dark:text-slate-400">{clampedProgress}%</span>
+      )}
+    </div>
+  )}
+  <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+    <div
+      class={`h-full bg-gradient-to-r ${getColorClasses()} rounded-full transition-all duration-500 ease-out`}
+      style={`width: ${clampedProgress}%`}
+    ></div>
+  </div>
+</div>

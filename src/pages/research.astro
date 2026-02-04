@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Card from '../components/ui/Card.astro';
+import Badge from '../components/ui/Badge.astro';
+import domainExpertise from '../data/domain-expertise.json';
+import activityLog from '../data/activity-log.json';
+
+// Filter research-related activities
+const researchActivities = activityLog.activities.filter(a =>
+  a.type === 'paper_read' ||
+  a.type === 'publication' ||
+  a.tags?.includes('research')
+).slice(0, 5);
+
+const title = 'Research - Azka';
+const description = 'Research interests in federated learning security, adversarial machine learning, and privacy-preserving AI.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Research</h1>
+          <p class="text-xl text-slate-600 dark:text-slate-400">
+            Exploring the intersection of security, privacy, and distributed machine learning
+          </p>
+        </div>
+
+        <!-- Research Overview -->
+        <div class="mb-12">
+          <Card variant="default" class="p-8">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Research Interests</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
+              My research focuses on building secure and privacy-preserving machine learning systems,
+              particularly in the context of federated learning for financial applications. I work on
+              Byzantine-resilient aggregation, adversarial attack detection, and cryptographic
+              verification mechanisms for distributed ML systems.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <Badge variant="info">Federated Learning</Badge>
+              <Badge variant="info">Adversarial ML</Badge>
+              <Badge variant="info">Privacy-Preserving AI</Badge>
+              <Badge variant="info">Byzantine Robustness</Badge>
+              <Badge variant="info">Cryptography</Badge>
+            </div>
+          </Card>
+        </div>
+
+        <!-- Domain Expertise Areas -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Research Areas</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            {domainExpertise.areas
+              .filter(area => area.type === 'research')
+              .map((area) => (
+              <Card variant="default" class="p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4">
+                  <div class="text-4xl">{area.icon}</div>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">
+                      {area.title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm">
+                      {area.description}
+                    </p>
+
+                    <!-- Highlights -->
+                    <div class="mb-4">
+                      <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        Key Areas:
+                      </h4>
+                      <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                        {area.highlights.map((highlight) => (
+                          <li class="flex items-start gap-2">
+                            <span class="text-blue-500 mt-1">•</span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <!-- Technologies -->
+                    <div class="flex flex-wrap gap-2">
+                      {area.technologies.map((tech) => (
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <!-- Recent Research Activity -->
+        {researchActivities.length > 0 && (
+          <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Recent Research Activity</h2>
+            <div class="space-y-4">
+              {researchActivities.map((activity) => (
+                <Card variant="default" class="p-6 hover:shadow-md transition-shadow">
+                  <div class="flex items-start gap-4">
+                    <div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+                      <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2 mb-1">
+                        <Badge
+                          variant={
+                            activity.type === 'publication' ? 'success' :
+                            activity.type === 'paper_read' ? 'info' :
+                            'default'
+                          }
+                          size="sm"
+                        >
+                          {activity.type.replace('_', ' ')}
+                        </Badge>
+                        <span class="text-sm text-slate-500">
+                          {new Date(activity.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                      <h3 class="font-bold text-slate-900 dark:text-white mb-1">
+                        {activity.title}
+                      </h3>
+                      <p class="text-sm text-slate-600 dark:text-slate-400">
+                        {activity.description}
+                      </p>
+                      {activity.links && (
+                        <div class="mt-2">
+                          {activity.links.map((link) => (
+                            <a
+                              href={link.url}
+                              class="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                            >
+                              {link.label} →
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Publications Link -->
+        <div class="text-center">
+          <Card variant="default" class="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Publications</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
+              Explore my published research papers and academic contributions
+            </p>
+            <a
+              href="/publications"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              View Publications
+            </a>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,132 @@
+---
+import experience from '../../data/experience.json';
+
+const formatDate = (dateStr: string) => {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric'
+  });
+};
+---
+
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
+      <p class="text-lg text-slate-600 dark:text-slate-400">
+        My professional journey and research work
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-8">
+      {experience.experience.map((exp, index) => (
+        <div class="relative">
+          {/* Timeline line */}
+          {index < experience.experience.length - 1 && (
+            <div class="absolute left-8 top-20 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-700"></div>
+          )}
+
+          <div class="flex gap-6">
+            <!-- Icon -->
+            <div class={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-2xl ${
+              exp.category === 'industry'
+                ? 'bg-blue-100 dark:bg-blue-900/30'
+                : 'bg-purple-100 dark:bg-purple-900/30'
+            }`}>
+              {exp.category === 'industry' ? '🏢' : '🔬'}
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
+              {/* Header */}
+              <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                    {exp.title}
+                  </h3>
+                  <p class="text-lg text-slate-700 dark:text-slate-300">
+                    {exp.company}
+                  </p>
+                  <div class="flex items-center gap-2 mt-1 text-sm text-slate-600 dark:text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {exp.location}
+                  </div>
+                </div>
+
+                <div class="text-right">
+                  <div class="text-sm font-medium text-slate-900 dark:text-white">
+                    {formatDate(exp.period.start)}
+                    {' – '}
+                    {exp.period.current ? (
+                      <span class="text-blue-600 dark:text-blue-400">Present</span>
+                    ) : (
+                      formatDate(exp.period.end!)
+                    )}
+                  </div>
+                  <span class={`inline-block mt-1 px-2 py-1 text-xs rounded-full ${
+                    exp.category === 'industry'
+                      ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                      : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
+                  }`}>
+                    {exp.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p class="text-slate-600 dark:text-slate-400 mb-4">
+                {exp.description}
+              </p>
+
+              {/* Responsibilities */}
+              <div class="mb-4">
+                <h4 class="text-sm font-semibold text-slate-900 dark:text-white uppercase mb-2">
+                  Responsibilities
+                </h4>
+                <ul class="space-y-1">
+                  {exp.responsibilities.map((resp) => (
+                    <li class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
+                      <svg class="w-4 h-4 text-blue-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <span>{resp}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Achievements */}
+              {exp.achievements && exp.achievements.length > 0 && (
+                <div class="mb-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white uppercase mb-2">
+                    Key Achievements
+                  </h4>
+                  <ul class="space-y-1">
+                    {exp.achievements.map((achievement) => (
+                      <li class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <span class="text-yellow-500">🏆</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Technologies */}
+              <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-700">
+                {exp.technologies.map((tech) => (
+                  <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs rounded-md font-mono">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+{
+  "phases": [
+    {
+      "name": "Foundation",
+      "days": "1-5",
+      "description": "Fraud detection fundamentals and baseline models",
+      "status": "completed",
+      "projects": ["Baseline Classifier", "Feature Engineering", "Model Evaluation"],
+      "skills": ["Pandas", "Scikit-learn", "Imbalanced-learn"]
+    },
+    {
+      "name": "Federated Learning Core",
+      "days": "6-10",
+      "description": "FL fundamentals and SignGuard security implementation",
+      "status": "completed",
+      "projects": ["FL Simulation", "PySyft Intro", "SignGuard Core"],
+      "skills": ["PySyft", "Flower", "PyTorch", "Cryptography"]
+    },
+    {
+      "name": "MLOps & Infrastructure",
+      "days": "11-15",
+      "description": "Production-grade ML pipeline and experiment tracking",
+      "status": "completed",
+      "projects": ["MLflow Integration", "Medallion Architecture", "Docker Setup"],
+      "skills": ["MLflow", "Docker", "DVC", "FastAPI"]
+    },
+    {
+      "name": "Security Research",
+      "days": "16-20",
+      "description": "Advanced security projects and threat analysis",
+      "status": "in-progress",
+      "projects": ["FraudwareAnalyzer", "BankingTrojanHunter", "ZKP Integration"],
+      "skills": ["Static Analysis", "Threat Intelligence", "ZK-SNARKs"]
+    },
+    {
+      "name": "Cross-Bank Simulation",
+      "days": "21-25",
+      "description": "Multi-institution FL with compliance constraints",
+      "status": "upcoming",
+      "projects": ["Cross-Silo FL", "Privacy Budget", "GDPR Compliance"],
+      "skills": ["Differential Privacy", "Secure Aggregation"]
+    },
+    {
+      "name": "Integration & Deployment",
+      "days": "26-30",
+      "description": "Complete system integration and demonstration",
+      "status": "upcoming",
+      "projects": ["Full System Demo", "Documentation", "Research Paper Draft"],
+      "skills": ["Technical Writing", "System Design"]
+    }
+  ]
+}

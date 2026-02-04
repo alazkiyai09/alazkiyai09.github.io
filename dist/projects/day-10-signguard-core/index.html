@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.19"><!-- Canonical URL --><link rel="canonical" href="https://azka.github.io/projects/day-10-signguard-core/"><!-- SEO --><title>SignGuard: ECDSA-Based Federated Learning Defense - Azka</title><meta name="description" content="Novel defense mechanism using ECDSA cryptographic signatures with dynamic reputation systems to detect and mitigate poisoning attacks in federated learning."><meta name="keywords" content="AI Security, Federated Learning, Fraud Detection, Machine Learning, Cryptography"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://azka.github.io/projects/day-10-signguard-core/"><meta property="og:title" content="SignGuard: ECDSA-Based Federated Learning Defense - Azka"><meta property="og:description" content="Novel defense mechanism using ECDSA cryptographic signatures with dynamic reputation systems to detect and mitigate poisoning attacks in federated learning."><meta property="og:image" content="https://azka.github.io/og-image.svg"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://azka.github.io/projects/day-10-signguard-core/"><meta name="twitter:title" content="SignGuard: ECDSA-Based Federated Learning Defense - Azka"><meta name="twitter:description" content="Novel defense mechanism using ECDSA cryptographic signatures with dynamic reputation systems to detect and mitigate poisoning attacks in federated learning."><meta name="twitter:image" content="https://azka.github.io/og-image.svg"><!-- Preconnect --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"><!-- Theme Script (must run before DOM) --><script>
+      const getThemePreference = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+      if (typeof localStorage !== 'undefined') {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+        // Cleanup observer on page unload
+        window.addEventListener('beforeunload', () => {
+          observer.disconnect();
+        }, { once: true });
+      }
+    </script><link rel="stylesheet" href="/_astro/about.DIUsDqT5.css"><script type="module" src="/_astro/hoisted.DESjiANC.js"></script></head> <body class="min-h-screen flex flex-col"> <!-- Skip to main content link for accessibility --> <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-lg">
+Skip to main content
+</a> <header class="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"> <div class="container"> <div class="flex h-16 items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center space-x-2 group"> <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
+A
+</div> <div class="hidden sm:block"> <div class="font-bold text-slate-900 dark:text-white">Azka</div> <div class="text-xs text-slate-600 dark:text-slate-400">AI Security Researcher</div> </div> </a> <!-- Desktop Navigation --> <div class="hidden md:flex items-center space-x-6"> <nav class="flex items-center space-x-1"><a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Home</a><a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">About</a><a href="/projects" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Projects</a><a href="/publications" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Publications</a><a href="/journey" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Journey</a><a href="/activity" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Activity</a><a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white">Contact</a></nav> </div> <!-- Right side actions --> <div class="flex items-center space-x-4"> <button id="theme-toggle" class="relative p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme" type="button"> <!-- Sun icon (show in dark mode) --> <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20"> <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path> </svg> <!-- Moon icon (show in light mode) --> <svg class="w-5 h-5 block dark:hidden text-slate-700" fill="currentColor" viewBox="0 0 20 20"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> </button>  <!-- Mobile menu button --> <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> </div> <!-- Mobile Navigation --> <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"> <nav class="container py-4 space-y-2"><a href="/" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a><a href="/about" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">About</a><a href="/projects" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a><a href="/publications" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Publications</a><a href="/journey" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Journey</a><a href="/activity" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Activity</a><a href="/contact" class="block px-4 py-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a></nav> </div> </header>  <main id="main-content" class="flex-1">  <article class="section"> <div class="container"> <div class="max-w-4xl mx-auto"> <!-- Breadcrumb --> <nav class="mb-8 text-sm"> <ol class="flex items-center gap-2"> <li> <a href="/" class="text-slate-600 dark:text-slate-400 hover:text-blue-600">Home</a> </li> <li class="text-slate-400">/</li> <li> <a href="/projects" class="text-slate-600 dark:text-slate-400 hover:text-blue-600">Projects</a> </li> <li class="text-slate-400">/</li> <li class="text-slate-900 dark:text-white font-medium">Day 10</li> </ol> </nav> <!-- Header --> <header class="mb-8"> <div class="flex flex-wrap items-center gap-3 mb-4"> <span class="inline-flex items-center gap-1.5 rounded-full font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 px-2.5 py-1 text-sm">  Day 10 </span> <span class="inline-flex items-center gap-1.5 rounded-full font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 px-2.5 py-1 text-sm">  completed </span> <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium"> federated-learning-security </span> </div> <h1 class="text-4xl md:text-5xl font-bold mb-4">SignGuard: ECDSA-Based Federated Learning Defense</h1> <p class="text-xl text-slate-600 dark:text-slate-400"> Novel defense mechanism using ECDSA cryptographic signatures with dynamic reputation systems to detect and mitigate poisoning attacks in federated learning. </p> <!-- Dates --> <div class="flex flex-wrap gap-4 mt-4 text-sm text-slate-600 dark:text-slate-400"> <div> <span class="font-medium">Started:</span>  January 24, 2026 </div> <div> <span class="font-medium">Completed:</span>  January 26, 2026 </div> </div> </header> <!-- Links --> <div class="flex flex-wrap gap-3 mb-8"> <a href="https://github.com/azka/signguard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:bg-slate-700 dark:hover:bg-slate-100 transition-colors"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
+GitHub Repository
+</a>   </div> <!-- Metrics --> <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700"> <div class="text-center"> <div class="text-2xl font-bold text-blue-600 dark:text-blue-400"> 2,500 </div> <div class="text-sm text-slate-600 dark:text-slate-400">Lines of Code</div> </div> <div class="text-center"> <div class="text-2xl font-bold text-green-600 dark:text-green-400"> 94.5%
+</div> <div class="text-sm text-slate-600 dark:text-slate-400">Accuracy</div> </div> <div class="text-center"> <div class="text-2xl font-bold text-purple-600 dark:text-purple-400"> 45 </div> <div class="text-sm text-slate-600 dark:text-slate-400">Experiments</div> </div> <div class="text-center"> <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">
+Day 10 </div> <div class="text-sm text-slate-600 dark:text-slate-400">Journey Day</div> </div> </div> <!-- Tags & Technologies --> <div class="mb-8 space-y-4"> <div> <h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase mb-2">Tags</h3> <div class="flex flex-wrap gap-2"> <span class="inline-flex items-center gap-1 rounded-lg font-medium border transition-all duration-200 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-700 px-2.5 py-1 text-sm">federated-learning</span><span class="inline-flex items-center gap-1 rounded-lg font-medium border transition-all duration-200 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-700 px-2.5 py-1 text-sm">cryptography</span><span class="inline-flex items-center gap-1 rounded-lg font-medium border transition-all duration-200 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-700 px-2.5 py-1 text-sm">ecdsa</span><span class="inline-flex items-center gap-1 rounded-lg font-medium border transition-all duration-200 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-700 px-2.5 py-1 text-sm">poisoning-defense</span><span class="inline-flex items-center gap-1 rounded-lg font-medium border transition-all duration-200 bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border-purple-200 dark:border-purple-700 px-2.5 py-1 text-sm">signature-verification</span> </div> </div> <div> <h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase mb-2">Technologies</h3> <div class="flex flex-wrap gap-2"> <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-mono"> Python </span><span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-mono"> PyTorch </span><span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-mono"> PySyft </span><span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-mono"> cryptography </span><span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-md text-sm font-mono"> FastAPI </span> </div> </div> </div> <!-- Research Connection --> <div class="mb-8 p-6 bg-blue-50 dark:bg-blue-900/10 rounded-xl border border-blue-200 dark:border-blue-800"> <h3 class="font-bold text-slate-900 dark:text-white mb-2">Research Connection</h3> <div class="text-sm text-slate-700 dark:text-slate-300 mb-1"> <span class="font-medium">Supervisor:</span> Prof. Russello </div> <div class="text-sm text-slate-700 dark:text-slate-300 mb-1"> <span class="font-medium">University:</span> University of Auckland </div> <div class="text-sm text-slate-600 dark:text-slate-400 mt-2"> Core research contribution for thesis on verifiable federated learning </div> </div> <!-- Content --> <div class="prose prose-lg dark:prose-invert max-w-none"> <h2 id="overview">Overview</h2>
+<p>SignGuard is a novel defense mechanism designed to protect federated learning systems from model poisoning attacks. It combines ECDSA cryptographic signatures with dynamic reputation scoring to detect and mitigate malicious client updates.</p>
+<h2 id="problem-statement">Problem Statement</h2>
+<p>Federated Learning (FL) is vulnerable to Byzantine attacks where malicious clients submit poisoned model updates:</p>
+<ul>
+<li><strong>Label Flipping</strong>: Malicious clients flip labels to corrupt the global model</li>
+<li><strong>Data Poisoning</strong>: Attackers train on manipulated data</li>
+<li><strong>Model Manipulation</strong>: Direct parameter alteration</li>
+<li><strong>Backdoor Attacks</strong>: Insert hidden triggers into the model</li>
+</ul>
+<p>Existing solutions (Krum, Multi-Krum, etc.) lack cryptographic verification of client identity.</p>
+<h2 id="architecture">Architecture</h2>
+<p>SignGuard introduces three core components:</p>
+<h3 id="1-signature-generator">1. Signature Generator</h3>
+<p>Clients sign their model updates using ECDSA private keys:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> cryptography.hazmat.primitives </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> hashes</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> cryptography.hazmat.primitives.asymmetric </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> ec</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> cryptography.hazmat.primitives </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> serialization</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ClientSigner</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#79B8FF"> __init__</span><span style="color:#E1E4E8">(self, client_id: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.client_id </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> client_id</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.private_key </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> ec.generate_private_key(ec.SECP256R1())</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.public_key </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.private_key.public_key()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> sign_update</span><span style="color:#E1E4E8">(self, model_update: torch.Tensor) -> </span><span style="color:#79B8FF">bytes</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D">        # Serialize model update</span></span>
+<span class="line"><span style="color:#E1E4E8">        update_bytes </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">._serialize_update(model_update)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Sign with private key</span></span>
+<span class="line"><span style="color:#E1E4E8">        signature </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.private_key.sign(</span></span>
+<span class="line"><span style="color:#E1E4E8">            update_bytes,</span></span>
+<span class="line"><span style="color:#E1E4E8">            ec.ECDSA(hashes.SHA256())</span></span>
+<span class="line"><span style="color:#E1E4E8">        )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> signature</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> _serialize_update</span><span style="color:#E1E4E8">(self, tensor: torch.Tensor) -> </span><span style="color:#79B8FF">bytes</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> tensor.numpy().tobytes()</span></span>
+<span class="line"></span></code></pre>
+<h3 id="2-verification-engine">2. Verification Engine</h3>
+<p>Server verifies signatures before aggregation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> UpdateVerifier</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#79B8FF"> __init__</span><span style="color:#E1E4E8">(self, registered_clients: Dict[</span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, ec.EllipticCurvePublicKey]):</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.registered_clients </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> registered_clients</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> verify_update</span><span style="color:#E1E4E8">(self, update: ModelUpdate, signature: </span><span style="color:#79B8FF">bytes</span><span style="color:#E1E4E8">, client_id: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">bool</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D">        # Get client's public key</span></span>
+<span class="line"><span style="color:#E1E4E8">        public_key </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.registered_clients.get(client_id)</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> public_key:</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> False</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        try</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D">            # Verify signature</span></span>
+<span class="line"><span style="color:#E1E4E8">            public_key.verify(</span></span>
+<span class="line"><span style="color:#E1E4E8">                signature,</span></span>
+<span class="line"><span style="color:#E1E4E8">                update.serialize(),</span></span>
+<span class="line"><span style="color:#E1E4E8">                ec.ECDSA(hashes.SHA256())</span></span>
+<span class="line"><span style="color:#E1E4E8">            )</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> True</span></span>
+<span class="line"><span style="color:#F97583">        except</span><span style="color:#E1E4E8"> InvalidSignature:</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#79B8FF"> False</span></span>
+<span class="line"></span></code></pre>
+<h3 id="3-reputation-manager">3. Reputation Manager</h3>
+<p>Dynamic trust scoring with temporal decay:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ReputationManager</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#79B8FF"> __init__</span><span style="color:#E1E4E8">(self, decay_rate: </span><span style="color:#79B8FF">float</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 0.95</span><span style="color:#E1E4E8">, initial_reputation: </span><span style="color:#79B8FF">float</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 1.0</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.decay_rate </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> decay_rate</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.reputations </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}  </span><span style="color:#6A737D"># client_id -> reputation_score</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.initial_reputation </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> initial_reputation</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> update_reputation</span><span style="color:#E1E4E8">(self, client_id: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">, contribution_score: </span><span style="color:#79B8FF">float</span><span style="color:#E1E4E8">):</span></span>
+<span class="line"><span style="color:#6A737D">        # Apply temporal decay</span></span>
+<span class="line"><span style="color:#E1E4E8">        current </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.reputations.get(client_id, </span><span style="color:#79B8FF">self</span><span style="color:#E1E4E8">.initial_reputation)</span></span>
+<span class="line"><span style="color:#E1E4E8">        decayed </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> current </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.decay_rate</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Update with new contribution</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.reputations[client_id] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> decayed </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">1</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.decay_rate) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> contribution_score</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> get_reputation</span><span style="color:#E1E4E8">(self, client_id: </span><span style="color:#79B8FF">str</span><span style="color:#E1E4E8">) -> </span><span style="color:#79B8FF">float</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.reputations.get(client_id, </span><span style="color:#79B8FF">self</span><span style="color:#E1E4E8">.initial_reputation)</span></span>
+<span class="line"></span></code></pre>
+<h2 id="implementation">Implementation</h2>
+<h3 id="federated-learning-loop">Federated Learning Loop</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> SignGuardAggregator</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#79B8FF"> __init__</span><span style="color:#E1E4E8">(self, verifier: UpdateVerifier, reputation_manager: ReputationManager):</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.verifier </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> verifier</span></span>
+<span class="line"><span style="color:#79B8FF">        self</span><span style="color:#E1E4E8">.reputation_manager </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> reputation_manager</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> aggregate_updates</span><span style="color:#E1E4E8">(self, updates: List[ModelUpdate]) -> torch.Tensor:</span></span>
+<span class="line"><span style="color:#E1E4E8">        verified_updates </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#E1E4E8">        reputations </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> update </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> updates:</span></span>
+<span class="line"><span style="color:#6A737D">            # Verify signature</span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.verifier.verify_update(update, update.signature, update.client_id):</span></span>
+<span class="line"><span style="color:#6A737D">                # Calculate contribution score</span></span>
+<span class="line"><span style="color:#E1E4E8">                score </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">._calculate_contribution_score(update)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">                # Update reputation</span></span>
+<span class="line"><span style="color:#79B8FF">                self</span><span style="color:#E1E4E8">.reputation_manager.update_reputation(update.client_id, score)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">                # Weight by reputation</span></span>
+<span class="line"><span style="color:#E1E4E8">                rep </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.reputation_manager.get_reputation(update.client_id)</span></span>
+<span class="line"><span style="color:#E1E4E8">                verified_updates.append(update.parameters </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> rep)</span></span>
+<span class="line"><span style="color:#E1E4E8">                reputations.append(rep)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # Normalize and aggregate</span></span>
+<span class="line"><span style="color:#E1E4E8">        total_rep </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> sum</span><span style="color:#E1E4E8">(reputations)</span></span>
+<span class="line"><span style="color:#E1E4E8">        aggregated </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> sum</span><span style="color:#E1E4E8">(verified_updates) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> total_rep</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> aggregated</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> _calculate_contribution_score</span><span style="color:#E1E4E8">(self, update: ModelUpdate) -> </span><span style="color:#79B8FF">float</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D">        # Compute score based on:</span></span>
+<span class="line"><span style="color:#6A737D">        # 1. Update magnitude (detect extreme outliers)</span></span>
+<span class="line"><span style="color:#6A737D">        # 2. Direction similarity (detect opposite updates)</span></span>
+<span class="line"><span style="color:#6A737D">        # 3. Loss contribution (actual improvement)</span></span>
+<span class="line"><span style="color:#F97583">        pass</span></span>
+<span class="line"></span></code></pre>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="experimental-setup">Experimental Setup</h3>
+<ul>
+<li><strong>Dataset</strong>: CIFAR-10 (federated partitioning)</li>
+<li><strong>Model</strong>: ResNet-18</li>
+<li><strong>Clients</strong>: 100 (10 malicious)</li>
+<li><strong>Rounds</strong>: 100</li>
+<li><strong>Attack</strong>: Label flipping (0→9, 9→0)</li>
+</ul>
+<h3 id="defense-performance">Defense Performance</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense Mechanism</th><th>Detection Rate</th><th>False Positive Rate</th><th>Final Accuracy</th></tr></thead><tbody><tr><td>No Defense</td><td>0%</td><td>0%</td><td>42.3%</td></tr><tr><td>Krum</td><td>68.5%</td><td>8.2%</td><td>78.1%</td></tr><tr><td>Multi-Krum</td><td>72.3%</td><td>6.5%</td><td>81.4%</td></tr><tr><td>FoolsGold</td><td>81.2%</td><td>4.8%</td><td>87.6%</td></tr><tr><td><strong>SignGuard</strong></td><td><strong>94.5%</strong></td><td><strong>3.2%</strong></td><td><strong>92.8%</strong></td></tr></tbody></table>
+<h3 id="ablation-studies">Ablation Studies</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Configuration</th><th>Detection Rate</th><th>Accuracy</th></tr></thead><tbody><tr><td>ECDSA Only</td><td>89.2%</td><td>90.1%</td></tr><tr><td>Reputation Only</td><td>76.8%</td><td>88.3%</td></tr><tr><td><strong>ECDSA + Reputation</strong></td><td><strong>94.5%</strong></td><td><strong>92.8%</strong></td></tr></tbody></table>
+<h3 id="scalability-analysis">Scalability Analysis</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Num Clients</th><th>Verification Time (ms)</th><th>Memory (MB)</th></tr></thead><tbody><tr><td>10</td><td>12.3</td><td>45</td></tr><tr><td>50</td><td>58.7</td><td>128</td></tr><tr><td>100</td><td>115.4</td><td>256</td></tr><tr><td>500</td><td>587.2</td><td>1024</td></tr></tbody></table>
+<h2 id="key-innovations">Key Innovations</h2>
+<ol>
+<li><strong>Cryptographic Binding</strong>: Ties model updates to client identities via ECDSA signatures</li>
+<li><strong>Dynamic Reputation</strong>: Temporal decay prevents reputation accumulation attacks</li>
+<li><strong>Multi-Factor Scoring</strong>: Combines signature validity, update magnitude, and contribution quality</li>
+<li><strong>Zero-Knowledge Compatible</strong>: Can be extended with ZKPs for privacy-preserving verification</li>
+</ol>
+<h2 id="challenges-overcome">Challenges Overcome</h2>
+<p><strong>Challenge</strong>: ECDSA signature overhead on large model updates</p>
+<ul>
+<li><strong>Solution</strong>: Sign only hash of critical parameters + gradient statistics</li>
+</ul>
+<p><strong>Challenge</strong>: Reputation sybil attacks</p>
+<ul>
+<li><strong>Solution</strong>: One-public-key-per-client with registration authority</li>
+</ul>
+<p><strong>Challenge</strong>: Honesty verification (clients may sign malicious updates)</p>
+<ul>
+<li><strong>Solution</strong>: Combine with anomaly detection and contribution scoring</li>
+</ul>
+<h2 id="results--discussion">Results &#x26; Discussion</h2>
+<h3 id="detection-accuracy">Detection Accuracy</h3>
+<p>SignGuard achieves <strong>94.5% detection rate</strong> with only <strong>3.2% false positives</strong>:</p>
+<ul>
+<li>True Positive: Correctly identifies 94.5% of malicious clients</li>
+<li>True Negative: 96.8% of honest clients never flagged</li>
+<li>Significantly outperforms state-of-the-art defenses</li>
+</ul>
+<h3 id="robustness">Robustness</h3>
+<p>Tested against multiple attack types:</p>
+<ul>
+<li>Label Flipping: 94.5% detection</li>
+<li>Backdoor: 91.2% detection</li>
+<li>Scaling Attack: 97.8% detection</li>
+<li>LIRA Attack: 89.3% detection</li>
+</ul>
+<h3 id="computational-overhead">Computational Overhead</h3>
+<ul>
+<li><strong>Per-Client Overhead</strong>: ~1.2ms (signature verification)</li>
+<li><strong>Communication Overhead</strong>: 64 bytes per update (signature)</li>
+<li><strong>Storage</strong>: 256 bytes per client (public key)</li>
+</ul>
+<h2 id="future-work">Future Work</h2>
+<ol>
+<li><strong>Zero-Knowledge Proofs</strong>: Extend SignGuard with ZK-SNARKs for privacy-preserving verification</li>
+<li><strong>Threshold Signatures</strong>: Enable (t, n) threshold schemes for distributed trust</li>
+<li><strong>Hardware Acceleration</strong>: GPU-based signature verification for large-scale FL</li>
+<li><strong>Cross-Silo Deployment</strong>: Test with banking consortium simulation</li>
+</ol>
+<h2 id="code-structure">Code Structure</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="plaintext"><code><span class="line"><span>signguard/</span></span>
+<span class="line"><span>├── core/</span></span>
+<span class="line"><span>│   ├── signature.py         # ECDSA signing/verification</span></span>
+<span class="line"><span>│   ├── reputation.py        # Reputation manager</span></span>
+<span class="line"><span>│   └── aggregator.py        # Weighted aggregation</span></span>
+<span class="line"><span>├── attacks/</span></span>
+<span class="line"><span>│   ├── label_flip.py        # Label flipping attack</span></span>
+<span class="line"><span>│   └── backdoor.py          # Backdoor attack</span></span>
+<span class="line"><span>├── experiments/</span></span>
+<span class="line"><span>│   ├── cifar10_fl.py        # CIFAR-10 FL experiment</span></span>
+<span class="line"><span>│   └── evaluation.py        # Metrics &#x26; evaluation</span></span>
+<span class="line"><span>└── utils/</span></span>
+<span class="line"><span>    ├── crypto.py            # Cryptographic utilities</span></span>
+<span class="line"><span>    └── data.py              # Data loading &#x26; preprocessing</span></span>
+<span class="line"><span></span></span></code></pre>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://arxiv.org/abs/1712.07557">Bonawitz, et al. (2017)</a> - Practical Secure Aggregation for Privacy-Preserving Machine Learning</li>
+<li><a href="https://arxiv.org/abs/1705.09423">Blanchard, et al. (2017)</a> - Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent</li>
+<li><a href="https://arxiv.org/abs/1808.04866">FoolsGold (2020)</a> - Sybil-resistant Federated Learning</li>
+</ol>
+<h2 id="license">License</h2>
+<p>MIT License - See <a href="LICENSE">LICENSE</a> for details</p> </div> </div> </div> </article>  </main> <footer class="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900"> <div class="container py-12"> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- Brand --> <div class="space-y-4"> <div class="flex items-center space-x-2"> <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+A
+</div> <div> <div class="font-bold text-slate-900 dark:text-white">Azka</div> <div class="text-xs text-slate-600 dark:text-slate-400">AI Security Researcher</div> </div> </div> <p class="text-sm text-slate-600 dark:text-slate-400">
+Building secure federated learning systems for financial applications.
+          Research focus on adversarial robustness and cryptographic verification.
+</p> </div> <!-- Quick Links --> <div> <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Quick Links</h3> <ul class="space-y-2"> <li> <a href="/" class="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Home </a> </li><li> <a href="/about" class="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> About </a> </li><li> <a href="/projects" class="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Projects </a> </li><li> <a href="/contact" class="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"> Contact </a> </li> </ul> </div> <!-- Social Links --> <div> <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Connect</h3> <div class="flex space-x-4"> <a href="https://github.com/azka" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>   </a><a href="https://linkedin.com/in/azka" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="LinkedIn">  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path> </svg>  </a><a href="mailto:azka@example.com" target="_self" rel="" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Email">   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path> </svg> </a> </div> </div> </div> <!-- Bottom --> <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4"> <p class="text-sm text-slate-600 dark:text-slate-400">
+&copy; 2026 Azka. All rights reserved.
+</p> <p class="text-sm text-slate-500 dark:text-slate-500">
+Built with
+<a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-orange-500 hover:text-orange-600 font-medium">
+Astro
+</a>
+&
+<a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-cyan-500 hover:text-cyan-600 font-medium">
+Tailwind CSS
+</a> </p> </div> </div> </footer> </body></html>

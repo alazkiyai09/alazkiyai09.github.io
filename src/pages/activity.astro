@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import ActivityFeed from '../components/features/ActivityFeed.astro';
+
+const title = 'Activity Feed - Azka';
+const description = 'Track my progress through the 30-day portfolio journey with detailed activity logs, commits, experiments, and milestones.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Activity Feed</h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400">
+          Real-time tracking of my 30-day portfolio journey progress
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ActivityFeed limit={50} showHeader={false} />
+
+  <section class="section bg-slate-50 dark:bg-slate-900/50">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6">Activity Types</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold mb-3 flex items-center gap-2">
+              <span class="text-2xl">🚀</span> Project Activities
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <li><strong>Project Start:</strong> Beginning a new project</li>
+              <li><strong>Project Complete:</strong> Finishing a project milestone</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold mb-3 flex items-center gap-2">
+              <span class="text-2xl">💻</span> Development
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <li><strong>Code Commit:</strong> Significant code contributions</li>
+              <li><strong>Experiment Run:</strong> Research experiments</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold mb-3 flex items-center gap-2">
+              <span class="text-2xl">📄</span> Learning
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <li><strong>Paper Read:</strong> Academic paper studies</li>
+              <li><strong>Skill Learned:</strong> New technical skills</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold mb-3 flex items-center gap-2">
+              <span class="text-2xl">🏆</span> Achievements
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <li><strong>Milestone:</strong> Journey progress updates</li>
+              <li><strong>Publication:</strong> Research publications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

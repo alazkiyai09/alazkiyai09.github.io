@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PublicationsSection from '../components/sections/Publications.astro';
+import publications from '../data/publications.json';
+
+const title = 'Publications - Azka Al Azkiyai';
+const description = 'Academic publications in federated learning security, steganography, and AI systems.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Publications</h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400">
+          Peer-reviewed research in AI security and privacy-preserving machine learning
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <PublicationsSection publications={publications.publications} />
+</BaseLayout>

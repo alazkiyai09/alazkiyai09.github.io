@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azka.github.io/sitemap-index.xml

@@ -1,0 +1,61 @@
+{
+  "areas": [
+    {
+      "id": "fraud-detection",
+      "title": "Banking Fraud Detection",
+      "years": 3,
+      "icon": "🏦",
+      "type": "industry",
+      "description": "Production fraud detection systems for major Indonesian financial institutions",
+      "highlights": [
+        "SAS Fraud Management platform administration",
+        "Real-time transaction monitoring at scale (millions of daily transactions)",
+        "Rule engine configuration and optimization",
+        "ML model deployment for fraud scoring"
+      ],
+      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI"],
+      "achievements": [
+        "99.987% SLA compliance across millions of daily transactions",
+        "Improved monitoring efficiency by 50% through automation",
+        "Reduced incident response time by 75%"
+      ]
+    },
+    {
+      "id": "federated-learning",
+      "title": "Federated Learning Security",
+      "years": 1,
+      "icon": "🔐",
+      "type": "research",
+      "description": "Byzantine-resilient FL for cross-institution collaboration",
+      "highlights": [
+        "SignGuard: ECDSA-based model verification",
+        "Poisoning attack detection and mitigation",
+        "Privacy-preserving aggregation strategies",
+        "Cross-bank FL under GDPR/PCI-DSS constraints"
+      ],
+      "technologies": ["PyTorch", "PySyft", "Flower", "cryptography"],
+      "achievements": [
+        "Novel reputation-based defense system design",
+        "Targeting cross-bank fraud detection scenarios"
+      ]
+    },
+    {
+      "id": "steganography",
+      "title": "Steganography & Information Hiding",
+      "years": 2,
+      "icon": "🔒",
+      "type": "research",
+      "description": "Published research in steganographic methods",
+      "highlights": [
+        "Pixel Value Difference (PVD) based steganography",
+        "LSB (Least Significant Bit) substitution techniques",
+        "Modulo encoding for improved imperceptibility"
+      ],
+      "technologies": ["Python", "Image Processing", "Steganalysis"],
+      "achievements": [
+        "Published research in Springer LNNS (vol 285)",
+        "Thesis research published in international journal"
+      ]
+    }
+  ]
+}

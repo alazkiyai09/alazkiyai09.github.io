@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Tag from '../../components/ui/Tag.astro';
+
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+
+// Group by status
+const completedProjects = sortedProjects.filter(p => p.data.status === 'completed');
+const inProgressProjects = sortedProjects.filter(p => p.data.status === 'in-progress');
+const draftProjects = sortedProjects.filter(p => p.data.status === 'draft');
+
+// Get all unique categories
+const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)));
+
+const title = 'Projects - Azka';
+const description = 'Explore my 30-day portfolio journey with 30+ hands-on projects in federated learning security, fraud detection, and AI safety research.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">30-Day Portfolio Projects</h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400">
+          A comprehensive journey from fraud detection fundamentals to advanced federated learning security
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{sortedProjects.length}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Total Projects</div>
+        </div>
+        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div class="text-3xl font-bold text-green-600 dark:text-green-400">{completedProjects.length}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Completed</div>
+        </div>
+        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">{inProgressProjects.length}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">In Progress</div>
+        </div>
+        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{categories.length}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Categories</div>
+        </div>
+      </div>
+
+      <!-- Category Filter (JavaScript required for interactivity - showing all for now) -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8" id="filter-buttons">
+        <button class="filter-btn active px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm" data-filter="all">
+          All Projects ({sortedProjects.length})
+        </button>
+        {categories.map((cat) => (
+          <button class="filter-btn px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-medium text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-filter={cat}>
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        {sortedProjects.map((project) => (
+          <Card
+            variant="default"
+            hover={true}
+            class="flex flex-col project-card"
+            data-category={project.data.category}
+          >
+            {/* Day Badge */}
+            <div class="flex items-center gap-2 mb-3">
+              <Badge variant="info" size="sm">
+                Day {project.data.day}
+              </Badge>
+              <Badge
+                variant={
+                  project.data.status === 'completed' ? 'success' :
+                  project.data.status === 'in-progress' ? 'warning' :
+                  'default'
+                }
+                size="sm"
+              >
+                {project.data.status}
+              </Badge>
+            </div>
+
+            {/* Title */}
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">
+              <a href={`/projects/${project.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {project.data.title}
+              </a>
+            </h3>
+
+            {/* Summary */}
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-3 flex-1">
+              {project.data.summary}
+            </p>
+
+            {/* Tags */}
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.data.tags.slice(0, 4).map((tag) => (
+                <Tag variant="purple" size="sm">
+                  {tag}
+                </Tag>
+              ))}
+              {project.data.tags.length > 4 && (
+                <span class="text-xs text-slate-500">
+                  +{project.data.tags.length - 4} more
+                </span>
+              )}
+            </div>
+
+            {/* Technologies */}
+            <div class="flex flex-wrap gap-1 mb-4">
+              {project.data.technologies.slice(0, 4).map((tech) => (
+                <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded font-mono">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Links */}
+            <div class="flex gap-2 pt-4 border-t border-slate-200 dark:border-slate-700">
+              {project.data.repository && (
+                <a
+                  href={project.data.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 text-center py-2 px-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-medium rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition-colors"
+                >
+                  GitHub
+                </a>
+              )}
+              {project.data.demo && (
+                <a
+                  href={project.data.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 text-center py-2 px-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                >
+                  Demo
+                </a>
+              )}
+              <a
+                href={`/projects/${project.slug}`}
+                class="flex-1 text-center py-2 px-3 border border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+              >
+                Details
+              </a>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ sortedProjects }}>
+  // Get all filter buttons and project cards
+  /** @type {NodeListOf<HTMLButtonElement>} */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  /** @type {NodeListOf<HTMLElement>} */
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter || 'all';
+
+      // Update active state
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+      });
+      button.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+      button.classList.add('bg-blue-600', 'text-white');
+
+      // Filter projects
+      projectCards.forEach(card => {
+        const category = card.dataset.category || '';
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,21 @@
+{
+  "certifications": [
+    {
+      "id": "ielts-2024",
+      "name": "IELTS Academic",
+      "issuer": "British Council/IDP",
+      "score": "Overall Band 7.0",
+      "date": "2024",
+      "credentialId": null,
+      "url": null
+    },
+    {
+      "id": "sas-2023",
+      "name": "SAS Visual Analytics 1 & 2 for SAS Viya",
+      "issuer": "SAS Institute",
+      "date": "2023",
+      "credentialId": null,
+      "url": null
+    }
+  ]
+}

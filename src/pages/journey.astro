@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import JourneyMilestones from '../components/features/JourneyMilestones.astro';
+import ProgressDashboard from '../components/features/ProgressDashboard.astro';
+
+const title = '30-Day Journey - Azka';
+const description = 'Follow my 30-day portfolio journey from fraud detection fundamentals to production-ready federated learning security systems.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">30-Day Portfolio Journey</h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400">
+          A structured roadmap demonstrating expertise in AI security and federated learning
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ProgressDashboard />
+  <JourneyMilestones />
+
+  <!-- Journey Details -->
+  <section class="section bg-slate-50 dark:bg-slate-900/50">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">About This Journey</h2>
+
+        <div class="prose prose-lg dark:prose-invert max-w-none">
+          <p>
+            This 30-day portfolio journey represents a structured approach to demonstrating expertise
+            in federated learning security, fraud detection, and AI safety research. Each phase builds
+            upon the previous one, creating a comprehensive narrative of growth and capability.
+          </p>
+
+          <h3>Learning Philosophy</h3>
+          <ul>
+            <li><strong>Hands-on First:</strong> Every concept is implemented in code</li>
+            <li><strong>Production Focus:</strong> Emphasis on deployable, maintainable systems</li>
+            <li><strong>Research-Driven:</strong> Projects connect to academic research and real-world problems</li>
+            <li><strong>Documentation:</strong> All work is thoroughly documented and shared</li>
+          </ul>
+
+          <h3>Key Milestones</h3>
+          <ul>
+            <li><strong>Days 1-5:</strong> Establish strong fundamentals in fraud detection</li>
+            <li><strong>Days 6-10:</strong> Core federated learning concepts and SignGuard inception</li>
+            <li><strong>Days 11-15:</strong> Production-grade ML infrastructure</li>
+            <li><strong>Days 16-20:</strong> Advanced security research and threat analysis</li>
+            <li><strong>Days 21-25:</strong> Cross-institution FL simulation</li>
+            <li><strong>Days 26-30:</strong> Full system integration and documentation</li>
+          </ul>
+
+          <h3>Research Alignment</h3>
+          <p>
+            Each project in this journey is designed to demonstrate capabilities relevant to
+            PhD/MPhill research in:
+          </p>
+          <ul>
+            <li>Byzantine-resilient federated learning</li>
+            <li>Cryptographic verification for ML systems</li>
+            <li>Privacy-preserving machine learning</li>
+            <li>Adversarial robustness and defense mechanisms</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

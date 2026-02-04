@@ -1,0 +1,96 @@
+---
+/**
+ * SkillBar component - Horizontal skill proficiency bar
+ * @param name - Skill name
+ * @param level - Proficiency level (0-100)
+ * @param color - Color variant (blue, purple, green, orange, pink)
+ * @param showPercentage - Whether to show percentage
+ * @param className - Additional CSS classes
+ */
+
+interface Props {
+  name: string;
+  level: number;
+  color?: 'blue' | 'purple' | 'green' | 'orange' | 'pink';
+  showPercentage?: boolean;
+  class?: string;
+}
+
+const {
+  name,
+  level,
+  color = 'blue',
+  showPercentage = true,
+  class: className = ''
+} = Astro.props;
+
+const normalizedLevel = Math.min(100, Math.max(0, level));
+
+const colors: Record<string, string> = {
+  blue: 'bg-blue-500',
+  purple: 'bg-purple-500',
+  green: 'bg-green-500',
+  orange: 'bg-orange-500',
+  pink: 'bg-pink-500',
+};
+
+const barColor = colors[color] || colors.blue;
+// Generate unique ID for this skill bar
+const barId = `skill-bar-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class={className}>
+  <div class="flex justify-between items-center mb-2">
+    <span class="text-sm font-medium text-slate-900 dark:text-white">{name}</span>
+    {showPercentage && (
+      <span class="text-sm text-slate-600 dark:text-slate-400">
+        {normalizedLevel}%
+      </span>
+    )}
+  </div>
+
+  <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+    <div
+      class={`h-full ${barColor} rounded-full transition-all duration-700 ease-out`}
+      style="width: 0%"
+      data-skill-bar={normalizedLevel}
+      id={barId}
+    ></div>
+  </div>
+</div>
+
+<script>
+  // Single observer for all skill bars (memory efficient)
+  let skillBarObserver: IntersectionObserver | null = null;
+
+  const initSkillBars = () => {
+    if (skillBarObserver) return; // Already initialized
+
+    skillBarObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bar = entry.target as HTMLElement;
+          const level = bar.dataset.skillBar;
+          if (level) {
+            bar.style.width = `${level}%`;
+          }
+          skillBarObserver?.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Observe all skill bars
+    document.querySelectorAll('[data-skill-bar]').forEach((bar) => {
+      skillBarObserver?.observe(bar);
+    });
+  };
+
+  // Initialize on load
+  initSkillBars();
+
+  // Cleanup on page navigation (for SPA-like behavior)
+  window.addEventListener('beforeunload', () => {
+    skillBarObserver?.disconnect();
+    skillBarObserver = null;
+  }, { once: true });
+</script>

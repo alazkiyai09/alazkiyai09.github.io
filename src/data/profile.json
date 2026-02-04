@@ -1,0 +1,32 @@
+{
+  "name": "Ahmad Whafa Azka Al Azkiyai",
+  "displayName": "Azka Al Azkiyai",
+  "title": "Published Researcher & AI Practitioner",
+  "tagline": "Federated Learning Security | Adversarial ML | Privacy-Preserving AI",
+  "location": {
+    "city": "South Tangerang",
+    "region": "Banten",
+    "country": "Indonesia",
+    "flag": "🇮🇩",
+    "timezone": "Asia/Jakarta",
+    "availableForRemote": true
+  },
+  "status": {
+    "current": "Seeking PhD/MPhil supervision",
+    "openTo": ["PhD positions", "MPhil positions", "Remote AI Engineering roles"]
+  },
+  "bio": {
+    "short": "Published researcher and AI practitioner with 3+ years experience building enterprise-scale fraud detection systems. Research interests: federated learning security, adversarial ML, privacy-preserving AI.",
+    "long": "Published researcher and AI practitioner with 3+ years of experience building and operating enterprise-scale fraud detection systems for major Indonesian financial institutions. Combines deep domain expertise in financial security with hands-on machine learning engineering, having developed production ML pipelines processing millions of real-time transactions."
+  },
+  "contact": {
+    "email": "azka.alazkiyai@outlook.com",
+    "phone": "+62 813-6664-9092"
+  },
+  "social": {
+    "github": "https://github.com/alazkiyai09",
+    "linkedin": "https://www.linkedin.com/in/azka-alazkiyai/",
+    "googleScholar": ""
+  },
+  "resume": ""
+}
