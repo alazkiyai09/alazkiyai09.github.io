@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import AboutSection from '../components/sections/About.astro';
+import Skills from '../components/sections/Skills.astro';
+import Experience from '../components/sections/Experience.astro';
+
+const title = 'About - Azka';
+const description = 'Learn about my background in banking fraud detection, research in federated learning security, and academic journey in computer science.';
+---
+
+<BaseLayout title={title} description={description}>
+  <AboutSection />
+  <Skills />
+  <Experience />
+</BaseLayout>

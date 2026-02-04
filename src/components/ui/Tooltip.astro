@@ -1,0 +1,53 @@
+---
+/**
+ * Tooltip component - Hover tooltip
+ * @param content - Tooltip text content
+ * @param position - Tooltip position relative to content
+ * @param className - Additional CSS classes
+ */
+
+interface Props {
+  content: string;
+  position?: 'top' | 'bottom' | 'left' | 'right';
+  class?: string;
+}
+
+const {
+  content,
+  position = 'top',
+  class: className = ''
+} = Astro.props;
+
+const positions = {
+  top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
+  bottom: 'top-full left-1/2 -translate-x-1/2 mt-2',
+  left: 'right-full top-1/2 -translate-y-1/2 mr-2',
+  right: 'left-full top-1/2 -translate-y-1/2 ml-2',
+};
+
+const arrows = {
+  top: 'top-full left-1/2 -translate-x-1/2 -mt-1 border-l-transparent border-r-transparent border-b-transparent border-b-slate-900 dark:border-b-slate-100',
+  bottom: 'bottom-full left-1/2 -translate-x-1/2 -mb-1 border-l-transparent border-r-transparent border-t-transparent border-t-slate-900 dark:border-t-slate-100',
+  left: 'left-full top-1/2 -translate-y-1/2 -ml-1 border-t-transparent border-b-transparent border-r-transparent border-r-slate-900 dark:border-r-slate-100',
+  right: 'right-full top-1/2 -translate-y-1/2 -mr-1 border-t-transparent border-b-transparent border-l-transparent border-l-slate-900 dark:border-l-slate-100',
+};
+
+// Generate unique IDs
+const wrapperId = `tooltip-wrapper-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div id={wrapperId} class="relative group">
+  <slot />
+
+  <!-- Tooltip -->
+  <div
+    class="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+  >
+    <div class={`relative ${positions[position]}`}>
+      <div class="px-2 py-1 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs rounded whitespace-nowrap">
+        {content}
+      </div>
+      <div class={`absolute w-0 h-0 border-4 ${arrows[position]}`}></div>
+    </div>
+  </div>
+</div>

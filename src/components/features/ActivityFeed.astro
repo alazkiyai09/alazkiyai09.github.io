@@ -1,0 +1,154 @@
+---
+import activityLog from '../../data/activity-log.json';
+import { formatDistanceToNow } from 'date-fns';
+
+interface Props {
+  limit?: number;
+  showHeader?: boolean;
+}
+
+const { limit = 10, showHeader = true } = Astro.props;
+const activities = activityLog.activities.slice(0, limit);
+
+const typeIcons: Record<string, string> = {
+  'project_start': '🚀',
+  'project_complete': '✅',
+  'code_commit': '💻',
+  'paper_read': '📄',
+  'experiment_run': '🧪',
+  'blog_post': '✍️',
+  'skill_learned': '📚',
+  'milestone_reached': '🏆',
+  'publication': '📖',
+  'application_sent': '📨',
+};
+
+// Validate activity types and log warnings for unknown types
+const validTypes = new Set(Object.keys(typeIcons));
+activities.forEach((activity) => {
+  if (!validTypes.has(activity.type)) {
+    console.warn(`[ActivityFeed] Unknown activity type: "${activity.type}" in activity "${activity.id}"`);
+  }
+});
+
+const typeColors: Record<string, string> = {
+  'project_start': 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+  'project_complete': 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+  'code_commit': 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+  'paper_read': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
+  'experiment_run': 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
+  'milestone_reached': 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300',
+  'blog_post': 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300',
+  'application_sent': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300',
+};
+---
+
+<section class="section">
+  <div class="container">
+    {showHeader && (
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold">Recent Activity</h2>
+        <a href="/activity" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+          View all activity →
+        </a>
+      </div>
+    )}
+
+    <div class="space-y-4">
+      {activities.map((activity) => (
+        <div class="flex gap-4 p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow">
+          <!-- Icon -->
+          <div class="flex-shrink-0 text-3xl">
+            {typeIcons[activity.type] || '📌'}
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 min-w-0">
+            <!-- Type Badge & Time -->
+            <div class="flex items-center gap-2 mb-2 flex-wrap">
+              <span class={`px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[activity.type] || 'bg-gray-100 text-gray-800'}`}>
+                {activity.type.replace(/_/g, ' ')}
+              </span>
+              <time class="text-sm text-slate-500">
+                {formatDistanceToNow(new Date(activity.date), { addSuffix: true })}
+              </time>
+            </div>
+
+            <!-- Title & Description -->
+            <h4 class="font-semibold text-slate-900 dark:text-white mb-1">
+              {activity.title}
+            </h4>
+            <p class="text-slate-600 dark:text-slate-400 text-sm mb-2">
+              {activity.description}
+            </p>
+
+            <!-- Tags -->
+            {activity.tags && activity.tags.length > 0 && (
+              <div class="flex flex-wrap gap-2 mb-2">
+                {activity.tags.map((tag) => (
+                  <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded text-xs">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <!-- Metrics -->
+            {activity.metrics && (
+              <div class="flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-400">
+                {activity.metrics.linesOfCode && (
+                  <span>💻 {activity.metrics.linesOfCode} LOC</span>
+                )}
+                {activity.metrics.experimentsRun && (
+                  <span>🧪 {activity.metrics.experimentsRun} experiments</span>
+                )}
+                {activity.metrics.papersRead && (
+                  <span>📄 {activity.metrics.papersRead} papers</span>
+                )}
+                {activity.metrics.hoursSpent && (
+                  <span>⏱️ {activity.metrics.hoursSpent}h spent</span>
+                )}
+                {activity.metrics.samplesAnalyzed && (
+                  <span>🔬 {activity.metrics.samplesAnalyzed} samples</span>
+                )}
+                {activity.metrics.totalDays && (
+                  <span>📅 Day {activity.metrics.totalDays}/30</span>
+                )}
+              </div>
+            )}
+
+            <!-- Links -->
+            {activity.links && activity.links.length > 0 && (
+              <div class="flex gap-2 mt-2">
+                {activity.links.map((link) => (
+                  <a
+                    href={link.url}
+                    target={link.url.startsWith('http') ? '_blank' : undefined}
+                    rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    class="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    {link.label} →
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {!showHeader && (
+      <div class="text-center mt-8">
+        <a
+          href="/activity"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg shadow-blue-500/30 transition-all"
+        >
+          View All Activity
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>

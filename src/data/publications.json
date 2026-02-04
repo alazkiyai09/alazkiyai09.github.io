@@ -1,0 +1,28 @@
+{
+  "publications": [
+    {
+      "id": "steganography-2021",
+      "title": "Improving the Imperceptibility of Pixel Value Difference and LSB Substitution Based Steganography Using Modulo Encoding",
+      "authors": ["Al Azkiyai, A.W.A.", "Barmawi, A.M.", "Wahyudi, B.A."],
+      "venue": "Intelligent Computing (Lecture Notes in Networks and Systems)",
+      "publisher": "Springer, Cham",
+      "volume": "vol 285",
+      "year": 2021,
+      "doi": "10.1007/978-3-030-80129-8_57",
+      "type": "journal",
+      "url": "https://doi.org/10.1007/978-3-030-80129-8_57"
+    },
+    {
+      "id": "crypto-2020",
+      "title": "Monitoring Financial Stability Based on Prediction of Cryptocurrencies Price Using Intelligent Algorithm",
+      "authors": ["Saadah, S.", "Al Azkiyai, A.W.A."],
+      "venue": "2020 International Conference on Data Science and Its Applications (ICoDSA)",
+      "publisher": "IEEE",
+      "pages": "1-10",
+      "year": 2020,
+      "doi": "10.1109/ICoDSA50139.2020.9212968",
+      "type": "conference",
+      "url": "https://doi.org/10.1109/ICoDSA50139.2020.9212968"
+    }
+  ]
+}

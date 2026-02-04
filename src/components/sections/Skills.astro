@@ -1,0 +1,108 @@
+---
+import SkillBar from '../ui/SkillBar.astro';
+import skills from '../../data/skills.json';
+
+// Define complete color map for Tailwind JIT (all lowercase for normalized lookup)
+const techColors: Record<string, 'blue' | 'purple' | 'green' | 'orange' | 'pink'> = {
+  'python': 'blue',
+  'pytorch': 'orange',
+  'tensorflow': 'orange',
+  'pandas': 'blue',
+  'numpy': 'blue',
+  'scikitlearn': 'blue',
+  'imbalancedlearn': 'blue',
+  'pysyft': 'purple',
+  'flower': 'purple',
+  'cryptography': 'green',
+  'docker': 'blue',
+  'fastapi': 'green',
+  'sql': 'blue',
+  'kafka': 'blue',
+  'hadoop': 'blue',
+  'mlflow': 'blue',
+  'dvc': 'blue',
+  'sasfm': 'orange',
+  'ecdsa': 'green',
+  'zkp': 'green',
+  'aes': 'green',
+  'sha256': 'green',
+  'git': 'orange',
+  'linux': 'orange',
+  'cicd': 'blue',
+};
+
+const getColor = (techName: string): 'blue' | 'purple' | 'green' | 'orange' | 'pink' => {
+  const normalized = techName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return techColors[normalized] || 'blue';
+};
+---
+
+<section class="section bg-slate-50 dark:bg-slate-900/50">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Skills</h2>
+      <p class="text-slate-600 dark:text-slate-400">
+        Technologies and tools I work with
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {skills.categories.map((category) => (
+        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700">
+          <!-- Category Header -->
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white">{category.name}</h3>
+          </div>
+
+          <!-- Skills List -->
+          <div class="space-y-4">
+            {category.skills.map((skill) => (
+              <SkillBar
+                name={skill.name}
+                level={skill.level}
+                color={getColor(skill.name)}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Technology Cloud -->
+    <div class="mt-16">
+      <h3 class="text-center text-xl font-bold mb-8 text-slate-900 dark:text-white">
+        Core Technologies
+      </h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        {[
+          { name: 'Python', color: 'blue' },
+          { name: 'PyTorch', color: 'orange' },
+          { name: 'TensorFlow', color: 'orange' },
+          { name: 'Federated Learning', color: 'purple' },
+          { name: 'PySyft', color: 'purple' },
+          { name: 'Cryptography', color: 'green' },
+          { name: 'Docker', color: 'blue' },
+          { name: 'FastAPI', color: 'green' },
+          { name: 'SQL', color: 'blue' },
+          { name: 'SAS', color: 'orange' },
+          { name: 'MLflow', color: 'blue' },
+          { name: 'Git', color: 'orange' },
+        ].map((tech) => (
+          <span class={`px-4 py-2 ${
+            tech.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' :
+            tech.color === 'purple' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300' :
+            tech.color === 'green' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' :
+            'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'
+          } rounded-lg font-medium text-sm hover:shadow-md transition-shadow`}>
+            {tech.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+{
+  "education": [
+    {
+      "id": "bachelor-informatics",
+      "institution": "Telkom University",
+      "location": "Bandung, West Java, Indonesia",
+      "degree": "Bachelor of Informatics",
+      "field": "Informatics",
+      "period": {
+        "start": "2017-08",
+        "end": "2021-02"
+      },
+      "gpa": "3.82/4.00",
+      "thesis": "Improving the Imperceptibility of Pixel Value Difference and LSB Substitution Based Steganography Using Modulo Encoding",
+      "advisor": "Prof. Ir. Ari Moesriami Barmawi, M.Sc., Ph.D.",
+      "highlights": [
+        "Published thesis research in Springer LNNS (vol 285, 2021)",
+        "GPA: 3.82/4.00",
+        "Teaching experience: Assistant Lecturer & Lab Assistant"
+      ],
+      "relevantCoursework": [
+        "Machine Learning",
+        "Intelligent Systems",
+        "Cryptography",
+        "Algorithm Design",
+        "Formal Languages & Automata Theory"
+      ],
+      "teachingExperience": [
+        {
+          "role": "Assistant Lecturer",
+          "courses": ["Intelligent Systems", "Formal Languages & Automata Theory"],
+          "period": "Aug 2019 - Dec 2019",
+          "details": "Delivered lectures on AI fundamentals, supervised 15+ ML projects, graded 100+ students"
+        },
+        {
+          "role": "Lab Assistant",
+          "courses": ["Algorithms", "Databases", "Networks", "Operating Systems"],
+          "period": "Aug 2017 - Dec 2019",
+          "details": "Mentored 200+ students in programming, debugging, and system design"
+        }
+      ]
+    }
+  ]
+}

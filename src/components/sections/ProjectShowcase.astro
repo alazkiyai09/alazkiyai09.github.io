@@ -1,0 +1,156 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '../ui/Card.astro';
+import Tag from '../ui/Tag.astro';
+import Badge from '../ui/Badge.astro';
+
+const projects = await getCollection('projects');
+const featuredProjects = projects
+  .filter(p => p.data.status === 'completed')
+  .sort((a, b) => (a.data.day || 0) - (b.data.day || 0))
+  .slice(0, 6);
+
+const hasProjects = featuredProjects.length > 0;
+---
+
+<section class="section bg-slate-50 dark:bg-slate-900/50">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+      <p class="text-lg text-slate-600 dark:text-slate-400">
+        Key projects from my 30-day portfolio journey
+      </p>
+    </div>
+
+    {hasProjects ? (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProjects.map((project) => (
+        <Card
+          variant="default"
+          hover={true}
+          class="flex flex-col"
+        >
+          {/* Thumbnail */}
+          {project.data.thumbnail && (
+            <div class="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-4 overflow-hidden">
+              <img
+                src={project.data.thumbnail}
+                alt={project.data.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          {/* Day Badge */}
+          <div class="flex items-center gap-2 mb-3">
+            <Badge variant="info" size="sm">
+              Day {project.data.day}
+            </Badge>
+            <Badge
+              variant={
+                project.data.status === 'completed' ? 'success' :
+                project.data.status === 'in-progress' ? 'warning' :
+                'default'
+              }
+              size="sm"
+            >
+              {project.data.status}
+            </Badge>
+          </div>
+
+          {/* Title */}
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">
+            <a href={`/projects/${project.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              {project.data.title}
+            </a>
+          </h3>
+
+          {/* Summary */}
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-3 flex-1">
+            {project.data.summary}
+          </p>
+
+          {/* Tags */}
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.data.tags.slice(0, 4).map((tag) => (
+              <Tag variant="purple" size="sm">
+                {tag}
+              </Tag>
+            ))}
+            {project.data.tags.length > 4 && (
+              <span class="text-xs text-slate-500">
+                +{project.data.tags.length - 4} more
+              </span>
+            )}
+          </div>
+
+          {/* Technologies */}
+          <div class="flex flex-wrap gap-1 mb-4">
+            {project.data.technologies.slice(0, 3).map((tech) => (
+              <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded font-mono">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div class="flex gap-2 pt-4 border-t border-slate-200 dark:border-slate-700">
+            {project.data.repository && (
+              <a
+                href={project.data.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 text-center py-2 px-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition-colors"
+              >
+                GitHub
+              </a>
+            )}
+            {project.data.demo && (
+              <a
+                href={project.data.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 text-center py-2 px-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+              >
+                Demo
+              </a>
+            )}
+            <a
+              href={`/projects/${project.slug}`}
+              class="flex-1 text-center py-2 px-3 border border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400 text-sm font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+            >
+              Details
+            </a>
+          </div>
+          </Card>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 mb-4">
+          <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">No Projects Yet</h3>
+        <p class="text-slate-600 dark:text-slate-400">
+          Projects will be added here as the 30-day journey progresses.
+        </p>
+      </div>
+    )}
+
+    {/* View All */}
+    <div class="text-center mt-12">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
+      >
+        View All 30 Projects
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "AI Security & Federated Learning Research Portfolio",
+  "author": "Azka",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "update-activity": "node scripts/update-activity.js",
+    "generate-stats": "node scripts/generate-stats.js"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.8",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.12",
+    "date-fns": "^4.1.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@types/node": "^22.10.2",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.7.2"
+  }
+}

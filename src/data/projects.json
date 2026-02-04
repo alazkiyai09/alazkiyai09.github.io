@@ -1,0 +1,43 @@
+{
+  "projects": [
+    {
+      "id": "macroeconomic-forecasting",
+      "title": "Macroeconomic Forecasting with Deep Learning",
+      "description": "Developed hybrid CNN-LSTM and GRU-LSTM architectures for multi-step GDP forecasting using 26 years of Indonesian macroeconomic data (1997-2023).",
+      "technologies": ["Python", "TensorFlow", "Keras", "CNN", "LSTM", "GRU"],
+      "achievements": [
+        "Achieved 9.83 RMSE through systematic hyperparameter optimization",
+        "Implemented feature engineering (lag creation, windowing)",
+        "Cross-model benchmarking against traditional statistical methods"
+      ],
+      "status": "completed",
+      "year": "2024"
+    },
+    {
+      "id": "stock-analysis",
+      "title": "Quantitative Stock Analysis & Prediction System",
+      "description": "Built end-to-end pipeline for all IDX-listed stocks: data collection, technical indicator computation (RSI, MACD, EMA, ATR), and ML-based price prediction.",
+      "technologies": ["Python", "XGBoost", "LSTM", "Random Forest", "Pandas"],
+      "achievements": [
+        "Implemented ensemble models (Random Forest, XGBoost, LSTM)",
+        "Built backtesting framework for strategy validation",
+        "Performance optimization through hyperparameter tuning"
+      ],
+      "status": "completed",
+      "year": "2024"
+    },
+    {
+      "id": "signguard",
+      "title": "SignGuard: Federated Learning Defense System",
+      "description": "Developing novel defense mechanism combining ECDSA cryptographic signatures with reputation-based systems to detect poisoning attacks in federated learning. Targeting cross-bank fraud detection scenarios with privacy-preserving model aggregation.",
+      "technologies": ["Python", "PyTorch", "PySyft", "Cryptography", "ECDSA"],
+      "achievements": [
+        "Designed novel ECDSA-based verification mechanism",
+        "Targeting cross-bank fraud detection with privacy preservation",
+        "Research in progress for academic publication"
+      ],
+      "status": "in-progress",
+      "year": "2025"
+    }
+  ]
+}

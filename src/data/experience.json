@@ -1,0 +1,79 @@
+{
+  "experience": [
+    {
+      "id": "fraud-consultant",
+      "company": "ITSEC Asia",
+      "location": "Jakarta, Indonesia",
+      "title": "Fraud Detection & AI Systems Consultant",
+      "period": {
+        "start": "2021-09",
+        "end": "2024-12",
+        "current": false
+      },
+      "description": "Led fraud detection operations and ML system development for enterprise clients including major banks and payment processors, managing real-time systems processing millions of daily transactions.",
+      "responsibilities": [
+        "Engineered and optimized rule-based and machine learning detection strategies within SAS Fraud Management platform",
+        "Directed 24/7 operations for fraud detection systems serving multiple financial institutions",
+        "Built end-to-end ETL pipelines and data processing automation using Python and Bash",
+        "Conducted advanced fraud pattern analysis using statistical methods and trend analysis",
+        "Led database architecture migration from non-partitioned to partitioned IBM DB2",
+        "Performed vulnerability assessments on ML platforms (SAS Fraud Management, SAS Viya)",
+        "Directed team of four engineers; collaborated with data science, compliance, and IT teams"
+      ],
+      "achievements": [
+        "Achieved 99.987% SLA compliance across millions of daily transactions",
+        "Improved real-time fraud monitoring efficiency by 50% through automation",
+        "Identified and resolved 25+ critical security issues",
+        "Led 15+ production deployments",
+        "Reduced incident response time by 75% (20 min → 5 min)"
+      ],
+      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "Bash", "IBM DB2", "SQL", "Power BI"],
+      "category": "industry"
+    },
+    {
+      "id": "software-intern",
+      "company": "Aruna Indonesia",
+      "location": "Jakarta, Indonesia",
+      "title": "Software Engineering Intern",
+      "period": {
+        "start": "2019-06",
+        "end": "2019-08",
+        "current": false
+      },
+      "description": "Software engineering internship focused on testing and quality assurance for real-time communication applications.",
+      "responsibilities": [
+        "Developed and implemented comprehensive testing framework for real-time chat application",
+        "Ensured system reliability and communication integrity"
+      ],
+      "achievements": [
+        "Built testing infrastructure for real-time messaging features"
+      ],
+      "technologies": ["Testing", "Quality Assurance"],
+      "category": "industry"
+    },
+    {
+      "id": "ai-researcher",
+      "company": "Independent Research",
+      "location": "South Tangerang, Indonesia",
+      "title": "AI Security Researcher",
+      "period": {
+        "start": "2025-01",
+        "end": null,
+        "current": true
+      },
+      "description": "Conducting research in federated learning security and adversarial machine learning. Developing SignGuard, a novel defense mechanism against poisoning attacks in FL systems.",
+      "responsibilities": [
+        "Research and implement Byzantine-resilient federated learning algorithms",
+        "Develop cryptographic verification mechanisms for model updates",
+        "Design and execute experiments to evaluate defense effectiveness",
+        "Document research findings and prepare academic papers"
+      ],
+      "achievements": [
+        "Published 2 research papers (Springer LNNS, IEEE ICoDSA)",
+        "Designed SignGuard: ECDSA-based defense for federated learning"
+      ],
+      "technologies": ["PyTorch", "PySyft", "Flower", "cryptography", "Docker", "FastAPI"],
+      "category": "research"
+    }
+  ]
+}
