@@ -14,7 +14,7 @@
         "hoursSpent": 8
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/azka/signguard" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/signguard" }
       ]
     },
     {
@@ -54,17 +54,6 @@
         "samplesAnalyzed": 100,
         "hoursSpent": 6
       }
-    },
-    {
-      "id": "act-2026-01-28-001",
-      "date": "2026-01-28T11:00:00Z",
-      "type": "application_sent",
-      "title": "MPhil Application Submitted - Prof. Zomaya",
-      "description": "Submitted MPhil application to University of Sydney, Centre for Distributed and High Performance Computing under Prof. Albert Zomaya.",
-      "tags": ["phd", "application", "university-of-sydney"],
-      "links": [
-        { "label": "Research Profile", "url": "https://sydney.edu.au" }
-      ]
     },
     {
       "id": "act-2026-01-25-001",

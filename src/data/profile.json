@@ -12,8 +12,8 @@
     "availableForRemote": true
   },
   "status": {
-    "current": "Seeking PhD/MPhil supervision",
-    "openTo": ["PhD positions", "MPhil positions", "Remote AI Engineering roles"]
+    "current": "Open to Opportunities",
+    "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities"]
   },
   "bio": {
     "short": "Published researcher and AI practitioner with 3+ years experience building enterprise-scale fraud detection systems. Research interests: federated learning security, adversarial ML, privacy-preserving AI.",
