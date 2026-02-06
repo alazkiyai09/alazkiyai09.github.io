@@ -13,6 +13,7 @@ const activities = activityLog.activities.slice(0, limit);
 const typeIcons: Record<string, string> = {
   'project_start': '🚀',
   'project_complete': '✅',
+  'portfolio_complete': '🎯',
   'code_commit': '💻',
   'paper_read': '📄',
   'experiment_run': '🧪',
@@ -34,6 +35,7 @@ activities.forEach((activity) => {
 const typeColors: Record<string, string> = {
   'project_start': 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
   'project_complete': 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+  'portfolio_complete': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
   'code_commit': 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
   'paper_read': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
   'experiment_run': 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
