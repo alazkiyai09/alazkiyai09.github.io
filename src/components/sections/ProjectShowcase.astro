@@ -44,9 +44,11 @@ const hasProjects = featuredProjects.length > 0;
 
           {/* Day Badge */}
           <div class="flex items-center gap-2 mb-3">
-            <Badge variant="info" size="sm">
-              Day {project.data.day}
-            </Badge>
+            {project.data.day && (
+              <Badge variant="info" size="sm">
+                Day {project.data.day}
+              </Badge>
+            )}
             <Badge
               variant={
                 project.data.status === 'completed' ? 'success' :
