@@ -4,8 +4,8 @@
   "title": "AI Security Researcher & Fraud Detection Specialist",
   "tagline": "Federated Learning Security | Adversarial ML | Privacy-Preserving AI",
   "location": {
-    "city": "South Tangerang",
-    "region": "Banten",
+    "city": "Jakarta",
+    "region": "DKI Jakarta",
     "country": "Indonesia",
     "flag": "🇮🇩",
     "timezone": "Asia/Jakarta",
@@ -13,7 +13,7 @@
   },
   "status": {
     "current": "Open to Opportunities",
-    "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities", "Full-time positions", "PhD programs"]
+    "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities", "Full-time positions"]
   },
   "bio": {
     "short": "AI Security Researcher & Fraud Detection Specialist with 3+ years experience. 67 completed projects across AI Security, Federated Learning, and Production AI. Published researcher in steganography (Springer LNNS vol 285).",

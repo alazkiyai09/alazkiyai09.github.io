@@ -181,7 +181,7 @@ This portfolio demonstrates:
 
 ## Future Directions
 
-1. **Academic Publication**: SignGuard research paper submission
+1. **Research Publication**: SignGuard research paper submission
 2. **Open Source Release**: Public GitHub repository
 3. **Industry Collaboration**: Banking consortium pilot
 4. **Conference Presentations**: Security and FL conferences
