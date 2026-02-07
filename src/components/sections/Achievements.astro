@@ -1,0 +1,152 @@
+---
+import Card from '../ui/Card.astro';
+import Badge from '../ui/Badge.astro';
+import achievements from '../../data/achievements.json';
+
+const { achievements: achievementList } = achievements;
+
+// Group by category
+const groupedAchievements = achievementList.reduce((acc, achievement) => {
+  if (!acc[achievement.category]) {
+    acc[achievement.category] = [];
+  }
+  acc[achievement.category].push(achievement);
+  return acc;
+}, {} as Record<string, typeof achievementList>);
+
+const categoryOrder = ['portfolio', 'research', 'publication', 'tool'];
+const categoryIcons: Record<string, string> = {
+  portfolio: '📁',
+  research: '🔬',
+  publication: '📄',
+  tool: '🛠️'
+};
+
+const categoryNames: Record<string, string> = {
+  portfolio: 'Portfolio Projects',
+  research: 'Research Contributions',
+  publication: 'Publications',
+  tool: 'Tools & Frameworks'
+};
+---
+
+<section class="section bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-900">
+  <div class="container">
+    <div class="text-center mb-12">
+      <span class="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+        Key Achievements
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+        Featured Work & Contributions
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        Highlights from 67 completed projects across 4 major portfolios
+      </p>
+    </div>
+
+    {categoryOrder.map((category) => {
+      const items = groupedAchievements[category];
+      if (!items || items.length === 0) return null;
+
+      return (
+        <div class="mb-12" id={`achievements-${category}`}>
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl">{categoryIcons[category]}</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+              {categoryNames[category]}
+            </h3>
+            <Badge variant="info" size="sm">
+              {items.length}
+            </Badge>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            {items.map((achievement) => (
+              <Card
+                variant="default"
+                hover={true}
+                class="group"
+              >
+                {/* Header */}
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex-1">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {achievement.title}
+                    </h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">
+                      {achievement.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Metrics */}
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  {achievement.metrics && Object.entries(achievement.metrics).map(([key, value]) => (
+                    <div class="bg-slate-50 dark:bg-slate-800 rounded-lg p-3">
+                      <div class="text-xs text-slate-500 dark:text-slate-400 uppercase">
+                        {key.replace(/([A-Z])/g, ' $1').trim()}
+                      </div>
+                      <div class="text-lg font-bold text-blue-600 dark:text-blue-400">
+                        {value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Key Points */}
+                {achievement.highlights && (
+                  <ul class="space-y-1 mb-4">
+                    {achievement.highlights.slice(0, 3).map((highlight) => (
+                      <li class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
+                        <span class="text-green-500">✓</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Technologies */}
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {achievement.technologies.slice(0, 5).map((tech) => (
+                    <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-md font-mono">
+                      {tech}
+                    </span>
+                  ))}
+                  {achievement.technologies.length > 5 && (
+                    <span class="text-xs text-slate-500">
+                      +{achievement.technologies.length - 5} more
+                    </span>
+                  )}
+                </div>
+
+                {/* Links */}
+                <div class="flex gap-2 pt-3 border-t border-slate-200 dark:border-slate-700">
+                  {achievement.repository && (
+                    <a
+                      href={achievement.repository}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex-1 text-center py-2 px-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-medium rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition-colors"
+                    >
+                      View on GitHub
+                    </a>
+                  )}
+                  {achievement.demo && (
+                    <a
+                      href={achievement.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex-1 text-center py-2 px-3 border border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>

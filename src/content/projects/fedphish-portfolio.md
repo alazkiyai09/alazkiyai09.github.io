@@ -237,7 +237,7 @@ Features:
 
 ## License
 
-MIT License - See [LICENSE]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/blob/main/LICENSE)) for details.
+MIT License - See [LICENSE](https://github.com/alazkiyai09/privacy-preserving-phishing-detection/blob/main/LICENSE) for details.
 
 ## Acknowledgments
 
