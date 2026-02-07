@@ -27,7 +27,7 @@ Published research in Springer LNNS (vol 285) on improving steganography imperce
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

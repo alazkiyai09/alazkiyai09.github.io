@@ -177,4 +177,4 @@ The future lies in combining cryptographic verification with robust aggregationâ
 
 ---
 
-*This post is part of my 30-day portfolio journey. Check out the [SignGuard project](/projects/day-10-signguard-core) for implementation details.*
+*This post is part of my research portfolio. Check out the [SignGuard project](/projects/day-10-signguard-core) for implementation details.*

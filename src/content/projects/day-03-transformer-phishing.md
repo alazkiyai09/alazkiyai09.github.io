@@ -26,7 +26,7 @@ Fine-tuning DistilBERT for phishing email detection with transfer learning and a
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-preserving-ml.
+This project is part of the research portfolio focusing on privacy-preserving-ml.
 
 ## Technologies Used
 

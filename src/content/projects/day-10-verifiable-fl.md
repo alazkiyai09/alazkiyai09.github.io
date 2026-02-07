@@ -25,7 +25,7 @@ Commitment schemes and verifiable aggregation protocols for honest FL participat
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

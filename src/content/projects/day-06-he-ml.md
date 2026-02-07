@@ -26,7 +26,7 @@ CKKS/BFV encryption for ML inference on encrypted phishing data without decrypti
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-preserving-ml.
+This project is part of the research portfolio focusing on privacy-preserving-ml.
 
 ## Technologies Used
 

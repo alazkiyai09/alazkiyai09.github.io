@@ -26,7 +26,7 @@ GLM-powered multi-agent analysis system for sophisticated phishing detection wit
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-preserving-ml.
+This project is part of the research portfolio focusing on privacy-preserving-ml.
 
 ## Technologies Used
 

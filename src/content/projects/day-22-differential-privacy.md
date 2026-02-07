@@ -25,7 +25,7 @@ DP-SGD implementation using Opacus for privacy-preserving federated learning wit
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-preserving-ml.
+This project is part of the research portfolio focusing on privacy-preserving-ml.
 
 ## Technologies Used
 

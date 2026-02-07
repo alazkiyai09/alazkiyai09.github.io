@@ -26,7 +26,7 @@ Image and text multi-modal retrieval system using CLIP embeddings for unified cr
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 

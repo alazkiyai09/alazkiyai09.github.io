@@ -26,7 +26,7 @@ Explainable AI following cognitive principles for human-aligned phishing detecti
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on explainability.
+This project is part of the research portfolio focusing on explainability.
 
 ## Technologies Used
 

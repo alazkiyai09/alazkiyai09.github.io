@@ -25,7 +25,7 @@ Combining Byzantine-robust aggregation with zero-knowledge verification for secu
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

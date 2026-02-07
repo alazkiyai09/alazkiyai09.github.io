@@ -22,7 +22,7 @@ PhD application package to Prof. Giovanni Russello (University of Auckland) for 
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

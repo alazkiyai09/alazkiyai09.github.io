@@ -24,7 +24,7 @@ FoolsGold defense implementation for detecting and mitigating Sybil attacks in f
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on defensive-techniques.
+This project is part of the research portfolio focusing on defensive-techniques.
 
 ## Technologies Used
 

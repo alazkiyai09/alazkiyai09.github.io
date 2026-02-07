@@ -25,7 +25,7 @@ Implementation of Krum, Multi-Krum, Trimmed Mean, and Bulyan defenses against By
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on defensive-techniques.
+This project is part of the research portfolio focusing on defensive-techniques.
 
 ## Technologies Used
 

@@ -24,7 +24,7 @@ Implementation of various non-IID data partitioning strategies including patholo
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on federated-learning.
+This project is part of the research portfolio focusing on federated-learning.
 
 ## Technologies Used
 
