@@ -59,7 +59,7 @@
       "type": "project_complete",
       "title": "Completed SignGuard ECDSA Verification Module",
       "description": "Implemented cryptographic signature verification for federated learning model updates using ECDSA with dynamic reputation scoring.",
-      "projectRef": "day-10-signguard-core",
+      "projectRef": "signguard-core",
       "tags": ["federated-learning", "cryptography", "ecdsa", "security"],
       "metrics": {
         "linesOfCode": 2500,
@@ -92,8 +92,7 @@
       "metrics": {
         "totalProjects": 61,
         "totalLinesOfCode": 265000,
-        "totalTests": 750,
-        "totalDays": 30
+        "totalTests": 750
       }
     },
     {
@@ -102,7 +101,7 @@
       "type": "experiment_run",
       "title": "FraudwareAnalyzer: 100 Malware Samples Analyzed",
       "description": "Completed static analysis of 100 banking trojan samples. Extracted behavioral patterns and API call sequences.",
-      "projectRef": "day-18-malware-analyzer",
+      "projectRef": "malware-analyzer",
       "tags": ["security", "malware-analysis", "static-analysis"],
       "metrics": {
         "experimentsRun": 1,
@@ -116,7 +115,7 @@
       "type": "project_start",
       "title": "Started ZKP Integration for FL",
       "description": "Beginning implementation of Zero-Knowledge Proof integration for privacy-preserving model verification in federated learning.",
-      "projectRef": "day-20-zkp-integration",
+      "projectRef": "zkp-integration-fl",
       "tags": ["zero-knowledge", "federated-learning", "privacy"],
       "metrics": {
         "hoursSpent": 2
@@ -139,7 +138,7 @@
       "type": "code_commit",
       "title": "SignGuard: Reputation System Implementation",
       "description": "Implemented dynamic reputation scoring system for FL clients with decay mechanism and anomaly detection.",
-      "projectRef": "day-10-signguard-core",
+      "projectRef": "signguard-core",
       "tags": ["federated-learning", "reputation-system", "python"],
       "metrics": {
         "linesOfCode": 280,
