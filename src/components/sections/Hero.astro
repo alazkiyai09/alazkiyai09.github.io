@@ -4,14 +4,24 @@ import profile from '../../data/profile.json';
 import activityLog from '../../data/activity-log.json';
 import publications from '../../data/publications.json';
 
-const { name, title, tagline, location, status, contact, social } = profile;
+const { name, title, location, status, contact } = profile;
 
-// Calculate stats dynamically from data
-const totalJourneyDays = 67; // Total completed projects
+// Portfolio proof metrics
 const completedProjects = 67; // All projects across portfolios
 const totalPublications = publications.publications.length;
 const yearsExp = 3;
 const totalPortfolios = 4;
+const portfolioSummary = activityLog.activities
+  .filter((item) => item.type === 'portfolio_complete')
+  .reduce(
+    (acc, item) => {
+      const metrics = (item.metrics || {}) as Record<string, number>;
+      acc.linesOfCode += Number(metrics.linesOfCode || 0);
+      acc.tests += Number(metrics.testCases || 0) + Number(metrics.testFiles || 0);
+      return acc;
+    },
+    { linesOfCode: 0, tests: 0 }
+  );
 ---
 
 <section class="section relative overflow-hidden">
@@ -44,8 +54,13 @@ const totalPortfolios = 4;
             {title}
           </p>
 
-          <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl">
-            {tagline}
+          <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+            I build secure and trustworthy AI systems from research through deployment, with work spanning
+            federated learning security, fraud detection, and privacy-preserving ML.
+          </p>
+
+          <p class="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+            Open to both academic collaboration and professional opportunities across research, engineering, and applied AI security.
           </p>
         </div>
 
@@ -66,15 +81,42 @@ const totalPortfolios = 4;
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
-            View Projects
+            Explore Projects
           </Button>
 
-          <Button href="/contact" variant="secondary" size="lg">
+          <Button href="/publications" variant="secondary" size="lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-5.747-8.747h11.494M4.5 19.5h15" />
+            </svg>
+            Read Publications
+          </Button>
+
+          <Button href="/contact" variant="ghost" size="lg">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            Contact Me
+            Discuss Collaboration
           </Button>
+        </div>
+
+        <!-- Proof Strip -->
+        <div class="grid sm:grid-cols-3 gap-3 pt-2">
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
+            <div class="text-sm font-semibold text-slate-900 dark:text-white">{completedProjects} completed projects</div>
+            <div class="text-xs text-slate-600 dark:text-slate-400">Across {totalPortfolios} portfolio tracks</div>
+          </div>
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
+            <div class="text-sm font-semibold text-slate-900 dark:text-white">
+              {Math.round(portfolioSummary.linesOfCode / 1000)}k+ lines of code
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-400">
+              {portfolioSummary.tests}+ tests and validation assets
+            </div>
+          </div>
+          <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
+            <div class="text-sm font-semibold text-slate-900 dark:text-white">{totalPublications} publications</div>
+            <div class="text-xs text-slate-600 dark:text-slate-400">Research + implementation portfolio</div>
+          </div>
         </div>
 
         <!-- Social Links -->
@@ -152,7 +194,7 @@ const totalPortfolios = 4;
 
               <!-- Research focus -->
               <div class="text-center">
-                <div class="text-sm text-slate-500 uppercase tracking-wider mb-2">Research Focus</div>
+                <div class="text-sm text-slate-500 uppercase tracking-wider mb-2">Academic + Professional Focus</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Federated Learning</span>
                   <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">AI Security</span>
