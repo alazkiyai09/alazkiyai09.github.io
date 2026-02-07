@@ -18,7 +18,7 @@ technologies:
   - FastAPI
 metrics:
   linesOfCode: 2500
-  accuracy: 94.5
+  note: "Theoretical design - empirical evaluation pending implementation of attack simulation benchmarks"
   experimentsRun: 45
 startDate: "2026-01-24"
 completedDate: "2026-01-26"
@@ -176,23 +176,25 @@ class SignGuardAggregator:
 - **Rounds**: 100
 - **Attack**: Label flipping (0→9, 9→0)
 
-### Defense Performance
+### Defense Performance (Theoretical)
 
-| Defense Mechanism | Detection Rate | False Positive Rate | Final Accuracy |
-|-------------------|----------------|---------------------|----------------|
-| No Defense | 0% | 0% | 42.3% |
-| Krum | 68.5% | 8.2% | 78.1% |
-| Multi-Krum | 72.3% | 6.5% | 81.4% |
-| FoolsGold | 81.2% | 4.8% | 87.6% |
-| **SignGuard** | **94.5%** | **3.2%** | **92.8%** |
+SignGuard's multi-layer defense design combines:
 
-### Ablation Studies
+| Layer | Mechanism | Purpose |
+|-------|-----------|---------|
+| 1 | ECDSA Signature Verification | Authenticate client identity |
+| 2 | Anomaly Detection (L2 norm, cosine similarity) | Detect abnormal updates |
+| 3 | Reputation Scoring | Weight aggregation by trust |
 
-| Configuration | Detection Rate | Accuracy |
-|--------------|----------------|----------|
-| ECDSA Only | 89.2% | 90.1% |
-| Reputation Only | 76.8% | 88.3% |
-| **ECDSA + Reputation** | **94.5%** | **92.8%** |
+**Note:** Detection rates are theoretical projections based on algorithm design. Empirical evaluation requires comprehensive attack simulation benchmarks which are planned for future work.
+
+### Ablation Studies (Planned)
+
+| Configuration | Expected Benefit |
+|--------------|------------------|
+| ECDSA Only | Client authentication |
+| Reputation Only | Sybil resistance |
+| **ECDSA + Reputation** | Multi-layer defense |
 
 ### Scalability Analysis
 
@@ -223,20 +225,24 @@ class SignGuardAggregator:
 
 ## Results & Discussion
 
-### Detection Accuracy
+### Detection Accuracy (Theoretical Design)
 
-SignGuard achieves **94.5% detection rate** with only **3.2% false positives**:
-- True Positive: Correctly identifies 94.5% of malicious clients
-- True Negative: 96.8% of honest clients never flagged
-- Significantly outperforms state-of-the-art defenses
+SignGuard's design combines multiple detection mechanisms:
+- **ECDSA Signatures**: Prevent identity spoofing and update tampering
+- **Anomaly Detection**: Identifies statistical outliers in gradient updates
+- **Reputation Scoring**: Temporal decay prevents sybil and reputation attacks
 
-### Robustness
+**Note:** Empirical detection rates require comprehensive attack simulation benchmarks.
 
-Tested against multiple attack types:
-- Label Flipping: 94.5% detection
-- Backdoor: 91.2% detection
-- Scaling Attack: 97.8% detection
-- LIRA Attack: 89.3% detection
+### Robustness (Design Targets)
+
+SignGuard is designed to defend against multiple attack types:
+- Label Flipping: ECDSA signatures bind updates to verified identities
+- Backdoor: Anomaly detection detects abnormal gradient patterns
+- Scaling Attack: Reputation scoring limits impact of any single client
+- LIRA Attack: Multi-layer detection provides defense in depth
+
+**Note:** Attack-specific detection rates require empirical validation.
 
 ### Computational Overhead
 

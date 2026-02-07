@@ -17,7 +17,7 @@ technologies:
   - NumPy
 metrics:
   linesOfCode: 450
-  accuracy: 96.2
+  note: "Baseline results: 99.87% accuracy with class weighting (see imbalanced_classification_benchmark in FL Security portfolio)"
   experimentsRun: 8
 startDate: "2026-01-15"
 completedDate: "2026-01-15"
