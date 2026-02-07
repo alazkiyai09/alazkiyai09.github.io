@@ -1,52 +1,40 @@
 {
   "phases": [
     {
-      "name": "Foundation",
-      "days": "1-5",
-      "description": "Fraud detection fundamentals and baseline models",
+      "name": "30-Day FL Security Portfolio",
+      "days": "30 Days",
+      "description": "Comprehensive federated learning security research with 30 projects",
       "status": "completed",
-      "projects": ["Baseline Classifier", "Feature Engineering", "Model Evaluation"],
-      "skills": ["Pandas", "Scikit-learn", "Imbalanced-learn"]
+      "projects": ["SignGuard", "Secure Aggregation", "Privacy Pipeline", "Security Dashboard"],
+      "skills": ["PyTorch", "Flower", "Cryptography", "DP-SGD", "Byzantine-Robust FL"],
+      "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio"
     },
     {
-      "name": "Federated Learning Core",
-      "days": "6-10",
-      "description": "FL fundamentals and SignGuard security implementation",
+      "name": "21-Day FedPhish Portfolio",
+      "days": "21 Days",
+      "description": "Privacy-preserving federated phishing detection system",
       "status": "completed",
-      "projects": ["FL Simulation", "PySyft Intro", "SignGuard Core"],
-      "skills": ["PySyft", "Flower", "PyTorch", "Cryptography"]
+      "projects": ["FedPhish System", "HE+TEE Protocol", "ZK Verification", "React Dashboard"],
+      "skills": ["Homomorphic Encryption", "Intel SGX", "ZK-SNARK", "BLS Signatures"],
+      "repository": "https://github.com/alazkiyai09/FedPhish"
     },
     {
-      "name": "MLOps & Infrastructure",
-      "days": "11-15",
-      "description": "Production-grade ML pipeline and experiment tracking",
+      "name": "Production AI Portfolio",
+      "days": "10 Projects",
+      "description": "Enterprise-grade AI systems with RAG and LangGraph agents",
       "status": "completed",
-      "projects": ["MLflow Integration", "Medallion Architecture", "Docker Setup"],
-      "skills": ["MLflow", "Docker", "DVC", "FastAPI"]
+      "projects": ["Enterprise-RAG", "CustomerSupport-Agent", "LLMOps-Eval", "DataChat-RAG"],
+      "skills": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "Kubernetes"],
+      "repository": "https://github.com/alazkiyai09/production-ai-portfolio"
     },
     {
-      "name": "Security Research",
-      "days": "16-20",
-      "description": "Advanced security projects and threat analysis",
-      "status": "in-progress",
-      "projects": ["FraudwareAnalyzer", "BankingTrojanHunter", "ZKP Integration"],
-      "skills": ["Static Analysis", "Threat Intelligence", "ZK-SNARKs"]
-    },
-    {
-      "name": "Cross-Bank Simulation",
-      "days": "21-25",
-      "description": "Multi-institution FL with compliance constraints",
-      "status": "upcoming",
-      "projects": ["Cross-Silo FL", "Privacy Budget", "GDPR Compliance"],
-      "skills": ["Differential Privacy", "Secure Aggregation"]
-    },
-    {
-      "name": "Integration & Deployment",
-      "days": "26-30",
-      "description": "Complete system integration and demonstration",
-      "status": "upcoming",
-      "projects": ["Full System Demo", "Documentation", "Research Paper Draft"],
-      "skills": ["Technical Writing", "System Design"]
+      "name": "PaperStego Research",
+      "days": "7 Projects",
+      "description": "Published steganography research with Springer LNNS",
+      "status": "completed",
+      "projects": ["PVD+LSB+Modulo Encoding", "CTR_DRBG", "Experiments (131 images)"],
+      "skills": ["Image Processing", "Steganography", "AES-128", "OpenCV"],
+      "repository": "https://github.com/alazkiyai09/pvd-lsb-modulo-steganography"
     }
   ]
 }

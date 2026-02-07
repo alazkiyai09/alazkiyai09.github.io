@@ -8,12 +8,12 @@
       "type": "industry",
       "description": "Production fraud detection systems for major Indonesian financial institutions",
       "highlights": [
-        "SAS Fraud Management platform administration",
-        "Real-time transaction monitoring at scale (millions of daily transactions)",
-        "Rule engine configuration and optimization",
-        "ML model deployment for fraud scoring"
+        "Real-time transaction monitoring with ML models",
+        "Feature engineering for velocity-based fraud patterns",
+        "LSTM autoencoders for sequential fraud detection",
+        "Model explainability with SHAP and LIME"
       ],
-      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI"],
+      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI", "LSTM", "SHAP", "LIME"],
       "achievements": [
         "99.987% SLA compliance across millions of daily transactions",
         "Improved monitoring efficiency by 50% through automation",
@@ -23,20 +23,21 @@
     {
       "id": "federated-learning",
       "title": "Federated Learning Security",
-      "years": 1,
+      "years": 2,
       "icon": "🔐",
       "type": "research",
-      "description": "Byzantine-resilient FL for cross-institution collaboration",
+      "description": "Byzantine-resilient federated learning for secure cross-institution collaboration",
       "highlights": [
-        "SignGuard: ECDSA-based model verification",
-        "Poisoning attack detection and mitigation",
-        "Privacy-preserving aggregation strategies",
-        "Cross-bank FL under GDPR/PCI-DSS constraints"
+        "SignGuard: Multi-layer defense with ECDSA + Anomaly Detection + Reputation",
+        "Secure aggregation with Shamir's Secret Sharing",
+        "Privacy attacks: membership inference, gradient leakage, property inference",
+        "Byzantine-robust aggregation: Krum, Multi-Krum, FoolsGold"
       ],
-      "technologies": ["PyTorch", "PySyft", "Flower", "cryptography"],
+      "technologies": ["PyTorch", "Flower", "PySyft", "cryptography", "DP-SGD", "Opacus"],
       "achievements": [
-        "Novel reputation-based defense system design",
-        "Targeting cross-bank fraud detection scenarios"
+        "30-project portfolio with 9.6/10 quality score",
+        "Novel multi-layer defense system design",
+        "Publication-ready research paper"
       ]
     },
     {
@@ -45,16 +46,17 @@
       "years": 2,
       "icon": "🔒",
       "type": "research",
-      "description": "Published research in steganographic methods",
+      "description": "Published research in steganographic methods using PVD, LSB, and modulo encoding",
       "highlights": [
-        "Pixel Value Difference (PVD) based steganography",
-        "LSB (Least Significant Bit) substitution techniques",
-        "Modulo encoding for improved imperceptibility"
+        "PVD + LSB + Modulo Encoding implementation",
+        "NIST SP 800-90A CTR_DRBG with AES-128",
+        "Channel optimization for reduced distortion",
+        "Testing across 131 images with 10 message sizes each"
       ],
-      "technologies": ["Python", "Image Processing", "Steganalysis"],
+      "technologies": ["Python", "OpenCV", "NumPy", "PyCryptodome", "AES-128", "scikit-image"],
       "achievements": [
-        "Published research in Springer LNNS (vol 285)",
-        "Thesis research published in international journal"
+        "Published in Springer LNNS (vol 285)",
+        "1,310 embedding trials evaluated with PSNR, MSE, SSIM"
       ]
     }
   ]

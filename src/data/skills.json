@@ -1,37 +1,68 @@
 {
   "categories": [
     {
-      "name": "Machine Learning",
+      "name": "Programming Languages",
       "skills": [
-        { "name": "PyTorch", "level": 85 },
+        { "name": "Python", "level": 95 },
+        { "name": "SQL", "level": 90 },
+        { "name": "C/C++", "level": 60 },
+        { "name": "TypeScript", "level": 70 }
+      ]
+    },
+    {
+      "name": "AI/ML Frameworks",
+      "skills": [
+        { "name": "PyTorch", "level": 90 },
         { "name": "TensorFlow", "level": 75 },
-        { "name": "Keras", "level": 75 },
         { "name": "Scikit-learn", "level": 90 },
         { "name": "XGBoost", "level": 85 },
-        { "name": "Pandas & NumPy", "level": 95 },
-        { "name": "Time-Series Forecasting", "level": 85 },
-        { "name": "Deep Learning (CNN, LSTM, GRU)", "level": 80 },
-        { "name": "MLflow", "level": 80 },
-        { "name": "Model Evaluation & Optimization", "level": 85 }
+        { "name": "LangChain", "level": 85 },
+        { "name": "LangGraph", "level": 85 },
+        { "name": "Pandas & NumPy", "level": 95 }
       ]
     },
     {
       "name": "Federated Learning",
       "skills": [
+        { "name": "Flower Framework", "level": 90 },
         { "name": "PySyft", "level": 85 },
-        { "name": "Flower Framework", "level": 80 },
-        { "name": "Differential Privacy", "level": 75 },
-        { "name": "Secure Aggregation", "level": 70 }
+        { "name": "DP-SGD", "level": 80 },
+        { "name": "Opacus", "level": 80 },
+        { "name": "Secure Aggregation", "level": 85 }
       ]
     },
     {
       "name": "Security & Cryptography",
       "skills": [
-        { "name": "Adversarial ML", "level": 75 },
-        { "name": "Federated Learning Security", "level": 80 },
-        { "name": "Privacy-Preserving ML", "level": 80 },
-        { "name": "Vulnerability Assessment", "level": 85 },
+        { "name": "ECDSA", "level": 85 },
+        { "name": "Zero-Knowledge Proofs", "level": 80 },
+        { "name": "Homomorphic Encryption", "level": 80 },
+        { "name": "Trusted Execution Environments", "level": 75 },
+        { "name": "Shamir's Secret Sharing", "level": 80 },
+        { "name": "Adversarial ML", "level": 85 },
+        { "name": "Federated Learning Security", "level": 90 },
         { "name": "Steganography", "level": 75 }
+      ]
+    },
+    {
+      "name": "Web Development",
+      "skills": [
+        { "name": "FastAPI", "level": 90 },
+        { "name": "React", "level": 75 },
+        { "name": "TypeScript", "level": 70 },
+        { "name": "Redis", "level": 85 }
+      ]
+    },
+    {
+      "name": "DevOps & Infrastructure",
+      "skills": [
+        { "name": "Docker", "level": 85 },
+        { "name": "Kubernetes", "level": 75 },
+        { "name": "MLflow", "level": 80 },
+        { "name": "Celery", "level": 80 },
+        { "name": "Prometheus/Grafana", "level": 70 },
+        { "name": "Git", "level": 90 },
+        { "name": "Linux", "level": 85 }
       ]
     },
     {
@@ -40,20 +71,9 @@
         { "name": "Real-Time Transaction Monitoring", "level": 90 },
         { "name": "Anomaly Detection", "level": 85 },
         { "name": "Pattern Recognition", "level": 85 },
-        { "name": "Risk Scoring", "level": 85 }
-      ]
-    },
-    {
-      "name": "Data Engineering",
-      "skills": [
-        { "name": "Python", "level": 95 },
-        { "name": "SQL", "level": 90 },
-        { "name": "IBM DB2", "level": 80 },
-        { "name": "PostgreSQL", "level": 85 },
-        { "name": "ETL Pipeline Development", "level": 90 },
-        { "name": "Elasticsearch", "level": 75 },
-        { "name": "Data Preprocessing", "level": 95 },
-        { "name": "Feature Engineering", "level": 90 }
+        { "name": "Risk Scoring", "level": 85 },
+        { "name": "LSTM Autoencoders", "level": 80 },
+        { "name": "SHAP/LIME", "level": 85 }
       ]
     },
     {
@@ -61,28 +81,18 @@
       "skills": [
         { "name": "SAS Fraud Management", "level": 90 },
         { "name": "SAS Viya", "level": 85 },
-        { "name": "SAS Visual Analytics", "level": 85 },
-        { "name": "Jupyter", "level": 90 }
-      ]
-    },
-    {
-      "name": "Tools & Infrastructure",
-      "skills": [
-        { "name": "Git", "level": 90 },
-        { "name": "Docker", "level": 80 },
-        { "name": "Linux (RHEL)", "level": 85 },
-        { "name": "Bash Scripting", "level": 85 },
-        { "name": "Power BI", "level": 85 },
-        { "name": "Technical Documentation", "level": 90 }
+        { "name": "IBM DB2", "level": 80 },
+        { "name": "PostgreSQL", "level": 85 }
       ]
     },
     {
       "name": "Research Areas",
       "skills": [
-        { "name": "Federated Learning", "level": 80 },
-        { "name": "Privacy-Preserving ML", "level": 80 },
-        { "name": "Cryptographic Methods", "level": 75 },
-        { "name": "Adversarial Machine Learning", "level": 75 }
+        { "name": "Federated Learning Security", "level": 90 },
+        { "name": "Privacy-Preserving ML", "level": 85 },
+        { "name": "Adversarial Machine Learning", "level": 85 },
+        { "name": "Byzantine-Robust Aggregation", "level": 85 },
+        { "name": "Privacy Attacks & Defenses", "level": 80 }
       ]
     }
   ]
