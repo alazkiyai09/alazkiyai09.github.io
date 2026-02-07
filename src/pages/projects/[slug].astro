@@ -34,14 +34,13 @@ const description = project.data.summary;
               <a href="/projects" class="text-slate-600 dark:text-slate-400 hover:text-blue-600">Projects</a>
             </li>
             <li class="text-slate-400">/</li>
-            <li class="text-slate-900 dark:text-white font-medium">Day {project.data.day}</li>
+            <li class="text-slate-900 dark:text-white font-medium">{project.data.title}</li>
           </ol>
         </nav>
 
         <!-- Header -->
         <header class="mb-8">
           <div class="flex flex-wrap items-center gap-3 mb-4">
-            <Badge variant="info">Day {project.data.day}</Badge>
             <Badge
               variant={
                 project.data.status === 'completed' ? 'success' :
@@ -156,14 +155,6 @@ const description = project.data.summary;
                   {project.data.metrics.experimentsRun}
                 </div>
                 <div class="text-sm text-slate-600 dark:text-slate-400">Experiments</div>
-              </div>
-            )}
-            {project.data.day && (
-              <div class="text-center">
-                <div class="text-2xl font-bold text-orange-600 dark:text-orange-400">
-                  Day {project.data.day}
-                </div>
-                <div class="text-sm text-slate-600 dark:text-slate-400">Journey Day</div>
               </div>
             )}
           </div>
