@@ -7,7 +7,6 @@ import Badge from '../ui/Badge.astro';
 const projects = await getCollection('projects');
 const featuredProjects = projects
   .filter(p => p.data.status === 'completed')
-  .sort((a, b) => (a.data.day || 0) - (b.data.day || 0))
   .slice(0, 6);
 
 const hasProjects = featuredProjects.length > 0;
@@ -18,7 +17,7 @@ const hasProjects = featuredProjects.length > 0;
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
       <p class="text-lg text-slate-600 dark:text-slate-400">
-        Key projects from my 30-day portfolio journey
+        Selected projects from research portfolios
       </p>
     </div>
 
@@ -42,13 +41,11 @@ const hasProjects = featuredProjects.length > 0;
             </div>
           )}
 
-          {/* Day Badge */}
+          {/* Category Badge */}
           <div class="flex items-center gap-2 mb-3">
-            {project.data.day && (
-              <Badge variant="info" size="sm">
-                Day {project.data.day}
-              </Badge>
-            )}
+            <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+              {project.data.category}
+            </span>
             <Badge
               variant={
                 project.data.status === 'completed' ? 'success' :
@@ -108,16 +105,6 @@ const hasProjects = featuredProjects.length > 0;
                 GitHub
               </a>
             )}
-            {project.data.demo && (
-              <a
-                href={project.data.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex-1 text-center py-2 px-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
-              >
-                Demo
-              </a>
-            )}
             <a
               href={`/projects/${project.slug}`}
               class="flex-1 text-center py-2 px-3 border border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400 text-sm font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
@@ -130,14 +117,9 @@ const hasProjects = featuredProjects.length > 0;
       </div>
     ) : (
       <div class="text-center py-12">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 mb-4">
-          <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-        </div>
         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">No Projects Yet</h3>
         <p class="text-slate-600 dark:text-slate-400">
-          Projects will be added here as the 30-day journey progresses.
+          Projects will be added here.
         </p>
       </div>
     )}
