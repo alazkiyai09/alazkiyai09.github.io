@@ -6,12 +6,12 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 /**
- * Get all projects sorted by day
+ * Get all projects sorted by title
  */
 export async function getSortedProjects() {
   try {
     const projects = await getCollection('projects');
-    return projects.sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+    return projects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
   } catch (error) {
     console.error('[content-utils] Error in getSortedProjects:', error);
     throw new Error(`Failed to fetch projects: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -26,7 +26,7 @@ export async function getCompletedProjects() {
     const projects = await getCollection('projects');
     return projects
       .filter(p => p.data.status === 'completed')
-      .sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+      .sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
   } catch (error) {
     console.error('[content-utils] Error in getCompletedProjects:', error);
     throw new Error(`Failed to fetch completed projects: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -41,7 +41,7 @@ export async function getProjectsByCategory(category: string) {
     const projects = await getCollection('projects');
     return projects
       .filter(p => p.data.category === category)
-      .sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+      .sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
   } catch (error) {
     console.error('[content-utils] Error in getProjectsByCategory:', error);
     throw new Error(`Failed to fetch projects for category "${category}": ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -83,7 +83,7 @@ export async function getProjectsByStatus(status: 'draft' | 'in-progress' | 'com
     const projects = await getCollection('projects');
     return projects
       .filter(p => p.data.status === status)
-      .sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+      .sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
   } catch (error) {
     console.error('[content-utils] Error in getProjectsByStatus:', error);
     throw new Error(`Failed to fetch projects with status "${status}": ${error instanceof Error ? error.message : 'Unknown error'}`);

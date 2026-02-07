@@ -172,7 +172,7 @@ export const ActivityMetricsSchema = z.object({
   papersRead: z.number().optional(),
   hoursSpent: z.number().optional(),
   samplesAnalyzed: z.number().optional(),
-  totalDays: z.number().optional(),
+  totalProjects: z.number().optional(),
 }).passthrough(); // Allow additional metrics
 
 export const ActivityLinkSchema = z.object({

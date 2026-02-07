@@ -1,6 +1,5 @@
 ---
 title: "Financial Fraud Detection RAG"
-day: 204
 status: "completed"
 category: "production-ai"
 tags:

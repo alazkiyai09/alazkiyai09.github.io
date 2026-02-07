@@ -1,6 +1,5 @@
 ---
 title: "Customer Service Chatbot Agent"
-day: 205
 status: "completed"
 category: "production-ai"
 tags:

@@ -6,7 +6,7 @@ import Badge from '../../components/ui/Badge.astro';
 import Tag from '../../components/ui/Tag.astro';
 
 const allProjects = await getCollection('projects');
-const sortedProjects = allProjects.sort((a, b) => (a.data.day || 0) - (b.data.day || 0));
+const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
 
 // Group by status
 const completedProjects = sortedProjects.filter(p => p.data.status === 'completed');
@@ -71,10 +71,10 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
             class="flex flex-col project-card"
             data-category={project.data.category}
           >
-            {/* Day Badge */}
+            {/* Category Badge */}
             <div class="flex items-center gap-2 mb-3">
               <Badge variant="info" size="sm">
-                Day {project.data.day}
+                {project.data.category}
               </Badge>
               <Badge
                 variant={

@@ -1,6 +1,5 @@
 ---
 title: "Steganography Research (Published)"
-day: 300
 status: "completed"
 category: "security-research"
 tags:

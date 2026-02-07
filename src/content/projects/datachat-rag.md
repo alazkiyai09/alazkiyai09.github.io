@@ -1,6 +1,5 @@
 ---
 title: "DataChat - NL to SQL Analytics"
-day: 203
 status: "completed"
 category: "production-ai"
 tags:

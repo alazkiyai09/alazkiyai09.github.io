@@ -1,6 +1,5 @@
 ---
 title: "Enterprise-Grade Hybrid RAG System"
-day: 201
 status: "completed"
 category: "production-ai"
 tags:
