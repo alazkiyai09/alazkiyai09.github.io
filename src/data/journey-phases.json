@@ -29,7 +29,7 @@
     },
     {
       "name": "PaperStego Research",
-      "days": "7 Projects",
+      "days": "1 Paper",
       "description": "Published steganography research with Springer LNNS",
       "status": "completed",
       "projects": ["PVD+LSB+Modulo Encoding", "CTR_DRBG", "Experiments (131 images)"],
