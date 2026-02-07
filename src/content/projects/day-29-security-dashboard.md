@@ -14,7 +14,7 @@ technologies:
   - Streamlit
   - Plotly
   - Flower
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/fl_security_dashboard"
+repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/fl_security_dashboard"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -37,7 +37,7 @@ This project is part of the 30-day portfolio journey focusing on security-resear
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day29_security_dashboard](https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day29_security_dashboard)
+Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day29_security_dashboard]((https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/day29_security_dashboard))
 
 ## Key Features
 

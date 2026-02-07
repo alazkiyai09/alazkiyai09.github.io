@@ -14,7 +14,7 @@ technologies:
   - Transformers
   - PyTorch
   - HuggingFace
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day3_transformer_phishing"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day3_transformer_phishing"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -37,7 +37,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-preserv
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day3_transformer_phishing](https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day3_transformer_phishing)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day3_transformer_phishing]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day3_transformer_phishing))
 
 ## Key Features
 

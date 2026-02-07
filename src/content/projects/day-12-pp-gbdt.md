@@ -13,7 +13,7 @@ technologies:
   - Python
   - XGBoost
   - TenSEAL
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/privacy_preserving_gbdt"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/federated-classifiers/privacy_preserving_gbdt"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-preserv
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/privacy_preserving_gbdt](https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/privacy_preserving_gbdt)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/privacy_preserving_gbdt]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/federated-classifiers/privacy_preserving_gbdt))
 
 ## Key Features
 

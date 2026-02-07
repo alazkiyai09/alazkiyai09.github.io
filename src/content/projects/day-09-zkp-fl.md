@@ -13,7 +13,7 @@ technologies:
   - Python
   - pySnark
   - ZK-SNARKs
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/zkp_fl_verification"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/zkp_fl_verification"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on security-resear
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/zkp_fl_verification](https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/zkp_fl_verification)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/zkp_fl_verification]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/zkp_fl_verification))
 
 ## Key Features
 

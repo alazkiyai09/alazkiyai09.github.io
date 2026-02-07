@@ -14,7 +14,7 @@ technologies:
   - Scikit-learn
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/anomaly_detection_benchmark"
+repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/01_fraud_detection_core/anomaly_detection_benchmark"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -37,7 +37,7 @@ This project is part of the 30-day portfolio journey focusing on fraud-detection
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day06_anomaly_detection](https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day06_anomaly_detection)
+Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day06_anomaly_detection]((https://github.com/alazkiyai09/fl-security-research/tree/main/01_fraud_detection_core/day06_anomaly_detection))
 
 ## Key Features
 

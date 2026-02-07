@@ -13,7 +13,7 @@ technologies:
   - Python
   - Cryptography
   - PyTorch
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/verifiable_fl"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/verifiable_fl"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on security-resear
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/verifiable_fl](https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/verifiable_fl)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/verifiable_fl]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/verifiable_fl))
 
 ## Key Features
 

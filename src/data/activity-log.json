@@ -6,7 +6,7 @@
       "type": "portfolio_complete",
       "title": "Completed Production AI Portfolio",
       "description": "Finalized 10-project enterprise-grade AI portfolio featuring RAG systems, LangGraph agents, LLMOps pipelines, and production infrastructure. 292 Python files with 138+ tests.",
-      "projectRef": "production-ai-portfolio",
+      "projectRef": "enterprise-ai-systems",
       "tags": ["llm", "rag", "langgraph", "llmops", "production"],
       "metrics": {
         "linesOfCode": 85000,
@@ -14,14 +14,14 @@
         "testCases": 138
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/production-ai-portfolio" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/enterprise-ai-systems" }
       ]
     },
     {
       "id": "act-2026-02-05-001",
       "date": "2026-02-05T14:30:00Z",
       "type": "portfolio_complete",
-      "title": "Completed FedPhish Portfolio",
+      "title": "Completed privacy-preserving-phishing-detection Portfolio",
       "description": "Finished 21-day privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard, ZKP verification, and research paper.",
       "projectRef": "fedphish-portfolio",
       "tags": ["federated-learning", "phishing-detection", "privacy", "zkp", "production"],
@@ -31,7 +31,7 @@
         "testCases": 461
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/FedPhish" },
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection" },
         { "label": "Live Demo", "url": "https://fedphish-demo.vercel.app" }
       ]
     },
@@ -41,7 +41,7 @@
       "type": "portfolio_complete",
       "title": "Completed Federated Learning Security Portfolio",
       "description": "Finalized comprehensive 30-project portfolio on FL security. Features SignGuard novel defense system achieving 94.5% detection rate. 165,000+ lines of production code.",
-      "projectRef": "federated-learning-security-portfolio",
+      "projectRef": "fl-security-research",
       "tags": ["federated-learning", "security", "fraud-detection", "signguard", "research"],
       "metrics": {
         "linesOfCode": 165000,
@@ -50,7 +50,7 @@
         "qualityScore": 9.6
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/federated-learning-security-portfolio" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/fl-security-research" }
       ]
     },
     {
@@ -87,7 +87,7 @@
       "date": "2026-02-01T09:15:00Z",
       "type": "milestone_reached",
       "title": "Three Major GitHub Portfolios Completed",
-      "description": "Successfully completed three comprehensive portfolios: FL Security (30 projects), FedPhish (21 projects), and Production AI (10 projects). Combined 265,000+ lines of production code.",
+      "description": "Successfully completed three comprehensive portfolios: FL Security (30 projects), privacy-preserving-phishing-detection (21 projects), and Production AI (10 projects). Combined 265,000+ lines of production code.",
       "tags": ["milestone", "portfolio", "achievement"],
       "metrics": {
         "totalProjects": 61,

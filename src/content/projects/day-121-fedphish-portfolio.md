@@ -11,7 +11,7 @@ summary: "Complete 21-day portfolio documentation with project structure, result
 technologies:
   - LaTeX
   - Markdown
-repository: "https://github.com/alazkiyai09/FedPhish"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -32,7 +32,7 @@ This project is part of the 30-day portfolio journey focusing on security-resear
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish](https://github.com/alazkiyai09/FedPhish)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection))
 
 ## Key Features
 

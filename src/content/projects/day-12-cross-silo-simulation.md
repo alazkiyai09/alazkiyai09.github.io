@@ -12,7 +12,7 @@ technologies:
   - Python
   - Flower
   - PyTorch
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations"
+repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/02_federated_learning_foundations"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -34,7 +34,7 @@ This project is part of the 30-day portfolio journey focusing on federated-learn
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations/day12_cross_silo_simulation](https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations/day12_cross_silo_simulation)
+Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations/day12_cross_silo_simulation]((https://github.com/alazkiyai09/fl-security-research/tree/main/02_federated_learning_foundations/day12_cross_silo_simulation))
 
 ## Key Features
 

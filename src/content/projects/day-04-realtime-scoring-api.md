@@ -14,7 +14,7 @@ technologies:
   - FastAPI
   - Docker
   - Redis
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/fraud_scoring_api"
+repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/01_fraud_detection_core/fraud_scoring_api"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -37,7 +37,7 @@ This project is part of the 30-day portfolio journey focusing on fraud-detection
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day04_realtime_scoring_api](https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day04_realtime_scoring_api)
+Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day04_realtime_scoring_api]((https://github.com/alazkiyai09/fl-security-research/tree/main/01_fraud_detection_core/day04_realtime_scoring_api))
 
 ## Key Features
 

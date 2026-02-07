@@ -26,7 +26,7 @@ metrics:
   experimentsRun: 67
 startDate: "2025-03-01"
 completedDate: "2025-03-10"
-repository: "https://github.com/alazkiyai09/production-ai-portfolio"
+repository: "https://github.com/alazkiyai09/enterprise-ai-systems"
 ---
 
 ## Overview
@@ -303,7 +303,7 @@ REDIS_URL=redis://redis:6379
 
 ## License
 
-MIT License - See [LICENSE](https://github.com/alazkiyai09/production-ai-portfolio/blob/main/LICENSE) for details.
+MIT License - See [LICENSE]((https://github.com/alazkiyai09/enterprise-ai-systems/blob/main/LICENSE)) for details.
 
 ## Acknowledgments
 
