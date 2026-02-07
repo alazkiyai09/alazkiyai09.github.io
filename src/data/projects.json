@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "fl-security-research",
-      "title": "30-Day Federated Learning Security Portfolio",
+      "title": "Federated Learning Security Research Portfolio",
       "description": "A comprehensive 30-project portfolio exploring federated learning security. Features 165,000+ lines of code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard defense system.",
       "technologies": ["Python", "PyTorch", "Flower", "cryptography.io", "FastAPI", "Streamlit", "DP-SGD", "Opacus"],
       "achievements": [
@@ -19,8 +19,8 @@
     },
     {
       "id": "fedphish-portfolio",
-      "title": "privacy-preserving-phishing-detection: 21-Day Federated Phishing Detection",
-      "description": "A 21-project intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
+      "title": "Privacy-Preserving Phishing Detection Portfolio",
+      "description": "A comprehensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
       "technologies": ["PyTorch", "XGBoost", "DistilBERT", "TenSEAL", "Intel SGX", "ZK-SNARK", "ZK-STARK", "FastAPI", "React", "BLS signatures"],
       "achievements": [
         "20/20 projects completed across 5 categories",
