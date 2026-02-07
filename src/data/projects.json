@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "id": "federated-learning-security-portfolio",
+      "id": "fl-security-research",
       "title": "30-Day Federated Learning Security Portfolio",
       "description": "A comprehensive 30-project portfolio exploring federated learning security. Features 165,000+ lines of code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard defense system.",
       "technologies": ["Python", "PyTorch", "Flower", "cryptography.io", "FastAPI", "Streamlit", "DP-SGD", "Opacus"],
@@ -14,12 +14,12 @@
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio",
+      "repository": "https://github.com/alazkiyai09/fl-security-research",
       "categories": ["Fraud Detection Core", "FL Foundations", "Adversarial Attacks", "Defensive Techniques", "Security Research"]
     },
     {
       "id": "fedphish-portfolio",
-      "title": "FedPhish: 21-Day Federated Phishing Detection",
+      "title": "privacy-preserving-phishing-detection: 21-Day Federated Phishing Detection",
       "description": "A 21-day intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
       "technologies": ["PyTorch", "XGBoost", "DistilBERT", "TenSEAL", "Intel SGX", "ZK-SNARK", "ZK-STARK", "FastAPI", "React", "BLS signatures"],
       "achievements": [
@@ -31,11 +31,11 @@
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/FedPhish",
+      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
       "categories": ["Foundations", "Privacy Techniques", "Verifiable FL", "Federated Classifiers", "Capstone"]
     },
     {
-      "id": "production-ai-portfolio",
+      "id": "enterprise-ai-systems",
       "title": "Production AI Portfolio - 10 Enterprise Projects",
       "description": "Enterprise-grade portfolio showcasing production-ready AI systems including RAG applications, LangGraph agents, LLMOps pipelines, and scalable infrastructure.",
       "technologies": ["FastAPI", "LangChain", "LangGraph", "React", "TypeScript", "Redis", "Celery", "CLIP", "RAGAS", "Prometheus", "Grafana", "Kubernetes", "Docker"],
@@ -48,7 +48,7 @@
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/production-ai-portfolio",
+      "repository": "https://github.com/alazkiyai09/enterprise-ai-systems",
       "categories": ["RAG Systems", "LangGraph Agents", "LLMOps", "Infrastructure"]
     },
     {

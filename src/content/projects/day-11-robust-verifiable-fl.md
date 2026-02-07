@@ -13,7 +13,7 @@ technologies:
   - Python
   - PyTorch
   - ZK-SNARKs
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/robust_verifiable_phishing_fl"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/robust_verifiable_phishing_fl"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on security-resear
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/robust_verifiable_phishing_fl](https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/robust_verifiable_phishing_fl)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/robust_verifiable_phishing_fl]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/robust_verifiable_phishing_fl))
 
 ## Key Features
 

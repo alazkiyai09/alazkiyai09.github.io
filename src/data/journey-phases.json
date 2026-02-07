@@ -7,16 +7,16 @@
       "status": "completed",
       "projects": ["SignGuard", "Secure Aggregation", "Privacy Pipeline", "Security Dashboard"],
       "skills": ["PyTorch", "Flower", "Cryptography", "DP-SGD", "Byzantine-Robust FL"],
-      "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio"
+      "repository": "https://github.com/alazkiyai09/fl-security-research"
     },
     {
       "name": "Privacy-Preserving Phishing Detection",
       "days": "21 Projects",
       "description": "Federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs",
       "status": "completed",
-      "projects": ["FedPhish System", "HE+TEE Protocol", "ZK Verification", "React Dashboard"],
+      "projects": ["privacy-preserving-phishing-detection System", "HE+TEE Protocol", "ZK Verification", "React Dashboard"],
       "skills": ["Homomorphic Encryption", "Intel SGX", "ZK-SNARK", "BLS Signatures"],
-      "repository": "https://github.com/alazkiyai09/FedPhish"
+      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection"
     },
     {
       "name": "Enterprise AI Systems Portfolio",
@@ -25,7 +25,7 @@
       "status": "completed",
       "projects": ["Enterprise-RAG", "CustomerSupport-Agent", "LLMOps-Eval", "DataChat-RAG"],
       "skills": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "Kubernetes"],
-      "repository": "https://github.com/alazkiyai09/production-ai-portfolio"
+      "repository": "https://github.com/alazkiyai09/enterprise-ai-systems"
     },
     {
       "name": "Steganography Research",

@@ -14,7 +14,7 @@ technologies:
   - TypeScript
   - FastAPI
   - Plotly
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/capstone/fedphish-dashboard"
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
 ---
@@ -36,7 +36,7 @@ This project is part of the 21-day FedPhish portfolio focusing on security-resea
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard](https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/capstone/fedphish-dashboard))
 
 ## Key Features
 

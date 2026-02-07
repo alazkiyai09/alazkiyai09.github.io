@@ -26,7 +26,7 @@ metrics:
   experimentsRun: 89
 startDate: "2025-02-01"
 completedDate: "2025-02-21"
-repository: "https://github.com/alazkiyai09/FedPhish"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection"
 ---
 
 ## Overview
@@ -237,7 +237,7 @@ Features:
 
 ## License
 
-MIT License - See [LICENSE](https://github.com/alazkiyai09/FedPhish/blob/main/LICENSE) for details.
+MIT License - See [LICENSE]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/blob/main/LICENSE)) for details.
 
 ## Acknowledgments
 

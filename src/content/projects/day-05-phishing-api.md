@@ -14,7 +14,7 @@ technologies:
   - FastAPI
   - Docker
   - Redis
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/unified-phishing-api"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/unified-phishing-api"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -37,7 +37,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-preserv
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/unified-phishing-api](https://github.com/alazkiyai09/FedPhish/tree/main/foundations/unified-phishing-api)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/unified-phishing-api]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/unified-phishing-api))
 
 ## Key Features
 

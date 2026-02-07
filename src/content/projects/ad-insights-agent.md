@@ -13,7 +13,7 @@ technologies:
   - Python
   - LangGraph
   - Pandas
-repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/AdInsights-Agent"
+repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/AdInsights-Agent"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on production-ai.
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/AdInsights-Agent](https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/AdInsights-Agent)
+Full source code available on GitHub: [https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/AdInsights-Agent]((https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/AdInsights-Agent))
 
 ## Key Features
 

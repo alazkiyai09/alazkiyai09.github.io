@@ -15,7 +15,7 @@ technologies:
   - FastAPI
   - ChromaDB
   - WebSocket
-repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/CustomerSupport-Agent"
+repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/CustomerSupport-Agent"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -39,7 +39,7 @@ This project is part of the 30-day portfolio journey focusing on production-ai.
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/CustomerSupport-Agent](https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/CustomerSupport-Agent)
+Full source code available on GitHub: [https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/CustomerSupport-Agent]((https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/CustomerSupport-Agent))
 
 ## Key Features
 

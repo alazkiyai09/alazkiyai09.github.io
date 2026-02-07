@@ -13,7 +13,7 @@ technologies:
   - Python
   - XGBoost
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day2_classical_ml_benchmark"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day2_classical_ml_benchmark"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-preserv
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day2_classical_ml_benchmark](https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day2_classical_ml_benchmark)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day2_classical_ml_benchmark]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day2_classical_ml_benchmark))
 
 ## Key Features
 

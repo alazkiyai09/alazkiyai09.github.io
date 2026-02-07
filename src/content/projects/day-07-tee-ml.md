@@ -13,7 +13,7 @@ technologies:
   - Python
   - Intel SGX
   - OpenEnclave
-repository: "https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/tee_project"
+repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/privacy-techniques/tee_project"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -35,7 +35,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-preserv
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/tee_project](https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/tee_project)
+Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/tee_project]((https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/privacy-techniques/tee_project))
 
 ## Key Features
 

@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/membership_inference_attack"
+repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/membership_inference_attack"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
@@ -34,7 +34,7 @@ This project is part of the 30-day portfolio journey focusing on privacy-attacks
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day25_membership_inference](https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day25_membership_inference)
+Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day25_membership_inference]((https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/day25_membership_inference))
 
 ## Key Features
 

@@ -26,7 +26,7 @@ metrics:
   experimentsRun: 156
 startDate: "2025-01-01"
 completedDate: "2025-01-30"
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio"
+repository: "https://github.com/alazkiyai09/fl-security-research"
 ---
 
 ## Overview
@@ -194,4 +194,4 @@ This portfolio demonstrates:
 
 ## License
 
-MIT License - See [LICENSE](https://github.com/alazkiyai09/federated-learning-security-portfolio/blob/main/LICENSE) for details.
+MIT License - See [LICENSE]((https://github.com/alazkiyai09/fl-security-research/blob/main/LICENSE)) for details.
