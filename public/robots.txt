@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://azka.github.io/sitemap-index.xml
+Sitemap: https://alazkiyai09.github.io/sitemap.xml

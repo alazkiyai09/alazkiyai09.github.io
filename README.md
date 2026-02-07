@@ -98,7 +98,7 @@ The site is automatically deployed to GitHub Pages when pushing to the `main` br
 
 1. Push to `main` branch
 2. GitHub Actions will build and deploy
-3. Site will be available at `https://azka.github.io`
+3. Site will be available at `https://alazkiyai09.github.io`
 
 ## License
 
@@ -106,6 +106,6 @@ MIT
 
 ## Contact
 
-- GitHub: [@azka](https://github.com/azka)
-- LinkedIn: [azka](https://linkedin.com/in/azka)
-- Email: azka@example.com
+- GitHub: [@alazkiyai09](https://github.com/alazkiyai09)
+- LinkedIn: [azka-alazkiyai](https://linkedin.com/in/azka-alazkiyai)
+- Email: azka.alazkiyai@outlook.com

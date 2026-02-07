@@ -42,20 +42,21 @@ export async function fetchGitHubStats(username: string): Promise<GitHubStats | 
 
     const repos = await reposResponse.json();
 
-    // Calculate statistics
+    // Calculate statistics across all repositories
     const languages: Record<string, number> = {};
     let totalStars = 0;
     let totalForks = 0;
-
-    // Get recent repos (last 6 updated)
-    const recentRepos = repos.slice(0, 6).map((repo: any) => {
+    repos.forEach((repo: any) => {
       totalStars += repo.stargazers_count;
       totalForks += repo.forks_count;
 
       if (repo.language) {
         languages[repo.language] = (languages[repo.language] || 0) + 1;
       }
+    });
 
+    // Keep only the 6 most recently updated repos for display
+    const recentRepos = repos.slice(0, 6).map((repo: any) => {
       return {
         name: repo.name,
         description: repo.description,
