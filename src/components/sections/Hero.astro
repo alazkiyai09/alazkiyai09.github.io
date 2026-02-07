@@ -3,16 +3,14 @@ import Button from '../ui/Button.astro';
 import profile from '../../data/profile.json';
 import activityLog from '../../data/activity-log.json';
 import publications from '../../data/publications.json';
-import achievements from '../../data/achievements.json';
 
 const { name, title, location, status, contact, achievements: profileAchievements } = profile;
 
 // Portfolio proof metrics - use profile data if available
-const completedProjects = profileAchievements?.totalProjects || 67;
+const completedProjects = profileAchievements?.totalProjects || 76;
 const totalPublications = profileAchievements?.totalPublications || publications.publications.length || 2;
 const yearsExp = profileAchievements?.yearsExperience || 3;
 const totalPortfolios = profileAchievements?.totalPortfolios || 4;
-const totalLinesOfCode = profileAchievements?.linesOfCode || 265000;
 
 const portfolioSummary = activityLog.activities
   .filter((item) => item.type === 'portfolio_complete')
