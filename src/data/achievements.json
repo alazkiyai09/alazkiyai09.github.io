@@ -1,0 +1,122 @@
+{
+  "achievements": [
+    {
+      "id": "signguard",
+      "title": "SignGuard: Novel FL Defense System",
+      "description": "Developed a multi-layer defense system combining ECDSA signatures, anomaly detection, and dynamic reputation scoring for federated learning.",
+      "metrics": {
+        "detectionRate": "94.5%",
+        "falsePositiveRate": "3.2%",
+        "accuracy": "92.8%"
+      },
+      "comparison": {
+        "baseline": "SignGuard achieves 94.5% Byzantine attack detection compared to FoolsGold (81.2%), Multi-Krum (72.3%), and Krum (68.5%)"
+      },
+      "technologies": ["ECDSA", "PyTorch", "Flower", "Cryptography", "Reputation Systems"],
+      "repository": "https://github.com/alazkiyai09/signguard",
+      "category": "research"
+    },
+    {
+      "id": "fl-security-portfolio",
+      "title": "30-Day FL Security Portfolio",
+      "description": "Completed comprehensive 30-project research portfolio on federated learning security with 165,000+ lines of production code.",
+      "metrics": {
+        "projects": 30,
+        "linesOfCode": 165000,
+        "testFiles": 150,
+        "qualityScore": 9.6
+      },
+      "categories": [
+        "Fraud Detection Core (7 projects)",
+        "FL Foundations (6 projects)",
+        "Adversarial Attacks (6 projects)",
+        "Defensive Techniques (6 projects)",
+        "Security Research (5 projects)"
+      ],
+      "technologies": ["PyTorch", "Flower", "TensorFlow", "cryptography.io", "FastAPI"],
+      "repository": "https://github.com/alazkiyai09/fl-security-research",
+      "category": "portfolio"
+    },
+    {
+      "id": "fedphish-portfolio",
+      "title": "FedPhish: Privacy-Preserving Phishing Detection",
+      "description": "21-project portfolio on federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs.",
+      "metrics": {
+        "projects": 21,
+        "linesOfCode": 50000,
+        "testCases": 461,
+        "accuracy": "96.4%"
+      },
+      "features": [
+        "Homomorphic encryption with TenSEAL",
+        "Zero-knowledge proof verification",
+        "Trusted Execution Environment (Intel SGX)",
+        "React dashboard for monitoring"
+      ],
+      "technologies": ["PyTorch", "TenSEAL", "libsnark", "circom", "Intel SGX", "FastAPI", "React"],
+      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
+      "demo": "https://fedphish-demo.vercel.app",
+      "category": "portfolio"
+    },
+    {
+      "id": "enterprise-ai-portfolio",
+      "title": "Enterprise AI Systems Portfolio",
+      "description": "10-project production-grade portfolio featuring RAG systems, LangGraph agents, and LLMOps pipelines.",
+      "metrics": {
+        "projects": 10,
+        "linesOfCode": 85000,
+        "testCases": 138
+      },
+      "systems": [
+        "Enterprise-RAG: Document intelligence system",
+        "FraudDocs-RAG: Financial fraud document analysis",
+        "MultiModal-RAG: Multi-modal RAG implementation",
+        "LangGraph Agents: Customer support, fraud triage, ad insights",
+        "LLMOps-Eval: LLM evaluation framework"
+      ],
+      "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "ChromaDB", "Qdrant"],
+      "repository": "https://github.com/alazkiyai09/enterprise-ai-systems",
+      "category": "portfolio"
+    },
+    {
+      "id": "steganography-research",
+      "title": "Published Steganography Research",
+      "description": "Research on PVD+LSB+Modulo encoding published in Springer LNNS volume 285.",
+      "metrics": {
+        "images": 131,
+        "messageSizes": 10,
+        "trials": 1310
+      },
+      "techniques": [
+        "Pixel Value Differencing (PVD)",
+        "Least Significant Bit (LSB)",
+        "Modulo encoding",
+        "NIST SP 800-90A CTR_DRBG with AES-128"
+      ],
+      "metricsUsed": ["PSNR", "MSE", "SSIM"],
+      "publisher": "Springer LNNS (Lecture Notes in Networks and Systems)",
+      "volume": 285,
+      "repository": "https://github.com/alazkiyai09/pvd-lsb-modulo-steganography",
+      "category": "publication"
+    },
+    {
+      "id": "fraudware-analyzer",
+      "title": "Fraudware Analyzer: Static Analysis Framework",
+      "description": "Banking trojan detection framework using static analysis and YARA rules.",
+      "metrics": {
+        "samples": 100,
+        "yaraRules": 50,
+        "apis": 200
+      },
+      "features": [
+        "PE file analysis",
+        "API call extraction",
+        "YARA rule matching",
+        "ML-based classification"
+      ],
+      "technologies": ["Python", "YARA", "pefile", "scikit-learn", "XGBoost"],
+      "repository": "https://github.com/alazkiyai09/fraudware-analyzer",
+      "category": "tool"
+    }
+  ]
+}

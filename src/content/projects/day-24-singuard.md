@@ -37,7 +37,7 @@ This project is part of the research portfolio focusing on security-research.
 
 ## Repository
 
-Full source code available on GitHub: [https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day24_singuard]((https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/day24_singuard))
+Full source code available on GitHub: [https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/signguard](https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/signguard)
 
 ## Key Features
 

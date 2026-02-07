@@ -31,7 +31,7 @@ repository: "https://github.com/alazkiyai09/fl-security-research"
 
 ## Overview
 
-The Federated Learning Security Portfolio is a comprehensive comprehensive research and development journey exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
+The Federated Learning Security Portfolio is a comprehensive research and development journey exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
 
 ## Portfolio Statistics
 
@@ -119,33 +119,33 @@ The flagship contribution of this portfolio is **SignGuard**, a novel defense me
 
 ```
 federated-learning-security-portfolio/
-├── day_01_06_fraud_detection/
+├── 01_fraud_detection_core/
 │   ├── baseline_xgboost.py
 │   ├── federated_averaging.py
 │   ├── preprocessing_pipeline.py
 │   └── multi_bank_simulation.py
-├── day_07_12_fl_foundations/
+├── 02_federated_learning_foundations/
 │   ├── custom_server.py
 │   ├── client_selection.py
 │   └── secure_aggregation.py
-├── day_13_18_adversarial_attacks/
+├── 03_adversarial_attacks/
 │   ├── label_flipping.py
 │   ├── data_poisoning.py
 │   ├── backdoor_attack.py
 │   └── lira_attack.py
-├── day_19_24_defensive_techniques/
+├── 04_defensive_techniques/
 │   ├── krum_aggregation.py
 │   ├── zkp_integration.py
 │   └── reputation_system.py
-├── day_25_30_security_research/
+├── 05_security_research/
 │   ├── cross_silo_fl.py
+│   ├── signguard/
+│   │   ├── core/
+│   │   │   ├── signature.py
+│   │   │   ├── reputation.py
+│   │   │   └── aggregator.py
+│   │   └── experiments/
 │   └── threat_intelligence.py
-├── signguard/
-│   ├── core/
-│   │   ├── signature.py
-│   │   ├── reputation.py
-│   │   └── aggregator.py
-│   └── experiments/
 └── documentation/
     ├── RESEARCH_NOTES.md
     └── ARCHITECTURE.md
@@ -194,4 +194,4 @@ This portfolio demonstrates:
 
 ## License
 
-MIT License - See [LICENSE]((https://github.com/alazkiyai09/fl-security-research/blob/main/LICENSE)) for details.
+MIT License - See [LICENSE](https://github.com/alazkiyai09/fl-security-research/blob/main/LICENSE) for details.
