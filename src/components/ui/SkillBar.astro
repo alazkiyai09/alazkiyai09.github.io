@@ -36,7 +36,7 @@ const colors: Record<string, string> = {
 
 const barColor = colors[color] || colors.blue;
 // Generate unique ID for this skill bar
-const barId = `skill-bar-${Math.random().toString(36).substr(2, 9)}`;
+const barId = `skill-bar-${Math.random().toString(36).substring(2, 11)}`;
 ---
 
 <div class={className}>
