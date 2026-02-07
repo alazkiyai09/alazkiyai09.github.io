@@ -1,5 +1,5 @@
 ---
-title: "PaperStego: Published Steganography Research"
+title: "Steganography Research (Published)"
 day: 300
 status: "completed"
 category: "security-research"

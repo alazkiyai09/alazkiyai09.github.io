@@ -1,36 +1,36 @@
 {
   "phases": [
     {
-      "name": "30-Day FL Security Portfolio",
-      "days": "30 Days",
-      "description": "Comprehensive federated learning security research with 30 projects",
+      "name": "FL Security Research Portfolio",
+      "days": "30 Projects",
+      "description": "Comprehensive federated learning security research with Byzantine attacks, privacy defenses, and cryptographic verification",
       "status": "completed",
       "projects": ["SignGuard", "Secure Aggregation", "Privacy Pipeline", "Security Dashboard"],
       "skills": ["PyTorch", "Flower", "Cryptography", "DP-SGD", "Byzantine-Robust FL"],
       "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio"
     },
     {
-      "name": "21-Day FedPhish Portfolio",
-      "days": "21 Days",
-      "description": "Privacy-preserving federated phishing detection system",
+      "name": "Privacy-Preserving Phishing Detection",
+      "days": "21 Projects",
+      "description": "Federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs",
       "status": "completed",
       "projects": ["FedPhish System", "HE+TEE Protocol", "ZK Verification", "React Dashboard"],
       "skills": ["Homomorphic Encryption", "Intel SGX", "ZK-SNARK", "BLS Signatures"],
       "repository": "https://github.com/alazkiyai09/FedPhish"
     },
     {
-      "name": "Production AI Portfolio",
+      "name": "Enterprise AI Systems Portfolio",
       "days": "10 Projects",
-      "description": "Enterprise-grade AI systems with RAG and LangGraph agents",
+      "description": "Production-grade AI systems with RAG, LangGraph agents, and LLMOps pipelines",
       "status": "completed",
       "projects": ["Enterprise-RAG", "CustomerSupport-Agent", "LLMOps-Eval", "DataChat-RAG"],
       "skills": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "Kubernetes"],
       "repository": "https://github.com/alazkiyai09/production-ai-portfolio"
     },
     {
-      "name": "PaperStego Research",
-      "days": "1 Paper",
-      "description": "Published steganography research with Springer LNNS",
+      "name": "Steganography Research",
+      "days": "Published",
+      "description": "Published research in steganography with Springer LNNS (vol 285)",
       "status": "completed",
       "projects": ["PVD+LSB+Modulo Encoding", "CTR_DRBG", "Experiments (131 images)"],
       "skills": ["Image Processing", "Steganography", "AES-128", "OpenCV"],

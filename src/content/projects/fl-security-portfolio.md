@@ -1,5 +1,5 @@
 ---
-title: "Federated Learning Security Portfolio"
+title: "FL Security Research Portfolio"
 status: "completed"
 category: "federated-learning-security"
 tags:
@@ -9,7 +9,7 @@ tags:
   - adversarial-attacks
   - defensive-techniques
   - research
-summary: "A comprehensive 30-project portfolio exploring the intersection of federated learning and security. Features 165,000+ lines of production code covering fraud detection, adversarial attacks, defensive mechanisms, and cutting-edge security research."
+summary: "A comprehensive 30-project research portfolio exploring federated learning security. Features 165,000+ lines of production code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard multi-layer defense system."
 technologies:
   - Python
   - PyTorch
