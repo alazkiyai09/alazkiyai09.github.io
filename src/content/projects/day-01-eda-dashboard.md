@@ -14,7 +14,7 @@ technologies:
   - Plotly
   - Pandas
   - Streamlit
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day01_eda_dashboard"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/fraud_detection_eda_dashboard"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

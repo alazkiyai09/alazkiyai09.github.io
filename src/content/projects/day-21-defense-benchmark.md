@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - Matplotlib
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/04_defensive_techniques/day21_defense_benchmark"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/04_defensive_techniques"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

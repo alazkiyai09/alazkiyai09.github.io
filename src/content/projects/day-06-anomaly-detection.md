@@ -14,7 +14,7 @@ technologies:
   - Scikit-learn
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day06_anomaly_detection"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/anomaly_detection_benchmark"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

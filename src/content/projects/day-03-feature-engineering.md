@@ -14,7 +14,7 @@ technologies:
   - Pandas
   - NumPy
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/day03_feature_engineering"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/fraud_feature_engineering"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

@@ -12,7 +12,7 @@ technologies:
   - Python
   - NumPy
   - PyTorch
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations/day09_non_iid_partitioner"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

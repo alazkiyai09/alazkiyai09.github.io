@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day25_membership_inference"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/membership_inference_attack"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

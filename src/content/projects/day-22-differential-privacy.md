@@ -13,7 +13,7 @@ technologies:
   - Python
   - PyTorch
   - Opacus
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations/day22_differential_privacy"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/02_federated_learning_foundations"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
