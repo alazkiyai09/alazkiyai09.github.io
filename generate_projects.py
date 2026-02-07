@@ -504,7 +504,6 @@ fedphish_projects = [
         "tags": ["dashboard", "react", "monitoring", "visualization"],
         "technologies": ["React", "TypeScript", "FastAPI", "Plotly"],
         "summary": "Real-time monitoring dashboard for FedPhish system with client status and performance metrics.",
-        "demo": "https://fedphish-dashboard.vercel.app",
         "repository": "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard"
     },
     {
