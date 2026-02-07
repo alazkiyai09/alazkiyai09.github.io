@@ -29,26 +29,26 @@ const edu = education.education[0];
           <div>
             <h3 class="text-xl font-bold mb-3">Current Focus</h3>
             <p class="text-slate-600 dark:text-slate-400">
-              I'm currently working on a 30-day portfolio journey demonstrating my expertise
-              in federated learning security, with projects spanning from fraud detection
-              baselines to advanced cryptographic verification systems.
+              I've completed 67 projects across 4 comprehensive portfolios covering federated learning security,
+              privacy-preserving phishing detection, production AI systems, and published steganography research.
+              Currently focused on advancing trustworthy AI through adversarial robustness and cryptographic security.
             </p>
           </div>
 
           <div>
-            <h3 class="text-xl font-bold mb-3">Research Goals</h3>
+            <h3 class="text-xl font-bold mb-3">Research Interests</h3>
             <ul class="space-y-2">
               {[
-                'Develop Byzantine-resilient federated learning systems',
-                'Create privacy-preserving ML for financial applications',
-                'Advance verifiable AI using cryptographic methods',
-                'Bridge the gap between research and production ML'
-              ].map((goal) => (
+                'Federated Learning Security (Byzantine robustness, secure aggregation)',
+                'Adversarial Machine Learning (Poisoning attacks, membership inference)',
+                'Privacy-Preserving AI (Differential privacy, homomorphic encryption, ZK proofs)',
+                'Cryptographic Security (ECDSA, commitment schemes, verifiable computation)'
+              ].map((interest) => (
                 <li class="flex items-start gap-2 text-slate-600 dark:text-slate-400">
                   <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                   </svg>
-                  <span>{goal}</span>
+                  <span>{interest}</span>
                 </li>
               ))}
             </ul>

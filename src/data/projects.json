@@ -2,74 +2,70 @@
   "projects": [
     {
       "id": "federated-learning-security-portfolio",
-      "title": "Federated Learning Security Portfolio",
-      "description": "A comprehensive 30-project portfolio exploring federated learning security. Features 165,000+ lines of code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard defense system achieving 94.5% detection rate.",
-      "technologies": ["Python", "PyTorch", "Flower", "cryptography.io", "FastAPI", "Streamlit"],
+      "title": "30-Day Federated Learning Security Portfolio",
+      "description": "A comprehensive 30-project portfolio exploring federated learning security. Features 165,000+ lines of code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard defense system.",
+      "technologies": ["Python", "PyTorch", "Flower", "cryptography.io", "FastAPI", "Streamlit", "DP-SGD", "Opacus"],
       "achievements": [
-        "30 projects across 5 categories: Fraud Detection, FL Foundations, Adversarial Attacks, Defensive Techniques, Security Research",
-        "SignGuard: Novel ECDSA-based defense with 94.5% detection rate, 3.2% false positives",
-        "165,000+ LOC with 150+ test files and comprehensive documentation",
-        "9.6/10 average quality score across all projects"
+        "30/30 projects completed (100%) across 5 categories",
+        "758 Python files, 101 test files, 23 Jupyter notebooks",
+        "~165,000 lines of code with 9.6/10 quality score",
+        "SignGuard: Multi-layer defense with ECDSA + Anomaly Detection + Reputation",
+        "Publication-ready capstone research paper"
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio"
+      "repository": "https://github.com/alazkiyai09/federated-learning-security-portfolio",
+      "categories": ["Fraud Detection Core", "FL Foundations", "Adversarial Attacks", "Defensive Techniques", "Security Research"]
     },
     {
       "id": "fedphish-portfolio",
-      "title": "FedPhish: Federated Phishing Detection Portfolio",
-      "description": "A 21-day intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 461 tests, React dashboard, and research paper on ZKP-based verification.",
-      "technologies": ["PyTorch", "XGBoost", "DistilBERT", "TenSEAL", "libsnark", "Intel SGX", "FastAPI", "React"],
+      "title": "FedPhish: 21-Day Federated Phishing Detection",
+      "description": "A 21-day intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
+      "technologies": ["PyTorch", "XGBoost", "DistilBERT", "TenSEAL", "Intel SGX", "ZK-SNARK", "ZK-STARK", "FastAPI", "React", "BLS signatures"],
       "achievements": [
-        "21 projects implementing privacy-preserving ML for phishing detection",
-        "Zero-Knowledge Proof integration for verifiable federated learning",
+        "20/20 projects completed across 5 categories",
+        "Privacy techniques: HE (CKKS, BFV), TEE (Intel SGX), ZK proofs",
         "Production system with React dashboard and comprehensive API",
-        "96.4% accuracy with privacy-preserving federated learning"
+        "Privacy-preserving GBDT with HE encryption (69 tests)",
+        "Hybrid HE + TEE protocol implementation"
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/FedPhish"
+      "repository": "https://github.com/alazkiyai09/FedPhish",
+      "categories": ["Foundations", "Privacy Techniques", "Verifiable FL", "Federated Classifiers", "Capstone"]
     },
     {
       "id": "production-ai-portfolio",
-      "title": "Production AI Portfolio",
-      "description": "Enterprise-grade portfolio showcasing production-ready AI systems including RAG applications (95% accuracy, <500ms latency), LangGraph agents, LLMOps pipelines, and scalable infrastructure.",
-      "technologies": ["FastAPI", "LangChain", "LangGraph", "LlamaIndex", "ChromaDB", "Qdrant", "Docker", "Kubernetes"],
+      "title": "Production AI Portfolio - 10 Enterprise Projects",
+      "description": "Enterprise-grade portfolio showcasing production-ready AI systems including RAG applications, LangGraph agents, LLMOps pipelines, and scalable infrastructure.",
+      "technologies": ["FastAPI", "LangChain", "LangGraph", "React", "TypeScript", "Redis", "Celery", "CLIP", "RAGAS", "Prometheus", "Grafana", "Kubernetes", "Docker"],
       "achievements": [
-        "10 enterprise-grade projects with 292 Python files",
-        "Enterprise-RAG: 95% accuracy with <500ms p95 latency",
-        "StreamProcess-Pipeline: 10,000+ events/second throughput",
-        "Complete LLMOps stack with monitoring, evaluation, and A/B testing"
+        "10/10 enterprise-grade projects with 8.45/10 average rating",
+        "RAG Systems (4): Enterprise-RAG (9/10), MultiModal-RAG, DataChat-RAG, fraud-docs-rag",
+        "LangGraph Agents (3): CustomerSupport-Agent (9/10), FraudTriage-Agent, AdInsights-Agent",
+        "LLMOps-Eval (10/10): LLM evaluation with 9 metrics",
+        "Security score improved from 4→0 critical issues"
       ],
       "status": "completed",
       "year": "2025",
-      "repository": "https://github.com/alazkiyai09/production-ai-portfolio"
+      "repository": "https://github.com/alazkiyai09/production-ai-portfolio",
+      "categories": ["RAG Systems", "LangGraph Agents", "LLMOps", "Infrastructure"]
     },
     {
-      "id": "macroeconomic-forecasting",
-      "title": "Macroeconomic Forecasting with Deep Learning",
-      "description": "Developed hybrid CNN-LSTM and GRU-LSTM architectures for multi-step GDP forecasting using 26 years of Indonesian macroeconomic data (1997-2023).",
-      "technologies": ["Python", "TensorFlow", "Keras", "CNN", "LSTM", "GRU"],
+      "id": "paperstego-research",
+      "title": "PaperStego: Published Steganography Research",
+      "description": "Published research on improving steganography imperceptibility using PVD, LSB substitution, and modulo encoding with NIST SP 800-90A CTR_DRBG.",
+      "technologies": ["Python", "OpenCV", "NumPy", "PyCryptodome", "AES-128", "scikit-image", "Matplotlib"],
       "achievements": [
-        "Achieved 9.83 RMSE through systematic hyperparameter optimization",
-        "Implemented feature engineering (lag creation, windowing)",
-        "Cross-model benchmarking against traditional statistical methods"
+        "Published in Springer LNNS (vol 285)",
+        "7 projects: Proposed method, 2 baselines, 3 experiment frameworks",
+        "131 test images × 10 message sizes = 1,310 embedding trials",
+        "Evaluated using PSNR, MSE, and SSIM metrics"
       ],
       "status": "completed",
-      "year": "2024"
-    },
-    {
-      "id": "stock-analysis",
-      "title": "Quantitative Stock Analysis & Prediction System",
-      "description": "Built end-to-end pipeline for all IDX-listed stocks: data collection, technical indicator computation (RSI, MACD, EMA, ATR), and ML-based price prediction.",
-      "technologies": ["Python", "XGBoost", "LSTM", "Random Forest", "Pandas"],
-      "achievements": [
-        "Implemented ensemble models (Random Forest, XGBoost, LSTM)",
-        "Built backtesting framework for strategy validation",
-        "Performance optimization through hyperparameter tuning"
-      ],
-      "status": "completed",
-      "year": "2024"
+      "year": "2023",
+      "repository": "https://github.com/alazkiyai09/pvd-lsb-modulo-steganography",
+      "categories": ["Proposed Method", "Baseline Methods", "Experiment Framework"]
     }
   ]
 }

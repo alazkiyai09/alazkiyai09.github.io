@@ -10,7 +10,8 @@
       "year": 2021,
       "doi": "10.1007/978-3-030-80129-8_57",
       "type": "journal",
-      "url": "https://doi.org/10.1007/978-3-030-80129-8_57"
+      "url": "https://doi.org/10.1007/978-3-030-80129-8_57",
+      "description": "Novel steganographic method combining PVD, LSB substitution, and modulo encoding with NIST SP 800-90A CTR_DRBG for improved imperceptibility."
     },
     {
       "id": "crypto-2020",
@@ -22,7 +23,23 @@
       "year": 2020,
       "doi": "10.1109/ICoDSA50139.2020.9212968",
       "type": "conference",
-      "url": "https://doi.org/10.1109/ICoDSA50139.2020.9212968"
+      "url": "https://doi.org/10.1109/ICoDSA50139.2020.9212968",
+      "description": "Cryptocurrency price prediction using intelligent algorithms for financial stability monitoring."
+    }
+  ],
+  "inProgress": [
+    {
+      "id": "signguard-paper",
+      "title": "SignGuard: Multi-Layer Defense System for Federated Learning",
+      "status": "In Progress",
+      "description": "Comprehensive defense system combining ECDSA authentication, multi-factor anomaly detection, time-decay reputation system, and adaptive aggregation weights.",
+      "targetVenues": ["IEEE S&P", "USENIX Security", "ACM CCS", "NDSS", "ICML", "NeurIPS"]
+    },
+    {
+      "id": "fedphish-paper",
+      "title": "Privacy-Preserving Federated Phishing Detection",
+      "status": "Documentation Phase",
+      "description": "Research on hybrid HE + TEE protocol for privacy-preserving phishing detection with ZK proofs for verifiable aggregation."
     }
   ]
 }

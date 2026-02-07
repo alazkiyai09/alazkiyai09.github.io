@@ -1,11 +1,11 @@
 {
   "name": "Ahmad Whafa Azka Al Azkiyai",
   "displayName": "Azka Al Azkiyai",
-  "title": "Fraud Detection & AI Security Specialist",
+  "title": "AI Security Researcher & Fraud Detection Specialist",
   "tagline": "Federated Learning Security | Adversarial ML | Privacy-Preserving AI",
   "location": {
-    "city": "Jakarta",
-    "region": "DKI Jakarta",
+    "city": "South Tangerang",
+    "region": "Banten",
     "country": "Indonesia",
     "flag": "🇮🇩",
     "timezone": "Asia/Jakarta",
@@ -13,11 +13,11 @@
   },
   "status": {
     "current": "Open to Opportunities",
-    "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities"]
+    "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities", "Full-time positions"]
   },
   "bio": {
-    "short": "Published researcher and AI practitioner with 3+ years experience building enterprise-scale fraud detection systems. Research interests: federated learning security, adversarial ML, privacy-preserving AI.",
-    "long": "Published researcher and AI practitioner with 3+ years of experience building and operating enterprise-scale fraud detection systems for major Indonesian financial institutions. Combines deep domain expertise in financial security with hands-on machine learning engineering, having developed production ML pipelines processing millions of real-time transactions."
+    "short": "AI Security Researcher & Fraud Detection Specialist with 3+ years experience. 67 completed projects across AI Security, Federated Learning, and Production AI. Published researcher focusing on trustworthy AI systems.",
+    "long": "AI Security Researcher & Fraud Detection Specialist with over 3 years of experience in banking fraud detection. My work focuses on securing federated learning systems against adversarial attacks while preserving data privacy through cryptographic techniques. I have completed 67 projects across AI Security, Federated Learning, and Production AI systems, with published research in steganography (Springer LNNS vol 285)."
   },
   "contact": {
     "email": "azka.alazkiyai@outlook.com",
@@ -28,5 +28,10 @@
     "linkedin": "https://www.linkedin.com/in/azka-alazkiyai/",
     "googleScholar": ""
   },
-  "resume": ""
+  "resume": "",
+  "taglines": [
+    "Building trustworthy AI systems through adversarial robustness",
+    "3+ years detecting financial fraud, now securing federated learning",
+    "Privacy-preserving machine learning for the next generation of AI"
+  ]
 }

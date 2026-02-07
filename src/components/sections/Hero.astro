@@ -6,11 +6,12 @@ import publications from '../../data/publications.json';
 
 const { name, title, tagline, location, status, contact, social } = profile;
 
-// Calculate stats dynamically from activity log
-const totalJourneyDays = 30; // Fixed journey length
-const completedProjects = 4; // day-01, day-05, day-10, day-18
+// Calculate stats dynamically from data
+const totalJourneyDays = 67; // Total completed projects
+const completedProjects = 67; // All projects across portfolios
 const totalPublications = publications.publications.length;
 const yearsExp = 3;
+const totalPortfolios = 4;
 ---
 
 <section class="section relative overflow-hidden">
@@ -132,16 +133,16 @@ const yearsExp = 3;
               <!-- Stats -->
               <div class="grid grid-cols-2 gap-4">
                 <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{totalJourneyDays}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Day Journey</div>
+                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{completedProjects}</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-400">Projects</div>
                 </div>
                 <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
                   <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{yearsExp}+</div>
                   <div class="text-sm text-slate-600 dark:text-slate-400">Years Exp</div>
                 </div>
                 <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-green-600 dark:text-green-400">{completedProjects}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Projects Done</div>
+                  <div class="text-3xl font-bold text-green-600 dark:text-green-400">{totalPortfolios}</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-400">Portfolios</div>
                 </div>
                 <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
                   <div class="text-3xl font-bold text-pink-600 dark:text-pink-400">{totalPublications}</div>

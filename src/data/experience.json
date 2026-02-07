@@ -61,18 +61,21 @@
         "end": null,
         "current": true
       },
-      "description": "Conducting research in federated learning security and adversarial machine learning. Developing SignGuard, a novel defense mechanism against poisoning attacks in FL systems.",
+      "description": "Conducting research in federated learning security and adversarial machine learning. Developing SignGuard, a novel defense mechanism against poisoning attacks in FL systems, and exploring privacy-preserving AI techniques.",
       "responsibilities": [
         "Research and implement Byzantine-resilient federated learning algorithms",
         "Develop cryptographic verification mechanisms for model updates",
         "Design and execute experiments to evaluate defense effectiveness",
-        "Document research findings and prepare academic papers"
+        "Document research findings and prepare academic papers",
+        "Build comprehensive project portfolios demonstrating research concepts"
       ],
       "achievements": [
         "Published 2 research papers (Springer LNNS, IEEE ICoDSA)",
-        "Designed SignGuard: ECDSA-based defense for federated learning"
+        "Completed 67 projects across 4 comprehensive portfolios",
+        "Designed SignGuard: Multi-layer defense for federated learning",
+        "Built production-ready AI systems with 8.45/10 average quality score"
       ],
-      "technologies": ["PyTorch", "PySyft", "Flower", "cryptography", "Docker", "FastAPI"],
+      "technologies": ["PyTorch", "PySyft", "Flower", "cryptography", "Docker", "FastAPI", "LangChain", "LangGraph"],
       "category": "research"
     }
   ]
