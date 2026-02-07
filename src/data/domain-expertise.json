@@ -15,7 +15,7 @@
       ],
       "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI", "LSTM", "SHAP", "LIME"],
       "achievements": [
-        "99.987% SLA compliance across millions of daily transactions",
+        "Maintained 99.9%+ SLA compliance for production fraud detection systems",
         "Improved monitoring efficiency by 50% through automation",
         "Reduced incident response time by 75%"
       ]

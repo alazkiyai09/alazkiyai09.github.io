@@ -8,6 +8,7 @@ tags:
   - "documentation"
   - "package"
 summary: "Complete 21-project portfolio documentation with project structure, results, and deployment guides."
+simpleSummary: "A privacy-focused phishing detection system that lets companies share fraud intelligence without exposing customer emails - using advanced math to protect data."
 technologies:
   - LaTeX
   - Markdown

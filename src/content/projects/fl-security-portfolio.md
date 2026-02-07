@@ -10,6 +10,7 @@ tags:
   - defensive-techniques
   - research
 summary: "A comprehensive 30-project research portfolio exploring federated learning security. Features 165,000+ lines of production code covering fraud detection, adversarial attacks, defensive mechanisms, and the novel SignGuard multi-layer defense system."
+simpleSummary: "A complete toolkit for secure AI collaboration across organizations - like letting banks train fraud detection together without sharing customer data, while protecting against hackers."
 technologies:
   - Python
   - PyTorch

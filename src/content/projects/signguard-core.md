@@ -10,6 +10,7 @@ tags:
   - poisoning-defense
   - signature-verification
 summary: "Novel defense mechanism using ECDSA cryptographic signatures with dynamic reputation systems to detect and mitigate poisoning attacks in federated learning."
+simpleSummary: "Like a digital signature system for AI training - prevents hackers from corrupting machine learning models when multiple organizations train them together without sharing private data."
 technologies:
   - Python
   - PyTorch

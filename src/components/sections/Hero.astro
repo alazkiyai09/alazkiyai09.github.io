@@ -159,8 +159,8 @@ const portfolioSummary = activityLog.activities
       </div>
 
       <!-- Image/Visual -->
-      <div class="relative hidden lg:block">
-        <div class="relative w-full aspect-square max-w-lg mx-auto">
+      <div class="relative lg:block">
+        <div class="relative w-full aspect-square max-w-lg mx-auto lg:aspect-square lg:max-w-lg">
           <!-- Decorative elements -->
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl transform rotate-6 opacity-20"></div>
           <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl transform -rotate-3 opacity-20"></div>
@@ -174,22 +174,22 @@ const portfolioSummary = activityLog.activities
               </div>
 
               <!-- Stats -->
-              <div class="grid grid-cols-2 gap-4">
-                <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{completedProjects}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Projects</div>
+              <div class="grid grid-cols-2 gap-2 lg:gap-4">
+                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">{completedProjects}</div>
+                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Projects</div>
                 </div>
-                <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{yearsExp}+</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Years Exp</div>
+                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="text-2xl lg:text-3xl font-bold text-purple-600 dark:text-purple-400">{yearsExp}+</div>
+                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Years Exp</div>
                 </div>
-                <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-green-600 dark:text-green-400">{totalPortfolios}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Portfolios</div>
+                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="text-2xl lg:text-3xl font-bold text-green-600 dark:text-green-400">{totalPortfolios}</div>
+                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Portfolios</div>
                 </div>
-                <div class="text-center p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-3xl font-bold text-pink-600 dark:text-pink-400">{totalPublications}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">Publications</div>
+                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
+                  <div class="text-2xl lg:text-3xl font-bold text-pink-600 dark:text-pink-400">{totalPublications}</div>
+                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Publications</div>
                 </div>
               </div>
 
