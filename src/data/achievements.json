@@ -5,12 +5,10 @@
       "title": "SignGuard: Novel FL Defense System",
       "description": "Developed a multi-layer defense system combining ECDSA signatures, anomaly detection, and dynamic reputation scoring for federated learning.",
       "metrics": {
-        "detectionRate": "94.5%",
-        "falsePositiveRate": "3.2%",
-        "accuracy": "92.8%"
+        "note": "Theoretical design - empirical evaluation pending implementation of attack simulation benchmarks"
       },
       "comparison": {
-        "baseline": "SignGuard achieves 94.5% Byzantine attack detection compared to FoolsGold (81.2%), Multi-Krum (72.3%), and Krum (68.5%)"
+        "baseline": "SignGuard design combines cryptographic verification with Byzantine-robust aggregation (Krum, Multi-Krum) and reputation-based filtering"
       },
       "technologies": ["ECDSA", "PyTorch", "Flower", "Cryptography", "Reputation Systems"],
       "repository": "https://github.com/alazkiyai09/signguard",
@@ -45,7 +43,7 @@
         "projects": 21,
         "linesOfCode": 118064,
         "testCases": 71,
-        "accuracy": "96.4%"
+        "note": "Guard-GBDT experiments show 81.56% accuracy with ε=1.0 differential privacy (see results.md in repository)"
       },
       "features": [
         "Homomorphic encryption with TenSEAL",

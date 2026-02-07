@@ -11,7 +11,7 @@ const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCom
 // Group by status
 const completedProjects = sortedProjects.filter(p => p.data.status === 'completed');
 const inProgressProjects = sortedProjects.filter(p => p.data.status === 'in-progress');
-const draftProjects = sortedProjects.filter(p => p.data.status === 'draft');
+// Note: draftProjects variable defined but may not be used if no draft projects exist
 
 // Get all unique categories
 const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)));
@@ -159,7 +159,7 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
   </div>
 </BaseLayout>
 
-<script define:vars={{ sortedProjects }}>
+<script define:vars={{ sortedProjects }} is:inline>
   // Get all filter buttons and project cards
   /** @type {NodeListOf<HTMLButtonElement>} */
   const filterButtons = document.querySelectorAll('.filter-btn');
