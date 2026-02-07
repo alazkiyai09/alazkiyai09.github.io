@@ -31,7 +31,7 @@ repository: "https://github.com/alazkiyai09/fl-security-research"
 
 ## Overview
 
-The Federated Learning Security Portfolio is a comprehensive research and development journey exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
+The Federated Learning Security Portfolio is a comprehensive research and development portfolio exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
 
 ## Portfolio Statistics
 
@@ -50,52 +50,50 @@ The Federated Learning Security Portfolio is a comprehensive research and develo
 ### 1. Fraud Detection Core (Phase 1)
 Foundational projects establishing the fraud detection domain:
 
-- **Day 1**: Baseline fraud detection with XGBoost (91.2% accuracy)
-- **Day 2**: Federated averaging with Flower framework
-- **Day 3**: Data preprocessing pipeline for financial transactions
-- **Day 4**: Feature engineering for fraud patterns
-- **Day 5**: Multi-bank simulation framework
-- **Day 6**: Privacy-preserving data aggregation
+- **Fraud Detection Baseline**: XGBoost baseline with imbalanced learning (91.2% accuracy)
+- **ML Classification Benchmark**: Comparative analysis of classifiers
+- **Feature Engineering Pipeline**: Advanced feature extraction for fraud patterns
+- **Real-time Scoring API**: Production API for fraud scoring
+- **LSTM Sequence Modeling**: Sequential pattern detection
+- **Anomaly Detection**: Unsupervised fraud anomaly detection
 
 ### 2. FL Foundations (Phase 2)
 Core federated learning infrastructure:
 
-- **Day 7**: Custom FL server implementation
-- **Day 8**: Client selection strategies
-- **Day 9**: Communication-efficient FL
-- **Day 10**: **SignGuard Core** - ECDSA-based defense system
-- **Day 11**: Differential privacy integration
-- **Day 12**: Secure aggregation protocols
+- **FedAvg Implementation**: From-scratch federated averaging
+- **Non-IID Partitioner**: Data partitioning strategies
+- **Model Explainability**: XAI for federated models
+- **SignGuard Core**: ECDSA-based defense system
+- **Communication Efficient FL**: Bandwidth optimization
+- **Cross-Silo FL Simulation**: Enterprise FL scenarios
 
 ### 3. Adversarial Attacks (Phase 3)
 Comprehensive attack simulation:
 
-- **Day 13**: Label flipping attacks
-- **Day 14**: Data poisoning strategies
-- **Day 15**: Backdoor attack implementation
-- **Day 16**: Byzantine robustness analysis
-- **Day 17**: LIRA attack simulation
-- **Day 18**: Malware analyzer for security research
+- **Label Flipping Attack**: Targeted label manipulation
+- **Backdoor Attack**: Hidden trigger injection
+- **Model Poisoning Attack**: Gradient manipulation
+- **Byzantine Robust FL**: Resilience analysis
+- **Anomaly Detection Defense**: Attack detection system
 
 ### 4. Defensive Techniques (Phase 4)
 Advanced defense mechanisms:
 
-- **Day 19**: Krum and Multi-Krum aggregation
-- **Day 20**: ZKP integration for verification
-- **Day 21**: FoolsGold-style reputation systems
-- **Day 22**: Anomaly detection in FL
-- **Day 23**: Robust aggregation methods
-- **Day 24**: Adaptive defense strategies
+- **FoolsGold Defense**: Sybil-resistant aggregation
+- **ZKP Integration**: Zero-knowledge verification
+- **Differential Privacy FL**: Privacy-preserving aggregation
+- **Secure Aggregation**: Cryptographic protection
+- **SignGuard Defense**: Multi-layer defense implementation
 
 ### 5. Security Research (Phase 5)
 Cutting-edge research implementations:
 
-- **Day 25**: Cross-silo FL simulation
-- **Day 26**: Enterprise deployment patterns
-- **Day 27**: Hardware acceleration (CUDA)
-- **Day 28**: Multi-party computation
-- **Day 29**: Federated threat intelligence
-- **Day 30**: Complete system integration
+- **Membership Inference Attack**: Privacy attack evaluation
+- **Gradient Leakage Attack**: Gradient reconstruction
+- **Property Inference Attack**: Property extraction
+- **Privacy Pipeline**: End-to-end privacy framework
+- **FL Security Dashboard**: Monitoring and visualization
+- **FL Capstone Research**: Complete research paper
 
 ## Key Contribution: SignGuard
 
