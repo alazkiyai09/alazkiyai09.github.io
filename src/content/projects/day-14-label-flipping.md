@@ -24,7 +24,7 @@ Implementation of random, targeted, and inverse label flipping attacks on federa
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on adversarial-attacks.
+This project is part of the research portfolio focusing on adversarial-attacks.
 
 ## Technologies Used
 

@@ -29,7 +29,7 @@ High-throughput data processing pipeline handling 10K+ events/second with FastAP
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 

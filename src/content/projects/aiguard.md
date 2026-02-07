@@ -26,7 +26,7 @@ AI safety and content moderation system with PII detection, bias monitoring, and
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 

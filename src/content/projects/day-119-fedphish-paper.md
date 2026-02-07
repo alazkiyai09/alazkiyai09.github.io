@@ -23,7 +23,7 @@ Comprehensive research paper on FedPhish system with theoretical analysis and ex
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

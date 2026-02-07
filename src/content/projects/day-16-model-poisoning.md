@@ -24,7 +24,7 @@ Advanced gradient manipulation attacks including sign-flipping, omniscient, and 
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on adversarial-attacks.
+This project is part of the research portfolio focusing on adversarial-attacks.
 
 ## Technologies Used
 

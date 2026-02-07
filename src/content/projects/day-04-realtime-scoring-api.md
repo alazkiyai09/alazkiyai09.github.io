@@ -26,7 +26,7 @@ Production-ready FastAPI service for real-time fraud scoring with sub-millisecon
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on fraud-detection.
+This project is part of the research portfolio focusing on fraud-detection.
 
 ## Technologies Used
 

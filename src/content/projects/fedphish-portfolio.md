@@ -45,7 +45,7 @@ FedPhish is a comprehensive 21-project portfolio dedicated to building privacy-p
 
 ## Project Categories
 
-### 1. Foundations (Days 1-5)
+### 1. Foundations (Phase 1)
 Establishing the phishing detection baseline:
 
 - **Day 1**: Phishing URL feature extraction
@@ -54,7 +54,7 @@ Establishing the phishing detection baseline:
 - **Day 4**: BERT-based URL classification
 - **Day 5**: Federated averaging for phishing detection
 
-### 2. Privacy Techniques (Days 6-10)
+### 2. Privacy Techniques (Phase 2)
 Core privacy-preserving technologies:
 
 - **Day 6**: Differential privacy in FL
@@ -63,7 +63,7 @@ Core privacy-preserving technologies:
 - **Day 9**: TenSEAL CKKS integration
 - **Day 10**: Gradient perturbation techniques
 
-### 3. Verifiable FL (Days 11-15)
+### 3. Verifiable FL (Phase 3)
 Zero-knowledge proofs and verification:
 
 - **Day 11**: ZKP fundamentals
@@ -72,7 +72,7 @@ Zero-knowledge proofs and verification:
 - **Day 14**: Verifiable model updates
 - **Day 15**: Proof aggregation protocols
 
-### 4. Federated Classifiers (Days 16-19)
+### 4. Federated Classifiers (Phase 4)
 Advanced model architectures:
 
 - **Day 16**: Federated XGBoost implementation
@@ -80,7 +80,7 @@ Advanced model architectures:
 - **Day 18**: DistilBERT for federated text classification
 - **Day 19**: Cross-silo federated learning
 
-### 5. Capstone (Days 20-21)
+### 5. Capstone (Phase 5)
 Production system integration:
 
 - **Day 20**: FedPhish production system

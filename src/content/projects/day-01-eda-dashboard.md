@@ -26,7 +26,7 @@ Interactive Plotly dashboard for exploratory data analysis of fraud detection da
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on fraud-detection.
+This project is part of the research portfolio focusing on fraud-detection.
 
 ## Technologies Used
 

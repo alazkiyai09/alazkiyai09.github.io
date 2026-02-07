@@ -24,7 +24,7 @@ completedDate: "2025-01-31"
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on federated-learning.
+This project is part of the research portfolio focusing on federated-learning.
 
 ## Technologies Used
 

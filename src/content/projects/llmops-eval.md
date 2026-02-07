@@ -26,7 +26,7 @@ Comprehensive LLM evaluation framework with 9 metrics, multi-provider support, p
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 

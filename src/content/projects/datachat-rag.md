@@ -26,7 +26,7 @@ Natural language to SQL query generation with conversational data exploration an
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 

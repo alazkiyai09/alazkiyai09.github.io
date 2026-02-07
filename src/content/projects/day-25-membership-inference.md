@@ -24,7 +24,7 @@ Shokri et al. membership inference attack implementation using shadow models and
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-attacks.
+This project is part of the research portfolio focusing on privacy-attacks.
 
 ## Technologies Used
 

@@ -25,7 +25,7 @@ Production federated phishing detection system with real-time monitoring and cli
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

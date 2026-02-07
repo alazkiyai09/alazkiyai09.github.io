@@ -25,7 +25,7 @@ Hybrid HE/TEE protocol for privacy-preserving phishing detection combining encry
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on privacy-preserving-ml.
+This project is part of the research portfolio focusing on privacy-preserving-ml.
 
 ## Technologies Used
 

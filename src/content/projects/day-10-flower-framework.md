@@ -25,7 +25,7 @@ Production-ready federated learning system using Flower framework with client ma
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on federated-learning.
+This project is part of the research portfolio focusing on federated-learning.
 
 ## Technologies Used
 

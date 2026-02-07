@@ -31,7 +31,7 @@ repository: "https://github.com/alazkiyai09/fl-security-research"
 
 ## Overview
 
-The Federated Learning Security Portfolio is a comprehensive 30-day research and development journey exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
+The Federated Learning Security Portfolio is a comprehensive comprehensive research and development journey exploring the critical intersection of distributed machine learning and cybersecurity. This portfolio demonstrates systematic progression from foundational FL concepts to advanced attack simulations and sophisticated defense mechanisms.
 
 ## Portfolio Statistics
 
@@ -47,7 +47,7 @@ The Federated Learning Security Portfolio is a comprehensive 30-day research and
 
 ## Project Categories
 
-### 1. Fraud Detection Core (Days 1-6)
+### 1. Fraud Detection Core (Phase 1)
 Foundational projects establishing the fraud detection domain:
 
 - **Day 1**: Baseline fraud detection with XGBoost (91.2% accuracy)
@@ -57,7 +57,7 @@ Foundational projects establishing the fraud detection domain:
 - **Day 5**: Multi-bank simulation framework
 - **Day 6**: Privacy-preserving data aggregation
 
-### 2. FL Foundations (Days 7-12)
+### 2. FL Foundations (Phase 2)
 Core federated learning infrastructure:
 
 - **Day 7**: Custom FL server implementation
@@ -67,7 +67,7 @@ Core federated learning infrastructure:
 - **Day 11**: Differential privacy integration
 - **Day 12**: Secure aggregation protocols
 
-### 3. Adversarial Attacks (Days 13-18)
+### 3. Adversarial Attacks (Phase 3)
 Comprehensive attack simulation:
 
 - **Day 13**: Label flipping attacks
@@ -77,7 +77,7 @@ Comprehensive attack simulation:
 - **Day 17**: LIRA attack simulation
 - **Day 18**: Malware analyzer for security research
 
-### 4. Defensive Techniques (Days 19-24)
+### 4. Defensive Techniques (Phase 4)
 Advanced defense mechanisms:
 
 - **Day 19**: Krum and Multi-Krum aggregation
@@ -87,7 +87,7 @@ Advanced defense mechanisms:
 - **Day 23**: Robust aggregation methods
 - **Day 24**: Adaptive defense strategies
 
-### 5. Security Research (Days 25-30)
+### 5. Security Research (Phase 5)
 Cutting-edge research implementations:
 
 - **Day 25**: Cross-silo FL simulation

@@ -7,7 +7,7 @@ tags:
   - "portfolio"
   - "documentation"
   - "package"
-summary: "Complete 21-day portfolio documentation with project structure, results, and deployment guides."
+summary: "Complete 21-project portfolio documentation with project structure, results, and deployment guides."
 technologies:
   - LaTeX
   - Markdown
@@ -19,11 +19,11 @@ completedDate: "2025-01-31"
 
 ## Overview
 
-Complete 21-day portfolio documentation with project structure, results, and deployment guides.
+Complete 21-project portfolio documentation with project structure, results, and deployment guides.
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the research portfolio focusing on security-research.
 
 ## Technologies Used
 

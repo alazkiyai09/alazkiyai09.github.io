@@ -20,7 +20,7 @@
     {
       "id": "fedphish-portfolio",
       "title": "privacy-preserving-phishing-detection: 21-Day Federated Phishing Detection",
-      "description": "A 21-day intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
+      "description": "A 21-project intensive portfolio focused on privacy-preserving federated phishing detection. Includes production-grade system with 500+ tests, React dashboard, and comprehensive documentation.",
       "technologies": ["PyTorch", "XGBoost", "DistilBERT", "TenSEAL", "Intel SGX", "ZK-SNARK", "ZK-STARK", "FastAPI", "React", "BLS signatures"],
       "achievements": [
         "20/20 projects completed across 5 categories",

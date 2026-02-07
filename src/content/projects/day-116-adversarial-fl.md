@@ -24,7 +24,7 @@ Coevolutionary attack/defense arms race system for adaptive FL security.
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on adversarial-attacks.
+This project is part of the research portfolio focusing on adversarial-attacks.
 
 ## Technologies Used
 

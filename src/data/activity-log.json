@@ -22,7 +22,7 @@
       "date": "2026-02-05T14:30:00Z",
       "type": "portfolio_complete",
       "title": "Completed privacy-preserving-phishing-detection Portfolio",
-      "description": "Finished 21-day privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard, ZKP verification, and research paper.",
+      "description": "Finished 21-project privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard, ZKP verification, and research paper.",
       "projectRef": "fedphish-portfolio",
       "tags": ["federated-learning", "phishing-detection", "privacy", "zkp", "production"],
       "metrics": {

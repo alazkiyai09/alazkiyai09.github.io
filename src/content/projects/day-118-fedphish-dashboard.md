@@ -25,7 +25,7 @@ Real-time monitoring dashboard for FedPhish system with client status and perfor
 
 ## Project Details
 
-This project is part of the 21-day FedPhish portfolio focusing on security-research.
+This project is part of the 21-project FedPhish portfolio focusing on security-research.
 
 ## Technologies Used
 

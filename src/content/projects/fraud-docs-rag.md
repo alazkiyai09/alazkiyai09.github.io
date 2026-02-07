@@ -26,7 +26,7 @@ Fraud pattern recognition and risk scoring from financial documents using RAG-ba
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on production-ai.
+This project is part of the research portfolio focusing on production-ai.
 
 ## Technologies Used
 
