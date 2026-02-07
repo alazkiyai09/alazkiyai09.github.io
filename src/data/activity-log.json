@@ -31,8 +31,7 @@
         "testCases": 461
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection" },
-        { "label": "Live Demo", "url": "https://fedphish-demo.vercel.app" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection" }
       ]
     },
     {
