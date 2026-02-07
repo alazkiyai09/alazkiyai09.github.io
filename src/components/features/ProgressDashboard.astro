@@ -2,18 +2,17 @@
 import activityLog from '../../data/activity-log.json';
 import journeyPhases from '../../data/journey-phases.json';
 
-// Calculate total days from journey phases (last phase ends at day 30)
-const totalDays = 30;
+// Calculate total projects from journey phases
+const totalProjects = 67;
 
 // Calculate stats from activity log
 const completedProjects = activityLog.activities.filter(a => a.type === 'project_complete').length;
 const papersRead = activityLog.activities.reduce((sum, a) => sum + (a.metrics?.papersRead || 0), 0);
 const experimentsRun = activityLog.activities.reduce((sum, a) => sum + (a.metrics?.experimentsRun || 0), 0);
 
-// Get latest milestone for current day
-const latestMilestone = activityLog.activities.find(a => a.type === 'milestone_reached');
-const completedDays = latestMilestone?.metrics?.totalDays || 0;
-const progressPercent = Math.round((completedDays / totalDays) * 100);
+// Get completed projects count
+const completedProjectsCount = activityLog.activities.filter(a => a.type === 'project_complete').length;
+const progressPercent = Math.round((completedProjectsCount / totalProjects) * 100);
 
 // Calculate circle properties
 const radius = 88;
@@ -64,8 +63,8 @@ const currentPhase = journeyPhases.phases.find(p => p.status === 'in-progress') 
               </defs>
             </svg>
             <div class="absolute inset-0 flex flex-col items-center justify-center">
-              <span class="text-5xl font-bold">{completedDays}</span>
-              <span class="text-sm text-slate-400">of {totalDays} days</span>
+              <span class="text-5xl font-bold">{completedProjectsCount}</span>
+              <span class="text-sm text-slate-400">of {totalProjects} projects</span>
               <span class="text-2xl font-bold text-blue-400 mt-1">{progressPercent}%</span>
             </div>
           </div>
@@ -73,7 +72,7 @@ const currentPhase = journeyPhases.phases.find(p => p.status === 'in-progress') 
 
         <!-- Stats Grid -->
         <div class="flex-1 w-full">
-          <h3 class="text-2xl font-bold mb-6">30-Day Portfolio Progress</h3>
+          <h3 class="text-2xl font-bold mb-6">Research Portfolio Progress</h3>
 
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Projects Completed -->
@@ -141,7 +140,7 @@ const currentPhase = journeyPhases.phases.find(p => p.status === 'in-progress') 
                   {currentPhase && (
                     <>
                       <div class="font-medium">Currently in Phase: {currentPhase.name}</div>
-                      <div class="text-sm text-slate-400">Days {currentPhase.days} - {currentPhase.description}</div>
+                      <div class="text-sm text-slate-400">{currentPhase.days} - {currentPhase.description}</div>
                     </>
                   )}
                 </div>
