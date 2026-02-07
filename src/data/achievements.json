@@ -2,13 +2,13 @@
   "achievements": [
     {
       "id": "signguard",
-      "title": "SignGuard: Novel FL Defense System",
-      "description": "Developed a multi-layer defense system combining ECDSA signatures, anomaly detection, and dynamic reputation scoring for federated learning.",
+      "title": "SignGuard: FL Security Educational Implementation",
+      "description": "Educational implementation demonstrating how ECDSA signatures can be combined with anomaly detection and reputation scoring to protect federated learning systems from poisoning attacks. This is a learning project implementing established research techniques, not novel research.",
       "metrics": {
-        "note": "Theoretical design - empirical evaluation pending implementation of attack simulation benchmarks"
+        "note": "Educational implementation - demonstrates understanding of FL security concepts"
       },
       "comparison": {
-        "baseline": "SignGuard design combines cryptographic verification with Byzantine-robust aggregation (Krum, Multi-Krum) and reputation-based filtering"
+        "baseline": "Combines established techniques: ECDSA signatures for authentication, statistical anomaly detection, and reputation-weighted aggregation"
       },
       "technologies": ["ECDSA", "PyTorch", "Flower", "Cryptography", "Reputation Systems"],
       "repository": "https://github.com/alazkiyai09/signguard",
