@@ -1,6 +1,5 @@
 ---
 title: "Advanced Feature Engineering for Fraud Detection"
-day: 5
 status: "completed"
 category: "fraud-detection"
 tags:

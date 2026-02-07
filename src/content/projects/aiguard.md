@@ -1,6 +1,5 @@
 ---
 title: "AI Safety & Content Moderation"
-day: 210
 status: "completed"
 category: "production-ai"
 tags:

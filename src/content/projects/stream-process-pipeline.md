@@ -1,6 +1,5 @@
 ---
 title: "High-Throughput Data Pipeline"
-day: 209
 status: "completed"
 category: "production-ai"
 tags:

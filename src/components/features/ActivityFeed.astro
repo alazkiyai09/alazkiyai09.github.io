@@ -133,10 +133,10 @@ const typeColors: Record<string, string> = {
                     {activity.metrics.samplesAnalyzed} samples
                   </span>
                 )}
-                {activity.metrics.totalDays && (
+                {activity.metrics.totalProjects && (
                   <span class="inline-flex items-center gap-1">
                     <Icon name="calendar" size={12} />
-                    Day {activity.metrics.totalDays}/30
+                    {activity.metrics.totalProjects} projects
                   </span>
                 )}
               </div>

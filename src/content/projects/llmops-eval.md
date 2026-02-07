@@ -1,6 +1,5 @@
 ---
 title: "LLM Evaluation Framework"
-day: 208
 status: "completed"
 category: "production-ai"
 tags:

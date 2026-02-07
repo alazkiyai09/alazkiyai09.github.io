@@ -1,6 +1,5 @@
 ---
 title: "Fraud Analysis Triage Agent"
-day: 206
 status: "completed"
 category: "production-ai"
 tags:

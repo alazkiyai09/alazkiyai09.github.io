@@ -1,6 +1,5 @@
 ---
 title: "Marketing Analytics Agent"
-day: 207
 status: "completed"
 category: "production-ai"
 tags:

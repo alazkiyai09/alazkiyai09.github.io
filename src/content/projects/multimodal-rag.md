@@ -1,6 +1,5 @@
 ---
 title: "Multi-Modal RAG with CLIP"
-day: 202
 status: "completed"
 category: "production-ai"
 tags:
