@@ -10,13 +10,17 @@ interface Props {
   padding?: 'sm' | 'md' | 'lg';
   hover?: boolean;
   class?: string;
+  // Allow additional data attributes for filtering, etc.
+  'data-category'?: string;
 }
 
 const {
   variant = 'default',
   padding = 'md',
   hover = false,
-  class: className = ''
+  class: className = '',
+  'data-category': dataCategory,
+  ...rest
 } = Astro.props;
 
 const variants = {
@@ -40,6 +44,6 @@ const cardClass = [
 ].filter(Boolean).join(' ');
 ---
 
-<div class={cardClass}>
+<div class={cardClass} data-category={dataCategory} {...rest}>
   <slot />
 </div>
