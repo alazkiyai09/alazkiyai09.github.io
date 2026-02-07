@@ -3,11 +3,11 @@ title: "Adaptive Image Steganography Using Deep Learning"
 authors: ["Azka", "Coauthor 1", "Coauthor 2"]
 venue: "International Conference on Information Security and Cryptology"
 year: 2024
-doi: "10.1007/978-3-031-XXXXX-X_XX"
+status: "In Preparation"
 type: "conference"
 abstract: "This paper presents a novel deep learning approach for adaptive image steganography that optimizes payload capacity while minimizing detectability. We propose a dual-stage encoder-decoder architecture with adversarial training that achieves state-of-the-art performance in terms of embedding capacity and resistance to steganalysis attacks."
-pdf: "https://example.com/papers/steganography-2024.pdf"
-citation: "Azka, et al. (2024). Adaptive Image Steganography Using Deep Learning. In Proc. International Conference on Information Security and Cryptology."
+note: "This is a work-in-progress research project. Not yet submitted for publication."
+citation: "Azka, et al. (2024). Adaptive Image Steganography Using Deep Learning. In Preparation."
 ---
 
 ## Abstract
@@ -155,6 +155,6 @@ Implementation available at: [github.com/alazkiyai09/adaptive-steganography](htt
   author={Azka and Coauthor 1 and Coauthor 2},
   booktitle={International Conference on Information Security and Cryptology},
   year={2024},
-  doi={10.1007/978-3-031-XXXXX-X_XX}
+  note={In Preparation}
 }
 ```
