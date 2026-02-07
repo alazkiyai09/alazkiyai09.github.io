@@ -14,8 +14,7 @@ technologies:
   - TypeScript
   - FastAPI
   - Plotly
-repository: "https://github.comgithub.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard"
-demo: "https://fedphish-dashboard.vercel.app"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-dashboard"
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
 ---
@@ -26,7 +25,7 @@ Real-time monitoring dashboard for FedPhish system with client status and perfor
 
 ## Project Details
 
-This project is part of the 30-day portfolio journey focusing on security-research.
+This project is part of the 21-day FedPhish portfolio focusing on security-research.
 
 ## Technologies Used
 
@@ -41,13 +40,7 @@ Full source code available on GitHub: [https://github.com/alazkiyai09/FedPhish/t
 
 ## Key Features
 
-- Production-ready implementation
-- Comprehensive documentation
-- Unit tests and integration tests
-- Docker support for containerization
-
-## Results
-
-- Successfully deployed and tested
-- Meets all project requirements
-- Documented with comprehensive README
+- Real-time client status monitoring
+- Performance metrics visualization
+- Interactive charts and graphs
+- WebSocket-based live updates

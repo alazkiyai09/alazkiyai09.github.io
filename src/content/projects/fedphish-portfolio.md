@@ -27,8 +27,6 @@ metrics:
 startDate: "2025-02-01"
 completedDate: "2025-02-21"
 repository: "https://github.com/alazkiyai09/FedPhish"
-demo: "https://fedphish-demo.vercel.app"
-paper: "https://arxiv.org/abs/2502.xxxxx"
 ---
 
 ## Overview
