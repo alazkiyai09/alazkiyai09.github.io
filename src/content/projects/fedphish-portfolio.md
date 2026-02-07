@@ -120,7 +120,7 @@ Interactive web interface for:
 - Model performance metrics
 
 ### 3. Research Paper
-Comprehensive academic paper covering:
+Comprehensive research paper covering:
 - Problem statement and motivation
 - System architecture and design
 - Experimental evaluation
@@ -244,4 +244,4 @@ MIT License - See [LICENSE](https://github.com/alazkiyai09/privacy-preserving-ph
 This portfolio builds upon research from:
 - Google's Federated Learning research
 - OpenMined's privacy-preserving ML tools
-- The academic ZKP and FL research community
+- The ZKP and FL research community
