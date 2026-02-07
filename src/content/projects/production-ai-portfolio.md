@@ -1,5 +1,5 @@
 ---
-title: "Production AI Portfolio"
+title: "Enterprise AI Systems Portfolio"
 status: "completed"
 category: "production-ai"
 tags:

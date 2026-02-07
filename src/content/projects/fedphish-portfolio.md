@@ -1,5 +1,5 @@
 ---
-title: "FedPhish: Federated Phishing Detection Portfolio"
+title: "Privacy-Preserving Phishing Detection"
 status: "completed"
 category: "privacy-preserving-ml"
 tags:
@@ -9,7 +9,7 @@ tags:
   - zero-knowledge-proofs
   - trusted-execution
   - verifiable-fl
-summary: "A 21-day intensive portfolio focused on building privacy-preserving federated phishing detection systems. Features production-grade implementation with 461 tests, React dashboard, and accompanying research paper."
+summary: "A comprehensive 21-project portfolio on federated phishing detection with privacy-preserving techniques. Features production-grade implementation with 461 tests, React dashboard, homomorphic encryption, TEE, and zero-knowledge proofs."
 technologies:
   - PyTorch
   - XGBoost
