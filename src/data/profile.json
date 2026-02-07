@@ -36,10 +36,10 @@
     "From banking fraud to Byzantine attacks: securing AI at scale"
   ],
   "achievements": {
-    "totalProjects": 67,
+    "totalProjects": 29,
     "totalPortfolios": 4,
     "totalPublications": 2,
-    "linesOfCode": 265000,
+    "linesOfCode": 429000,
     "yearsExperience": 3
   }
 }
