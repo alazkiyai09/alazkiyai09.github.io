@@ -1,5 +1,6 @@
 ---
 import journeyPhases from '../../data/journey-phases.json';
+import Icon from '../ui/Icon.astro';
 
 const phases = journeyPhases.phases;
 const completedPhases = phases.filter(p => p.status === 'completed').length;
@@ -60,18 +61,31 @@ const progressPercent = Math.round((completedPhases / phases.length) * 100);
             </div>
             <div>
               <h3 class="font-bold text-slate-900 dark:text-white">{phase.name}</h3>
-              <span class={`text-xs ${
+              <span class={`inline-flex items-center gap-1 text-xs ${
                 phase.status === 'completed'
                   ? 'text-green-600 dark:text-green-400'
                   : phase.status === 'in-progress'
                   ? 'text-blue-600 dark:text-blue-400'
                   : 'text-slate-500'
               }`}>
-                {phase.status === 'completed'
-                  ? '✅ Completed'
-                  : phase.status === 'in-progress'
-                  ? '🔄 In Progress'
-                  : '⏳ Upcoming'}
+                {phase.status === 'completed' && (
+                  <>
+                    <Icon name="check-circle" size={14} />
+                    Completed
+                  </>
+                )}
+                {phase.status === 'in-progress' && (
+                  <>
+                    <Icon name="refresh" size={14} />
+                    In Progress
+                  </>
+                )}
+                {phase.status === 'upcoming' && (
+                  <>
+                    <Icon name="clock" size={14} />
+                    Upcoming
+                  </>
+                )}
               </span>
             </div>
           </div>

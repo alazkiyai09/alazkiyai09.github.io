@@ -168,7 +168,7 @@ const description = 'Explore my 30-day portfolio journey with 30+ hands-on proje
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const filter = button.dataset.filter || 'all';
+      const filter = (button.dataset.filter || 'all').trim().toLowerCase();
 
       // Update active state
       filterButtons.forEach(btn => {
@@ -178,14 +178,12 @@ const description = 'Explore my 30-day portfolio journey with 30+ hands-on proje
       button.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
       button.classList.add('bg-blue-600', 'text-white');
 
-      // Filter projects
+      // Filter projects with improved null/empty handling
       projectCards.forEach(card => {
-        const category = card.dataset.category || '';
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+        const category = (card.dataset.category || '').trim().toLowerCase();
+        const shouldShow = filter === 'all' || category === filter;
+
+        card.style.display = shouldShow ? 'flex' : 'none';
       });
     });
   });
