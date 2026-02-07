@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day26_gradient_leakage"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/gradient_leakage_attack"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

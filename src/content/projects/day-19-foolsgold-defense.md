@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/04_defensive_techniques/day19_foolsgold_defense"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/04_defensive_techniques"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

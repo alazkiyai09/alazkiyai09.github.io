@@ -12,7 +12,7 @@ technologies:
   - LaTeX
   - Python
   - PyTorch
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day30_capstone_paper"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

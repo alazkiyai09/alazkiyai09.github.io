@@ -13,7 +13,7 @@ technologies:
   - Flower
   - Opacus
   - Cryptography
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day28_privacy_pipeline"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/privacy_preserving_fl_fraud"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

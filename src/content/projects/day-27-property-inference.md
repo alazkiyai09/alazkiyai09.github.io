@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/day27_property_inference"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/property_inference_attack"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
