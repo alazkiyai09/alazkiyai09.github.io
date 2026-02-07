@@ -1,5 +1,6 @@
 ---
 import experience from '../../data/experience.json';
+import Icon from '../ui/Icon.astro';
 
 const formatDate = (dateStr: string) => {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -28,12 +29,16 @@ const formatDate = (dateStr: string) => {
 
           <div class="flex gap-6">
             <!-- Icon -->
-            <div class={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-2xl ${
+            <div class={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center ${
               exp.category === 'industry'
                 ? 'bg-blue-100 dark:bg-blue-900/30'
                 : 'bg-purple-100 dark:bg-purple-900/30'
             }`}>
-              {exp.category === 'industry' ? '🏢' : '🔬'}
+              {exp.category === 'industry' ? (
+                <Icon name="building" size={28} class="text-blue-600 dark:text-blue-400" />
+              ) : (
+                <Icon name="beaker" size={28} class="text-purple-600 dark:text-purple-400" />
+              )}
             </div>
 
             <!-- Content -->
@@ -107,7 +112,7 @@ const formatDate = (dateStr: string) => {
                   <ul class="space-y-1">
                     {exp.achievements.map((achievement) => (
                       <li class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                        <span class="text-yellow-500">🏆</span>
+                        <Icon name="trophy" size={14} class="text-yellow-500 flex-shrink-0 mt-0.5" />
                         <span>{achievement}</span>
                       </li>
                     ))}

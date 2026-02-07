@@ -1,6 +1,7 @@
 ---
 import activityLog from '../../data/activity-log.json';
 import { formatDistanceToNow } from 'date-fns';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   limit?: number;
@@ -11,17 +12,17 @@ const { limit = 10, showHeader = true } = Astro.props;
 const activities = activityLog.activities.slice(0, limit);
 
 const typeIcons: Record<string, string> = {
-  'project_start': '🚀',
-  'project_complete': '✅',
-  'portfolio_complete': '🎯',
-  'code_commit': '💻',
-  'paper_read': '📄',
-  'experiment_run': '🧪',
-  'blog_post': '✍️',
-  'skill_learned': '📚',
-  'milestone_reached': '🏆',
-  'publication': '📖',
-  'application_sent': '📨',
+  'project_start': 'rocket',
+  'project_complete': 'check-circle',
+  'portfolio_complete': 'target',
+  'code_commit': 'code',
+  'paper_read': 'document',
+  'experiment_run': 'flask',
+  'blog_post': 'pencil',
+  'skill_learned': 'book',
+  'milestone_reached': 'trophy',
+  'publication': 'book-open',
+  'application_sent': 'mail',
 };
 
 // Validate activity types and log warnings for unknown types
@@ -60,8 +61,12 @@ const typeColors: Record<string, string> = {
       {activities.map((activity) => (
         <div class="flex gap-4 p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-md transition-shadow">
           <!-- Icon -->
-          <div class="flex-shrink-0 text-3xl">
-            {typeIcons[activity.type] || '📌'}
+          <div class="flex-shrink-0">
+            <Icon
+              name={typeIcons[activity.type] || 'star'}
+              size={28}
+              class="text-slate-700 dark:text-slate-300"
+            />
           </div>
 
           <!-- Content -->
@@ -99,22 +104,40 @@ const typeColors: Record<string, string> = {
             {activity.metrics && (
               <div class="flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-400">
                 {activity.metrics.linesOfCode && (
-                  <span>💻 {activity.metrics.linesOfCode} LOC</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="code" size={12} />
+                    {activity.metrics.linesOfCode} LOC
+                  </span>
                 )}
                 {activity.metrics.experimentsRun && (
-                  <span>🧪 {activity.metrics.experimentsRun} experiments</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="flask" size={12} />
+                    {activity.metrics.experimentsRun} experiments
+                  </span>
                 )}
                 {activity.metrics.papersRead && (
-                  <span>📄 {activity.metrics.papersRead} papers</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="document" size={12} />
+                    {activity.metrics.papersRead} papers
+                  </span>
                 )}
                 {activity.metrics.hoursSpent && (
-                  <span>⏱️ {activity.metrics.hoursSpent}h spent</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="clock" size={12} />
+                    {activity.metrics.hoursSpent}h spent
+                  </span>
                 )}
                 {activity.metrics.samplesAnalyzed && (
-                  <span>🔬 {activity.metrics.samplesAnalyzed} samples</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="beaker" size={12} />
+                    {activity.metrics.samplesAnalyzed} samples
+                  </span>
                 )}
                 {activity.metrics.totalDays && (
-                  <span>📅 Day {activity.metrics.totalDays}/30</span>
+                  <span class="inline-flex items-center gap-1">
+                    <Icon name="calendar" size={12} />
+                    Day {activity.metrics.totalDays}/30
+                  </span>
                 )}
               </div>
             )}
