@@ -19,19 +19,19 @@
     {
       "id": "fl-security-portfolio",
       "title": "FL Security Research Portfolio",
-      "description": "Completed comprehensive 30-project research portfolio on federated learning security with 165,000+ lines of production code.",
+      "description": "Completed comprehensive 31-project research portfolio on federated learning security with 137,770+ lines of production code.",
       "metrics": {
-        "projects": 30,
-        "linesOfCode": 165000,
-        "testFiles": 150,
+        "projects": 31,
+        "linesOfCode": 137770,
+        "testFiles": 101,
         "qualityScore": 9.6
       },
       "categories": [
         "Fraud Detection Core (7 projects)",
-        "FL Foundations (6 projects)",
-        "Adversarial Attacks (6 projects)",
-        "Defensive Techniques (6 projects)",
-        "Security Research (5 projects)"
+        "FL Foundations (8 projects)",
+        "Adversarial Attacks (3 projects)",
+        "Defensive Techniques (5 projects)",
+        "Security Research (7 projects)"
       ],
       "technologies": ["PyTorch", "Flower", "TensorFlow", "cryptography.io", "FastAPI"],
       "repository": "https://github.com/alazkiyai09/fl-security-research",
@@ -43,8 +43,8 @@
       "description": "21-project portfolio on federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs.",
       "metrics": {
         "projects": 21,
-        "linesOfCode": 50000,
-        "testCases": 461,
+        "linesOfCode": 118064,
+        "testCases": 71,
         "accuracy": "96.4%"
       },
       "features": [
@@ -55,7 +55,8 @@
       ],
       "technologies": ["PyTorch", "TenSEAL", "libsnark", "circom", "Intel SGX", "FastAPI", "React"],
       "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
-      "demo": "https://fedphish-demo.vercel.app",
+      "demo": "",
+      "demoNote": "Demo deployment in progress - see repository for setup instructions",
       "category": "portfolio"
     },
     {
@@ -64,8 +65,8 @@
       "description": "10-project production-grade portfolio featuring RAG systems, LangGraph agents, and LLMOps pipelines.",
       "metrics": {
         "projects": 10,
-        "linesOfCode": 85000,
-        "testCases": 138
+        "linesOfCode": 115395,
+        "testCases": 30
       },
       "systems": [
         "Enterprise-RAG: Document intelligence system",
@@ -105,7 +106,7 @@
       "description": "Banking trojan detection framework using static analysis and YARA rules.",
       "metrics": {
         "samples": 100,
-        "yaraRules": 50,
+        "yaraRules": 24,
         "apis": 200
       },
       "features": [
