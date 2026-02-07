@@ -56,7 +56,7 @@
       ],
       "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "ChromaDB", "Qdrant", "OpenAI", "Ollama"],
       "achievements": [
-        "10-project Enterprise AI portfolio (85K+ LOC, 138 tests)",
+        "10-project Enterprise AI portfolio (115K+ LOC, 32 test files)",
         "3 RAG system implementations",
         "4 LangGraph agent systems",
         "End-to-end LLMOps pipeline with evaluation"

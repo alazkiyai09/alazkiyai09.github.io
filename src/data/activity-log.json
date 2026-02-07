@@ -5,13 +5,13 @@
       "date": "2026-02-06T10:00:00Z",
       "type": "portfolio_complete",
       "title": "Completed Production AI Portfolio",
-      "description": "Finalized 10-project enterprise-grade AI portfolio featuring RAG systems, LangGraph agents, LLMOps pipelines, and production infrastructure. 292 Python files with 138+ tests.",
+      "description": "Finalized 10-project enterprise-grade AI portfolio featuring RAG systems, LangGraph agents, LLMOps pipelines, and production infrastructure. 304 Python files with 32 test files.",
       "projectRef": "enterprise-ai-systems",
       "tags": ["llm", "rag", "langgraph", "llmops", "production"],
       "metrics": {
         "linesOfCode": 85000,
         "projectsCompleted": 10,
-        "testCases": 138
+        "testCases": 32
       },
       "links": [
         { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/enterprise-ai-systems" }
@@ -45,7 +45,7 @@
       "metrics": {
         "linesOfCode": 165000,
         "projectsCompleted": 30,
-        "testFiles": 150,
+        "testFiles": 101,
         "qualityScore": 9.6
       },
       "links": [

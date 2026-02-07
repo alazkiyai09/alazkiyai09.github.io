@@ -39,7 +39,7 @@ The Federated Learning Security Portfolio is a comprehensive research and develo
 |--------|-------|
 | **Total Projects** | 30 |
 | **Lines of Code** | 165,000+ |
-| **Test Files** | 150+ |
+| **Test Files** | 101 |
 | **Documentation Pages** | 50+ |
 | **Jupyter Notebooks** | 23 |
 | **Average Quality Score** | 9.6/10 |
