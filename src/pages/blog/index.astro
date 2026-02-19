@@ -9,8 +9,16 @@ const publishedPosts = allPosts
   .filter(post => post.data.published !== false)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-// Get all unique tags
-const allTags = Array.from(new Set(publishedPosts.flatMap(post => post.data.tags))).sort();
+// Simplified filter categories
+const filterCategories = ['All Posts', 'Federated Learning', 'Security', 'System Design'];
+
+// Tag mapping for filtering
+const categoryTagMap: Record<string, string[]> = {
+  'all posts': [],
+  'federated learning': ['federated-learning', 'fl'],
+  'security': ['security', 'fraud-detection', 'banking'],
+  'system design': ['cryptography', 'portfolio', 'tutorial']
+};
 
 // Calculate reading time from content or use provided value
 function getReadingTime(post: typeof publishedPosts[0]): string {
@@ -40,24 +48,21 @@ const description = 'Technical writing on federated learning security, adversari
       </div>
 
       <!-- Tags Filter -->
-      {allTags.length > 0 && (
-        <div class="flex flex-wrap justify-center gap-2 mb-10" id="tag-filters">
+      <div class="flex flex-wrap justify-center gap-2 mb-10" id="tag-filters">
+        {filterCategories.map((category) => (
           <button
-            class="filter-btn active px-4 py-2 bg-accent text-white rounded-lg font-medium text-sm transition-all hover:shadow-lg hover:shadow-accent/20"
-            data-filter="all"
+            class:list={[
+              "filter-btn px-4 py-2 rounded-lg font-medium text-sm transition-all",
+              category === 'All Posts'
+                ? "bg-accent text-white hover:shadow-lg hover:shadow-accent/20"
+                : "bg-bg-secondary text-text-subtle border border-border-subtle hover:border-accent hover:text-accent"
+            ]}
+            data-filter={category.toLowerCase()}
           >
-            All Posts
+            {category}
           </button>
-          {allTags.map((tag) => (
-            <button
-              class="filter-btn px-3 py-1.5 bg-bg-secondary text-text-subtle rounded-lg font-medium text-sm border border-border-subtle hover:border-accent hover:text-accent transition-all"
-              data-filter={tag}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      )}
+        ))}
+      </div>
 
       <!-- Blog Posts Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="posts-grid">
@@ -89,14 +94,14 @@ const description = 'Technical writing on federated learning security, adversari
   </div>
 </BaseLayout>
 
-<script define:vars={{ allTags }}>
-  // Tag filtering functionality
+<script define:vars={{ categoryTagMap }}>
+  // Simplified category filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const postCards = document.querySelectorAll('[data-tags]');
 
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      const filter = button.dataset.filter || 'all';
+      const filter = (button.dataset.filter || 'all posts').toLowerCase();
 
       // Update active state
       filterButtons.forEach(btn => {
@@ -106,10 +111,12 @@ const description = 'Technical writing on federated learning security, adversari
       button.classList.remove('bg-bg-secondary', 'text-text-subtle', 'border', 'border-border-subtle');
       button.classList.add('bg-accent', 'text-white', 'hover:shadow-lg', 'hover:shadow-accent/20');
 
-      // Filter posts
+      // Filter posts by category mapping
+      const mappingTags = categoryTagMap[filter] || [];
+
       postCards.forEach(card => {
-        const cardTags = card.dataset.tags || '';
-        const shouldShow = filter === 'all' || cardTags.includes(filter);
+        const cardTags = (card.dataset.tags || '').toLowerCase();
+        const shouldShow = filter === 'all posts' || mappingTags.some(tag => cardTags.includes(tag));
         card.style.display = shouldShow ? 'flex' : 'none';
       });
     });
