@@ -33,7 +33,7 @@ const {
       data-suffix={stat.suffix || ''}
     >
       <div class="stat-value font-mono font-bold text-2xl md:text-stat gradient-text">
-        0
+        {stat.value}{stat.suffix || ''}
       </div>
       <div class="stat-label text-xs uppercase tracking-wider text-text-subtle mt-1">
         {stat.label}

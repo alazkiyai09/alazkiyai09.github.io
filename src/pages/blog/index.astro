@@ -39,24 +39,6 @@ const description = 'Technical writing on federated learning security, adversari
         </p>
       </div>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
-        <div class="glass-card p-4 text-center">
-          <div class="text-3xl font-bold text-accent">{publishedPosts.length}</div>
-          <div class="text-sm text-text-subtle">Posts</div>
-        </div>
-        <div class="glass-card p-4 text-center">
-          <div class="text-3xl font-bold text-accent">{allTags.length}</div>
-          <div class="text-sm text-text-subtle">Topics</div>
-        </div>
-        <div class="glass-card p-4 text-center col-span-2 md:col-span-1">
-          <div class="text-3xl font-bold text-accent">
-            {publishedPosts.reduce((sum, p) => sum + (p.data.readingTime || 5), 0)}
-          </div>
-          <div class="text-sm text-text-subtle">Min Read</div>
-        </div>
-      </div>
-
       <!-- Tags Filter -->
       {allTags.length > 0 && (
         <div class="flex flex-wrap justify-center gap-2 mb-10" id="tag-filters">

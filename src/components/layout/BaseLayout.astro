@@ -14,7 +14,7 @@ interface Props {
 const {
   title = 'Azka Al Azkiyai — AI Security Researcher',
   description = 'AI Security Researcher specializing in federated learning defense, adversarial robustness, and cryptographic verification. 3+ years in Indonesian banking. Open to opportunities.',
-  image = '/og-image.svg',
+  image = '/og-image.png',
   keywords = ['AI Security', 'Federated Learning', 'Fraud Detection', 'Machine Learning', 'Cryptography', 'Adversarial ML', 'Zero-Knowledge Proofs'],
   noindex = false
 } = Astro.props;
@@ -94,6 +94,8 @@ const personSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v14/rP2Hp2ywxg089UriCZ2IHSeH.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/syne/v22/syneue-nkltz-7__AdMw.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
