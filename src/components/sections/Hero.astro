@@ -7,10 +7,9 @@ import publications from '../../data/publications.json';
 const { name, title, location, status, contact, achievements: profileAchievements } = profile;
 
 // Portfolio proof metrics - use profile data if available
-const completedProjects = profileAchievements?.totalProjects || 76;
+const completedProjects = 30; // Focused number, not a total count
 const totalPublications = profileAchievements?.totalPublications || publications.publications.length || 2;
 const yearsExp = profileAchievements?.yearsExperience || 3;
-const totalPortfolios = profileAchievements?.totalPortfolios || 4;
 
 const portfolioSummary = activityLog.activities
   .filter((item) => item.type === 'portfolio_complete')
@@ -101,22 +100,14 @@ const portfolioSummary = activityLog.activities
         </div>
 
         <!-- Proof Strip -->
-        <div class="grid sm:grid-cols-3 gap-3 pt-2">
+        <div class="grid sm:grid-cols-2 gap-3 pt-2">
           <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
-            <div class="text-sm font-semibold text-slate-900 dark:text-white">{completedProjects} completed projects</div>
-            <div class="text-xs text-slate-600 dark:text-slate-400">Across {totalPortfolios} portfolio tracks</div>
-          </div>
-          <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
-            <div class="text-sm font-semibold text-slate-900 dark:text-white">
-              {Math.round(portfolioSummary.linesOfCode / 1000)}k+ lines of code
-            </div>
-            <div class="text-xs text-slate-600 dark:text-slate-400">
-              {portfolioSummary.tests}+ tests and validation assets
-            </div>
+            <div class="text-sm font-semibold text-slate-900 dark:text-white">{yearsExp}+ years production ML</div>
+            <div class="text-xs text-slate-600 dark:text-slate-400">Banking fraud detection at scale</div>
           </div>
           <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/60 p-3">
             <div class="text-sm font-semibold text-slate-900 dark:text-white">{totalPublications} publications</div>
-            <div class="text-xs text-slate-600 dark:text-slate-400">Research + implementation portfolio</div>
+            <div class="text-xs text-slate-600 dark:text-slate-400">Research in security & privacy</div>
           </div>
         </div>
 
@@ -176,16 +167,8 @@ const portfolioSummary = activityLog.activities
               <!-- Stats -->
               <div class="grid grid-cols-2 gap-2 lg:gap-4">
                 <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">{completedProjects}</div>
-                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Projects</div>
-                </div>
-                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-2xl lg:text-3xl font-bold text-purple-600 dark:text-purple-400">{yearsExp}+</div>
+                  <div class="text-2xl lg:text-3xl font-bold text-blue-600 dark:text-blue-400">{yearsExp}+</div>
                   <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Years Exp</div>
-                </div>
-                <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                  <div class="text-2xl lg:text-3xl font-bold text-green-600 dark:text-green-400">{totalPortfolios}</div>
-                  <div class="text-xs lg:text-sm text-slate-600 dark:text-slate-400">Portfolios</div>
                 </div>
                 <div class="text-center p-2 lg:p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
                   <div class="text-2xl lg:text-3xl font-bold text-pink-600 dark:text-pink-400">{totalPublications}</div>
