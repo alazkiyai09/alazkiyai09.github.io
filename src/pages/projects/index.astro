@@ -72,30 +72,28 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
           <article class="featured-card group relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div class="relative glass-card p-6 h-full border-accent/30 shadow-lg shadow-accent/5 flex flex-col">
-              {/* Featured Badge */}
-              <div class="absolute top-4 right-4">
-                <span class="px-2 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30">
+              {/* Badges row - Featured and Status */}
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span
+                    class:list={[
+                      "badge text-xs",
+                      project.data.status === 'completed' && "bg-green-500/20 text-green-400 border border-green-500/30",
+                      project.data.status === 'in-progress' && "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
+                      project.data.status === 'draft' && "bg-slate-500/20 text-slate-400 border border-slate-500/30"
+                    ]}
+                  >
+                    {project.data.status}
+                  </span>
+                  <span class="badge-subtle text-xs">{project.data.category}</span>
+                </div>
+                <span class="px-2 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30 shrink-0">
                   Featured
                 </span>
               </div>
 
-              {/* Status and Category Badges */}
-              <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span
-                  class:list={[
-                    "badge text-xs",
-                    project.data.status === 'completed' && "bg-green-500/20 text-green-400 border border-green-500/30",
-                    project.data.status === 'in-progress' && "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-                    project.data.status === 'draft' && "bg-slate-500/20 text-slate-400 border border-slate-500/30"
-                  ]}
-                >
-                  {project.data.status}
-                </span>
-                <span class="badge-subtle text-xs">{project.data.category}</span>
-              </div>
-
               {/* Title */}
-              <h3 class="text-xl font-bold text-text-primary mb-2 line-clamp-2 font-display group-hover:text-accent transition-colors">
+              <h3 class="text-lg font-bold text-text-primary mb-2 line-clamp-2 font-display group-hover:text-accent transition-colors">
                 <a href={`/projects/${project.slug}`}>
                   {project.data.title}
                 </a>
