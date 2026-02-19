@@ -22,12 +22,13 @@ const {
 } = Astro.props;
 ---
 
-<div class={className} class:list={[className, "stat-bar"]}>
+<div class={className} class:list={[className, "stat-bar grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0"]}>
   {stats.map((stat, index) => (
     <div
       class:list={[
-        "stat-item flex-1 text-center",
-        index < stats.length - 1 && "border-r border-border"
+        "stat-item text-center",
+        "md:border-r md:border-border",
+        index === stats.length - 1 && "md:border-r-0"
       ]}
       data-value={stat.value}
       data-suffix={stat.suffix || ''}

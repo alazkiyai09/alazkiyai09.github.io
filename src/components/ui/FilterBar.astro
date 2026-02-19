@@ -18,12 +18,12 @@ const {
 } = Astro.props;
 
 const containerClass = [
-  'flex flex-wrap gap-2 md:gap-3',
+  'flex flex-wrap gap-2 md:gap-3 justify-center',
   className
 ].filter(Boolean).join(' ');
 
 const getButtonClass = (category: string) => [
-  'px-4 py-2 rounded-pill text-sm font-medium transition-all duration-200',
+  'px-3 py-1.5 md:px-4 md:py-2 rounded-pill text-xs md:text-sm font-medium transition-all duration-200 whitespace-nowrap',
   activeCategory === category
     ? 'bg-accent text-white shadow-glow-sm'
     : 'bg-bg-surface text-text-subtle hover:text-text-primary hover:bg-bg-surface-hover border border-border'

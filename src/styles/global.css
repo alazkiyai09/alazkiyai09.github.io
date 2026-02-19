@@ -185,11 +185,11 @@
   }
 
   .container-custom {
-    @apply max-w-content mx-auto px-6;
+    @apply max-w-content mx-auto px-4 sm:px-6;
   }
 
   .section-padding {
-    @apply py-section md:py-section-lg;
+    @apply py-12 md:py-section lg:py-section-lg;
   }
 
   /* Prose styles for blog/content */
@@ -275,7 +275,7 @@
 /* Custom components */
 @layer components {
   .card {
-    @apply bg-bg-surface border border-border rounded-card p-6 md:p-8;
+    @apply bg-bg-surface border border-border rounded-card p-5 md:p-6 lg:p-8;
     transition: all 0.35s cubic-bezier(.16,1,.3,1);
   }
 
@@ -285,7 +285,8 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-btn font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg-primary;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 md:px-5 rounded-btn font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg-primary;
+    min-height: 44px; /* Minimum touch target size */
   }
 
   .btn-primary {
