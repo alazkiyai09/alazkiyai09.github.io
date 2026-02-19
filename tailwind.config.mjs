@@ -59,8 +59,8 @@ export default {
         sans: ['DM Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       fontSize: {
-        // Hero h1
-        'hero': ['clamp(36px, 5.5vw, 64px)', { lineHeight: '1.08', letterSpacing: '-0.03em', fontWeight: '800' }],
+        // Hero h1 - more open, readable spacing
+        'hero': ['clamp(36px, 5.5vw, 64px)', { lineHeight: '1.12', letterSpacing: '-0.01em', fontWeight: '700' }],
         // Stats numbers
         'stat': ['40px', { lineHeight: '1', fontWeight: '700' }],
       },
