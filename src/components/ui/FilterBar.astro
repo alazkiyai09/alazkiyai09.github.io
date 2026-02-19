@@ -50,10 +50,18 @@ const getButtonClass = (category: string) => [
       if (button) {
         const category = button.getAttribute('data-category');
         if (category) {
-          // Update active state visually
+          // Update active state visually - update classes
           container.querySelectorAll('button[data-category]').forEach((btn) => {
+            // Remove active classes
+            btn.classList.remove('bg-accent', 'text-white', 'shadow-glow-sm');
+            // Add inactive classes
+            btn.classList.add('bg-bg-surface', 'text-text-subtle', 'hover:text-text-primary', 'hover:bg-bg-surface-hover', 'border', 'border-border');
             btn.setAttribute('aria-pressed', 'false');
           });
+
+          // Add active classes to clicked button
+          button.classList.remove('bg-bg-surface', 'text-text-subtle', 'hover:text-text-primary', 'hover:bg-bg-surface-hover', 'border', 'border-border');
+          button.classList.add('bg-accent', 'text-white', 'shadow-glow-sm');
           button.setAttribute('aria-pressed', 'true');
 
           // Update the container's data attribute for custom JS handling
