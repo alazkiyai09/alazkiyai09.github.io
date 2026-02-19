@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/03_adversarial_attacks"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/03_adversarial_attacks"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

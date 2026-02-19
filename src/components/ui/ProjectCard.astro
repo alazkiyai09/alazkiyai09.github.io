@@ -1,0 +1,66 @@
+---
+/**
+ * ProjectCard - Title, description, impact callout, tags, link
+ * Card with hover effect and cyan left-border impact callout
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  impact: string;
+  tags: string[];
+  href: string;
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  impact,
+  tags = [],
+  href,
+  class: className = ''
+} = Astro.props;
+
+const cardClass = [
+  'glass-card p-6 md:p-8 flex flex-col h-full',
+  className
+].filter(Boolean).join(' ');
+---
+
+<article class={cardClass}>
+  <!-- Title -->
+  <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-3 font-display">
+    {title}
+  </h3>
+
+  <!-- Description -->
+  <p class="text-text-muted leading-relaxed mb-4 flex-grow">
+    {description}
+  </p>
+
+  <!-- Impact callout with cyan left border -->
+  <div class="impact-callout mb-5">
+    {impact}
+  </div>
+
+  <!-- Tags with subtle variant -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-4">
+      {tags.map((tag) => (
+        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+
+  <!-- Link with arrow animation -->
+  <a
+    href={href}
+    class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-all duration-200 group self-start"
+  >
+    View on GitHub
+    <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+  </a>
+</article>

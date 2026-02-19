@@ -13,7 +13,7 @@ technologies:
   - Python
   - PySyft
   - PSI
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/federated-classifiers/cross_bank_federated_phishing"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/cross_bank_federated_phishing"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

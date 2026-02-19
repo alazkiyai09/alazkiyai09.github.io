@@ -1,0 +1,80 @@
+---
+/**
+ * ExpertiseCard - Icon, title, subtitle, achievements list, tags
+ * Uses glass-card style with hover effect
+ */
+
+interface Achievement {
+  text: string;
+}
+
+interface Props {
+  icon: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  achievements: string[];
+  tags: string[];
+  class?: string;
+}
+
+const {
+  icon,
+  title,
+  subtitle,
+  description,
+  achievements = [],
+  tags = [],
+  class: className = ''
+} = Astro.props;
+
+const cardClass = [
+  'glass-card p-6 md:p-8 flex flex-col items-center text-center',
+  className
+].filter(Boolean).join(' ');
+---
+
+<article class={cardClass}>
+  <!-- Large centered icon -->
+  <div class="text-5xl md:text-6xl mb-4">
+    {icon}
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-2 font-display">
+    {title}
+  </h3>
+
+  <!-- Cyan accent subtitle -->
+  <p class="text-accent text-sm font-medium mb-3">
+    {subtitle}
+  </p>
+
+  <!-- Description -->
+  <p class="text-text-muted text-sm leading-relaxed mb-4 max-w-sm">
+    {description}
+  </p>
+
+  <!-- Achievements list with arrow prefix -->
+  {achievements.length > 0 && (
+    <ul class="text-left w-full max-w-xs space-y-2 mb-5">
+      {achievements.map((achievement) => (
+        <li class="text-text-secondary text-sm flex items-start gap-2">
+          <span class="text-accent mt-0.5">→</span>
+          <span>{achievement}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <!-- Tags with subtle variant -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mt-auto">
+      {tags.map((tag) => (
+        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

@@ -1,0 +1,62 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ResearchCard from '../ui/ResearchCard.astro';
+import CalloutBox from '../ui/CalloutBox.astro';
+import FadeIn from '../ui/FadeIn.astro';
+
+const researchQuestions = [
+  {
+    number: 'Q1' as const,
+    question: 'Can we build verifiable trust between financial institutions in federated learning without revealing private data?',
+    exploration: 'Exploring zero-knowledge proofs for provable model integrity in cross-institution FL, so banks can collaborate on fraud detection without trusting each other blindly.',
+    tags: ['Zero-Knowledge Proofs', 'Federated Learning', 'Financial Systems']
+  },
+  {
+    number: 'Q2' as const,
+    question: 'How do we make phishing detection explainable when the model is distributed across institutions?',
+    exploration: 'Investigating local LLMs to generate human-understandable explanations for federated phishing classifiers — bridging the gap between ML accuracy and analyst trust.',
+    tags: ['Explainable AI', 'LLMs', 'Phishing Detection']
+  },
+  {
+    number: 'Q3' as const,
+    question: "What's the real-world cost of Byzantine resilience in production federated systems?",
+    exploration: "Most FL defense papers benchmark on MNIST/CIFAR. I'm studying how defenses like SignGuard perform under realistic banking data distributions and adversary models.",
+    tags: ['Byzantine Resilience', 'Production FL', 'Empirical Security']
+  }
+];
+---
+
+<section class="section-padding bg-bg-surface">
+  <div class="container-custom">
+    <FadeIn delay="1">
+      <SectionHeader
+        label="RESEARCH"
+        title="Open Research Questions"
+        description="Problems I'm actively thinking about — open to collaboration and academic partnerships."
+      />
+    </FadeIn>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+      {researchQuestions.map((q, index) => (
+        <FadeIn delay={(index + 2).toString() as '2' | '3' | '4'}>
+          <ResearchCard
+            number={q.number}
+            question={q.question}
+            exploration={q.exploration}
+            tags={q.tags}
+          />
+        </FadeIn>
+      ))}
+    </div>
+
+    <div class="mt-12">
+      <FadeIn delay="5">
+        <CalloutBox
+          icon="🎓"
+          title="Pursuing MRes in Computer Security & Machine Learning"
+          content="Applying to research-focused programs (2026–2027) to deepen my work at the intersection of cryptographic verification and adversarial ML. Open to supervision opportunities in federated learning security, privacy-preserving ML, or applied cryptography."
+        />
+      </FadeIn>
+    </div>
+  </div>
+</section>

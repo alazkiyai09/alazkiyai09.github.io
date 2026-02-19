@@ -12,7 +12,7 @@ technologies:
   - Python
   - LangGraph
   - Pandas
-repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/AdInsights-Agent"
+repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/AdInsights-Agent"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

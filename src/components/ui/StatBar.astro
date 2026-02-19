@@ -1,0 +1,93 @@
+---
+/**
+ * StatBar component - Animated counter stats
+ * @param stats - Array of { value: number, suffix?: string, label: string }
+ * @param className - Additional CSS classes
+ */
+
+interface StatItem {
+  value: number;
+  suffix?: string;
+  label: string;
+}
+
+interface Props {
+  stats: StatItem[];
+  class?: string;
+}
+
+const {
+  stats,
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={className} class:list={[className, "stat-bar"]}>
+  {stats.map((stat, index) => (
+    <div
+      class:list={[
+        "stat-item flex-1 text-center",
+        index < stats.length - 1 && "border-r border-border"
+      ]}
+      data-value={stat.value}
+      data-suffix={stat.suffix || ''}
+    >
+      <div class="stat-value font-mono font-bold text-2xl md:text-stat gradient-text">
+        0
+      </div>
+      <div class="stat-label text-xs uppercase tracking-wider text-text-subtle mt-1">
+        {stat.label}
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  // Count-up animation with IntersectionObserver
+  const animateCounter = (element: HTMLElement, target: number, suffix: string = '') => {
+    const duration = 1800;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      current = Math.min(Math.round(current + increment), target);
+      element.textContent = current.toLocaleString() + suffix;
+
+      if (step >= steps || current >= target) {
+        clearInterval(timer);
+        element.textContent = target.toLocaleString() + suffix;
+      }
+    }, duration / steps);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const statBar = entry.target;
+        const statItems = statBar.querySelectorAll('.stat-item');
+
+        statItems.forEach((item, index) => {
+          const valueEl = item.querySelector('.stat-value') as HTMLElement;
+          const target = parseInt(item.getAttribute('data-value') || '0');
+          const suffix = item.getAttribute('data-suffix') || '';
+
+          // Stagger the animations
+          setTimeout(() => {
+            if (valueEl) {
+              animateCounter(valueEl, target, suffix);
+            }
+          }, index * 150);
+        });
+
+        observer.unobserve(statBar);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-bar').forEach((statBar) => {
+    observer.observe(statBar);
+  });
+</script>

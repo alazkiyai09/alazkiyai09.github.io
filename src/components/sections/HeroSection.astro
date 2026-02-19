@@ -1,0 +1,83 @@
+---
+import Avatar from '../ui/Avatar.astro';
+import Button from '../ui/Button.astro';
+import StatBar from '../ui/StatBar.astro';
+import FadeIn from '../ui/FadeIn.astro';
+import profile from '../../data/profile.json';
+
+const { location, status, contact, social } = profile;
+
+const stats = [
+  { value: 67, suffix: '+', label: 'Projects Completed' },
+  { value: 3, suffix: '+', label: 'Years in Banking' },
+  { value: 2, label: 'Publications' },
+  { value: 94, suffix: '%', label: 'SignGuard Detection' },
+];
+---
+
+<section class="min-h-screen flex items-center section-padding relative overflow-hidden">
+  <div class="container-custom">
+    <div class="max-w-4xl">
+      <!-- Avatar + Status Row -->
+      <FadeIn delay="1">
+        <div class="flex items-center gap-4 mb-8">
+          <Avatar size="md" />
+          <div>
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-bg text-accent rounded-full text-xs font-mono font-semibold uppercase tracking-wider border border-accent-border">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-light"></span>
+              </span>
+              {status.current}
+            </span>
+            <p class="text-text-subtle text-sm mt-1">
+              {location.city}, {location.country} · {location.availableForRemote ? 'Open to Remote' : 'On-site Only'}
+            </p>
+          </div>
+        </div>
+      </FadeIn>
+
+      <!-- Headline -->
+      <FadeIn delay="2">
+        <h1 class="text-hero font-display font-extrabold text-text-primary mb-6">
+          I secure AI systems <span class="gradient-text">before they break.</span>
+        </h1>
+      </FadeIn>
+
+      <!-- Subheadline -->
+      <FadeIn delay="3">
+        <p class="text-lg md:text-xl text-text-muted max-w-[580px] mb-8 leading-relaxed">
+          AI Security Researcher specializing in federated learning defense, adversarial robustness, and cryptographic verification. 3+ years protecting banking systems from fraud at scale. I find the vulnerabilities in ML pipelines and build the defenses to stop them.
+        </p>
+      </FadeIn>
+
+      <!-- CTA Buttons -->
+      <FadeIn delay="4">
+        <div class="flex flex-wrap gap-4 mb-16">
+          <Button href="/projects" variant="primary" size="lg">
+            View My Work
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Button>
+          <Button href="/contact" variant="secondary" size="lg">
+            Get in Touch
+          </Button>
+          <Button href={social.github} variant="ghost" size="lg">
+            GitHub
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </Button>
+        </div>
+      </FadeIn>
+
+      <!-- Stats Bar -->
+      <FadeIn delay="5">
+        <div class="bg-bg-surface border border-border rounded-card p-6 md:p-8">
+          <StatBar stats={stats} />
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>

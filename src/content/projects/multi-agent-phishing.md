@@ -14,7 +14,7 @@ technologies:
   - LangChain
   - OpenAI
   - PyTorch
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/multi_agent_phishing_detector"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/multi_agent_phishing_detector"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

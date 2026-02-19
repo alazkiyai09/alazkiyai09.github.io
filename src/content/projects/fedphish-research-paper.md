@@ -11,7 +11,7 @@ summary: "Comprehensive research paper on FedPhish system with theoretical analy
 technologies:
   - LaTeX
   - Python
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/capstone/fedphish-paper"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish-paper"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

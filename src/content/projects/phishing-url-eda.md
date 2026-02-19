@@ -14,7 +14,7 @@ technologies:
   - Pandas
   - NLTK
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/phishing_email_analysis"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/phishing_email_analysis"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

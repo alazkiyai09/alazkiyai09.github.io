@@ -1,0 +1,63 @@
+---
+/**
+ * BlogPostCard - Title, date, summary, reading time, tags
+ * Compact card for blog listing
+ */
+
+interface Props {
+  title: string;
+  date: string;        // ISO date string for datetime attribute
+  displayDate: string; // Human-readable date for display
+  summary: string;
+  readingTime: string;
+  tags: string[];
+  href: string;
+  class?: string;
+}
+
+const {
+  title,
+  date,
+  displayDate,
+  summary,
+  readingTime,
+  tags = [],
+  href,
+  class: className = ''
+} = Astro.props;
+
+const cardClass = [
+  'glass-card p-6 flex flex-col h-full group',
+  className
+].filter(Boolean).join(' ');
+---
+
+<a href={href} class={cardClass}>
+  <!-- Title with hover effect -->
+  <h3 class="text-lg md:text-xl font-bold text-text-primary mb-3 font-display group-hover:text-accent transition-colors">
+    {title}
+  </h3>
+
+  <!-- Date and reading time in subtle text -->
+  <div class="flex items-center gap-3 text-text-subtle text-sm mb-3">
+    <time datetime={date}>{displayDate}</time>
+    <span class="w-1 h-1 rounded-full bg-text-faint"></span>
+    <span>{readingTime}</span>
+  </div>
+
+  <!-- Summary -->
+  <p class="text-text-muted text-sm leading-relaxed mb-4 flex-grow">
+    {summary}
+  </p>
+
+  <!-- Tags at bottom -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mt-auto">
+      {tags.map((tag) => (
+        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</a>

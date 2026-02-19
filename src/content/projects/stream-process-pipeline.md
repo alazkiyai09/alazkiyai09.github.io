@@ -16,7 +16,7 @@ technologies:
   - Redis
   - Kubernetes
   - Docker
-repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/infrastructure/StreamProcess-Pipeline"
+repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/infrastructure/StreamProcess-Pipeline"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

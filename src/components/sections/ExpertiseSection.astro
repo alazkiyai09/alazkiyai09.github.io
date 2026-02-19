@@ -1,0 +1,71 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ExpertiseCard from '../ui/ExpertiseCard.astro';
+import FadeIn from '../ui/FadeIn.astro';
+
+const expertiseAreas = [
+  {
+    icon: '🛡️',
+    title: 'AI Security Research',
+    subtitle: 'Primary Focus',
+    description: 'I attack federated learning systems to find their weaknesses, then build the defenses. My work spans adversarial robustness, poisoning detection, and cryptographic trust verification.',
+    achievements: [
+      'Built SignGuard — ECDSA + anomaly detection achieving 94.5% attack detection rate',
+      '30-project FL security portfolio: Byzantine attacks, secure aggregation, privacy attacks',
+      'Zero-knowledge proof systems for verifiable trust in multi-institution FL'
+    ],
+    tags: ['Federated Learning', 'Adversarial ML', 'ECDSA', 'ZKP', 'Differential Privacy']
+  },
+  {
+    icon: '🏦',
+    title: 'Banking Fraud Detection',
+    subtitle: '3+ Years Industry',
+    description: "Production-grade fraud detection for major Indonesian financial institutions. I've maintained 99.9% SLA on real-time transaction monitoring systems handling millions of events.",
+    achievements: [
+      '99.9%+ SLA compliance on live fraud detection systems',
+      'Cut monitoring overhead by 50% through ML-driven automation',
+      'Reduced incident response time by 75% with intelligent alerting'
+    ],
+    tags: ['SAS Fraud Mgmt', 'Real-time ML', 'Transaction Monitoring', 'LSTM', 'SHAP']
+  },
+  {
+    icon: '⚡',
+    title: 'Production AI Engineering',
+    subtitle: 'Full-Stack ML',
+    description: 'I build AI systems that actually ship. RAG pipelines, LangGraph agents, evaluation frameworks — from prototype to production with proper testing and observability.',
+    achievements: [
+      '10 production-grade enterprise AI systems deployed',
+      'Multi-modal RAG systems for document intelligence',
+      'End-to-end LLMOps pipeline with RAGAS evaluation metrics'
+    ],
+    tags: ['LangGraph', 'RAG', 'FastAPI', 'Docker', 'LLMOps']
+  }
+];
+---
+
+<section class="section-padding">
+  <div class="container-custom">
+    <FadeIn delay="1">
+      <SectionHeader
+        label="EXPERTISE"
+        title="What I Bring to the Table"
+        description="Deep specialization at the intersection of AI security, financial systems, and production engineering."
+      />
+    </FadeIn>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+      {expertiseAreas.map((area, index) => (
+        <FadeIn delay={(index + 2).toString() as '2' | '3' | '4'}>
+          <ExpertiseCard
+            icon={area.icon}
+            title={area.title}
+            subtitle={area.subtitle}
+            description={area.description}
+            achievements={area.achievements}
+            tags={area.tags}
+          />
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>

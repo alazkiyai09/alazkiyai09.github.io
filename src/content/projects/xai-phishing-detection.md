@@ -14,7 +14,7 @@ technologies:
   - SHAP
   - LIME
   - LangChain
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/federated-classifiers/human_aligned_explanation"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/human_aligned_explanation"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

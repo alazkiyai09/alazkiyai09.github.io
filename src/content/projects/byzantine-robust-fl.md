@@ -13,7 +13,7 @@ technologies:
   - Python
   - PyTorch
   - NumPy
-repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/04_defensive_techniques"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/04_defensive_techniques"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

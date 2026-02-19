@@ -1,15 +1,151 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-import AboutSection from '../components/sections/About.astro';
-import Skills from '../components/sections/Skills.astro';
-import Experience from '../components/sections/Experience.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import Timeline from '../components/features/Timeline.astro';
+import profile from '../data/profile.json';
+import education from '../data/education.json';
+import experience from '../data/experience.json';
 
 const title = 'About - Azka';
-const description = 'Learn about my background in banking fraud detection, research in federated learning security, and work in AI systems.';
+const description = 'Learn about my background in banking fraud detection, research in federated learning security, and academic journey in computer science.';
+
+// Timeline events from experience and education
+const timelineEvents = [
+  ...experience.experience.map(exp => ({
+    date: exp.period.start,
+    title: `${exp.title} at ${exp.company}`,
+    description: exp.description,
+    type: (exp.category === 'research' ? 'milestone' : 'project') as 'milestone' | 'project'
+  })),
+  ...education.education.map(edu => ({
+    date: edu.period.start,
+    title: `${edu.degree} - ${edu.institution}`,
+    description: edu.thesis || `GPA: ${edu.gpa}`,
+    type: 'milestone' as const
+  }))
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Skills matrix grouped by domain
+const skillsMatrix = {
+  'AI/ML': ['PyTorch', 'TensorFlow', 'scikit-learn', 'Flower', 'PySyft', 'Opacus', 'TenSEAL'],
+  'Cryptography': ['ECDSA', 'ZKP (libsnark, circom)', 'AES', "Shamir's Secret Sharing"],
+  'Production': ['FastAPI', 'Docker', 'LangChain', 'LangGraph', 'React'],
+  'Data': ['SQL', 'IBM DB2', 'Pandas', 'NumPy'],
+  'Tools': ['SAS Fraud Management', 'SAS Viya', 'Power BI', 'Git']
+};
 ---
 
 <BaseLayout title={title} description={description}>
-  <AboutSection />
-  <Skills />
-  <Experience />
+  <main class="min-h-screen bg-bg-primary section-padding">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <!-- Hero Section -->
+        <SectionHeader
+          label="ABOUT"
+          title="Building Trustworthy AI Systems"
+          description="Bridging the gap between theoretical research and production-ready secure AI systems"
+          centered={true}
+        />
+
+        <!-- Extended Bio -->
+        <section class="glass-card p-8 md:p-10">
+          <p class="text-text-primary text-lg leading-relaxed mb-6">
+            I'm an AI Security Researcher with a journey that took me from IT consulting to fraud detection operations, and now to the frontiers of federated learning security. My path wasn't linear—I started in software engineering, moved into detecting financial crimes at major Indonesian banks, and found myself drawn to the deeper question: how do we build AI systems that remain secure when no single party can be fully trusted?
+          </p>
+          <p class="text-text-muted leading-relaxed mb-6">
+            For 3+ years, I led fraud detection operations at ITSEC Asia, maintaining 99.9%+ SLA on real-time systems processing millions of daily transactions. That experience showed me the gap between academic security research and production constraints—budgets, latency requirements, and the reality that adversaries don't follow the threat models in papers. I've since completed 67 projects spanning adversarial ML, federated learning security, and cryptographic verification, with published research in steganography (Springer LNNS vol. 285).
+          </p>
+          <p class="text-text-muted leading-relaxed mb-6">
+            Now I focus on federated learning defense: building systems like SignGuard that combine ECDSA signatures with anomaly detection to achieve 94.5% attack detection rates. My work sits at the intersection of cryptographic verification and adversarial robustness—I'm particularly interested in zero-knowledge proofs for verifiable trust in multi-institution settings.
+          </p>
+          <p class="text-text-muted leading-relaxed">
+            I'm currently pursuing MRes opportunities (2026-2027) to formalize this work, with target programs in Computer Security and Machine Learning at institutions with strong distributed systems research groups. I'm open to supervision opportunities in federated learning security, privacy-preserving ML, or applied cryptography.
+          </p>
+        </section>
+
+        <!-- Skills Matrix -->
+        <section>
+          <SectionHeader
+            label="SKILLS"
+            title="Technical Expertise"
+            description="Technologies and tools I use to build secure, production-ready AI systems"
+          />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            {Object.entries(skillsMatrix).map(([domain, skills]) => (
+              <div class="glass-card p-6">
+                <h3 class="font-display font-bold text-text-primary text-xl mb-4">
+                  {domain}
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <span class="badge-subtle">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Professional Timeline -->
+        <section>
+          <SectionHeader
+            label="JOURNEY"
+            title="Professional Timeline"
+            description="My career path from industry to research"
+          />
+
+          <Timeline events={timelineEvents} />
+        </section>
+
+        <!-- Education -->
+        <section class="glass-card p-8">
+          <div class="flex items-start gap-6">
+            <div class="p-4 bg-accent/10 rounded-xl">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-display font-bold text-text-primary text-xl mb-2">
+                {education.education[0].degree}
+              </h3>
+              <p class="text-text-muted mb-4">{education.education[0].institution}</p>
+              <div class="grid md:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <span class="text-text-subtle">Period</span>
+                  <p class="text-text-primary font-medium">
+                    {new Date(education.education[0].period.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                    {' – '}
+                    {new Date(education.education[0].period.end).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                  </p>
+                </div>
+                <div>
+                  <span class="text-text-subtle">GPA</span>
+                  <p class="text-text-primary font-medium">{education.education[0].gpa}</p>
+                </div>
+                <div>
+                  <span class="text-text-subtle">Location</span>
+                  <p class="text-text-primary font-medium">{profile.location.city}, {profile.location.country}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Beyond Work -->
+        <section class="glass-card p-8">
+          <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
+            Beyond the Code
+          </h2>
+          <p class="text-text-muted leading-relaxed">
+            When I'm not researching adversarial attacks or writing code, you'll find me reading about distributed systems history, following the latest developments in zero-knowledge cryptography, or mentoring aspiring security engineers. I believe the best security research comes from understanding both the theoretical foundations and the human systems we're trying to protect.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
 </BaseLayout>

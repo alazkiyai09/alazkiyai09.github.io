@@ -12,7 +12,7 @@ technologies:
   - Python
   - Flower
   - PyTorch
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/capstone/fedphish_benchmark"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/fedphish_benchmark"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

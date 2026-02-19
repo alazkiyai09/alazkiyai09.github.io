@@ -1,0 +1,59 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import FadeIn from '../ui/FadeIn.astro';
+import publications from '../../data/publications.json';
+
+// Get the first (main) publication for display
+const mainPublication = publications.publications[0];
+---
+
+<section class="section-padding bg-bg-surface">
+  <div class="container-custom">
+    <FadeIn delay="1">
+      <SectionHeader
+        label="PUBLICATIONS"
+        title="Published Research"
+      />
+    </FadeIn>
+
+    <FadeIn delay="2">
+      <div class="max-w-3xl mt-12">
+        <article class="glass-card p-6 md:p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="badge-accent text-xs font-mono px-3 py-1.5 rounded-full">
+              LNNS vol. 285
+            </span>
+            <span class="text-text-subtle text-sm">Springer</span>
+          </div>
+
+          <h3 class="text-xl md:text-2xl font-bold text-text-primary font-display mb-4">
+            {mainPublication.title}
+          </h3>
+
+          <p class="text-text-muted leading-relaxed mb-6">
+            Novel combined encoding method for image steganography. Evaluated across 131 images
+            with 10 message sizes each (1,310 total trials), measuring PSNR, MSE, and SSIM
+            quality metrics with AES-128 CTR_DRBG randomization.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="badge-subtle text-xs px-2.5 py-1 rounded-full">Steganography</span>
+            <span class="badge-subtle text-xs px-2.5 py-1 rounded-full">AES-128</span>
+            <span class="badge-subtle text-xs px-2.5 py-1 rounded-full">PVD/LSB/Modulo</span>
+            <span class="badge-subtle text-xs px-2.5 py-1 rounded-full">OpenCV</span>
+          </div>
+
+          <a
+            href={mainPublication.url || '#'}
+            class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-all duration-200 group"
+          >
+            View Publication
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </article>
+      </div>
+    </FadeIn>
+  </div>
+</section>

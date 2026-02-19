@@ -14,7 +14,7 @@ technologies:
   - FastAPI
   - Docker
   - Redis
-repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/01_fraud_detection_core/fraud_scoring_api"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/01_fraud_detection_core/fraud_scoring_api"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

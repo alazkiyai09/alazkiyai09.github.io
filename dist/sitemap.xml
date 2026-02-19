@@ -1,51 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
   <url>
     <loc>https://alazkiyai09.github.io/</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/about/</loc>
+    <loc>https://alazkiyai09.github.io/about</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/activity/</loc>
+    <loc>https://alazkiyai09.github.io/projects</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/contact/</loc>
+    <loc>https://alazkiyai09.github.io/research</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/journey/</loc>
+    <loc>https://alazkiyai09.github.io/blog</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/</loc>
+    <loc>https://alazkiyai09.github.io/publications</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/publications/</loc>
+    <loc>https://alazkiyai09.github.io/contact</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://alazkiyai09.github.io/blog/fl-security-portfolio-learnings</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/research/</loc>
+    <loc>https://alazkiyai09.github.io/blog/banking-fraud-needs-fl</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/day-01-fraud-detection-baseline/</loc>
+    <loc>https://alazkiyai09.github.io/blog/signguard-design</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/day-05-feature-engineering/</loc>
+    <loc>https://alazkiyai09.github.io/blog/understanding-byzantine-attacks</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Featured Projects -->
+  <url>
+    <loc>https://alazkiyai09.github.io/projects/fedphish-portfolio</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/day-10-signguard-core/</loc>
+    <loc>https://alazkiyai09.github.io/projects/fl-security-portfolio</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/day-18-malware-analyzer/</loc>
+    <loc>https://alazkiyai09.github.io/projects/production-ai-portfolio</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alazkiyai09.github.io/projects/day-20-zkp-integration/</loc>
-  </url>
-  <url>
-    <loc>https://alazkiyai09.github.io/projects/fedphish-portfolio/</loc>
-  </url>
-  <url>
-    <loc>https://alazkiyai09.github.io/projects/fl-security-portfolio/</loc>
-  </url>
-  <url>
-    <loc>https://alazkiyai09.github.io/projects/production-ai-portfolio/</loc>
+    <loc>https://alazkiyai09.github.io/projects/day-24-singuard</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

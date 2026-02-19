@@ -20,46 +20,55 @@ interface Props {
 const { publications } = Astro.props;
 ---
 
-<section class="section">
-  <div class="container">
+<section class="section-padding bg-bg-surface">
+  <div class="container-custom">
     <div class="max-w-4xl mx-auto space-y-6">
       {publications.map((pub) => (
-        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-shadow">
+        <article class="glass-card p-6 md:p-8">
           <div class="flex items-start gap-4">
-            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-3 bg-accent-bg rounded-lg flex-shrink-0 border border-accent-border">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="badge-accent text-xs font-mono px-2.5 py-1 rounded-full">
+                  {pub.type}
+                </span>
+                <span class="text-text-subtle text-sm">{pub.year}</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-text-primary mb-2">
                 {pub.title}
               </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-2">
+              <p class="text-text-secondary mb-2">
                 {pub.authors.join(', ')}
               </p>
-              <p class="text-sm text-slate-500 dark:text-slate-500 mb-3">
-                {pub.venue}{pub.volume ? `, ${pub.volume}` : ''}{pub.pages ? `, pp. ${pub.pages}` : ''} • {pub.publisher} • {pub.year}
+              <p class="text-sm text-text-muted mb-4">
+                {pub.venue}{pub.volume ? `, ${pub.volume}` : ''}{pub.pages ? `, pp. ${pub.pages}` : ''} • {pub.publisher}
               </p>
-              <div class="flex flex-wrap gap-3">
+              <div class="flex flex-wrap gap-4">
                 {pub.url && (
                   <a href={pub.url} target="_blank" rel="noopener noreferrer"
-                     class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium inline-flex items-center gap-1">
+                     class="text-accent hover:text-accent-light transition-colors text-sm font-medium inline-flex items-center gap-2 group">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                     View Publication
+                    <svg class="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                   </a>
                 )}
                 {pub.doi && (
-                  <span class="text-slate-500 dark:text-slate-500 text-sm">
+                  <span class="text-text-subtle text-sm font-mono">
                     DOI: {pub.doi}
                   </span>
                 )}
               </div>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>

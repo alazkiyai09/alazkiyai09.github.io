@@ -1,179 +1,194 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
-import Card from '../components/ui/Card.astro';
-import Badge from '../components/ui/Badge.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import ResearchCard from '../components/ui/ResearchCard.astro';
+import Button from '../components/ui/Button.astro';
 import domainExpertise from '../data/domain-expertise.json';
-import activityLog from '../data/activity-log.json';
-
-// Filter research-related activities
-const researchActivities = activityLog.activities.filter(a =>
-  a.type === 'paper_read' ||
-  a.type === 'publication' ||
-  a.tags?.includes('research')
-).slice(0, 5);
 
 const title = 'Research - Azka';
 const description = 'Research interests in federated learning security, adversarial machine learning, and privacy-preserving AI.';
+
+// Research questions aligned with spec focus - expanded with literature and sub-questions
+const researchQuestions = [
+  {
+    number: 'Q1' as const,
+    question: 'Can we build verifiable trust between financial institutions in federated learning without revealing private data?',
+    exploration: 'Exploring zero-knowledge proofs for provable model integrity in cross-institution FL. Traditional approaches require data sharing or trusted third parties—I investigate cryptographic methods that allow banks to collaborate on fraud detection while proving they followed the protocol without revealing their training data. Key techniques include ZK-SNARKs for gradient verification and commitment schemes for model update integrity.',
+    literature: [
+      'Bonawitz et al. "Practical Secure Aggregation for FL" (2017) - foundational secure aggregation',
+      'Weng et al. "AuditFL: Accountable FL via Verifiable Gradients" (2023) - gradient verification',
+      'Zhang et al. "EZFL: Efficient Zero-Knowledge Proofs for FL" (2024) - ZK-FL integration'
+    ],
+    subQuestions: [
+      'How do ZK-proof sizes scale with model dimension in production settings?',
+      'Can we achieve sub-second verification for real-time fraud detection pipelines?',
+      'What are the minimum cryptographic assumptions for cross-institution trust?'
+    ],
+    tags: ['Zero-Knowledge Proofs', 'Federated Learning', 'Financial Systems', 'Trust Verification']
+  },
+  {
+    number: 'Q2' as const,
+    question: 'How do we make phishing detection explainable when the model is distributed across institutions?',
+    exploration: 'Investigating local LLMs to generate human-understandable explanations for federated phishing classifiers. The challenge is providing actionable insights to security analysts without centralizing model knowledge or exposing which features each institution contributed. I explore techniques like counterfactual explanations and attention-based interpretability that work in distributed settings.',
+    literature: [
+      'Gramegna & Giudici "Explainable FL for Credit Scoring" (2021) - XAI in distributed finance',
+      'Singh et al. "FedXAI: Explainable AI for FL" (2023) - federated interpretability framework',
+      'Liu et al. "Privacy-Preserving Explanations via SHAP" (2022) - private feature attribution'
+    ],
+    subQuestions: [
+      'Can LLM-generated explanations remain faithful without accessing raw feature distributions?',
+      'How do we ensure explanations do not leak private information across institutional boundaries?',
+      'What explanation formats do security analysts actually find actionable?'
+    ],
+    tags: ['Explainable AI', 'LLMs', 'Phishing Detection', 'Privacy-Preserving XAI']
+  },
+  {
+    number: 'Q3' as const,
+    question: "What's the real-world cost of Byzantine resilience in production federated systems?",
+    exploration: 'Most FL defense papers benchmark on MNIST/CIFAR with idealized adversary models. I study how defenses like SignGuard perform under realistic banking data distributions—skewed, imbalanced, and with concept drift. Key metrics include: detection latency impact on real-time scoring, computational overhead on edge devices, and accuracy trade-offs under adaptive attacks targeting specific defense mechanisms.',
+    literature: [
+      'Blanchard et al. "Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent" (2017)',
+      'Yin et al. "Byzantine-Robust Distributed Learning" (2018) - defense benchmarks',
+      'Shejwalkar & Houmansadr "Manipulating the Byzantine" (2021) - adaptive attack strategies'
+    ],
+    subQuestions: [
+      'How does defense overhead scale with the fraction of malicious clients?',
+      'What detection latency is acceptable for real-time fraud scoring?',
+      'Do current benchmarks reflect realistic adversary capabilities and incentives?'
+    ],
+    tags: ['Byzantine Resilience', 'Production FL', 'Empirical Security', 'Performance Analysis']
+  }
+];
+
+// Filter research areas
+const researchAreas = domainExpertise.areas.filter(area => area.type === 'research');
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="section">
-    <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-12">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">Research</h1>
-          <p class="text-xl text-slate-600 dark:text-slate-400">
-            Exploring the intersection of security, privacy, and distributed machine learning
+  <main class="min-h-screen bg-bg-primary section-padding">
+    <div class="container-custom">
+      <div class="max-w-5xl mx-auto space-y-12">
+        <!-- Hero Section -->
+        <SectionHeader
+          label="RESEARCH"
+          title="Bridging Theory and Practice"
+          description="Exploring the intersection of security, privacy, and distributed machine learning"
+          centered={true}
+        />
+
+        <!-- Research Philosophy -->
+        <section class="glass-card p-8 md:p-10">
+          <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
+            Research Philosophy
+          </h2>
+          <p class="text-text-muted leading-relaxed mb-4">
+            My research operates at the intersection of cryptographic security and distributed machine learning. I believe that robust AI systems require both theoretical foundations and practical implementation—security mechanisms must work not just in papers, but in real-world deployments with resource constraints and honest-but-curious participants.
           </p>
-        </div>
+          <p class="text-text-muted leading-relaxed">
+            I focus on federated learning security because it represents one of the most challenging practical scenarios: distributed training across untrusted devices with strict privacy requirements. My work aims to make these systems resilient to adversarial attacks while maintaining the privacy guarantees that make federated learning valuable in the first place.
+          </p>
+        </section>
 
-        <!-- Research Overview -->
-        <div class="mb-12">
-          <Card variant="default" class="p-8">
-            <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Research Interests</h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-6">
-              My research focuses on building secure and privacy-preserving machine learning systems,
-              particularly in the context of federated learning for financial applications. I work on
-              Byzantine-resilient aggregation, adversarial attack detection, and cryptographic
-              verification mechanisms for distributed ML systems.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <Badge variant="info">Federated Learning</Badge>
-              <Badge variant="info">Adversarial ML</Badge>
-              <Badge variant="info">Privacy-Preserving AI</Badge>
-              <Badge variant="info">Byzantine Robustness</Badge>
-              <Badge variant="info">Cryptography</Badge>
-            </div>
-          </Card>
-        </div>
+        <!-- Research Questions -->
+        <section>
+          <SectionHeader
+            label="EXPLORATION"
+            title="Active Research Directions"
+            description="Core questions driving my current research agenda"
+          />
 
-        <!-- Domain Expertise Areas -->
-        <div class="mb-12">
-          <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Research Areas</h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            {domainExpertise.areas
-              .filter(area => area.type === 'research')
-              .map((area) => (
-              <Card variant="default" class="p-6 hover:shadow-lg transition-shadow">
-                <div class="flex items-start gap-4">
-                  <div class="text-4xl">{area.icon}</div>
-                  <div class="flex-1">
-                    <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">
-                      {area.title}
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm">
-                      {area.description}
-                    </p>
-
-                    <!-- Highlights -->
-                    <div class="mb-4">
-                      <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                        Key Areas:
-                      </h4>
-                      <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
-                        {area.highlights.map((highlight) => (
-                          <li class="flex items-start gap-2">
-                            <span class="text-blue-500 mt-1">•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <!-- Technologies -->
-                    <div class="flex flex-wrap gap-2">
-                      {area.technologies.map((tech) => (
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Card>
+          <div class="space-y-6">
+            {researchQuestions.map((q) => (
+              <ResearchCard
+                number={q.number}
+                question={q.question}
+                exploration={q.exploration}
+                literature={q.literature}
+                subQuestions={q.subQuestions}
+                tags={q.tags}
+              />
             ))}
           </div>
-        </div>
+        </section>
 
-        <!-- Recent Research Activity -->
-        {researchActivities.length > 0 && (
-          <div class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Recent Research Activity</h2>
-            <div class="space-y-4">
-              {researchActivities.map((activity) => (
-                <Card variant="default" class="p-6 hover:shadow-md transition-shadow">
-                  <div class="flex items-start gap-4">
-                    <div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                      <svg class="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    </div>
-                    <div class="flex-1">
-                      <div class="flex items-center gap-2 mb-1">
-                        <Badge
-                          variant={
-                            activity.type === 'publication' ? 'success' :
-                            activity.type === 'paper_read' ? 'info' :
-                            'default'
-                          }
-                          size="sm"
-                        >
-                          {activity.type.replace('_', ' ')}
-                        </Badge>
-                        <span class="text-sm text-slate-500">
-                          {new Date(activity.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })}
-                        </span>
-                      </div>
-                      <h3 class="font-bold text-slate-900 dark:text-white mb-1">
-                        {activity.title}
-                      </h3>
-                      <p class="text-sm text-slate-600 dark:text-slate-400">
-                        {activity.description}
-                      </p>
-                      {activity.links && (
-                        <div class="mt-2">
-                          {activity.links.map((link) => (
-                            <a
-                              href={link.url}
-                              class="text-sm text-blue-600 dark:text-blue-400 hover:underline"
-                            >
-                              {link.label} →
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
+        <!-- Research Areas -->
+        <section>
+          <SectionHeader
+            label="DOMAINS"
+            title="Research Areas"
+            description="Key domains of expertise and active investigation"
+          />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            {researchAreas.map((area) => (
+              <div class="glass-card p-6">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-3xl">{area.icon}</span>
+                  <h3 class="font-display font-bold text-text-primary text-xl">
+                    {area.title}
+                  </h3>
+                </div>
+                <p class="text-text-muted text-sm mb-4">{area.description}</p>
+                <div class="space-y-2">
+                  <p class="text-text-subtle text-xs font-semibold uppercase">Key Areas</p>
+                  <ul class="space-y-1">
+                    {area.highlights.map((highlight) => (
+                      <li class="text-text-muted text-sm flex items-start gap-2">
+                        <span class="text-accent mt-1">•</span>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- MRes Plans -->
+        <section class="glass-card p-8">
+          <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
+            MRes Research Plans
+          </h2>
+          <p class="text-text-muted leading-relaxed mb-6">
+            I am pursuing a Master of Research degree to deepen my theoretical understanding of distributed systems security. My planned research focuses on developing formally verified protocols for federated learning that provide provable security guarantees against adaptive adversaries.
+          </p>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-bg-surface rounded-lg p-4">
+              <p class="text-accent font-mono text-xs font-semibold mb-2">YEAR 1</p>
+              <p class="text-text-muted text-sm">Advanced cryptography coursework and literature review on FL security</p>
+            </div>
+            <div class="bg-bg-surface rounded-lg p-4">
+              <p class="text-accent font-mono text-xs font-semibold mb-2">YEAR 2</p>
+              <p class="text-text-muted text-sm">Protocol design and formal verification using proof assistants</p>
+            </div>
+            <div class="bg-bg-surface rounded-lg p-4">
+              <p class="text-accent font-mono text-xs font-semibold mb-2">YEAR 3</p>
+              <p class="text-text-muted text-sm">Implementation, experimental validation, and dissertation</p>
             </div>
           </div>
-        )}
+        </section>
 
-        <!-- Publications Link -->
-        <div class="text-center">
-          <Card variant="default" class="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
-            <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Publications</h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-6">
-              Explore my published research papers and contributions
+        <!-- Collaboration CTA -->
+        <section class="text-center">
+          <div class="glass-card p-8 md:p-12 bg-gradient-to-br from-accent/5 to-transparent">
+            <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
+              Interested in Collaboration?
+            </h2>
+            <p class="text-text-muted mb-6 max-w-xl mx-auto">
+              I'm always open to discussing research ideas, potential collaborations, or sharing insights on federated learning security and adversarial ML.
             </p>
-            <a
-              href="/publications"
-              class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-              View Publications
-            </a>
-          </Card>
-        </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <Button variant="primary" size="lg" href="/contact">
+                Get In Touch
+              </Button>
+              <Button variant="secondary" size="lg" href="/publications">
+                View Publications
+              </Button>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-  </div>
+  </main>
 </BaseLayout>

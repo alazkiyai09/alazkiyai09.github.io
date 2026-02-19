@@ -14,7 +14,7 @@ technologies:
   - FastAPI
   - Docker
   - Redis
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/unified-phishing-api"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/unified-phishing-api"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

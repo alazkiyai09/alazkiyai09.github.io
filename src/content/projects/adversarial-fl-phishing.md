@@ -12,7 +12,7 @@ technologies:
   - Python
   - PyTorch
   - Flower
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/capstone/adaptive_adversarial_fl"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/capstone/adaptive_adversarial_fl"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

@@ -1,0 +1,39 @@
+---
+/**
+ * SectionHeader component - Label + Title + Description pattern
+ * @param label - Section label text (displayed in uppercase, mono, cyan)
+ * @param title - Main section title (Syne font, bold, text-primary)
+ * @param description - Optional description text (text-muted)
+ * @param centered - Whether to center align the content
+ */
+
+interface Props {
+  label: string;
+  title: string;
+  description?: string;
+  centered?: boolean;
+  class?: string;
+}
+
+const {
+  label,
+  title,
+  description,
+  centered = false,
+  class: className = ''
+} = Astro.props;
+---
+
+<div class:list={['space-y-3', centered && 'text-center', className]}>
+  <p class="section-label">
+    {label}
+  </p>
+  <h2 class="font-display font-bold text-text-primary text-3xl md:text-4xl">
+    {title}
+  </h2>
+  {description && (
+    <p class:list={['text-text-muted max-w-prose', centered && 'mx-auto']}>
+      {description}
+    </p>
+  )}
+</div>

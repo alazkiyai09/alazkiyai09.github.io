@@ -1,0 +1,40 @@
+---
+/**
+ * Avatar component - Gradient circle with initial
+ * @param size - Avatar size variant (sm: 40px, md: 80px, lg: 100px)
+ * @param initial - Initial letter to display (defaults to 'A')
+ * @param className - Additional CSS classes
+ */
+
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  initial?: string;
+  class?: string;
+}
+
+const {
+  size = 'md',
+  initial = 'A',
+  class: className = ''
+} = Astro.props;
+
+const sizes = {
+  sm: 'w-10 h-10 text-lg',
+  md: 'w-20 h-20 text-3xl',
+  lg: 'w-[100px] h-[100px] text-4xl',
+};
+
+const avatarClass = [
+  'rounded-full flex items-center justify-center font-mono font-bold text-white',
+  sizes[size],
+  'shadow-glow-sm',
+  className
+].join(' ');
+---
+
+<div
+  class={avatarClass}
+  style="background: var(--accent-gradient);"
+>
+  {initial}
+</div>

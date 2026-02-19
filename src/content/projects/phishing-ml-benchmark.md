@@ -13,7 +13,7 @@ technologies:
   - Python
   - XGBoost
   - Scikit-learn
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day2_classical_ml_benchmark"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day2_classical_ml_benchmark"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

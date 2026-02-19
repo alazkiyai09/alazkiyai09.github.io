@@ -13,7 +13,7 @@ technologies:
   - Python
   - TenSEAL
   - Intel SGX
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/privacy-techniques/ht2ml_phishing"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/ht2ml_phishing"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

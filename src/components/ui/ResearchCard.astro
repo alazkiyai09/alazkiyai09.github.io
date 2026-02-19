@@ -1,0 +1,91 @@
+---
+/**
+ * ResearchCard - Question number, question, exploration, literature, sub-questions, tags
+ * Number label uses JetBrains Mono, cyan/accent color
+ */
+
+type QuestionNumber = 'Q1' | 'Q2' | 'Q3';
+
+interface Props {
+  number: QuestionNumber;
+  question: string;
+  exploration: string;
+  literature?: string[];
+  subQuestions?: string[];
+  tags: string[];
+  class?: string;
+}
+
+const {
+  number,
+  question,
+  exploration,
+  literature = [],
+  subQuestions = [],
+  tags = [],
+  class: className = ''
+} = Astro.props;
+
+const cardClass = [
+  'glass-card p-6 md:p-8',
+  className
+].filter(Boolean).join(' ');
+---
+
+<article class={cardClass}>
+  <!-- Number label with JetBrains Mono, cyan color -->
+  <div class="font-mono text-accent text-sm font-semibold mb-3">
+    {number}
+  </div>
+
+  <!-- Question as bold title -->
+  <h3 class="text-lg md:text-xl font-bold text-text-primary mb-4 font-display leading-snug">
+    {question}
+  </h3>
+
+  <!-- Exploration paragraph -->
+  <p class="text-text-muted leading-relaxed mb-5">
+    {exploration}
+  </p>
+
+  <!-- Related Literature -->
+  {literature.length > 0 && (
+    <div class="mb-5 p-4 bg-bg-surface rounded-lg border border-border">
+      <h4 class="text-xs font-semibold text-text-subtle uppercase tracking-wider mb-3">Related Literature</h4>
+      <ul class="space-y-2">
+        {literature.map((ref) => (
+          <li class="text-sm text-text-muted flex items-start gap-2">
+            <span class="text-accent mt-1.5 flex-shrink-0">•</span>
+            <span>{ref}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <!-- Open Sub-Questions -->
+  {subQuestions.length > 0 && (
+    <div class="mb-5">
+      <h4 class="text-xs font-semibold text-text-subtle uppercase tracking-wider mb-3">Open Questions</h4>
+      <ul class="space-y-2">
+        {subQuestions.map((sq) => (
+          <li class="text-sm text-text-muted flex items-start gap-2">
+            <span class="text-accent-light mt-1 flex-shrink-0">?</span>
+            <span>{sq}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <!-- Tags at bottom -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>

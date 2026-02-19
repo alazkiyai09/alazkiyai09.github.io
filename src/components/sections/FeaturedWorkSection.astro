@@ -1,0 +1,88 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ProjectCard from '../ui/ProjectCard.astro';
+import FadeIn from '../ui/FadeIn.astro';
+import Button from '../ui/Button.astro';
+
+const projects = [
+  {
+    title: 'SignGuard: Cryptographic FL Defense',
+    description: 'Novel defense combining ECDSA signatures with anomaly detection and reputation scoring to protect federated learning from poisoning attacks.',
+    impact: '94.5% attack detection rate with minimal overhead on honest participants',
+    tags: ['PyTorch', 'Flower', 'ECDSA', 'Reputation Systems'],
+    href: 'https://github.com/alazkiyai09/signguard'
+  },
+  {
+    title: 'FedPhish: Privacy-Preserving Phishing Detection',
+    description: '21-project portfolio on federated phishing detection with homomorphic encryption, trusted execution environments, and zero-knowledge proofs.',
+    impact: '81.56% accuracy with ε=1.0 differential privacy using Guard-GBDT',
+    tags: ['TenSEAL', 'ZKP', 'Intel SGX', 'DP-SGD'],
+    href: 'https://github.com/alazkiyai09/privacy-preserving-phishing-detection'
+  },
+  {
+    title: 'FL Security Research Portfolio',
+    description: 'Comprehensive 30-project deep dive into federated learning vulnerabilities and defenses: Byzantine attacks, secure aggregation, gradient leakage, and more.',
+    impact: '137,770+ lines of production code · 101 test files · 9.6/10 quality score',
+    tags: ['PyTorch', 'Flower', 'TensorFlow', 'FastAPI'],
+    href: 'https://github.com/alazkiyai09/fl-security-research'
+  },
+  {
+    title: 'Enterprise AI Systems',
+    description: '10 production-grade systems featuring multi-modal RAG, LangGraph conversational agents, AI safety guardrails, and full LLMOps pipelines.',
+    impact: '3 RAG systems · 4 LangGraph agents · End-to-end evaluation pipeline',
+    tags: ['LangChain', 'LangGraph', 'React', 'Docker'],
+    href: 'https://github.com/alazkiyai09/enterprise-ai-systems'
+  },
+  {
+    title: 'Steganography: PVD+LSB+Modulo',
+    description: 'Published research implementing combined PVD, LSB, and modulo encoding for image steganography with AES-128 CTR_DRBG randomization.',
+    impact: 'Published in Springer LNNS vol. 285 · 1,310 embedding trials evaluated',
+    tags: ['OpenCV', 'AES-128', 'PyCryptodome', 'PSNR/SSIM'],
+    href: 'https://github.com/alazkiyai09/pvd-lsb-modulo-steganography'
+  },
+  {
+    title: 'Fraudware Analyzer',
+    description: 'Static analysis framework for banking trojan detection using PE file analysis, API call extraction, YARA rules, and ML classification.',
+    impact: '100+ malware samples analyzed · 50+ YARA rules · 200+ APIs cataloged',
+    tags: ['YARA', 'pefile', 'XGBoost', 'scikit-learn'],
+    href: 'https://github.com/alazkiyai09/fraudware-analyzer'
+  }
+];
+---
+
+<section class="section-padding">
+  <div class="container-custom">
+    <FadeIn delay="1">
+      <SectionHeader
+        label="FEATURED WORK"
+        title="Selected Projects"
+        description="Highlights from 67 completed projects across federated learning security, fraud detection, and production AI."
+      />
+    </FadeIn>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {projects.map((project, index) => (
+        <FadeIn delay={((index % 3) + 2).toString() as '2' | '3' | '4'}>
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            impact={project.impact}
+            tags={project.tags}
+            href={project.href}
+          />
+        </FadeIn>
+      ))}
+    </div>
+
+    <FadeIn delay="5">
+      <div class="mt-12 text-center">
+        <Button href="/projects" variant="secondary" size="lg">
+          View All Projects
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Button>
+      </div>
+    </FadeIn>
+  </div>
+</section>

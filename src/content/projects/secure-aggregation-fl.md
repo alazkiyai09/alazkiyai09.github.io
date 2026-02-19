@@ -12,7 +12,7 @@ technologies:
   - Python
   - Cryptography
   - NumPy
-repository: "https://github.com/alazkiyai09/fl-security-research/tree/main/05_security_research/secure_aggregation_fl"
+repository: "https://github.com/alazkiyai09/federated-learning-security-portfolio/tree/main/05_security_research/secure_aggregation_fl"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

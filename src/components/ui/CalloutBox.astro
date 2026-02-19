@@ -1,0 +1,51 @@
+---
+/**
+ * CalloutBox - Gradient background info box
+ * Icon on left, title and content on right
+ * Good for MRes callout and similar highlights
+ */
+
+interface Props {
+  icon: string;
+  title: string;
+  content: string;
+  variant?: 'accent' | 'subtle';
+  class?: string;
+}
+
+const {
+  icon,
+  title,
+  content,
+  variant = 'accent',
+  class: className = ''
+} = Astro.props;
+
+const variantClasses = {
+  accent: 'bg-gradient-to-br from-accent-bg to-transparent border-accent-border',
+  subtle: 'bg-gradient-to-br from-bg-surface to-transparent border-border'
+};
+
+const boxClass = [
+  'border rounded-card p-5 md:p-6 flex items-start gap-4',
+  variantClasses[variant],
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={boxClass}>
+  <!-- Icon on left -->
+  <div class="text-3xl md:text-4xl flex-shrink-0">
+    {icon}
+  </div>
+
+  <!-- Title and content on right -->
+  <div class="flex-grow">
+    <h4 class="text-lg font-semibold text-text-primary mb-2 font-display">
+      {title}
+    </h4>
+    <p class="text-text-muted leading-relaxed">
+      {content}
+    </p>
+  </div>
+</div>

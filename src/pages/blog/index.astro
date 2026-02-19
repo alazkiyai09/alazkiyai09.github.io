@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import BlogPostCard from '../../components/ui/BlogPostCard.astro';
+
+// Get all published blog posts
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter(post => post.data.published !== false)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// Get all unique tags
+const allTags = Array.from(new Set(publishedPosts.flatMap(post => post.data.tags))).sort();
+
+// Calculate reading time from content or use provided value
+function getReadingTime(post: typeof publishedPosts[0]): string {
+  if (post.data.readingTime) {
+    return `${post.data.readingTime} min read`;
+  }
+  // Estimate from content: ~200 words per minute
+  const words = post.body.split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
+
+const title = 'Blog - Azka';
+const description = 'Technical writing on federated learning security, adversarial machine learning, fraud detection, and AI safety research.';
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 font-display text-text-primary">
+          Blog
+        </h1>
+        <p class="text-xl text-text-muted">
+          Technical writing on federated learning security, adversarial ML, and AI safety research
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
+        <div class="glass-card p-4 text-center">
+          <div class="text-3xl font-bold text-accent">{publishedPosts.length}</div>
+          <div class="text-sm text-text-subtle">Posts</div>
+        </div>
+        <div class="glass-card p-4 text-center">
+          <div class="text-3xl font-bold text-accent">{allTags.length}</div>
+          <div class="text-sm text-text-subtle">Topics</div>
+        </div>
+        <div class="glass-card p-4 text-center col-span-2 md:col-span-1">
+          <div class="text-3xl font-bold text-accent">
+            {publishedPosts.reduce((sum, p) => sum + (p.data.readingTime || 5), 0)}
+          </div>
+          <div class="text-sm text-text-subtle">Min Read</div>
+        </div>
+      </div>
+
+      <!-- Tags Filter -->
+      {allTags.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="tag-filters">
+          <button
+            class="filter-btn active px-4 py-2 bg-accent text-white rounded-lg font-medium text-sm transition-all hover:shadow-lg hover:shadow-accent/20"
+            data-filter="all"
+          >
+            All Posts
+          </button>
+          {allTags.map((tag) => (
+            <button
+              class="filter-btn px-3 py-1.5 bg-bg-secondary text-text-subtle rounded-lg font-medium text-sm border border-border-subtle hover:border-accent hover:text-accent transition-all"
+              data-filter={tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <!-- Blog Posts Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="posts-grid">
+        {publishedPosts.map((post) => (
+          <BlogPostCard
+            title={post.data.title}
+            date={new Date(post.data.date).toISOString().split('T')[0]}
+            displayDate={new Date(post.data.date).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric'
+            })}
+            summary={post.data.description}
+            readingTime={getReadingTime(post)}
+            tags={post.data.tags}
+            href={`/blog/${post.slug}`}
+            data-tags={post.data.tags.join(',')}
+          />
+        ))}
+      </div>
+
+      <!-- Empty State -->
+      {publishedPosts.length === 0 && (
+        <div class="text-center py-16">
+          <p class="text-text-muted text-lg">No blog posts yet. Check back soon!</p>
+        </div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ allTags }}>
+  // Tag filtering functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const postCards = document.querySelectorAll('[data-tags]');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter || 'all';
+
+      // Update active state
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-accent', 'text-white', 'hover:shadow-lg', 'hover:shadow-accent/20');
+        btn.classList.add('bg-bg-secondary', 'text-text-subtle', 'border', 'border-border-subtle');
+      });
+      button.classList.remove('bg-bg-secondary', 'text-text-subtle', 'border', 'border-border-subtle');
+      button.classList.add('bg-accent', 'text-white', 'hover:shadow-lg', 'hover:shadow-accent/20');
+
+      // Filter posts
+      postCards.forEach(card => {
+        const cardTags = card.dataset.tags || '';
+        const shouldShow = filter === 'all' || cardTags.includes(filter);
+        card.style.display = shouldShow ? 'flex' : 'none';
+      });
+    });
+  });
+</script>

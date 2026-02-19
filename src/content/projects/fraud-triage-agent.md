@@ -12,7 +12,7 @@ technologies:
   - Python
   - LangGraph
   - FastAPI
-repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/agents/FraudTriage-Agent"
+repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/agents/FraudTriage-Agent"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

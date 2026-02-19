@@ -13,7 +13,7 @@ technologies:
   - Python
   - Intel SGX
   - OpenEnclave
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/privacy-techniques/tee_project"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/privacy-techniques/tee_project"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

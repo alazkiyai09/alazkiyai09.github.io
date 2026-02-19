@@ -13,7 +13,7 @@ technologies:
   - Python
   - pySnark
   - ZK-SNARKs
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/verifiable-fl/zkp_fl_verification"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/verifiable-fl/zkp_fl_verification"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

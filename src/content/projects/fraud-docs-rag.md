@@ -13,7 +13,7 @@ technologies:
   - LangChain
   - PyPDF
   - Qdrant
-repository: "https://github.com/alazkiyai09/enterprise-ai-systems/tree/main/projects/rag/fraud-docs-rag"
+repository: "https://github.com/alazkiyai09/production-ai-portfolio/tree/main/projects/rag/fraud-docs-rag"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

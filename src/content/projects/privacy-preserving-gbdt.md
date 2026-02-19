@@ -13,7 +13,7 @@ technologies:
   - Python
   - XGBoost
   - TenSEAL
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/federated-classifiers/privacy_preserving_gbdt"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/federated-classifiers/privacy_preserving_gbdt"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import Card from '../../components/ui/Card.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Tag from '../../components/ui/Tag.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import FilterBar from '../../components/ui/FilterBar.astro';
 
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
@@ -11,180 +10,251 @@ const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCom
 // Group by status
 const completedProjects = sortedProjects.filter(p => p.data.status === 'completed');
 const inProgressProjects = sortedProjects.filter(p => p.data.status === 'in-progress');
-// Note: draftProjects variable defined but may not be used if no draft projects exist
 
 // Get all unique categories
 const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)));
+
+// Define filter categories as requested
+const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Malware Analysis'];
 
 const title = 'Projects - Azka';
 const description = 'Explore my research portfolio with 67+ hands-on projects in federated learning security, fraud detection, and AI safety research.';
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="section">
-    <div class="container">
-      <div class="max-w-4xl mx-auto text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Research Portfolio Projects</h1>
-        <p class="text-xl text-slate-600 dark:text-slate-400">
-          A comprehensive collection of research projects from fraud detection fundamentals to advanced federated learning security
-        </p>
+  <div class="section-padding container-custom">
+    <!-- Section Header -->
+    <SectionHeader
+      label="Portfolio"
+      title="Research Projects"
+      description="A comprehensive collection of research projects from fraud detection fundamentals to advanced federated learning security"
+      centered={true}
+      class="mb-12"
+    />
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+      <div class="glass-card p-4 text-center">
+        <div class="text-stat text-accent">{sortedProjects.length}</div>
+        <div class="text-sm text-text-muted">Total Projects</div>
       </div>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
-        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">{sortedProjects.length}</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400">Total Projects</div>
-        </div>
-        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-          <div class="text-3xl font-bold text-green-600 dark:text-green-400">{completedProjects.length}</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400">Completed</div>
-        </div>
-        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-          <div class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">{inProgressProjects.length}</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400">In Progress</div>
-        </div>
-        <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{categories.length}</div>
-          <div class="text-sm text-slate-600 dark:text-slate-400">Categories</div>
-        </div>
+      <div class="glass-card p-4 text-center">
+        <div class="text-stat text-accent-light">{completedProjects.length}</div>
+        <div class="text-sm text-text-muted">Completed</div>
       </div>
-
-      <!-- Category Filter (JavaScript required for interactivity - showing all for now) -->
-      <div class="flex flex-wrap justify-center gap-2 mb-8" id="filter-buttons">
-        <button class="filter-btn active px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm" data-filter="all">
-          All Projects ({sortedProjects.length})
-        </button>
-        {categories.map((cat) => (
-          <button class="filter-btn px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg font-medium text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" data-filter={cat}>
-            {cat}
-          </button>
-        ))}
+      <div class="glass-card p-4 text-center">
+        <div class="text-stat text-accent-pale">{inProgressProjects.length}</div>
+        <div class="text-sm text-text-muted">In Progress</div>
       </div>
+      <div class="glass-card p-4 text-center">
+        <div class="text-stat text-accent">{categories.length}</div>
+        <div class="text-sm text-text-muted">Categories</div>
+      </div>
+    </div>
 
-      <!-- Projects Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-        {sortedProjects.map((project) => (
-          <Card
-            variant="default"
-            hover={true}
-            class="flex flex-col project-card"
-            data-category={project.data.category}
-          >
-            {/* Category Badge */}
-            <div class="flex items-center gap-2 mb-3">
-              <Badge variant="info" size="sm">
-                {project.data.category}
-              </Badge>
-              <Badge
-                variant={
-                  project.data.status === 'completed' ? 'success' :
-                  project.data.status === 'in-progress' ? 'warning' :
-                  'default'
-                }
-                size="sm"
-              >
-                {project.data.status}
-              </Badge>
-            </div>
+    <!-- Filter Bar -->
+    <div class="flex justify-center mb-10">
+      <FilterBar
+        categories={filterCategories}
+        activeCategory="All"
+      />
+    </div>
 
-            {/* Title */}
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">
-              <a href={`/projects/${project.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                {project.data.title}
-              </a>
-            </h3>
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+      {sortedProjects.map((project) => (
+        <article
+          class="glass-card p-6 flex flex-col project-card"
+          data-category={project.data.category}
+        >
+          {/* Day Badge */}
+          <div class="flex items-center gap-2 mb-3">
+            <span class="badge badge-accent text-xs">
+              Day {project.data.day}
+            </span>
+            <span
+              class:list={[
+                "badge text-xs",
+                project.data.status === 'completed' && "bg-green-500/20 text-green-400 border border-green-500/30",
+                project.data.status === 'in-progress' && "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
+                project.data.status === 'draft' && "bg-slate-500/20 text-slate-400 border border-slate-500/30"
+              ]}
+            >
+              {project.data.status}
+            </span>
+          </div>
 
-            {/* Summary */}
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-3 flex-1">
-              {project.data.summary}
-            </p>
+          {/* Title */}
+          <h3 class="text-xl font-bold text-text-primary mb-2 line-clamp-2 font-display">
+            <a href={`/projects/${project.slug}`} class="hover:text-accent transition-colors">
+              {project.data.title}
+            </a>
+          </h3>
 
-            {/* Tags */}
-            <div class="flex flex-wrap gap-2 mb-4">
-              {project.data.tags.slice(0, 4).map((tag) => (
-                <Tag variant="purple" size="sm">
-                  {tag}
-                </Tag>
-              ))}
-              {project.data.tags.length > 4 && (
-                <span class="text-xs text-slate-500">
-                  +{project.data.tags.length - 4} more
-                </span>
-              )}
-            </div>
+          {/* Category Badge */}
+          <div class="mb-3">
+            <span class="text-xs text-accent-light font-mono">
+              {project.data.category}
+            </span>
+          </div>
 
-            {/* Technologies */}
-            <div class="flex flex-wrap gap-1 mb-4">
-              {project.data.technologies.slice(0, 4).map((tech) => (
-                <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded font-mono">
-                  {tech}
-                </span>
-              ))}
-            </div>
+          {/* Summary */}
+          <p class="text-sm text-text-muted mb-4 line-clamp-3 flex-1">
+            {project.data.summary}
+          </p>
 
-            {/* Links */}
-            <div class="flex gap-2 pt-4 border-t border-slate-200 dark:border-slate-700">
-              {project.data.repository && (
-                <a
-                  href={project.data.repository}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex-1 text-center py-2 px-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-medium rounded-lg hover:bg-slate-700 dark:hover:bg-slate-100 transition-colors"
-                >
-                  GitHub
-                </a>
-              )}
-              {project.data.demo && (
-                <a
-                  href={project.data.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex-1 text-center py-2 px-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
-                >
-                  Demo
-                </a>
-              )}
+          {/* Tags */}
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.data.tags.slice(0, 4).map((tag) => (
+              <span class="badge-subtle text-xs">
+                {tag}
+              </span>
+            ))}
+            {project.data.tags.length > 4 && (
+              <span class="text-xs text-text-subtle">
+                +{project.data.tags.length - 4} more
+              </span>
+            )}
+          </div>
+
+          {/* Technologies */}
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            {project.data.technologies.slice(0, 4).map((tech) => (
+              <span class="px-2 py-0.5 bg-bg-surface text-text-subtle text-xs rounded-md font-mono border border-border">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div class="flex gap-2 pt-4 border-t border-border mt-auto">
+            {project.data.repository && (
               <a
-                href={`/projects/${project.slug}`}
-                class="flex-1 text-center py-2 px-3 border border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400 text-xs font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                href={project.data.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 text-center py-2 px-3 bg-accent text-white text-xs font-medium rounded-btn hover:bg-accent-light transition-colors"
               >
-                Details
+                GitHub
               </a>
-            </div>
-          </Card>
-        ))}
-      </div>
+            )}
+            {project.data.demo && (
+              <a
+                href={project.data.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 text-center py-2 px-3 border border-border text-text-primary text-xs font-medium rounded-btn hover:bg-bg-surface-hover transition-colors"
+              >
+                Demo
+              </a>
+            )}
+            <a
+              href={`/projects/${project.slug}`}
+              class="flex-1 text-center py-2 px-3 border border-accent-border text-accent text-xs font-medium rounded-btn hover:bg-accent-bg transition-colors"
+            >
+              Details
+            </a>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </BaseLayout>
 
-<script define:vars={{ sortedProjects }} is:inline>
-  // Get all filter buttons and project cards
-  /** @type {NodeListOf<HTMLButtonElement>} */
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  /** @type {NodeListOf<HTMLElement>} */
+<script define:vars={{ sortedProjects }}>
+  // Build category map for filtering
+  const categoryMap = new Map();
+
+  // Map filters to actual project categories
+  sortedProjects.forEach(project => {
+    const category = (project.data.category || '').toLowerCase().trim();
+    const tags = (project.data.tags || []).map(t => t.toLowerCase());
+
+    // Check against each filter category
+    const filterCategories = ['fl security', 'fraud detection', 'production ai', 'cryptography', 'malware analysis'];
+
+    filterCategories.forEach(filterCat => {
+      if (!categoryMap.has(filterCat)) {
+        categoryMap.set(filterCat, new Set());
+      }
+      const catLower = category;
+      const filterLower = filterCat.toLowerCase();
+
+      // Match by category name or tags
+      if (
+        catLower.includes(filterLower) ||
+        tags.some(tag => tag.includes(filterLower)) ||
+        (filterLower === 'fl security' && (catLower.includes('federated') || catLower.includes('fl') || catLower.includes('federated learning'))) ||
+        (filterLower === 'production ai' && (catLower.includes('production') || catLower.includes('deployment') || catLower.includes('mlops')))
+      ) {
+        categoryMap.get(filterCat).add(project.slug);
+      }
+    });
+  });
+
+  // Filter functionality
+  const filterContainer = document.querySelector('[data-active-category]');
   const projectCards = document.querySelectorAll('.project-card');
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = (button.dataset.filter || 'all').trim().toLowerCase();
+  if (filterContainer) {
+    filterContainer.addEventListener('filter-change', (e) => {
+      const activeCategory = (e.detail.category || 'All').toLowerCase().trim();
 
-      // Update active state
-      filterButtons.forEach(btn => {
-        btn.classList.remove('bg-blue-600', 'text-white');
-        btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
-      });
-      button.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
-      button.classList.add('bg-blue-600', 'text-white');
-
-      // Filter projects with improved null/empty handling
       projectCards.forEach(card => {
-        const category = (card.dataset.category || '').trim().toLowerCase();
-        const shouldShow = filter === 'all' || category === filter;
+        const cardSlug = card.querySelector('a[href*="/projects/"]')?.getAttribute('href')?.split('/').pop() || '';
+        const cardCategory = (card.dataset.category || '').toLowerCase().trim();
+        const cardTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const cardTags = Array.from(card.querySelectorAll('.badge-subtle')).map(el => el.textContent.toLowerCase());
+
+        let shouldShow = activeCategory === 'all';
+
+        if (!shouldShow) {
+          // Check mapped categories
+          const mappedSlugs = categoryMap.get(activeCategory);
+          if (mappedSlugs && mappedSlugs.has(cardSlug)) {
+            shouldShow = true;
+          }
+
+          // Fallback: check category, title, and tags
+          if (!shouldShow && (
+            cardCategory.includes(activeCategory) ||
+            cardTitle.includes(activeCategory) ||
+            cardTags.some(tag => tag.includes(activeCategory))
+          )) {
+            shouldShow = true;
+          }
+
+          // Special cases for broader matching
+          if (activeCategory === 'fl security' && (
+            cardCategory.includes('federated') ||
+            cardTitle.includes('federated') ||
+            cardTags.some(tag => tag.includes('federated') || tag.includes('fl'))
+          )) {
+            shouldShow = true;
+          }
+
+          if (activeCategory === 'production ai' && (
+            cardCategory.includes('production') ||
+            cardTitle.includes('production') ||
+            cardTags.some(tag => tag.includes('production') || tag.includes('mlops') || tag.includes('deployment'))
+          )) {
+            shouldShow = true;
+          }
+        }
 
         card.style.display = shouldShow ? 'flex' : 'none';
       });
     });
-  });
+
+    // Also handle button clicks directly
+    filterContainer.querySelectorAll('button[data-category]').forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category') || 'All';
+        filterContainer.dispatchEvent(new CustomEvent('filter-change', {
+          detail: { category },
+          bubbles: true
+        }));
+      });
+    });
+  }
 </script>

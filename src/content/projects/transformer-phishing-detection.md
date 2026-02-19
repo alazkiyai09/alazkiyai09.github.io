@@ -14,7 +14,7 @@ technologies:
   - Transformers
   - PyTorch
   - HuggingFace
-repository: "https://github.com/alazkiyai09/privacy-preserving-phishing-detection/tree/main/foundations/day3_transformer_phishing"
+repository: "https://github.com/alazkiyai09/FedPhish/tree/main/foundations/day3_transformer_phishing"
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

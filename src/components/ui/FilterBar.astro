@@ -1,0 +1,71 @@
+---
+/**
+ * FilterBar - Category toggles for projects page
+ * Horizontal pill buttons with active state
+ * Emits data-active-category attribute for JS handling
+ */
+
+interface Props {
+  categories: string[];
+  activeCategory?: string;
+  class?: string;
+}
+
+const {
+  categories = [],
+  activeCategory,
+  class: className = ''
+} = Astro.props;
+
+const containerClass = [
+  'flex flex-wrap gap-2 md:gap-3',
+  className
+].filter(Boolean).join(' ');
+
+const getButtonClass = (category: string) => [
+  'px-4 py-2 rounded-pill text-sm font-medium transition-all duration-200',
+  activeCategory === category
+    ? 'bg-accent text-white shadow-glow-sm'
+    : 'bg-bg-surface text-text-subtle hover:text-text-primary hover:bg-bg-surface-hover border border-border'
+].filter(Boolean).join(' ');
+---
+
+<div class={containerClass} data-active-category={activeCategory || ''}>
+  {categories.map((category) => (
+    <button
+      class={getButtonClass(category)}
+      data-category={category}
+      aria-pressed={activeCategory === category}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+<script>
+  // Basic client-side interaction for filter functionality
+  document.querySelectorAll('[data-active-category]').forEach((container) => {
+    container.addEventListener('click', (e) => {
+      const button = (e.target as HTMLElement).closest('button[data-category]');
+      if (button) {
+        const category = button.getAttribute('data-category');
+        if (category) {
+          // Update active state visually
+          container.querySelectorAll('button[data-category]').forEach((btn) => {
+            btn.setAttribute('aria-pressed', 'false');
+          });
+          button.setAttribute('aria-pressed', 'true');
+
+          // Update the container's data attribute for custom JS handling
+          container.setAttribute('data-active-category', category);
+
+          // Dispatch custom event for parent components to listen to
+          container.dispatchEvent(new CustomEvent('filter-change', {
+            detail: { category },
+            bubbles: true
+          }));
+        }
+      }
+    });
+  });
+</script>
