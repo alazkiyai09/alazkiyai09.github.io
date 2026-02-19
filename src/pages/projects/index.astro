@@ -14,8 +14,8 @@ const inProgressProjects = sortedProjects.filter(p => p.data.status === 'in-prog
 // Get all unique categories
 const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)));
 
-// Define filter categories as requested
-const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Malware Analysis'];
+// Define filter categories with display labels
+const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
 
 const title = 'Projects - Azka';
 const description = 'Explore my research portfolio with 67+ hands-on projects in federated learning security, fraud detection, and AI safety research.';
@@ -67,11 +67,8 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
           class="glass-card p-6 flex flex-col project-card"
           data-category={project.data.category}
         >
-          {/* Day Badge */}
-          <div class="flex items-center gap-2 mb-3">
-            <span class="badge badge-accent text-xs">
-              Day {project.data.day}
-            </span>
+          {/* Status and Category Badges */}
+          <div class="flex flex-wrap items-center gap-2 mb-3">
             <span
               class:list={[
                 "badge text-xs",
@@ -82,6 +79,7 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
             >
               {project.data.status}
             </span>
+            <span class="badge-subtle text-xs">{project.data.category}</span>
           </div>
 
           {/* Title */}
@@ -91,12 +89,6 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
             </a>
           </h3>
 
-          {/* Category Badge */}
-          <div class="mb-3">
-            <span class="text-xs text-accent-light font-mono">
-              {project.data.category}
-            </span>
-          </div>
 
           {/* Summary */}
           <p class="text-sm text-text-muted mb-4 line-clamp-3 flex-1">
@@ -162,35 +154,16 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
 </BaseLayout>
 
 <script define:vars={{ sortedProjects }}>
-  // Build category map for filtering
-  const categoryMap = new Map();
-
-  // Map filters to actual project categories
-  sortedProjects.forEach(project => {
-    const category = (project.data.category || '').toLowerCase().trim();
-    const tags = (project.data.tags || []).map(t => t.toLowerCase());
-
-    // Check against each filter category
-    const filterCategories = ['fl security', 'fraud detection', 'production ai', 'cryptography', 'malware analysis'];
-
-    filterCategories.forEach(filterCat => {
-      if (!categoryMap.has(filterCat)) {
-        categoryMap.set(filterCat, new Set());
-      }
-      const catLower = category;
-      const filterLower = filterCat.toLowerCase();
-
-      // Match by category name or tags
-      if (
-        catLower.includes(filterLower) ||
-        tags.some(tag => tag.includes(filterLower)) ||
-        (filterLower === 'fl security' && (catLower.includes('federated') || catLower.includes('fl') || catLower.includes('federated learning'))) ||
-        (filterLower === 'production ai' && (catLower.includes('production') || catLower.includes('deployment') || catLower.includes('mlops')))
-      ) {
-        categoryMap.get(filterCat).add(project.slug);
-      }
-    });
-  });
+  // Category mapping for filtering
+  const categoryMapping = {
+    'all': [],
+    'fl security': ['federated-learning', 'federated learning', 'fl'],
+    'fraud detection': ['fraud-detection', 'fraud detection'],
+    'production ai': ['production-ai', 'production ai', 'mlops', 'deployment'],
+    'cryptography': ['cryptography', 'crypto'],
+    'adversarial attacks': ['adversarial-attacks', 'adversarial attacks', 'adversarial'],
+    'privacy ml': ['privacy-preserving-ml', 'privacy-preserving ml', 'privacy ml']
+  };
 
   // Filter functionality
   const filterContainer = document.querySelector('[data-active-category]');
@@ -199,47 +172,25 @@ const description = 'Explore my research portfolio with 67+ hands-on projects in
   if (filterContainer) {
     filterContainer.addEventListener('filter-change', (e) => {
       const activeCategory = (e.detail.category || 'All').toLowerCase().trim();
+      const mappingKeywords = categoryMapping[activeCategory] || [];
 
       projectCards.forEach(card => {
-        const cardSlug = card.querySelector('a[href*="/projects/"]')?.getAttribute('href')?.split('/').pop() || '';
         const cardCategory = (card.dataset.category || '').toLowerCase().trim();
-        const cardTitle = card.querySelector('h3')?.textContent.toLowerCase() || '';
         const cardTags = Array.from(card.querySelectorAll('.badge-subtle')).map(el => el.textContent.toLowerCase());
 
         let shouldShow = activeCategory === 'all';
 
-        if (!shouldShow) {
-          // Check mapped categories
-          const mappedSlugs = categoryMap.get(activeCategory);
-          if (mappedSlugs && mappedSlugs.has(cardSlug)) {
-            shouldShow = true;
-          }
+        if (!shouldShow && mappingKeywords.length > 0) {
+          // Check if card category matches any of the mapping keywords
+          shouldShow = mappingKeywords.some(keyword =>
+            cardCategory.includes(keyword) ||
+            cardTags.some(tag => tag.includes(keyword))
+          );
+        }
 
-          // Fallback: check category, title, and tags
-          if (!shouldShow && (
-            cardCategory.includes(activeCategory) ||
-            cardTitle.includes(activeCategory) ||
-            cardTags.some(tag => tag.includes(activeCategory))
-          )) {
-            shouldShow = true;
-          }
-
-          // Special cases for broader matching
-          if (activeCategory === 'fl security' && (
-            cardCategory.includes('federated') ||
-            cardTitle.includes('federated') ||
-            cardTags.some(tag => tag.includes('federated') || tag.includes('fl'))
-          )) {
-            shouldShow = true;
-          }
-
-          if (activeCategory === 'production ai' && (
-            cardCategory.includes('production') ||
-            cardTitle.includes('production') ||
-            cardTags.some(tag => tag.includes('production') || tag.includes('mlops') || tag.includes('deployment'))
-          )) {
-            shouldShow = true;
-          }
+        // Fallback: direct category match
+        if (!shouldShow && activeCategory !== 'all') {
+          shouldShow = cardCategory.includes(activeCategory);
         }
 
         card.style.display = shouldShow ? 'flex' : 'none';
