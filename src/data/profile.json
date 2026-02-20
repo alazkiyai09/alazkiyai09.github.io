@@ -16,8 +16,8 @@
     "openTo": ["AI Engineering roles", "Research collaborations", "Consulting opportunities", "Full-time positions"]
   },
   "bio": {
-    "short": "AI Security Researcher with 3+ years production experience in banking fraud detection. Working on federated learning security, adversarial ML, and cryptographic verification.",
-    "long": "AI Security Researcher with over 3 years of experience in banking fraud detection. My work focuses on securing federated learning systems against adversarial attacks while preserving data privacy through cryptographic techniques. Published researcher in steganography (Springer LNNS vol 285)."
+    "short": "AI Security Researcher with 3+ years production experience in financial fraud detection. Working on federated learning security, adversarial ML, and cryptographic verification.",
+    "long": "AI Security Researcher with over 3 years of experience in financial fraud detection. My work focuses on securing federated learning systems against adversarial attacks while preserving data privacy through cryptographic techniques. Published researcher in steganography (Springer LNNS vol 285)."
   },
   "contact": {
     "email": "azka.alazkiyai@outlook.com",
@@ -33,7 +33,7 @@
     "Building trustworthy AI systems through adversarial robustness",
     "3+ years detecting financial fraud, now securing federated learning",
     "Privacy-preserving machine learning for the next generation of AI",
-    "From banking fraud to Byzantine attacks: securing AI at scale"
+    "From financial fraud to Byzantine attacks: securing AI at scale"
   ],
   "achievements": {
     "totalPublications": 2,

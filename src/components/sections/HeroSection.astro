@@ -5,13 +5,13 @@ import StatBar from '../ui/StatBar.astro';
 import FadeIn from '../ui/FadeIn.astro';
 import profile from '../../data/profile.json';
 
-const { name, location, status, contact, social } = profile;
+const { location, status, social } = profile;
 
 const stats = [
   { value: 3, suffix: '+', label: 'Years Production ML' },
-  { value: 94, suffix: '%', label: 'Attack Detection Rate' },
+  { value: 94, suffix: '%', label: 'Detection Rate (vs 67% baseline)' },
   { value: 2, label: 'Published Papers' },
-  { value: 99.9, suffix: '%', label: 'System Uptime' },
+  { value: 10, suffix: 'M+', label: 'Transactions Protected' },
 ];
 ---
 
@@ -39,19 +39,18 @@ const stats = [
 
       <!-- Headline -->
       <FadeIn delay="2">
-        <p class="text-text-subtle text-lg mb-3">Hi, I'm</p>
-        <h1 class="text-hero font-display font-extrabold text-text-primary mb-6">
-          {name}
+        <h1 class="text-hero font-display font-extrabold text-text-primary mb-4">
+          Azka Al Azkiyai
         </h1>
         <p class="text-2xl md:text-3xl font-semibold text-text-primary mb-6">
-          I secure AI systems <span class="gradient-text">before they break.</span>
+          I secure AI systems before they break.
         </p>
       </FadeIn>
 
       <!-- Subheadline -->
       <FadeIn delay="3">
         <p class="text-lg md:text-xl text-text-muted max-w-[580px] mb-8 leading-relaxed">
-          AI Security Researcher specializing in federated learning defense, adversarial robustness, and cryptographic verification. 3+ years protecting banking systems from fraud at scale. I find the vulnerabilities in ML pipelines and build the defenses to stop them.
+          AI Security Researcher with 3+ years protecting financial systems from fraud at scale. I find vulnerabilities in ML pipelines and build the defenses to stop them.
         </p>
       </FadeIn>
 
@@ -59,7 +58,7 @@ const stats = [
       <FadeIn delay="4">
         <div class="flex flex-wrap gap-4 mb-16">
           <Button href="/projects" variant="primary" size="lg">
-            View My Work
+            See the Defenses I've Built
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
