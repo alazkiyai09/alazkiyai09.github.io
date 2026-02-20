@@ -5,7 +5,6 @@ import FadeIn from '../ui/FadeIn.astro';
 
 const expertiseAreas = [
   {
-    icon: '🛡️',
     title: 'Federated Learning Security',
     subtitle: 'Core Research Focus',
     description: 'Attacking federated systems to find weaknesses, then building the defenses. My work spans adversarial robustness, poisoning detection, and cryptographic trust verification.',
@@ -17,7 +16,6 @@ const expertiseAreas = [
     tags: ['Federated Learning', 'Adversarial ML', 'ECDSA', 'ZKP']
   },
   {
-    icon: '🏦',
     title: 'Production Fraud Detection',
     subtitle: 'Industry Experience',
     description: "Production-grade fraud detection for major Indonesian financial institutions. I've maintained 99.9% SLA on real-time transaction monitoring systems handling millions of events.",
@@ -45,7 +43,6 @@ const expertiseAreas = [
       {expertiseAreas.map((area, index) => (
         <FadeIn delay={(index + 2).toString() as '2' | '3'}>
           <ExpertiseCard
-            icon={area.icon}
             title={area.title}
             subtitle={area.subtitle}
             description={area.description}

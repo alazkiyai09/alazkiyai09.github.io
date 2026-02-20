@@ -1,11 +1,10 @@
 ---
 /**
- * ExpertiseCard - Icon, title, subtitle, achievements list, tags
+ * ExpertiseCard - Title, subtitle, achievements list, tags
  * Uses glass-card style with hover effect
  */
 
 interface Props {
-  icon: string;
   title: string;
   subtitle: string;
   description: string;
@@ -15,7 +14,6 @@ interface Props {
 }
 
 const {
-  icon,
   title,
   subtitle,
   description,
@@ -31,15 +29,12 @@ const cardClass = [
 ---
 
 <article class={cardClass}>
-  <!-- Inline icon with title -->
-  <div class="flex items-center gap-3 mb-3">
-    <span class="text-2xl">{icon}</span>
-    <div>
-      <h3 class="text-xl md:text-2xl font-bold text-text-primary font-display">
-        {title}
-      </h3>
-      <p class="text-accent text-sm font-medium">{subtitle}</p>
-    </div>
+  <!-- Title with accent border -->
+  <div class="mb-3">
+    <h3 class="text-xl md:text-2xl font-bold text-text-primary font-display">
+      {title}
+    </h3>
+    <p class="text-accent text-sm font-medium">{subtitle}</p>
   </div>
 
   <!-- Description -->
