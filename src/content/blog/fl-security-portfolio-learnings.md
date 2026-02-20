@@ -1,116 +1,187 @@
 ---
-title: "What I Learned Building a 30-Project FL Security Portfolio"
-description: "Key insights from building a comprehensive federated learning security portfolio, from attack implementations to defense mechanisms."
+title: "Building a Research Portfolio in Federated Learning Security"
+description: "Key insights from developing a comprehensive 30-project body of work on federated learning security—from foundational implementations to advanced cryptographic defenses."
 date: "2026-02-10"
 tags:
   - federated-learning
-  - portfolio
+  - research
   - security
   - career
 published: true
 author: "Azka"
-readingTime: 8
+readingTime: 10
 ---
 
-Over the past year, I built a 30-project portfolio focused entirely on federated learning security. Here's what I learned—and what I wish I knew starting out.
+Over the past year, I developed a 30-project research portfolio focused entirely on federated learning security. This wasn't a bootcamp or a challenge—it was a deliberate deep-dive into understanding how distributed ML systems fail and how to defend them.
 
-## Why This Portfolio?
+Here's what I learned from building this body of work.
 
-Working in Indonesian banking fraud detection for 3+ years gave me real-world ML deployment experience. But federated learning security remained largely theoretical—something I read about in papers but never touched.
+## The Motivation
 
-I wanted to bridge that gap. Not just understand the concepts, but build them.
+After 3+ years in Indonesian banking fraud detection, I had production ML experience. But federated learning security remained theoretical—something I read about in papers but never implemented.
 
-## The Structure
+The gap bothered me. Papers describe attacks and defenses in abstract terms: "Krum achieves Byzantine resilience by selecting the update with minimum distance to its neighbors." But what does that actually look like in code? How does it fail? When does it work?
 
-I organized the portfolio into phases:
+I wanted to bridge theory and practice—not just understand the concepts, but build working implementations I could examine, break, and improve.
 
-1. **Days 1-5**: Fraud detection fundamentals
-2. **Days 6-10**: Byzantine attack implementations
-3. **Days 11-15**: Defense mechanisms
-4. **Days 16-20**: Privacy-preserving techniques
-5. **Days 21-25**: Real-world scenarios
-6. **Days 26-30**: Advanced topics (ZKPs, MPC)
+## Research Structure
 
-## Key Learnings
+I organized the portfolio into thematic areas rather than a linear progression:
 
-### 1. Start Simple, Add Complexity
+### Foundation: Fraud Detection & FL Basics
+The starting point was implementing standard federated learning on realistic fraud detection data. This established baselines for accuracy, communication overhead, and client heterogeneity.
 
-My first attempt at implementing a backdoor attack was overly complex. I tried to do everything at once: sophisticated trigger pattern, adaptive learning rate, and poisoning scheduling.
+Key projects included:
+- Baseline FL with FedAvg on credit card fraud data
+- Client heterogeneity analysis (different banks, different distributions)
+- Communication efficiency benchmarks
 
-It failed spectacularly.
+### Attacks: Understanding the Threat Landscape
+Before defending, I needed to understand attacks. I implemented the major attack categories:
 
-**Lesson**: Implement the basic attack first. Make sure it works. Then add complexity incrementally.
+- **Data poisoning**: Label flipping, dirty label attacks
+- **Model poisoning**: Sign flipping, scaling attacks, Gaussian noise
+- **Backdoors**: Trigger-based, semantic, and adaptive backdoors
+- **Gradient leakage**: Reconstruction attacks on batch data
 
-### 2. Defenses Are Harder Than Attacks
+Each attack was tested against standard FedAvg to establish vulnerability baselines.
 
-Designing a robust aggregator defense took 3x longer than implementing the attacks it was meant to stop. Attacks can be brittle and still succeed. Defenses must handle edge cases or they fail completely.
+### Defenses: Algorithmic Approaches
+The defense implementations focused on robust aggregation:
 
-### 3. Real Data Changes Everything
+- Krum and Multi-Krum variants
+- Trimmed mean and coordinate-wise median
+- Clustering-based outlier detection
+- Reputation-weighted aggregation
 
-Synthetic datasets (like FEMNIST) are great for prototyping. But real financial transaction data has:
+This is where I discovered that most algorithmic defenses share a critical weakness: they're brittle to adaptive attacks.
 
-- Extreme class imbalance (99% legitimate, 1% fraud)
-- Temporal drift (fraud patterns evolve)
-- Client heterogeneity (different banks, different regions)
+### Privacy: Differential Privacy & Secure Aggregation
+Beyond robustness, FL requires privacy:
 
-My synthetic-trained models broke on real data.
+- Differential privacy (DP-SGD, local DP)
+- Secure aggregation protocols
+- Homomorphic encryption experiments
+- Privacy-utility trade-off analysis
 
-### 4. Documentation Saves Future You
+### Cryptography: The SignGuard Direction
+The final research arc explored cryptographic defenses:
 
-Around Day 15, I couldn't remember why I made certain design decisions in Day 3 projects. I started adding decision logs to each project—why I chose FedAvg over FedProx, why Krum failed, etc.
+- ECDSA signature verification for update integrity
+- Zero-knowledge proof constraints on update quality
+- Threshold signatures for multi-party verification
 
-This documentation became the backbone of this entire portfolio.
+This became the foundation for SignGuard—my most significant contribution from this research.
 
 ## Technical Insights
 
 ### Byzantine Robustness Is Fragile
 
-Krum and its variants work well... until they don't. Specifically:
+Krum and its variants work well in controlled settings. But they make assumptions that don't hold in production:
 
-- They assume a bound on malicious clients (< 50%)
-- They fail against adaptive attacks
-- They don't scale well with client count
+| Assumption | Reality |
+|------------|---------|
+| Malicious clients < 50% | No guarantee in open FL |
+| Attacks are random | Adaptive attacks target defenses |
+| Static threat model | Attackers evolve |
 
-Multi-Krum with clustering was the most robust in my testing.
+Multi-Krum with reputation weighting performed best in my tests, but still failed against sophisticated adaptive attacks.
 
-### Cryptographic Defenses Are Underutilized
+### Algorithmic vs. Cryptographic Defenses
 
-Most FL security research focuses on algorithmic defenses (robust aggregation). But cryptographic approaches (signatures, ZKPs) offer stronger guarantees with less performance overhead.
+Most FL security research focuses on algorithmic defenses—statistical methods to detect outliers. But I found cryptographic approaches offer stronger guarantees:
 
-This inspired my SignGuard project—combining ECDSA signatures with zero-knowledge proofs.
+**Algorithmic defenses** (Krum, clustering):
+- Probabilistic detection
+- Adaptive attacks bypass them
+- No accountability
+
+**Cryptographic defenses** (signatures, ZKPs):
+- Deterministic verification
+- Resistant to manipulation
+- Full audit trail
+
+This insight shifted my research direction toward SignGuard.
+
+### Real Data Exposes Hidden Assumptions
+
+Synthetic benchmarks (FEMNIST, Shakespeare) are useful for prototyping. But real financial transaction data revealed issues I never saw in simulations:
+
+- **Extreme imbalance**: 0.1% fraud rate means 1000:1 class imbalance
+- **Temporal drift**: Fraud patterns shift weekly, not just monthly
+- **Geographic heterogeneity**: Jakarta fraud ≠ Bali fraud ≠ Papua fraud
+- **Missing data**: Real transactions have gaps, errors, delays
+
+Models trained on clean synthetic data broke on real data.
+
+## Research Methodology Lessons
+
+### 1. Start with Reference Implementations
+
+Don't build from scratch. Clone Flower, FedML, or PySyft. Modify them. Building infrastructure from scratch wastes time you could spend on research questions.
+
+### 2. Establish Baselines First
+
+Before testing defenses, measure attack success rates on undefended systems. Without baselines, you can't quantify improvement.
+
+### 3. Document Decisions Immediately
+
+Around project 15, I couldn't remember why I chose certain parameters in project 3. I started keeping decision logs: why FedAvg over FedProx, why Krum failed in this specific test, etc.
+
+These logs became more valuable than the code itself.
+
+### 4. Test Against Adaptive Adversaries
+
+Static attack tests are insufficient. Implement attacks that know your defense and try to bypass it. This is where most algorithmic defenses fail.
 
 ## Career Impact
 
-Building this portfolio directly led to:
+This portfolio transformed my technical trajectory:
 
-- Deeper understanding of my fraud detection work
-- Conference presentation opportunities
-- Collaborations with FL security researchers
+**Before**: Fraud detection practitioner using ML as a tool
+**After**: ML security researcher contributing to the field
 
-More importantly, it gave me confidence to tackle complex distributed systems problems.
+Concrete outcomes:
+- Conference presentations on FL security
+- Collaborations with academic researchers
+- SignGuard as a novel contribution with measurable results
+- Deeper understanding of my fraud detection work through the security lens
 
 ## What I'd Do Differently
 
-1. **Start with a reference implementation**: Don't build from scratch. Clone Flower or FedML, modify it.
+**Earlier community engagement**: I should have joined the Flower Discord and FL research communities sooner. Feedback accelerates learning.
 
-2. **Use version control properly**: I lost work early on by not branching properly for each experiment.
+**More rigorous evaluation**: Early projects lacked proper statistical testing. Confidence intervals matter.
 
-3. **Write tests first**: FL systems are nondeterministic. Tests catch regressions you'd otherwise miss.
+**Open-source from the start**: I kept code private initially. Sharing earlier would have attracted collaborators.
 
-4. **Join the community early**: The Flower Discord and FL research slack are invaluable resources.
+**Focus over breadth**: 30 projects is too many. A focused 10-project deep dive would have been more impactful.
 
-## Resources That Helped
+## Resources for Similar Research
 
-- **Papers**: "Machine Learning with Adversaries" by Blanchard et al., "SignGuard" (my own work)
-- **Code**: Flower framework, PySyft
-- **Community**: Federated Learning Discord, r/MachineLearning
+**Foundational Papers**:
+- McMahan et al. "Communication-Efficient Learning of Deep Networks from Decentralized Data" (2017) - FedAvg
+- Blanchard et al. "Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent" (2017) - Krum
+- Bonawitz et al. "Practical Secure Aggregation for Privacy-Preserving Machine Learning" (2017)
+
+**Frameworks**:
+- [Flower](https://flower.dev/) - Best documentation, active community
+- [FedML](https://fedml.ai/) - More research-oriented
+- [PySyft](https://github.com/OpenMined/PySyft) - Privacy-focused
+
+**Communities**:
+- Flower Discord - Practical implementation help
+- Federated Learning Slack - Academic discussions
+- r/MachineLearning - Broader ML community
 
 ## Conclusion
 
-Building this portfolio was one of the most rewarding technical experiences of my career. It transformed abstract security concepts into concrete implementations and gave me a toolkit I use daily in fraud detection work.
+Building this research portfolio was the most valuable technical investment I've made. It transformed abstract security concepts into concrete implementations—and gave me a toolkit I use daily in fraud detection work.
 
-If you're considering a similar deep-dive portfolio: start small, document everything, and don't be afraid to revisit and revise earlier work.
+The key insight: **research portfolios aren't about quantity. They're about depth, coherence, and contribution.**
+
+If you're considering similar deep-dive research: start with clear questions, build on existing frameworks, and document everything. The portfolio will emerge naturally from genuine curiosity.
 
 ---
 
-*This post summarizes insights from the 30 projects in this portfolio. Explore them in the [Projects section](/projects).*
+*This post summarizes insights from my [FL Security Research portfolio](/projects). The code is open-source and documented with decision logs for each project.*
