@@ -8,7 +8,6 @@ interface Props {
   title: string;
   subtitle: string;
   description: string;
-  achievements: string[];
   tags: string[];
   class?: string;
 }
@@ -17,7 +16,6 @@ const {
   title,
   subtitle,
   description,
-  achievements = [],
   tags = [],
   class: className = ''
 } = Astro.props;
@@ -41,18 +39,6 @@ const cardClass = [
   <p class="text-text-muted text-sm leading-relaxed mb-4">
     {description}
   </p>
-
-  <!-- Achievements list with arrow prefix -->
-  {achievements.length > 0 && (
-    <ul class="text-left w-full max-w-xs space-y-2 mb-5">
-      {achievements.map((achievement) => (
-        <li class="text-text-secondary text-sm flex items-start gap-2">
-          <span class="text-accent mt-0.5">→</span>
-          <span>{achievement}</span>
-        </li>
-      ))}
-    </ul>
-  )}
 
   <!-- Tags with subtle variant -->
   {tags.length > 0 && (

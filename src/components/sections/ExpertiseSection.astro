@@ -8,22 +8,12 @@ const expertiseAreas = [
     title: 'Federated Learning Security',
     subtitle: 'Core Research Focus',
     description: 'Attacking federated systems to find weaknesses, then building the defenses. My work spans adversarial robustness, poisoning detection, and cryptographic trust verification.',
-    achievements: [
-      'Built SignGuard — ECDSA + anomaly detection achieving 94.5% attack detection rate',
-      'Explored 30+ FL security scenarios: Byzantine attacks, secure aggregation, gradient leakage',
-      'Zero-knowledge proof systems for verifiable trust in multi-institution FL'
-    ],
     tags: ['Federated Learning', 'Adversarial ML', 'ECDSA', 'ZKP']
   },
   {
     title: 'Production Fraud Detection',
     subtitle: 'Industry Experience',
     description: "Production-grade fraud detection for major Indonesian financial institutions. I've maintained 99.9% SLA on real-time transaction monitoring systems handling millions of events.",
-    achievements: [
-      '99.9%+ SLA compliance on live fraud detection systems',
-      'Cut monitoring overhead by 50% through ML-driven automation',
-      'Reduced incident response time by 75% with intelligent alerting'
-    ],
     tags: ['SAS Fraud Mgmt', 'Real-time ML', 'Transaction Monitoring', 'LSTM']
   }
 ];
@@ -46,7 +36,6 @@ const expertiseAreas = [
             title={area.title}
             subtitle={area.subtitle}
             description={area.description}
-            achievements={area.achievements}
             tags={area.tags}
           />
         </FadeIn>
