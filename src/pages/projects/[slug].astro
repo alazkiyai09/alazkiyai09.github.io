@@ -20,7 +20,9 @@ const description = project.data.summary;
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="section-padding">
+  <div class="min-h-screen bg-bg-primary section-padding">
+    <div class="container-custom">
+      <article class="max-w-4xl mx-auto">
     <div class="container-custom">
       <div class="max-w-4xl mx-auto">
         <!-- Breadcrumb -->
@@ -187,7 +189,7 @@ const description = project.data.summary;
         <div class="prose prose-lg dark:prose-invert max-w-none">
           <Content />
         </div>
-      </div>
+      </article>
     </div>
-  </article>
+  </div>
 </BaseLayout>

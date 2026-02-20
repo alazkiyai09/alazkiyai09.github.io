@@ -53,9 +53,9 @@ const description = post.data.description;
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="section-padding">
+  <div class="min-h-screen bg-bg-primary section-padding">
     <div class="container-custom">
-      <div class="max-w-3xl mx-auto">
+      <article class="max-w-3xl mx-auto">
         <!-- Breadcrumb -->
         <nav class="mb-8 text-sm">
           <ol class="flex items-center gap-2 text-text-subtle">
@@ -134,7 +134,7 @@ const description = post.data.description;
                 <span class="text-text-subtle text-sm">AI Security Researcher</span>
               </div>
               <p class="text-text-muted text-sm leading-relaxed mb-3">
-                Researching federated learning security, adversarial robustness, and cryptographic verification. 3+ years in banking fraud detection at ITSEC Asia. Currently pursuing MRes opportunities in Computer Security & Machine Learning.
+                Researching federated learning security, adversarial robustness, and cryptographic verification. 3+ years in banking fraud detection at ITSEC Asia.
               </p>
               <div class="flex gap-4">
                 <a href="https://github.com/alazkiyai09" target="_blank" rel="noopener noreferrer" class="text-text-subtle hover:text-accent transition-colors text-sm inline-flex items-center gap-1">
@@ -204,9 +204,9 @@ const description = post.data.description;
             Back to all posts
           </a>
         </div>
-      </div>
+      </article>
     </div>
-  </article>
+  </div>
 </BaseLayout>
 
 <style is:global>
@@ -227,7 +227,7 @@ const description = post.data.description;
   .prose h2,
   .prose h3,
   .prose h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .prose a {
