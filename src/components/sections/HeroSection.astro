@@ -5,7 +5,7 @@ import StatBar from '../ui/StatBar.astro';
 import FadeIn from '../ui/FadeIn.astro';
 import profile from '../../data/profile.json';
 
-const { location, status, contact, social } = profile;
+const { name, location, status, contact, social } = profile;
 
 const stats = [
   { value: 3, suffix: '+', label: 'Years Production ML' },
@@ -39,9 +39,13 @@ const stats = [
 
       <!-- Headline -->
       <FadeIn delay="2">
+        <p class="text-text-subtle text-lg mb-3">Hi, I'm</p>
         <h1 class="text-hero font-display font-extrabold text-text-primary mb-6">
-          I secure AI systems <span class="gradient-text">before they break.</span>
+          {name}
         </h1>
+        <p class="text-2xl md:text-3xl font-semibold text-text-primary mb-6">
+          I secure AI systems <span class="gradient-text">before they break.</span>
+        </p>
       </FadeIn>
 
       <!-- Subheadline -->
