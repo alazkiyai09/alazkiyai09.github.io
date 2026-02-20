@@ -10,7 +10,7 @@ const { location, status, social } = profile;
 const stats = [
   { value: 3, suffix: '+', label: 'Years Production ML' },
   { value: 94, suffix: '%', label: 'Detection Rate (vs 67% baseline)' },
-  { value: 2, label: 'Published Papers' },
+  { value: 99.9, suffix: '%', label: 'SLA Maintained' },
   { value: 10, suffix: 'M+', label: 'Transactions Protected' },
 ];
 ---
@@ -24,10 +24,6 @@ const stats = [
           <Avatar size="md" />
           <div>
             <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-bg text-accent rounded-full text-xs font-mono font-semibold uppercase tracking-wider border border-accent-border">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-light"></span>
-              </span>
               {status.current}
             </span>
             <p class="text-text-subtle text-sm mt-1">

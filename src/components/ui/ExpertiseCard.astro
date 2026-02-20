@@ -9,6 +9,7 @@ interface Props {
   subtitle: string;
   description: string;
   tags: string[];
+  achievement?: string;
   class?: string;
 }
 
@@ -17,6 +18,7 @@ const {
   subtitle,
   description,
   tags = [],
+  achievement,
   class: className = ''
 } = Astro.props;
 
@@ -39,6 +41,14 @@ const cardClass = [
   <p class="text-text-muted text-sm leading-relaxed mb-4">
     {description}
   </p>
+
+  <!-- Key Achievement -->
+  {achievement && (
+    <div class="text-accent text-sm font-medium mb-4 flex items-center gap-2">
+      <span class="text-accent">✓</span>
+      <span>{achievement}</span>
+    </div>
+  )}
 
   <!-- Tags with subtle variant -->
   {tags.length > 0 && (
