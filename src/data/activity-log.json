@@ -22,9 +22,9 @@
       "date": "2026-02-05T14:30:00Z",
       "type": "portfolio_complete",
       "title": "Completed privacy-preserving-phishing-detection Portfolio",
-      "description": "Finished 21-project privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard, ZKP verification, and research paper.",
+      "description": "Finished 21-project privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard and research paper.",
       "projectRef": "fedphish-portfolio",
-      "tags": ["federated-learning", "phishing-detection", "privacy", "zkp", "production"],
+      "tags": ["federated-learning", "phishing-detection", "privacy", "differential-privacy", "production"],
       "metrics": {
         "linesOfCode": 50000,
         "projectsCompleted": 21,
@@ -46,7 +46,7 @@
         "linesOfCode": 165000,
         "projectsCompleted": 30,
         "testFiles": 101,
-        "qualityScore": 9.6
+        "securityAudit": "STRIDE analysis completed"
       },
       "links": [
         { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/fl-security-research" }
@@ -112,10 +112,10 @@
       "id": "act-2026-01-25-001",
       "date": "2026-01-25T13:30:00Z",
       "type": "project_start",
-      "title": "Started ZKP Integration for FL",
-      "description": "Beginning implementation of Zero-Knowledge Proof integration for privacy-preserving model verification in federated learning.",
-      "projectRef": "zkp-integration-fl",
-      "tags": ["zero-knowledge", "federated-learning", "privacy"],
+      "title": "Started Byzantine Robustness Research",
+      "description": "Beginning research on Byzantine-robust aggregation strategies for federated learning, focusing on Krum, FoolsGold, and multi-layer defenses.",
+      "projectRef": "fl-security-portfolio",
+      "tags": ["byzantine-robustness", "federated-learning", "security"],
       "metrics": {
         "hoursSpent": 2
       }

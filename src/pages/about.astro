@@ -27,11 +27,11 @@ const timelineEvents = [
 
 // Skills matrix grouped by domain
 const skillsMatrix = {
-  'AI/ML': ['PyTorch', 'TensorFlow', 'scikit-learn', 'Flower', 'PySyft', 'Opacus', 'TenSEAL'],
-  'Cryptography': ['ECDSA', 'ZKP (libsnark, circom)', 'AES', "Shamir's Secret Sharing"],
-  'Production': ['FastAPI', 'Docker', 'LangChain', 'LangGraph', 'React'],
-  'Data': ['SQL', 'IBM DB2', 'Pandas', 'NumPy'],
-  'Tools': ['SAS Fraud Management', 'SAS Viya', 'Power BI', 'Git']
+  'Federated Learning & Security': ['PyTorch', 'Flower', 'PySyft', 'Opacus', 'TenSEAL', 'scikit-learn'],
+  'Fraud Detection & ML': ['TensorFlow', 'SAS Fraud Management', 'SAS Viya', 'Power BI', 'scikit-learn'],
+  'Security Research': ['Adversarial ML', 'Steganography', 'Penetration Testing', 'Threat Modeling', 'Byzantine Robustness'],
+  'Cryptography': ['ECDSA', 'AES', "Shamir's Secret Sharing", 'TenSEAL'],
+  'Engineering': ['FastAPI', 'Docker', 'LangChain', 'LangGraph', 'React', 'SQL', 'IBM DB2', 'Git']
 };
 ---
 
@@ -53,10 +53,10 @@ const skillsMatrix = {
             I'm an AI Security Researcher with a journey that took me from IT consulting to fraud detection operations, and now to the frontiers of federated learning security. My path wasn't linear—I started in software engineering, moved into detecting financial crimes at major Indonesian financial institutions, and found myself drawn to the deeper question: how do we build AI systems that remain secure when no single party can be fully trusted?
           </p>
           <p class="text-text-muted leading-relaxed mb-6">
-            For 3+ years, I led fraud detection operations at ITSEC Asia, maintaining 99.9%+ SLA on real-time systems processing millions of daily transactions. That experience showed me the gap between academic security research and production constraints—budgets, latency requirements, and the reality that adversaries don't follow the threat models in papers. I've since completed 67 projects spanning adversarial ML, federated learning security, and cryptographic verification, with published research in steganography (Springer LNNS vol. 285).
+            For 3+ years, I led fraud detection operations at ITSEC Asia, maintaining 99.9%+ SLA on real-time systems processing millions of daily transactions. My work included deployments at major Indonesian financial institutions including Bank Rakyat Indonesia (BRI), where I saw firsthand the gap between academic security research and production constraints—budgets, latency requirements, and the reality that adversaries don't follow the threat models in papers. This experience drove me toward federated learning research, exploring how to build secure, collaborative ML systems that work within real-world constraints. I've published research in steganography (Springer LNNS vol. 285) and focus on practical defenses for federated learning environments.
           </p>
           <p class="text-text-muted leading-relaxed">
-            Now I focus on federated learning defense: building systems like SignGuard that combine ECDSA signatures with anomaly detection to achieve 94.5% attack detection rates. My work sits at the intersection of cryptographic verification and adversarial robustness—I'm particularly interested in zero-knowledge proofs for verifiable trust in multi-institution settings.
+            Now I focus on federated learning defense: building systems like SignGuard that combine ECDSA signatures with anomaly detection to achieve 94.5% attack detection rates. My work sits at the intersection of cryptographic verification and adversarial robustness—developing practical Byzantine-robust aggregation methods and anomaly detection techniques that scale to real-world deployments.
           </p>
         </section>
 

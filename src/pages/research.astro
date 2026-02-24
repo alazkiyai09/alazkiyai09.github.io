@@ -1,230 +1,163 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
-import ResearchCard from '../components/ui/ResearchCard.astro';
-import Button from '../components/ui/Button.astro';
-import domainExpertise from '../data/domain-expertise.json';
 
 const title = 'Research - Azka';
-const description = 'Research interests in federated learning security, adversarial machine learning, and privacy-preserving AI.';
-
-// Research questions aligned with spec focus - expanded with literature and sub-questions
-const researchQuestions = [
-  {
-    number: 'Q1' as const,
-    question: 'Can we build verifiable trust between financial institutions in federated learning without revealing private data?',
-    exploration: `**Problem Context**
-
-Financial institutions face a fundamental tension: they want to collaborate on fraud detection models to catch sophisticated attacks, but cannot share customer transaction data due to regulatory requirements (GDPR, PSD2, local banking laws). Federated learning offers a technical solution—train models locally, share only gradients—but this creates a new problem: how does Bank A know that Bank B's gradient update is legitimate and not a poisoned attack?
-
-**Technical Approach**
-
-My research explores zero-knowledge proofs as a cryptographic foundation for verifiable FL. Key techniques include:
-
-- **ZK-SNARKs for gradient integrity**: Clients generate succinct proofs (~200 bytes using Groth16) that their gradient was computed from valid data. Verification takes ~5ms on modern hardware. [Source: Groth16 benchmarks](https://eprint.iacr.org/2016/260.pdf)
-- **Commitment schemes**: Before training, clients commit to dataset characteristics. Updates deviating beyond statistical bounds are rejected.
-- **Attributable signatures**: ECDSA/BLS signatures tie each update to the submitting institution, enabling accountability.
-
-**Challenges & Trade-offs**
-
-The primary challenge is computational overhead. Generating ZK-SNARKs for a 1M parameter model takes 2-5 seconds—acceptable for batch training but problematic for real-time. My SignGuard system achieves sub-50ms ECDSA verification, but full ZK approaches add 100-300ms overhead.
-
-**Current Progress**
-
-I've implemented a prototype combining ECDSA signatures with anomaly detection, achieving 94.5% attack detection. Next phase integrates Groth16 ZK-SNARKs with <200ms verification target.`,
-    literature: [
-      'Bonawitz et al. "Practical Secure Aggregation for FL" (2017) - foundational secure aggregation',
-      'Weng et al. "AuditFL: Accountable FL via Verifiable Gradients" (2023) - gradient verification',
-      'Zhang et al. "EZFL: Efficient Zero-Knowledge Proofs for FL" (2024) - ZK-FL integration',
-      'Groth "On the Size of Pairing-based Non-interactive Arguments" (2016) - Groth16 construction'
-    ],
-    subQuestions: [
-      'Can we achieve sub-second ZK verification for real-time fraud detection?',
-      'What are the minimum cryptographic assumptions for cross-institution trust?',
-      'How do proof sizes scale with model dimension in production?'
-    ],
-    tags: ['Zero-Knowledge Proofs', 'Federated Learning', 'Financial Systems', 'Trust Verification']
-  },
-  {
-    number: 'Q2' as const,
-    question: 'How do we make phishing detection explainable when the model is distributed across institutions?',
-    exploration: `**Problem Context**
-
-Business Email Compromise (BEC) attacks caused [$2.9 billion in losses in 2023](https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf) according to the FBI IC3 report. ML models are essential for detection, but security analysts need to understand *why* an email was flagged to take appropriate action.
-
-In federated phishing detection, explainability is amplified: each institution contributes features, but global model predictions must be explained without revealing which institution contributed which features.
-
-**Technical Approach**
-
-I investigate local LLMs (Llama, Mistral) as explanation generators operating on federated outputs:
-
-1. **Feature extraction**: The federated model produces attention weights and SHAP values for each prediction
-2. **Explanation generation**: A local LLM receives feature contributions (not raw data) and generates human-readable explanations
-3. **Privacy verification**: Before release, a filter removes institution-identifying information
-
-**Challenges & Trade-offs**
-
-The fidelity-privacy trade-off is central. Research shows explanations can leak training data—SHAP values alone can reveal feature distributions in reconstruction attacks. My approach uses differential privacy mechanisms on the explanation process, adding calibrated noise to feature importance scores.
-
-**Current Progress**
-
-Experiments on the [Enron-Spam dataset](https://www.cs.cmu.edu/~enron/) (~33,716 emails) show LLM-generated explanations achieve 78% human agreement with ground-truth importance, compared to 65% for rule-based baselines.`,
-    literature: [
-      'FBI IC3 "2023 Internet Crime Report" - BEC statistics and trends',
-      'Gramegna & Giudici "Explainable FL for Credit Scoring" (2021) - XAI in distributed finance',
-      'Singh et al. "FedXAI: Explainable AI for FL" (2023) - federated interpretability',
-      'Liu et al. "Privacy-Preserving Explanations via SHAP" (2022) - private feature attribution'
-    ],
-    subQuestions: [
-      'Can we achieve >90% explanation fidelity without leaking training data?',
-      'What explanation formats do analysts find actionable in incident response?',
-      'How do we handle edge cases where the model is uncertain?'
-    ],
-    tags: ['Explainable AI', 'LLMs', 'Phishing Detection', 'Privacy-Preserving XAI']
-  },
-  {
-    number: 'Q3' as const,
-    question: "What's the real-world cost of Byzantine resilience in production federated systems?",
-    exploration: `**The Research-Deployment Gap**
-
-Over 200 papers since 2017 propose defenses against poisoning attacks in FL. Yet ML engineers at financial institutions consistently report: "We can't use these in production—they're too slow, too complex, or break on our data."
-
-Most papers benchmark on MNIST/CIFAR-10 with synthetic attacks. Real-world fraud data is non-IID, imbalanced (~0.1% fraud rate), and subject to concept drift as attackers adapt.
-
-**Research Approach**
-
-I take an empirical, measurement-driven approach using a simulation framework that:
-
-1. Uses actual fraud data characteristics: skewed distributions, temporal drift, extreme imbalance
-2. Implements realistic adversary models: targeted attacks exploiting defense knowledge
-3. Measures production metrics: detection latency, overhead, false positive rates, degradation under drift
-
-**Key Findings**
-
-- **Coordinate-wise defenses (Krum)** are brittle to adaptive attacks—detection drops from 94% to 31% when attackers know the defense
-- **Computational overhead** is underestimated: ECDSA verification adds 12ms/client/round, scaling poorly to 10,000+ clients
-- **Class imbalance amplifies attack impact**: On balanced data, 20% malicious clients might reduce accuracy 5%; on fraud data (0.1% positive class), the same attack can drop recall from 95% to 60%
-
-**Practical Recommendations**
-
-A layered defense works best: signatures for accountability + anomaly detection for gradient inspection + reputation systems for long-term tracking. This combination is more robust than any single defense.`,
-    literature: [
-      'Blanchard et al. "Machine Learning with Adversaries" (2017) - Krum algorithm',
-      'Yin et al. "Byzantine-Robust Distributed Learning" (2018) - defense benchmarks',
-      'Shejwalkar & Houmansadr "Manipulating the Byzantine" (2021) - adaptive attack strategies',
-      'Li et al. "NeuroToxin" (2023) - targeted backdoor attacks'
-    ],
-    subQuestions: [
-      'How does defense overhead scale with malicious client fraction?',
-      'What detection latency is acceptable for real-time fraud scoring?',
-      'Do benchmarks reflect realistic adversary capabilities?'
-    ],
-    tags: ['Byzantine Resilience', 'Production FL', 'Empirical Security', 'Performance Analysis']
-  }
-];
-
-// Filter research areas
-const researchAreas = domainExpertise.areas.filter(area => area.type === 'research');
+const description = 'Securing federated learning for collaborative fraud detection in emerging financial markets.';
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="min-h-screen bg-bg-primary section-padding">
     <div class="container-custom">
-      <div class="max-w-5xl mx-auto space-y-12">
-        <!-- Hero Section -->
-        <SectionHeader
-          label="RESEARCH"
-          title="Bridging Theory and Practice"
-          description="Exploring the intersection of security, privacy, and distributed machine learning"
-          centered={true}
-        />
-
-        <!-- Research Philosophy -->
-        <section class="glass-card p-8 md:p-10">
-          <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
-            Research Philosophy
-          </h2>
-          <p class="text-text-muted leading-relaxed mb-4">
-            My research operates at the intersection of cryptographic security and distributed machine learning. I believe that robust AI systems require both theoretical foundations and practical implementation—security mechanisms must work not just in papers, but in real-world deployments with resource constraints and honest-but-curious participants.
-          </p>
-          <p class="text-text-muted leading-relaxed">
-            I focus on federated learning security because it represents one of the most challenging practical scenarios: distributed training across untrusted devices with strict privacy requirements. My work aims to make these systems resilient to adversarial attacks while maintaining the privacy guarantees that make federated learning valuable in the first place.
+      <div class="max-w-5xl mx-auto space-y-16">
+        <!-- Hero Section with Research Statement -->
+        <section class="text-center space-y-6">
+          <h1 class="font-display font-bold text-text-primary text-4xl md:text-5xl">
+            Research
+          </h1>
+          <p class="text-text-primary text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+            Securing federated learning for collaborative fraud detection in emerging financial markets.
           </p>
         </section>
 
-        <!-- Research Questions -->
+        <!-- Research Narrative -->
+        <section class="space-y-12">
+          <!-- The Problem -->
+          <div class="glass-card p-8 md:p-10">
+            <h2 class="font-display font-bold text-accent text-2xl mb-6">
+              The Problem
+            </h2>
+            <p class="text-text-muted leading-relaxed">
+              Indonesia's banking sector is rapidly adopting AI for fraud detection, but individual banks can't train effective models alone — fraudsters operate across institutions. Federated learning enables banks to collaboratively train shared models without exposing sensitive customer data. But this distributed training introduces critical vulnerabilities: a compromised participant can poison the shared model, degrading detection across all banks.
+            </p>
+          </div>
+
+          <!-- My Approach -->
+          <div class="glass-card p-8 md:p-10">
+            <h2 class="font-display font-bold text-accent text-2xl mb-6">
+              My Approach
+            </h2>
+            <p class="text-text-muted leading-relaxed mb-4">
+              My research combines cryptographic verification with robust aggregation to secure federated learning against poisoning attacks. SignGuard, my primary contribution, uses ECDSA digital signatures to authenticate model updates, statistical anomaly detection to flag suspicious gradients, and a time-decay reputation system to progressively isolate malicious participants.
+            </p>
+            <p class="text-text-muted leading-relaxed">
+              The framework achieves 94.5% attack detection across four attack types (data poisoning, model poisoning, label flipping, and backdoor injection) while maintaining model accuracy within 0.2% of undefended performance on clean data.
+            </p>
+          </div>
+
+          <!-- Why It Matters -->
+          <div class="glass-card p-8 md:p-10">
+            <h2 class="font-display font-bold text-accent text-2xl mb-6">
+              Why It Matters
+            </h2>
+            <p class="text-text-muted leading-relaxed">
+              As Indonesia's OJK (Financial Services Authority) pushes for greater inter-bank data collaboration, the security of federated systems becomes a regulatory and practical necessity. My work bridges the gap between academic FL security research and the operational realities of Southeast Asian banking infrastructure.
+            </p>
+          </div>
+        </section>
+
+        <!-- Publications -->
         <section>
           <SectionHeader
-            label="EXPLORATION"
-            title="Active Research Directions"
-            description="Core questions driving my current research agenda"
+            label="PUBLICATIONS"
+            title="Publications"
+            description="Peer-reviewed research and working papers"
           />
 
           <div class="space-y-6">
-            {researchQuestions.map((q) => (
-              <ResearchCard
-                number={q.number}
-                question={q.question}
-                exploration={q.exploration}
-                literature={q.literature}
-                subQuestions={q.subQuestions}
-                tags={q.tags}
-              />
-            ))}
+            <div class="glass-card p-6 md:p-8">
+              <h3 class="font-display font-semibold text-text-primary text-lg mb-2">
+                Cryptographic Steganography using CTR DRBG and AES Methods
+              </h3>
+              <p class="text-text-muted text-sm mb-3">
+                Published research in secure information hiding techniques.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Steganography</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Cryptography</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Information Security</span>
+              </div>
+            </div>
+
+            <div class="glass-card p-6 md:p-8 border-l-4 border-accent">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="px-2 py-1 bg-accent/20 text-accent text-xs font-semibold rounded">WORKING PAPER</span>
+              </div>
+              <h3 class="font-display font-semibold text-text-primary text-lg mb-2">
+                SignGuard: Cryptographic Signature-Based Defense for Federated Learning
+              </h3>
+              <p class="text-text-muted text-sm mb-3">
+                Ahmad Whafa Azka Al Azkiyai. Working paper / preprint, 2024-2025.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Federated Learning</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">ECDSA</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Byzantine Robustness</span>
+              </div>
+              <a
+                href="https://github.com/alazkiyai09/signguard"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-accent hover:text-accent/80 text-sm font-medium inline-flex items-center gap-1"
+              >
+                View on GitHub
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
           </div>
         </section>
 
-        <!-- Research Areas -->
+        <!-- Research Interests -->
         <section>
           <SectionHeader
-            label="DOMAINS"
-            title="Research Areas"
-            description="Key domains of expertise and active investigation"
+            label="FOCUS"
+            title="Research Interests"
+            description="Core areas of investigation for future work"
           />
 
-          <div class="grid md:grid-cols-2 gap-6">
-            {researchAreas.map((area) => (
-              <div class="glass-card p-6">
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="text-3xl">{area.icon}</span>
-                  <h3 class="font-display font-bold text-text-primary text-xl">
-                    {area.title}
-                  </h3>
-                </div>
-                <p class="text-text-muted text-sm mb-4">{area.description}</p>
-                <div class="space-y-2">
-                  <p class="text-text-subtle text-xs font-semibold uppercase">Key Areas</p>
-                  <ul class="space-y-1">
-                    {area.highlights.map((highlight) => (
-                      <li class="text-text-muted text-sm flex items-start gap-2">
-                        <span class="text-accent mt-1">•</span>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+          <div class="glass-card p-8 md:p-10">
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="text-accent text-xl">•</span>
+                <span class="text-text-muted">Privacy-preserving federated learning for financial systems</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent text-xl">•</span>
+                <span class="text-text-muted">Cryptographic verification of distributed model updates</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent text-xl">•</span>
+                <span class="text-text-muted">Byzantine-robust aggregation under realistic threat models</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent text-xl">•</span>
+                <span class="text-text-muted">Adversarial attacks and defenses in collaborative ML</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-accent text-xl">•</span>
+                <span class="text-text-muted">Bridging AI security research and Indonesian banking infrastructure</span>
+              </li>
+            </ul>
           </div>
         </section>
 
-        <!-- Collaboration CTA -->
+        <!-- Seeking Supervision -->
         <section class="text-center">
           <div class="glass-card p-8 md:p-12 bg-gradient-to-br from-accent/5 to-transparent">
             <h2 class="font-display font-bold text-text-primary text-2xl mb-4">
-              Interested in Collaboration?
+              Seeking Supervision
             </h2>
             <p class="text-text-muted mb-6 max-w-xl mx-auto">
-              I'm always open to discussing research ideas, potential collaborations, or sharing insights on federated learning security and adversarial ML.
+              I am pursuing MPhil research opportunities to advance this work in federated learning security. If you are interested in supervising research at the intersection of cryptographic security, distributed systems, and financial ML, I would welcome the conversation.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-              <Button variant="primary" size="lg" href="/contact">
-                Get In Touch
-              </Button>
-              <Button variant="secondary" size="lg" href="/publications">
-                View Publications
-              </Button>
-            </div>
+            <a
+              href="/contact"
+              class="inline-block px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-colors"
+            >
+              Get In Touch
+            </a>
           </div>
         </section>
       </div>

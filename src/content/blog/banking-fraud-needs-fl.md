@@ -1,18 +1,19 @@
 ---
 title: "Why Banking Fraud Detection Needs Federated Learning"
-description: "Exploring why federated learning is critical for modern banking fraud detection, addressing privacy regulations and collaborative defense."
+description: "From 3+ years managing fraud detection at one of Southeast Asia's largest banks: why single-institution models fail, and how federated learning enables collaborative defense without exposing customer data."
 date: "2026-02-05"
 tags:
   - federated-learning
   - fraud-detection
   - banking
   - privacy
+  - indonesia
 published: true
 author: "Azka"
 readingTime: 10
 ---
 
-After 3+ years working in Indonesian banking fraud detection, I've seen firsthand why traditional ML approaches fall short. Federated learning isn't just a nice-to-have—for modern fraud detection, it's essential.
+After 3+ years managing fraud detection systems at Bank Rakyat Indonesia (BRI)—one of Southeast Asia's largest banks—I've seen firsthand why traditional ML approaches fall short. Federated learning isn't just a nice-to-have—for modern fraud detection, it's essential.
 
 ## The Centralization Problem
 
@@ -35,7 +36,12 @@ Indonesia has thousands of bank branches across 17,000+ islands. Transmitting al
 
 ### The Privacy Wall
 
-GDPR, Indonesia's PDP Law, and regional data sovereignty regulations create legal barriers:
+GDPR, Indonesia's PDP Law (Personal Data Protection Law 2022), and OJK (Financial Services Authority) regulations create complex legal barriers:
+
+- **Cross-border transfer restrictions**: OJK Regulation 12/2023 limits cross-border data transfers
+- **Data localization requirements**: Certain financial data must remain within Indonesian jurisdiction
+- **Customer consent requirements**: Opt-in/opt-out complexity under PDP Law
+- **Audit requirements**: Who accessed what, when, and why—strict OJK reporting standards
 
 - **Cross-border transfer restrictions**: Data can't leave certain jurisdictions
 - **Customer consent requirements**: Opt-in/opt-out complexity
@@ -167,7 +173,7 @@ If you're implementing FL for fraud detection:
 FL for fraud detection is just beginning. Emerging directions:
 
 - **Cross-bank collaboration**: Competing banks share models, not data
-- **ZKP integration**: Prove model quality without revealing parameters
+- **Differential privacy integration**: Prove model quality without revealing parameters
 - **Automated defense**: AI that detects and mitigates poisoning in real-time
 
 ## Conclusion

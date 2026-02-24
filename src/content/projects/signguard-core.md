@@ -211,7 +211,7 @@ SignGuard's multi-layer defense design combines:
 1. **Cryptographic Binding**: Ties model updates to client identities via ECDSA signatures
 2. **Dynamic Reputation**: Temporal decay prevents reputation accumulation attacks
 3. **Multi-Factor Scoring**: Combines signature validity, update magnitude, and contribution quality
-4. **Zero-Knowledge Compatible**: Can be extended with ZKPs for privacy-preserving verification
+4. **Secure Aggregation Compatible**: Works with secure aggregation protocols for privacy-preserving FL
 
 ## Challenges Overcome
 
@@ -253,7 +253,7 @@ SignGuard is designed to defend against multiple attack types:
 
 ## Future Work
 
-1. **Zero-Knowledge Proofs**: Extend SignGuard with ZK-SNARKs for privacy-preserving verification
+1. **Differential Privacy Integration**: Combine SignGuard with DP-SGD for stronger privacy guarantees
 2. **Threshold Signatures**: Enable (t, n) threshold schemes for distributed trust
 3. **Hardware Acceleration**: GPU-based signature verification for large-scale FL
 4. **Cross-Silo Deployment**: Test with banking consortium simulation

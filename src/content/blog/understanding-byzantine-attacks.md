@@ -1,12 +1,13 @@
 ---
 title: "Understanding Byzantine Attacks in Federated Learning"
-description: "A comprehensive guide to Byzantine attacks in federated learning systems—attack vectors, defense strategies, and practical implementation considerations."
+description: "A comprehensive guide to Byzantine attacks in federated learning systems—covering data poisoning, model poisoning, backdoor attacks, and gradient leakage with defense strategies."
 date: "2026-01-22"
 tags:
   - federated-learning
   - security
   - tutorial
   - byzantine-attacks
+  - adversarial-ml
 published: true
 author: "Azka"
 readingTime: 14
@@ -287,7 +288,7 @@ Limitation: Doesn't prevent malicious clients from signing malicious updates
 | Median | ✅ | ⚠️ | ❌ | Medium | ✅ |
 | Reputation | ⚠️ | ⚠️ | ⚠️ | Medium | ✅ |
 | Signatures | ❌* | ❌* | ❌* | Low | ✅ |
-| ZKPs | ⚠️ | ✅ | ⚠️ | High | ✅ |
+| DP-SGD | ❌ | ✅ | ✅ | Medium | ✅ |
 | **Combined** | ✅ | ✅ | ⚠️ | Medium | ✅ |
 
 *Signatures prevent impersonation but not malicious intent from authenticated clients
@@ -329,4 +330,4 @@ Effective defense requires understanding the threat landscape, implementing laye
 
 ---
 
-*This post is based on research from my [FL Security portfolio](/projects). For implementation details on cryptographic defenses, see my [SignGuard design article](/blog/signguard-design).*
+*This post is based on research from my [FL Security Research Suite](https://github.com/alazkiyai09/fl-security-research). For implementation details on cryptographic defenses, see my [SignGuard design article](/blog/signguard-design), and for more on applying these concepts to fraud detection, read [Why Banking Fraud Detection Needs Federated Learning](/blog/banking-fraud-needs-fl).*

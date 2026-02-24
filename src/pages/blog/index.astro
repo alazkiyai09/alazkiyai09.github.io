@@ -10,14 +10,14 @@ const publishedPosts = allPosts
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 // Simplified filter categories
-const filterCategories = ['All Posts', 'Federated Learning', 'Security', 'System Design'];
+const filterCategories = ['All Posts', 'Federated Learning', 'Security', 'Fraud Detection'];
 
 // Tag mapping for filtering
 const categoryTagMap: Record<string, string[]> = {
   'all posts': [],
   'federated learning': ['federated-learning', 'fl'],
-  'security': ['security', 'fraud-detection', 'banking'],
-  'system design': ['cryptography', 'portfolio', 'tutorial']
+  'security': ['security', 'byzantine-attacks', 'byzantine-robustness'],
+  'fraud detection': ['fraud-detection', 'banking', 'indonesia', 'adversarial-ml']
 };
 
 // Calculate reading time from content or use provided value
@@ -32,7 +32,7 @@ function getReadingTime(post: typeof publishedPosts[0]): string {
 }
 
 const title = 'Blog - Azka';
-const description = 'Technical writing on federated learning security, adversarial machine learning, fraud detection, and AI safety research.';
+const description = 'Technical writing on federated learning security, adversarial machine learning, and fraud detection for financial systems.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -43,7 +43,7 @@ const description = 'Technical writing on federated learning security, adversari
           Blog
         </h1>
         <p class="text-xl text-text-muted">
-          Technical writing on federated learning security, adversarial ML, and AI safety research
+          Technical writing on federated learning security, adversarial ML, and fraud detection for financial systems
         </p>
       </div>
 

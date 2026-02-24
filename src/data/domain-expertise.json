@@ -1,85 +1,45 @@
 {
   "areas": [
     {
-      "id": "fraud-detection",
-      "title": "Banking Fraud Detection",
-      "years": 3,
-      "icon": "🏦",
-      "type": "industry",
-      "description": "Production fraud detection systems for major Indonesian financial institutions",
-      "highlights": [
-        "Real-time transaction monitoring with ML models",
-        "Feature engineering for velocity-based fraud patterns",
-        "LSTM autoencoders for sequential fraud detection",
-        "Model explainability with SHAP and LIME"
-      ],
-      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI", "LSTM", "SHAP", "LIME"],
-      "achievements": [
-        "Maintained 99.9%+ SLA compliance for production fraud detection systems",
-        "Improved monitoring efficiency by 50% through automation",
-        "Reduced incident response time by 75%"
-      ]
-    },
-    {
-      "id": "federated-learning",
+      "id": "federated-learning-security",
       "title": "Federated Learning Security",
       "years": 2,
       "icon": "🔐",
       "type": "research",
-      "description": "Byzantine-resilient federated learning for secure cross-institution collaboration",
+      "description": "Byzantine-resilient federated learning for secure cross-institution collaboration through cryptographic verification and robust aggregation protocols.",
       "highlights": [
         "SignGuard: 94.5% attack detection with ECDSA + Anomaly Detection + Reputation",
         "Secure aggregation with Shamir's Secret Sharing",
         "Privacy attacks: membership inference, gradient leakage, property inference",
         "Byzantine-robust aggregation: Krum, Multi-Krum, FoolsGold"
       ],
-      "technologies": ["PyTorch", "Flower", "PySyft", "cryptography", "DP-SGD", "Opacus", "TenSEAL", "libsnark"],
+      "technologies": ["PyTorch", "Flower", "PySyft", "cryptography.io", "DP-SGD", "Opacus", "TenSEAL", "ECDSA", "Shamir's Secret Sharing"],
       "achievements": [
-        "30-project FL Security portfolio (165K+ LOC, 9.6/10 quality)",
-        "21-project FedPhish portfolio with ZKP and HE (50K LOC, 461 tests)",
+        "30-project FL Security portfolio (165K+ LOC, STRIDE security audit)",
         "SignGuard: Novel defense achieving 94.5% detection rate",
+        "STRIDE security audit completed",
         "Published research paper on FL security"
       ]
     },
     {
-      "id": "production-ai",
-      "title": "Production AI & LLMOps",
-      "years": 2,
-      "icon": "🚀",
+      "id": "fraud-detection",
+      "title": "Banking Fraud Detection",
+      "years": 3,
+      "icon": "🏦",
       "type": "industry",
-      "description": "Enterprise-grade AI systems with RAG, LangGraph agents, and LLMOps pipelines",
+      "description": "Production fraud detection systems for major Indonesian financial institutions with real-time ML models and explainability.",
       "highlights": [
-        "Multi-modal RAG systems for document intelligence",
-        "LangGraph agents for customer support and fraud triage",
-        "LLMOps evaluation frameworks with RAGAS metrics",
-        "Production deployment with Docker and Kubernetes"
+        "Real-time transaction monitoring with ML models",
+        "Feature engineering for velocity-based fraud patterns",
+        "LSTM autoencoders for sequential fraud detection",
+        "Model explainability with SHAP and LIME"
       ],
-      "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "ChromaDB", "Qdrant", "OpenAI", "Ollama"],
+      "technologies": ["SAS Fraud Management", "SAS Viya", "Python", "SQL", "IBM DB2", "Power BI", "LSTM", "SHAP", "LIME", "FastAPI"],
       "achievements": [
-        "10-project Enterprise AI portfolio (115K+ LOC, 32 test files)",
-        "3 RAG system implementations",
-        "4 LangGraph agent systems",
-        "End-to-end LLMOps pipeline with evaluation"
-      ]
-    },
-    {
-      "id": "steganography",
-      "title": "Steganography & Information Hiding",
-      "years": 2,
-      "icon": "🔒",
-      "type": "research",
-      "description": "Published research in steganographic methods using PVD, LSB, and modulo encoding",
-      "highlights": [
-        "PVD + LSB + Modulo Encoding implementation",
-        "NIST SP 800-90A CTR_DRBG with AES-128",
-        "Channel optimization for reduced distortion",
-        "Testing across 131 images with 10 message sizes each"
-      ],
-      "technologies": ["Python", "OpenCV", "NumPy", "PyCryptodome", "AES-128", "scikit-image"],
-      "achievements": [
-        "Published in Springer LNNS (vol 285)",
-        "1,310 embedding trials evaluated with PSNR, MSE, SSIM",
-        "Novel PVD+LSB+Modulo combined encoding"
+        "Maintained 99.9%+ SLA compliance for production fraud detection systems",
+        "10M+ transactions processed",
+        "Improved monitoring efficiency by 50% through automation",
+        "Reduced incident response time by 75%"
       ]
     },
     {
@@ -88,19 +48,83 @@
       "years": 1,
       "icon": "🦠",
       "type": "research",
-      "description": "Static analysis framework for banking trojan detection",
+      "description": "Static analysis framework for banking trojan detection through PE file analysis, API call extraction, and ML classification.",
       "highlights": [
         "PE file structure analysis",
         "API call sequence extraction",
         "YARA rule development and matching",
         "ML-based malware classification"
       ],
-      "technologies": ["Python", "YARA", "pefile", "scikit-learn", "XGBoost", "pandas"],
+      "technologies": ["Python", "YARA", "pefile", "scikit-learn", "XGBoost", "pandas", "Static Analysis"],
       "achievements": [
-        "Fraudware Analyzer tool released",
+        "Fraudware Analyzer tool with 95.7% accuracy",
         "100+ malware samples analyzed",
         "50+ YARA rules developed",
         "200+ Windows APIs cataloged"
+      ]
+    },
+    {
+      "id": "cryptography",
+      "title": "Cryptography & Privacy",
+      "years": 2,
+      "icon": "🔒",
+      "type": "research",
+      "description": "Applied cryptographic methods for secure ML systems including signature schemes, pseudorandom generation, and privacy-preserving machine learning techniques.",
+      "highlights": [
+        "ECDSA signatures for FL verification",
+        "NIST SP 800-90A CTR_DRBG with AES-128",
+        "Differential privacy with DP-SGD",
+        "Secure multi-party computation concepts",
+        "Homomorphic encryption with TenSEAL"
+      ],
+      "technologies": ["ECDSA", "CTR DRBG", "AES", "DP-SGD", "Opacus", "TenSEAL", "cryptography.io", "PyCryptodome"],
+      "achievements": [
+        "Published steganography research paper",
+        "SignGuard cryptographic verification system",
+        "Privacy-preserving ML implementations",
+        "Secure aggregation protocols"
+      ]
+    },
+    {
+      "id": "production-ai",
+      "title": "Production AI & ML Engineering",
+      "years": 2,
+      "icon": "🚀",
+      "type": "industry",
+      "description": "Enterprise-grade AI systems with RAG, LangGraph agents, and LLMOps pipelines for production deployment.",
+      "highlights": [
+        "Multi-modal RAG systems for document intelligence",
+        "LangGraph agents for customer support and fraud triage",
+        "LLMOps evaluation frameworks with RAGAS metrics",
+        "Production deployment with Docker and Kubernetes"
+      ],
+      "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "TypeScript", "Redis", "Celery", "CLIP", "RAGAS", "Prometheus", "Grafana", "Kubernetes", "Docker"],
+      "achievements": [
+        "10-project Enterprise AI portfolio (115K+ LOC, 32 test files)",
+        "3 RAG system implementations",
+        "4 LangGraph agent systems",
+        "End-to-end LLMOps pipeline with evaluation"
+      ]
+    },
+    {
+      "id": "financial-ml",
+      "title": "Financial ML & Forecasting",
+      "years": 2,
+      "icon": "📈",
+      "type": "research",
+      "description": "Time series forecasting and predictive modeling for financial markets and economic indicators using ensemble methods and deep learning.",
+      "highlights": [
+        "LSTM networks for sequence prediction",
+        "SVM and KNN for classification",
+        "Ensemble methods for robust forecasting",
+        "Feature engineering for financial data"
+      ],
+      "technologies": ["PyTorch", "scikit-learn", "Pandas", "NumPy", "LSTM", "SVM", "KNN", "Ensemble Methods", "Time Series Analysis"],
+      "achievements": [
+        "Multi-model benchmarking framework",
+        "Time series forecasting for Indonesian economic indicators",
+        "Digital asset price prediction models",
+        "Feature engineering pipeline for financial data"
       ]
     }
   ]

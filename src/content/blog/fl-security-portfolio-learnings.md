@@ -1,18 +1,18 @@
 ---
 title: "Building a Research Portfolio in Federated Learning Security"
-description: "Key insights from developing a comprehensive 30-project body of work on federated learning security—from foundational implementations to advanced cryptographic defenses."
+description: "Lessons from building a comprehensive federated learning security research suite — covering attacks, defenses, and privacy techniques across 165,000+ lines of research-grade code."
 date: "2026-02-10"
 tags:
   - federated-learning
   - research
   - security
-  - career
+  - portfolio
 published: true
 author: "Azka"
 readingTime: 10
 ---
 
-Over the past year, I developed a 30-project research portfolio focused entirely on federated learning security. This wasn't a bootcamp or a challenge—it was a deliberate deep-dive into understanding how distributed ML systems fail and how to defend them.
+Over the past year, I developed a comprehensive research suite focused entirely on federated learning security. This wasn't a bootcamp or a challenge—it was a deliberate deep-dive into understanding how distributed ML systems fail and how to defend them.
 
 Here's what I learned from building this body of work.
 
@@ -26,7 +26,9 @@ I wanted to bridge theory and practice—not just understand the concepts, but b
 
 ## Research Structure
 
-I organized the portfolio into thematic areas rather than a linear progression:
+I organized the research suite into five thematic categories covering attacks, defenses, and privacy techniques. The work comprises **165,000+ lines of code** across **101 test files**, with security validated through a comprehensive **STRIDE audit**.
+
+### Foundation: Fraud Detection & FL Basics
 
 ### Foundation: Fraud Detection & FL Basics
 The starting point was implementing standard federated learning on realistic fraud detection data. This established baselines for accuracy, communication overhead, and client heterogeneity.
@@ -68,7 +70,7 @@ Beyond robustness, FL requires privacy:
 The final research arc explored cryptographic defenses:
 
 - ECDSA signature verification for update integrity
-- Zero-knowledge proof constraints on update quality
+- Anomaly detection for update quality validation
 - Threshold signatures for multi-party verification
 
 This became the foundation for SignGuard—my most significant contribution from this research.
@@ -96,7 +98,7 @@ Most FL security research focuses on algorithmic defenses—statistical methods 
 - Adaptive attacks bypass them
 - No accountability
 
-**Cryptographic defenses** (signatures, ZKPs):
+**Cryptographic defenses** (signatures, secure aggregation):
 - Deterministic verification
 - Resistant to manipulation
 - Full audit trail
@@ -126,13 +128,17 @@ Before testing defenses, measure attack success rates on undefended systems. Wit
 
 ### 3. Document Decisions Immediately
 
-Around project 15, I couldn't remember why I chose certain parameters in project 3. I started keeping decision logs: why FedAvg over FedProx, why Krum failed in this specific test, etc.
+Around mid-way through the research, I couldn't remember why I chose certain parameters in earlier implementations. I started keeping decision logs: why FedAvg over FedProx, why Krum failed in this specific test, etc.
 
 These logs became more valuable than the code itself.
 
 ### 4. Test Against Adaptive Adversaries
 
 Static attack tests are insufficient. Implement attacks that know your defense and try to bypass it. This is where most algorithmic defenses fail.
+
+### 5. Run Real Benchmarks from Day One
+
+I initially relied on theoretical projections for attack success rates. When I finally implemented empirical benchmarks, the results differed significantly from expectations. Real benchmarks expose hidden assumptions that theoretical analysis misses.
 
 ## Career Impact
 
@@ -149,13 +155,13 @@ Concrete outcomes:
 
 ## What I'd Do Differently
 
-**Earlier community engagement**: I should have joined the Flower Discord and FL research communities sooner. Feedback accelerates learning.
+**Run real benchmarks from day one**: I initially relied on theoretical projections. When I finally implemented empirical benchmarks, results differed significantly from expectations. Real benchmarks expose hidden assumptions that theoretical analysis misses.
 
-**More rigorous evaluation**: Early projects lacked proper statistical testing. Confidence intervals matter.
+**Start with defense work earlier**: I should have started with SignGuard earlier and built the attack implementations as motivation for it. Working backwards from the defense to understand what attacks it needs to stop would have been more efficient.
 
-**Open-source from the start**: I kept code private initially. Sharing earlier would have attracted collaborators.
+**Focus over breadth**: A focused deep dive on fewer, deeper implementations would have been more impactful than covering many techniques. Quality over quantity.
 
-**Focus over breadth**: 30 projects is too many. A focused 10-project deep dive would have been more impactful.
+**Open-source from the start**: I kept code private initially. Sharing earlier would have attracted collaborators and accelerated feedback cycles.
 
 ## Resources for Similar Research
 
@@ -184,4 +190,4 @@ If you're considering similar deep-dive research: start with clear questions, bu
 
 ---
 
-*This post summarizes insights from my [FL Security Research portfolio](/projects). The code is open-source and documented with decision logs for each project.*
+*This post summarizes insights from my [FL Security Research Suite](https://github.com/alazkiyai09/fl-security-research). The code is open-source with 165,000+ lines across 30 implementations, all documented with decision logs and validated through a STRIDE security audit.*

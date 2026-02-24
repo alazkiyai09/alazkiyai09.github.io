@@ -71,9 +71,9 @@
       ],
       "achievements": [
         "Published 2 research papers (Springer LNNS, IEEE ICoDSA)",
-        "Completed 67 projects across 4 comprehensive portfolios",
+        "Curated 8 focused research projects showcasing AI security expertise",
         "Designed SignGuard: Multi-layer defense for federated learning",
-        "Built production-ready AI systems with 8.45/10 average quality score"
+        "Built production-ready AI systems with comprehensive testing and STRIDE security validation"
       ],
       "technologies": ["PyTorch", "PySyft", "Flower", "cryptography", "Docker", "FastAPI", "LangChain", "LangGraph"],
       "category": "research"

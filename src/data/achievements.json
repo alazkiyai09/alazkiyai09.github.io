@@ -22,7 +22,7 @@
         "projects": 31,
         "linesOfCode": 137770,
         "testFiles": 101,
-        "qualityScore": 9.6
+        "securityAudit": "STRIDE analysis completed"
       },
       "categories": [
         "Fraud Detection Core (7 projects)",
@@ -38,7 +38,7 @@
     {
       "id": "fedphish-portfolio",
       "title": "FedPhish: Privacy-Preserving Phishing Detection",
-      "description": "21-project portfolio on federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs.",
+      "description": "21-project portfolio on federated phishing detection with homomorphic encryption, differential privacy, and secure aggregation.",
       "metrics": {
         "projects": 21,
         "linesOfCode": 118064,
@@ -47,11 +47,11 @@
       },
       "features": [
         "Homomorphic encryption with TenSEAL",
-        "Zero-knowledge proof verification",
+        "Differential privacy with DP-SGD",
         "Trusted Execution Environment (Intel SGX)",
         "React dashboard for monitoring"
       ],
-      "technologies": ["PyTorch", "TenSEAL", "libsnark", "circom", "Intel SGX", "FastAPI", "React"],
+      "technologies": ["PyTorch", "TenSEAL", "Opacus", "Intel SGX", "FastAPI", "React"],
       "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
       "demo": "",
       "demoNote": "Demo deployment in progress - see repository for setup instructions",

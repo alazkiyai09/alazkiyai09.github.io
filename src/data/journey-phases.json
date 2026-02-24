@@ -22,18 +22,18 @@
     },
     {
       "name": "Privacy-Preserving Phishing Detection",
-      "description": "Federated phishing detection with homomorphic encryption, TEE, and zero-knowledge proofs",
+      "description": "Federated phishing detection with homomorphic encryption, TEE, and differential privacy",
       "status": "completed",
       "projects": [
         "privacy-preserving-phishing-detection System",
         "HE+TEE Protocol",
-        "ZK Verification",
+        "DP-SGD Integration",
         "React Dashboard"
       ],
       "skills": [
         "Homomorphic Encryption",
         "Intel SGX",
-        "ZK-SNARK",
+        "Differential Privacy",
         "BLS Signatures"
       ],
       "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",

@@ -35,7 +35,7 @@
       "name": "Security & Cryptography",
       "skills": [
         { "name": "ECDSA", "level": 85 },
-        { "name": "Zero-Knowledge Proofs", "level": 80 },
+        { "name": "Byzantine-Robust Aggregation", "level": 90 },
         { "name": "Homomorphic Encryption", "level": 80 },
         { "name": "Trusted Execution Environments", "level": 75 },
         { "name": "Shamir's Secret Sharing", "level": 80 },
