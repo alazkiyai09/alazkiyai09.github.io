@@ -4,6 +4,15 @@ import { getCollection } from 'astro:content';
 import Badge from '../../components/ui/Badge.astro';
 import Tag from '../../components/ui/Tag.astro';
 
+// Import diagram components
+import SignGuardDiagram from '../../components/diagrams/SignGuardDiagram';
+import FLResearchMap from '../../components/diagrams/FLResearchMap';
+import FraudwarePipeline from '../../components/diagrams/FraudwarePipeline';
+import FraudDetectionFlow from '../../components/diagrams/FraudDetectionFlow';
+import FinancialMLFlow from '../../components/diagrams/FinancialMLFlow';
+import SteganoFlow from '../../components/diagrams/SteganoFlow';
+import PortfolioArchFlow from '../../components/diagrams/PortfolioArchFlow';
+
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
   return projects.map((project) => ({
@@ -14,6 +23,17 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+// Helper to check which diagram to show
+const slug = project.slug;
+const showSignGuard = slug === 'signguard-core' || slug === 'signguard-defense';
+const showFLResearch = slug === 'fl-security-portfolio';
+const showFraudware = slug === 'malware-analyzer';
+const showFraudDetection = slug === 'production-ai-portfolio';
+const showFinancialML = slug === 'indonesia-financial-ml';
+const showStegano = slug === 'paperstego-research';
+const showPortfolioArch = slug === 'portfolio-website';
+const hasDiagram = showSignGuard || showFLResearch || showFraudware || showFraudDetection || showFinancialML || showStegano || showPortfolioArch;
 
 const title = `${project.data.title} - Azka`;
 const description = project.data.summary;
@@ -182,6 +202,20 @@ const description = project.data.summary;
             </div>
           </div>
         </div>
+
+        <!-- Architecture Diagram -->
+        {hasDiagram && (
+          <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-text-primary font-display">Architecture</h2>
+            {showSignGuard && <SignGuardDiagram client:visible />}
+            {showFLResearch && <FLResearchMap client:visible />}
+            {showFraudware && <FraudwarePipeline client:visible />}
+            {showFraudDetection && <FraudDetectionFlow client:visible />}
+            {showFinancialML && <FinancialMLFlow client:visible />}
+            {showStegano && <SteganoFlow client:visible />}
+            {showPortfolioArch && <PortfolioArchFlow client:visible />}
+          </section>
+        )}
 
         <!-- Content -->
         <div class="prose prose-lg dark:prose-invert max-w-none">
