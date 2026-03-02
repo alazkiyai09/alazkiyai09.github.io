@@ -15,6 +15,7 @@ technologies:
   - XGBoost
   - Autoencoders
   - Isolation Forest
+metrics:
   recordsProcessed: "227M+"
 startDate: "2026-01-01"
 completedDate: "2026-03-01"

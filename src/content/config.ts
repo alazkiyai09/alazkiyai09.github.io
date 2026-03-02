@@ -15,11 +15,7 @@ const projects = defineCollection({
     paper: z.string().url().optional(),
     startDate: z.string().optional(),
     completedDate: z.string().optional(),
-    metrics: z.object({
-      linesOfCode: z.number().optional(),
-      accuracy: z.number().optional(),
-      experimentsRun: z.number().optional(),
-    }).optional(),
+    metrics: z.record(z.string(), z.union([z.string(), z.number()])).optional(),
     technologies: z.array(z.string()),
     researchConnection: z.object({
       supervisor: z.string().optional(),
