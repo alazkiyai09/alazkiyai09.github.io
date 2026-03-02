@@ -7,10 +7,13 @@ import FilterBar from '../../components/ui/FilterBar.astro';
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
 
-// Featured projects by slug - 8 focused projects showcasing security research
+// Featured projects by slug - 11 focused projects showcasing security research
 const featuredSlugs = [
   'signguard-core',           // Flagship: Byzantine-robust FL aggregation
   'signguard-defense',        // Flagship: Multi-layer defense implementation
+  'fed-medicaid',             // Flagship: ECDSA-Based Byzantine Defense
+  'medicaid-guard',           // Applied: AI-Powered Fraud Detection pipeline
+  'medicaid-lens',            // Applied: Healthcare spending transparency
   'fl-security-portfolio',    // Flagship: 30 implementations
   'malware-analyzer',         // Applied: 95.7% accuracy (Fraudware Analyzer)
   'production-ai-portfolio',  // Applied: Production Fraud Detection Pipeline
@@ -32,7 +35,7 @@ const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)))
 const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
 
 const title = 'Projects - Azka';
-const description = '8 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
+const description = '11 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -41,7 +44,7 @@ const description = '8 focused research projects showcasing AI security — Sign
     <SectionHeader
       label="Portfolio"
       title="Research Projects"
-      description="8 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
+      description="11 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
       centered={true}
       class="mb-12"
     />
@@ -49,7 +52,7 @@ const description = '8 focused research projects showcasing AI security — Sign
     <!-- Stats -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent">8</div>
+        <div class="text-stat text-accent">11</div>
         <div class="text-sm text-text-muted">Curated Projects</div>
       </div>
       <div class="glass-card p-4 text-center">
