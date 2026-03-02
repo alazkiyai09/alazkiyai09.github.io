@@ -1,0 +1,1 @@
+import"./hoisted.DbXYiD-K.js";const o=new IntersectionObserver(e=>{e.forEach(r=>{r.isIntersecting&&(r.target.classList.add("is-visible"),o.unobserve(r.target))})},{threshold:.1,rootMargin:"0px 0px -50px 0px"});document.querySelectorAll(".animate-on-scroll").forEach(e=>{o.observe(e)});
