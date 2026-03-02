@@ -2,7 +2,7 @@
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
-import FilterBar from '../../components/ui/FilterBar.astro';
+import InteractiveFilter from '../../components/ui/InteractiveFilter.jsx';
 
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
@@ -24,15 +24,23 @@ const featuredSlugs = [
 const featuredProjects = sortedProjects.filter(p => featuredSlugs.includes(p.slug));
 const otherProjects = sortedProjects.filter(p => !featuredSlugs.includes(p.slug));
 
-// Group by status
-const completedProjects = sortedProjects.filter(p => p.data.status === 'completed');
-const inProgressProjects = sortedProjects.filter(p => p.data.status === 'in-progress');
 
-// Get all unique categories
-const categories = Array.from(new Set(sortedProjects.map(p => p.data.category)));
 
 // Define filter categories with display labels
 const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
+
+// Map projects into raw serializable data for React component
+const mappedOtherProjects = otherProjects.map(p => ({
+  slug: p.slug,
+  title: p.data.title,
+  summary: p.data.summary,
+  category: p.data.category,
+  status: p.data.status,
+  tags: p.data.tags || [],
+  technologies: p.data.technologies || [],
+  repository: p.data.repository,
+  demo: p.data.demo
+}));
 
 const title = 'Projects - Azka';
 const description = '11 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
@@ -174,160 +182,9 @@ const description = '11 focused research projects showcasing AI security — Sig
       </div>
     </div>
 
-    <!-- Filter Bar -->
-    <div class="flex justify-center mb-10">
-      <FilterBar
-        categories={filterCategories}
-        activeCategory="All"
-      />
-    </div>
-
-    <!-- Projects Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-      {otherProjects.map((project) => (
-        <article
-          class="glass-card p-6 flex flex-col project-card"
-          data-category={project.data.category}
-        >
-          {/* Status and Category Badges */}
-          <div class="flex flex-wrap items-center gap-2 mb-3">
-            <span
-              class:list={[
-                "badge text-xs",
-                project.data.status === 'completed' && "bg-green-500/20 text-green-400 border border-green-500/30",
-                project.data.status === 'in-progress' && "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-                project.data.status === 'draft' && "bg-slate-500/20 text-slate-400 border border-slate-500/30"
-              ]}
-            >
-              {project.data.status}
-            </span>
-            <span class="badge-subtle text-xs">{project.data.category}</span>
-          </div>
-
-          {/* Title */}
-          <h3 class="text-xl font-bold text-text-primary mb-2 line-clamp-2 font-display">
-            <a href={`/projects/${project.slug}`} class="hover:text-accent transition-colors">
-              {project.data.title}
-            </a>
-          </h3>
-
-
-          {/* Summary */}
-          <p class="text-sm text-text-secondary mb-4 line-clamp-3 flex-1 leading-relaxed">
-            {project.data.summary}
-          </p>
-
-          {/* Tags */}
-          <div class="flex flex-wrap gap-2 mb-4">
-            {project.data.tags.slice(0, 4).map((tag) => (
-              <span class="px-2 py-0.5 bg-white/5 text-text-primary text-xs rounded-md border border-white/10">
-                {tag}
-              </span>
-            ))}
-            {project.data.tags.length > 4 && (
-              <span class="text-xs text-text-muted">
-                +{project.data.tags.length - 4} more
-              </span>
-            )}
-          </div>
-
-          {/* Technologies */}
-          <div class="flex flex-wrap gap-1.5 mb-4">
-            {project.data.technologies.slice(0, 4).map((tech) => (
-              <span class="px-2 py-0.5 bg-accent-bg text-accent-light text-xs rounded-md font-mono border border-accent-border">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* Links */}
-          <div class="flex gap-2 pt-4 border-t border-border mt-auto">
-            {project.data.repository && (
-              <a
-                href={project.data.repository}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex-1 text-center py-2 px-3 bg-accent text-white text-xs font-medium rounded-btn hover:bg-accent-light transition-colors"
-              >
-                GitHub
-              </a>
-            )}
-            {project.data.demo && (
-              <a
-                href={project.data.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex-1 text-center py-2 px-3 border border-border text-text-primary text-xs font-medium rounded-btn hover:bg-bg-surface-hover transition-colors"
-              >
-                Demo
-              </a>
-            )}
-            <a
-              href={`/projects/${project.slug}`}
-              class="flex-1 text-center py-2 px-3 border border-accent-border text-accent text-xs font-medium rounded-btn hover:bg-accent-bg transition-colors"
-            >
-              Details
-            </a>
-          </div>
-        </article>
-      ))}
-    </div>
+    <!-- Interactive Filter & Grid -->
+    <InteractiveFilter client:load categories={filterCategories} projects={mappedOtherProjects} />
   </div>
 </BaseLayout>
 
-<script define:vars={{ otherProjects }}>
-  // Category mapping for filtering
-  const categoryMapping = {
-    'all': [],
-    'fl security': ['federated-learning', 'federated learning', 'fl'],
-    'fraud detection': ['fraud-detection', 'fraud detection'],
-    'production ai': ['production-ai', 'production ai', 'mlops', 'deployment'],
-    'cryptography': ['cryptography', 'crypto'],
-    'adversarial attacks': ['adversarial-attacks', 'adversarial attacks', 'adversarial'],
-    'privacy ml': ['privacy-preserving-ml', 'privacy-preserving ml', 'privacy ml']
-  };
 
-  // Filter functionality
-  const filterContainer = document.querySelector('[data-active-category]');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  if (filterContainer) {
-    filterContainer.addEventListener('filter-change', (e) => {
-      const activeCategory = (e.detail.category || 'All').toLowerCase().trim();
-      const mappingKeywords = categoryMapping[activeCategory] || [];
-
-      projectCards.forEach(card => {
-        const cardCategory = (card.dataset.category || '').toLowerCase().trim();
-        const cardTags = Array.from(card.querySelectorAll('.badge-subtle')).map(el => el.textContent.toLowerCase());
-
-        let shouldShow = activeCategory === 'all';
-
-        if (!shouldShow && mappingKeywords.length > 0) {
-          // Check if card category matches any of the mapping keywords
-          shouldShow = mappingKeywords.some(keyword =>
-            cardCategory.includes(keyword) ||
-            cardTags.some(tag => tag.includes(keyword))
-          );
-        }
-
-        // Fallback: direct category match
-        if (!shouldShow && activeCategory !== 'all') {
-          shouldShow = cardCategory.includes(activeCategory);
-        }
-
-        card.style.display = shouldShow ? 'flex' : 'none';
-      });
-    });
-
-    // Also handle button clicks directly
-    filterContainer.querySelectorAll('button[data-category]').forEach(button => {
-      button.addEventListener('click', () => {
-        const category = button.getAttribute('data-category') || 'All';
-        filterContainer.dispatchEvent(new CustomEvent('filter-change', {
-          detail: { category },
-          bubbles: true
-        }));
-      });
-    });
-  }
-</script>

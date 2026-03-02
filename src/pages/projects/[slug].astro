@@ -3,6 +3,8 @@ import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import Badge from '../../components/ui/Badge.astro';
 import Tag from '../../components/ui/Tag.astro';
+import FadeIn from '../../components/ui/FadeIn.astro';
+import TableOfContents from '../../components/ui/TableOfContents.astro';
 
 // Import diagram components
 import SignGuardDiagram from '../../components/diagrams/SignGuardDiagram';
@@ -22,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { Content } = await project.render();
+const { Content, headings } = await project.render();
 
 // Helper to check which diagram to show
 const slug = project.slug;
@@ -37,9 +39,27 @@ const hasDiagram = showSignGuard || showFLResearch || showFraudware || showFraud
 
 const title = `${project.data.title} - Azka`;
 const description = project.data.summary;
+
+// JSON-LD Project Schema
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": project.data.title,
+  "description": project.data.summary,
+  "author": {
+    "@type": "Person",
+    "name": "Ahmad Whafa Azka Al Azkiyai"
+  },
+  "programmingLanguage": project.data.technologies,
+  "keywords": project.data.tags.join(', '),
+  ...(project.data.repository && { "codeRepository": project.data.repository }),
+  ...(project.data.demo && { "url": project.data.demo }),
+  "dateCreated": project.data.startDate || undefined,
+  "datePublished": project.data.completedDate || undefined
+};
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} structuredData={projectSchema}>
   <div class="min-h-screen bg-bg-primary section-padding">
     <div class="container-custom">
       <article class="max-w-4xl mx-auto">
@@ -59,6 +79,7 @@ const description = project.data.summary;
         </nav>
 
         <!-- Header -->
+        <FadeIn delay="1">
         <header class="mb-8">
           <div class="flex flex-wrap items-center gap-3 mb-4">
             <Badge
@@ -106,8 +127,10 @@ const description = project.data.summary;
             </div>
           )}
         </header>
+        </FadeIn>
 
         <!-- Links -->
+        <FadeIn delay="2">
         <div class="flex flex-wrap gap-3 mb-8">
           {project.data.repository && (
             <a
@@ -149,9 +172,11 @@ const description = project.data.summary;
             </a>
           )}
         </div>
+        </FadeIn>
 
         <!-- Metrics - Impact focused, LOC as supporting detail -->
         {project.data.metrics && (
+          <FadeIn delay="3">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-6 glass-card rounded-xl">
             {project.data.metrics.accuracy && (
               <div class="text-center">
@@ -178,9 +203,11 @@ const description = project.data.summary;
               </div>
             )}
           </div>
+          </FadeIn>
         )}
 
         <!-- Tags & Technologies -->
+        <FadeIn delay="4">
         <div class="mb-8 space-y-4">
           <div>
             <h3 class="text-sm font-semibold text-text-primary uppercase mb-2">Tags</h3>
@@ -202,11 +229,13 @@ const description = project.data.summary;
             </div>
           </div>
         </div>
+        </FadeIn>
 
         <!-- Architecture Diagram -->
         {hasDiagram && (
-          <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-text-primary font-display">Architecture</h2>
+          <FadeIn delay="5">
+          <section class="mb-8 border-b border-border pb-8">
+            <h2 id="architecture-diagram" class="text-2xl font-bold mb-4 text-text-primary font-display">Architecture</h2>
             {showSignGuard && <SignGuardDiagram client:visible />}
             {showFLResearch && <FLResearchMap client:visible />}
             {showFraudware && <FraudwarePipeline client:visible />}
@@ -215,12 +244,20 @@ const description = project.data.summary;
             {showStegano && <SteganoFlow client:visible />}
             {showPortfolioArch && <PortfolioArchFlow client:visible />}
           </section>
+          </FadeIn>
         )}
 
-        <!-- Content -->
-        <div class="prose prose-lg dark:prose-invert max-w-none">
-          <Content />
+        <!-- Main Content Layout with optional Sidebar -->
+        <FadeIn delay="6">
+        <div class="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12 items-start mt-8">
+          <div class="prose prose-lg dark:prose-invert max-w-none min-w-0">
+            <Content />
+          </div>
+          <div class="hidden lg:block">
+            <TableOfContents headings={headings || []} />
+          </div>
         </div>
+        </FadeIn>
       </article>
     </div>
   </div>

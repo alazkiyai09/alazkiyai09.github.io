@@ -1,0 +1,108 @@
+---
+/**
+ * TableOfContents - Sticky sidebar component for long markdown content
+ */
+
+interface Props {
+  headings: import('astro').MarkdownHeading[];
+  class?: string;
+}
+
+const { headings, class: className = '' } = Astro.props;
+
+// Filter to h2 and h3, removing irrelevant or empty headings
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth > 1 && heading.depth < 4
+);
+
+// If there are less than 2 headings, don't show the TOC
+const showToc = filteredHeadings.length >= 2;
+---
+
+{showToc && (
+  <nav class={`toc-container ${className}`}>
+    <div class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-4 hidden lg:block">
+      <h3 class="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4 border-l-2 border-accent pl-3">
+        On this page
+      </h3>
+      <ul class="space-y-2 border-l border-border pl-4 text-sm">
+        {filteredHeadings.map((heading) => (
+          <li>
+            <a
+              href={`#${heading.slug}`}
+              class:list={[
+                "block text-text-muted hover:text-accent transition-colors py-1 hover:translate-x-1 duration-200",
+                heading.depth === 3 ? "pl-4 text-xs" : ""
+              ]}
+              data-toc-link
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+)}
+
+<style>
+  /* Custom scrollbar for TOC */
+  .toc-container .sticky::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .toc-container .sticky::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .toc-container .sticky::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 4px;
+  }
+  
+  /* Active state class added via JS */
+  .toc-link-active {
+    color: var(--accent-light) !important;
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  // Intersection Observer to highlight active TOC link
+  const initToc = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const tocLink = document.querySelector(`a[href="#${id}"][data-toc-link]`);
+        
+        if (entry.isIntersecting && tocLink) {
+          // Remove active class from all links
+          document.querySelectorAll('[data-toc-link]').forEach(link => {
+            link.classList.remove('toc-link-active');
+            // Remove the subtle left border accent we might want to add
+            (link as HTMLElement).style.borderLeft = 'none';
+          });
+          
+          // Add to current
+          tocLink.classList.add('toc-link-active');
+        }
+      });
+    }, {
+      rootMargin: '-10% 0px -80% 0px' // Trigger when heading is near the top
+    });
+
+    // Observe all headings that have an ID corresponding to a TOC link
+    document.querySelectorAll('[data-toc-link]').forEach(link => {
+      const id = link.getAttribute('href')?.substring(1);
+      if (id) {
+        const heading = document.getElementById(id);
+        if (heading) observer.observe(heading);
+      }
+    });
+  };
+
+  // Run on load and after Astro page transitions
+  document.addEventListener('astro:page-load', initToc);
+  // Also run immediately in case we're not using view transitions
+  initToc();
+</script>

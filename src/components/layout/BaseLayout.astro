@@ -9,6 +9,7 @@ interface Props {
   image?: string;
   keywords?: string[];
   noindex?: boolean;
+  structuredData?: any;
 }
 
 const {
@@ -16,7 +17,8 @@ const {
   description = 'AI Security Researcher specializing in federated learning defense, adversarial robustness, and cryptographic verification. 3+ years in Indonesian banking. Open to opportunities.',
   image = '/og-image.png',
   keywords = ['AI Security', 'Federated Learning', 'Fraud Detection', 'Machine Learning', 'Cryptography', 'Adversarial ML'],
-  noindex = false
+  noindex = false,
+  structuredData = null
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -53,6 +55,8 @@ const personSchema = {
     "addressCountry": "ID"
   }
 };
+
+const jsonLdData = structuredData || personSchema;
 ---
 
 <!doctype html>
@@ -96,7 +100,7 @@ const personSchema = {
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)} />
 
     <!-- Theme Script (dark only) -->
     <script is:inline>
