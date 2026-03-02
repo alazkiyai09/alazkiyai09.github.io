@@ -7,10 +7,8 @@ import InteractiveFilter from '../../components/ui/InteractiveFilter.jsx';
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
 
-// Featured projects by slug - 11 focused projects showcasing security research
+// Featured projects by slug - 9 focused projects showcasing security research
 const featuredSlugs = [
-  'signguard-core',           // Flagship: Byzantine-robust FL aggregation
-  'signguard-defense',        // Flagship: Multi-layer defense implementation
   'fed-medicaid',             // Flagship: ECDSA-Based Byzantine Defense
   'medicaid-guard',           // Applied: AI-Powered Fraud Detection pipeline
   'medicaid-lens',            // Applied: Healthcare spending transparency
@@ -49,10 +47,10 @@ const description = '11 focused research projects showcasing AI security — Sig
 <BaseLayout title={title} description={description}>
   <div class="section-padding container-custom">
     <!-- Section Header -->
-    <SectionHeader
+      <SectionHeader
       label="Portfolio"
       title="Research Projects"
-      description="11 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
+      description="9 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
       centered={true}
       class="mb-12"
     />
@@ -60,7 +58,7 @@ const description = '11 focused research projects showcasing AI security — Sig
     <!-- Stats -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent">11</div>
+        <div class="text-stat text-accent">9</div>
         <div class="text-sm text-text-muted">Curated Projects</div>
       </div>
       <div class="glass-card p-4 text-center">

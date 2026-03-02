@@ -10,7 +10,7 @@ tags:
   - cnn-lstm
   - ensemble-methods
   - deep-learning
-summary: "Comprehensive machine learning system for forecasting Indonesian economic indicators including USD/IDR exchange rate and inflation using LSTM, GRU, CNN-LSTM models and ensemble methods."
+summary: "An advanced deep learning forecasting engine that predicts Indonesia's critical economic indicators—like inflation and exchange rates—using an ensemble of neural networks."
 simpleSummary: "AI-powered forecasting for Indonesia's economy - predicting exchange rates and inflation using advanced deep learning models with 22+ economic indicators."
 technologies:
   - Python
@@ -21,11 +21,9 @@ technologies:
   - scikit-learn
   - Jupyter
 metrics:
-  linesOfCode: 27000
   mae: 254.8
   mape: "1.72%"
   r2: 0.933
-  experimentsRun: 18
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
 repository: "https://github.com/alazkiyai09/Predictive-Analytics-for-Indonesia-s-Economic-Forecasting"

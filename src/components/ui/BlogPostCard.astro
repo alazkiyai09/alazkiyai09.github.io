@@ -13,6 +13,7 @@ interface Props {
   tags: string[];
   href: string;
   class?: string;
+  [key: string]: any;
 }
 
 const {
@@ -23,7 +24,8 @@ const {
   readingTime,
   tags = [],
   href,
-  class: className = ''
+  class: className = '',
+  ...rest
 } = Astro.props;
 
 const cardClass = [
@@ -32,7 +34,7 @@ const cardClass = [
 ].filter(Boolean).join(' ');
 ---
 
-<a href={href} class={cardClass}>
+<a href={href} class={cardClass} {...rest}>
   <!-- Title with hover effect -->
   <h3 class="text-lg md:text-xl font-bold text-text-primary mb-3 font-display group-hover:text-accent transition-colors">
     {title}

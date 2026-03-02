@@ -7,7 +7,7 @@ tags:
   - "research"
   - "publication"
   - "image-processing"
-summary: "Published research in Springer LNNS (vol 285) on improving steganography imperceptibility using PVD, LSB substitution, and modulo encoding with NIST SP 800-90A CTR_DRBG. 1,310 embedding trials evaluated with PSNR, MSE, and SSIM metrics."
+summary: "My published peer-reviewed research natively hiding data within images using advanced cryptographic encodings to mathematically defeat detection tools."
 technologies:
   - Python
   - OpenCV
@@ -15,6 +15,9 @@ technologies:
   - PyCryptodome
   - AES-128
 repository: "https://github.com/alazkiyai09/pvd-lsb-modulo-steganography"
+metrics:
+  trialsEvaluated: 1310
+  publications: 1
 
 startDate: "2025-01-01"
 completedDate: "2025-01-31"

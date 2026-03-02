@@ -1,5 +1,5 @@
 ---
-title: "Fed-Medicaid: SignGuard"
+title: "Federated Healthcare Fraud Defense (SignGuard)"
 status: "completed"
 category: "federated-learning-security"
 tags:
@@ -8,15 +8,15 @@ tags:
   - security
   - fraud-detection
   - ecdsa
-summary: "ECDSA-Based Byzantine Defense for Federated Healthcare Fraud Detection evaluated against 227 million real-world HHS Medicaid provider claims partitioned across 54 jurisdictions."
-simpleSummary: "A secure federated learning framework that lets US states collaboratively train a healthcare fraud detection model without sharing sensitive patient data."
+summary: "A secure federated learning framework that lets US states collaboratively train healthcare fraud detection models without sharing sensitive patient data."
+simpleSummary: "A complete toolkit for secure AI collaboration across organizations - like letting banks train fraud detection together without sharing customer data, while protecting against hackers."
 technologies:
   - Python
   - PyTorch
   - Cryptography
 metrics:
-  linesOfCode: 5000
-  experimentsRun: 5
+  recordsProcessed: "227M+"
+  jurisdictions: 54
 startDate: "2026-01-01"
 completedDate: "2026-03-01"
 repository: "https://github.com/alazkiyai09/fed-medicaid"
@@ -42,7 +42,6 @@ Accepted identities have their parameter gradients mathematically audited:
 * **Reputation Ledger (EMA):** Rejections immediately decay trust exponentially, permanently isolating Sybil participants.
 
 ## 📊 Empirical Evaluation Matrix
-The implementation includes automated execution wrappers validating the resilience against:
 - **Random Poisoning** (Sensory failures)
 - **Model Poisoning** (Gradient Ascent / Targeted degradation)
 - **Label Flipping** (Collusion data-poisoning)
@@ -50,3 +49,15 @@ The implementation includes automated execution wrappers validating the resilien
 - **Sybil Networks** (Coordinated identity spoofing)
 
 SignGuard actively neutralizes these structural and Sybil manipulation injections while preserving AUPRC within **1.8%** of theoretically optimal centralized baselines.
+
+## ⚙️ Evolution & Core Research
+
+The real-world implementation applied to Medicaid stems from the core theoretical research on **ECDSA-Based Federated Learning Defense**. 
+
+### The Underlying Security Proof
+Federated Learning (FL) is vulnerable to Byzantine attacks where malicious clients submit poisoned model updates. Existing solutions (Krum, Multi-Krum) lack cryptographic verification of client identity. 
+
+SignGuard introduces three core algorithmic components under the hood:
+1. **Signature Generator**: Clients sign their model updates using ECDSA private keys (SECP256R1), ensuring absolute identity non-repudiation.
+2. **Verification Engine**: The central aggregator verifies ECDSA signatures in ~1.2ms per client before performing any compute-heavy aggregation logic, instantly dropping unauthenticated packets.
+3. **Reputation Manager**: Verified updates undergo statistical anomaly detection. Anomalous vectors immediately decay trust exponentially, permanently isolating Sybil participants over multiple rounds.

@@ -9,7 +9,7 @@ tags:
   - typescript
   - markdown
   - static-site-generator
-summary: "Personal portfolio website showcasing AI security research and projects. Built with Astro, Tailwind CSS, and TypeScript for optimal performance and developer experience."
+summary: "This high-performance, statically generated portfolio website you are looking at right now, built from scratch with Astro, React, and Tailwind CSS."
 simpleSummary: "A fast, modern portfolio website to showcase my research and projects - built with cutting-edge web technologies."
 technologies:
   - Astro
@@ -18,9 +18,7 @@ technologies:
   - MDX
   - GitHub Pages
 metrics:
-  linesOfCode: 3500
-  lighthouse: 98
-  experimentsRun: 0
+  lighthouseScore: 98
 startDate: "2025-01-01"
 completedDate: "2025-01-31"
 repository: "https://github.com/alazkiyai09/alazkiyai09.github.io"

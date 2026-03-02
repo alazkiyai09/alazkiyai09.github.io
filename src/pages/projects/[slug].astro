@@ -174,34 +174,22 @@ const projectSchema = {
         </div>
         </FadeIn>
 
-        <!-- Metrics - Impact focused, LOC as supporting detail -->
+        <!-- Metrics - Impact focused, dynamic keys -->
         {project.data.metrics && (
           <FadeIn delay="3">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-6 glass-card rounded-xl">
-            {project.data.metrics.accuracy && (
-              <div class="text-center">
-                <div class="text-2xl font-bold text-accent">
-                  {project.data.metrics.accuracy}%
+            {Object.entries(project.data.metrics).map(([key, value]) => {
+              // Format camelCase key to Title Case
+              const formattedLabel = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+              return (
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-accent">
+                    {value.toLocaleString()}
+                  </div>
+                  <div class="text-sm text-text-muted">{formattedLabel}</div>
                 </div>
-                <div class="text-sm text-text-muted">Detection Accuracy</div>
-              </div>
-            )}
-            {project.data.metrics.experimentsRun && (
-              <div class="text-center">
-                <div class="text-2xl font-bold text-accent-light">
-                  {project.data.metrics.experimentsRun}
-                </div>
-                <div class="text-sm text-text-muted">Experiments Run</div>
-              </div>
-            )}
-            {project.data.metrics.linesOfCode && (
-              <div class="text-center">
-                <div class="text-2xl font-bold text-text-secondary">
-                  {project.data.metrics.linesOfCode.toLocaleString()}
-                </div>
-                <div class="text-sm text-text-subtle">Lines of Code</div>
-              </div>
-            )}
+              );
+            })}
           </div>
           </FadeIn>
         )}

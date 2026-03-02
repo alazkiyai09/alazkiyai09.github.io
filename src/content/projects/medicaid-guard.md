@@ -8,16 +8,14 @@ tags:
   - healthcare
   - xgboost
   - anomaly-detection
-summary: "AI-Powered Fraud Detection pipeline that ingests, cleans, and analyzes the 227 million record US HHS Medicaid Provider dataset to find suspicious behaviors."
+summary: "A production machine learning system that analyzes 227 million Medicaid records to automatically detect and flag complex healthcare fraud."
 simpleSummary: "A machine learning system that finds suspicious billing patterns in the $1 Trillion Medicaid program to stop fraud and waste."
 technologies:
   - Python
   - XGBoost
   - Autoencoders
   - Isolation Forest
-metrics:
-  linesOfCode: 4000
-  experimentsRun: 1
+  recordsProcessed: "227M+"
 startDate: "2026-01-01"
 completedDate: "2026-03-01"
 repository: "https://github.com/alazkiyai09/medicaid-guard"

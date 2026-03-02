@@ -12,7 +12,7 @@ const { headings, class: className = '' } = Astro.props;
 
 // Filter to h2 and h3, removing irrelevant or empty headings
 const filteredHeadings = headings.filter(
-  (heading) => heading.depth > 1 && heading.depth < 4
+  (heading) => heading.depth > 1 && heading.depth < 5
 );
 
 // If there are less than 2 headings, don't show the TOC
@@ -32,7 +32,8 @@ const showToc = filteredHeadings.length >= 2;
               href={`#${heading.slug}`}
               class:list={[
                 "block text-text-muted hover:text-accent transition-colors py-1 hover:translate-x-1 duration-200",
-                heading.depth === 3 ? "pl-4 text-xs" : ""
+                heading.depth === 3 ? "pl-4 text-xs" : "",
+                heading.depth === 4 ? "pl-8 text-xs italic" : ""
               ]}
               data-toc-link
             >

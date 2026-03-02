@@ -8,7 +8,7 @@ tags:
   - data-visualization
   - duckdb
   - healthcare
-summary: "Interactive web application designed to make $1.09 Trillion in public healthcare spending transparent, explorable, and accountable using machine learning."
+summary: "An interactive dashboard that makes $1.09 Trillion in healthcare spending transparent, allowing investigators to visually explore ML-flagged fraud anomalies."
 simpleSummary: "A transparent dashboard allowing users to interactively explore high-risk healthcare providers and anomalies regionally and nationally."
 technologies:
   - React
@@ -17,8 +17,7 @@ technologies:
   - FastAPI
   - DuckDB
 metrics:
-  linesOfCode: 8000
-  experimentsRun: 0
+  spendingAnalyzed: "$1.09T"
 startDate: "2026-01-01"
 completedDate: "2026-03-01"
 repository: "https://github.com/alazkiyai09/medicaid-lens"

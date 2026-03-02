@@ -9,7 +9,7 @@ tags:
   - llmops
   - agents
   - infrastructure
-summary: "A 10-project enterprise-grade portfolio showcasing production-ready AI systems including RAG applications, LangGraph agents, LLMOps pipelines, and scalable infrastructure. Features 292 Python files with comprehensive testing and deployment configurations."
+summary: "An enterprise portfolio of 10 production-ready AI systems, demonstrating scalable RAG applications, LangGraph security agents, and robust LLMOps deployment."
 technologies:
   - FastAPI
   - LangChain
@@ -22,8 +22,7 @@ technologies:
   - PostgreSQL
   - Redis
 metrics:
-  linesOfCode: 85000
-  experimentsRun: 67
+  systemsDeployed: 10
 startDate: "2025-03-01"
 completedDate: "2025-03-10"
 repository: "https://github.com/alazkiyai09/enterprise-ai-systems"
