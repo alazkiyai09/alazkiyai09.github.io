@@ -7,28 +7,11 @@ import InteractiveFilter from '../../components/ui/InteractiveFilter.jsx';
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
 
-// Featured projects by slug - 9 focused projects showcasing security research
-const featuredSlugs = [
-  'fed-medicaid',             // Flagship: ECDSA-Based Byzantine Defense
-  'medicaid-guard',           // Applied: AI-Powered Fraud Detection pipeline
-  'medicaid-lens',            // Applied: Healthcare spending transparency
-  'fl-security-portfolio',    // Flagship: 30 implementations
-  'malware-analyzer',         // Applied: 95.7% accuracy (Fraudware Analyzer)
-  'production-ai-portfolio',  // Applied: Production Fraud Detection Pipeline
-  'indonesia-financial-ml',   // Supporting: Economic forecasting
-  'paperstego-research',      // Supporting: Published steganography research
-  'portfolio-website'         // Meta: Portfolio website
-];
-const featuredProjects = sortedProjects.filter(p => featuredSlugs.includes(p.slug));
-const otherProjects = sortedProjects.filter(p => !featuredSlugs.includes(p.slug));
-
-
-
 // Define filter categories with display labels
 const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
 
-// Map projects into raw serializable data for React component
-const mappedOtherProjects = otherProjects.map(p => ({
+// Map all projects into raw serializable data for React component
+const mappedProjects = sortedProjects.map(p => ({
   slug: p.slug,
   title: p.data.title,
   summary: p.data.summary,
@@ -41,13 +24,13 @@ const mappedOtherProjects = otherProjects.map(p => ({
 }));
 
 const title = 'Projects - Azka';
-const description = '11 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
+const description = '9 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="section-padding container-custom">
     <!-- Section Header -->
-      <SectionHeader
+    <SectionHeader
       label="Portfolio"
       title="Research Projects"
       description="9 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
@@ -56,7 +39,7 @@ const description = '11 focused research projects showcasing AI security — Sig
     />
 
     <!-- Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
       <div class="glass-card p-4 text-center">
         <div class="text-stat text-accent">9</div>
         <div class="text-sm text-text-muted">Curated Projects</div>
@@ -75,113 +58,8 @@ const description = '11 focused research projects showcasing AI security — Sig
       </div>
     </div>
 
-    <!-- Featured Projects Section -->
-    <div class="mb-16">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="h-px flex-1 hidden sm:block bg-gradient-to-r from-transparent via-border to-transparent"></div>
-        <h2 class="text-xl md:text-2xl font-bold text-text-primary font-display flex items-center gap-2 whitespace-nowrap">
-          <span class="text-accent">Featured</span> Projects
-        </h2>
-        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent"></div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        {featuredProjects.map((project) => (
-          <article class="featured-card group relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div class="relative glass-card p-6 h-full border-accent/30 shadow-lg shadow-accent/5 flex flex-col">
-              {/* Badges row - Featured and Status */}
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <div class="flex flex-wrap items-center gap-2">
-                  <span
-                    class:list={[
-                      "badge text-xs",
-                      project.data.status === 'completed' && "bg-green-500/20 text-green-400 border border-green-500/30",
-                      project.data.status === 'in-progress' && "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-                      project.data.status === 'draft' && "bg-slate-500/20 text-slate-400 border border-slate-500/30"
-                    ]}
-                  >
-                    {project.data.status}
-                  </span>
-                  <span class="badge-subtle text-xs">{project.data.category}</span>
-                </div>
-                <span class="px-2 py-1 bg-accent/20 text-accent text-xs font-semibold rounded-full border border-accent/30 shrink-0">
-                  Featured
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3 class="text-lg font-bold text-text-primary mb-2 line-clamp-2 font-display group-hover:text-accent transition-colors">
-                <a href={`/projects/${project.slug}`}>
-                  {project.data.title}
-                </a>
-              </h3>
-
-              {/* Summary */}
-              <p class="text-sm text-text-secondary mb-4 line-clamp-3 flex-1 leading-relaxed">
-                {project.data.summary}
-              </p>
-
-              {/* Tags */}
-              <div class="flex flex-wrap gap-2 mb-4">
-                {project.data.tags.slice(0, 4).map((tag) => (
-                  <span class="px-2 py-0.5 bg-white/5 text-text-primary text-xs rounded-md border border-white/10">
-                    {tag}
-                  </span>
-                ))}
-                {project.data.tags.length > 4 && (
-                  <span class="text-xs text-text-muted">
-                    +{project.data.tags.length - 4} more
-                  </span>
-                )}
-              </div>
-
-              {/* Technologies */}
-              <div class="flex flex-wrap gap-1.5 mb-4">
-                {project.data.technologies.slice(0, 4).map((tech) => (
-                  <span class="px-2 py-0.5 bg-accent-bg text-accent-light text-xs rounded-md font-mono border border-accent-border">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div class="flex gap-2 pt-4 border-t border-border mt-auto">
-                {project.data.repository && (
-                  <a
-                    href={project.data.repository}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex-1 text-center py-2 px-3 bg-accent text-white text-xs font-medium rounded-btn hover:bg-accent-light transition-colors"
-                  >
-                    GitHub
-                  </a>
-                )}
-                {project.data.demo && (
-                  <a
-                    href={project.data.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex-1 text-center py-2 px-3 border border-border text-text-primary text-xs font-medium rounded-btn hover:bg-bg-surface-hover transition-colors"
-                  >
-                    Demo
-                  </a>
-                )}
-                <a
-                  href={`/projects/${project.slug}`}
-                  class="flex-1 text-center py-2 px-3 border border-accent-border text-accent text-xs font-medium rounded-btn hover:bg-accent-bg transition-colors"
-                >
-                  Details
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-
     <!-- Interactive Filter & Grid -->
-    <InteractiveFilter client:load categories={filterCategories} projects={mappedOtherProjects} />
+    <InteractiveFilter client:load categories={filterCategories} projects={mappedProjects} />
   </div>
 </BaseLayout>
 
