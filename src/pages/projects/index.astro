@@ -24,7 +24,7 @@ const mappedProjects = sortedProjects.map(p => ({
 }));
 
 const title = 'Projects - Azka';
-const description = '9 focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.';
+const description = `${sortedProjects.length} focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -33,7 +33,7 @@ const description = '9 focused research projects showcasing AI security — Sign
     <SectionHeader
       label="Portfolio"
       title="Research Projects"
-      description="9 focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods"
+      description={`${sortedProjects.length} focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods`}
       centered={true}
       class="mb-12"
     />
@@ -41,7 +41,7 @@ const description = '9 focused research projects showcasing AI security — Sign
     <!-- Stats -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent">9</div>
+        <div class="text-stat text-accent">{sortedProjects.length}</div>
         <div class="text-sm text-text-muted">Curated Projects</div>
       </div>
       <div class="glass-card p-4 text-center">
