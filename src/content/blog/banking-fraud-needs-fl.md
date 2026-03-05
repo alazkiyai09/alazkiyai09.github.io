@@ -43,10 +43,6 @@ GDPR, Indonesia's PDP Law (Personal Data Protection Law 2022), and OJK (Financia
 - **Customer consent requirements**: Opt-in/opt-out complexity under PDP Law
 - **Audit requirements**: Who accessed what, when, and why—strict OJK reporting standards
 
-- **Cross-border transfer restrictions**: Data can't leave certain jurisdictions
-- **Customer consent requirements**: Opt-in/opt-out complexity
-- **Audit requirements**: Who accessed what, when, and why?
-
 ## Federated Learning as Solution
 
 FL flips the script: bring the model to the data, not the data to the model.
@@ -184,4 +180,4 @@ My 3+ years in banking taught me that the best fraud detection combines local in
 
 ---
 
-*For practical implementation details, see my [Fraud Detection](/projects/day-1-fraud-detection-fundamentals) and [SignGuard](/projects/day-10-signguard-core) projects.*
+*For practical implementation details, see my [Production Fraud Detection](/projects/production-ai-portfolio) and [SignGuard](/projects/fl-security-portfolio) projects.*

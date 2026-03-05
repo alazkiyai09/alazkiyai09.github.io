@@ -1,0 +1,1 @@
+fetch('https://api.github.com/repos/alazkiyai09/alazkiyai09.github.io/actions/runs').then(r => r.json()).then(d => { console.log(d.workflow_runs.slice(0, 5).map((r, i) => `${i}: ${r.name} - ${r.status} - ${r.conclusion} (${r.created_at}) - ${r.head_commit.message}`).join('\n')) });

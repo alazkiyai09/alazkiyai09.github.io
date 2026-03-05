@@ -30,7 +30,6 @@ I organized the research suite into five thematic categories covering attacks, d
 
 ### Foundation: Fraud Detection & FL Basics
 
-### Foundation: Fraud Detection & FL Basics
 The starting point was implementing standard federated learning on realistic fraud detection data. This established baselines for accuracy, communication overhead, and client heterogeneity.
 
 Key projects included:
