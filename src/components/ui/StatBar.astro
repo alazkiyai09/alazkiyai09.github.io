@@ -1,8 +1,7 @@
 ---
 /**
  * StatBar component - Animated counter stats
- * @param stats - Array of { value: number, suffix?: string, label: string }
- * @param className - Additional CSS classes
+ * Numbers count up when scrolled into view
  */
 
 interface StatItem {
@@ -22,23 +21,78 @@ const {
 } = Astro.props;
 ---
 
-<div class={className} class:list={[className, "stat-bar grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0"]}>
+<div class:list={[className, "stat-bar grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0"]}>
   {stats.map((stat, index) => (
     <div
       class:list={[
-        "stat-item text-center",
+        "stat-item text-center group",
         "md:border-r md:border-border",
         index === stats.length - 1 && "md:border-r-0"
       ]}
     >
-      <div class="stat-value font-mono font-bold text-2xl md:text-stat gradient-text">
-        {stat.value}{stat.suffix || ''}
+      <div
+        class="stat-value font-mono font-bold text-2xl md:text-stat gradient-text-animated"
+        data-target={stat.value}
+        data-suffix={stat.suffix || ''}
+      >
+        0{stat.suffix || ''}
       </div>
-      <div class="stat-label text-xs uppercase tracking-wider text-text-subtle mt-1">
+      <div class="stat-label text-xs uppercase tracking-wider text-text-subtle mt-1 group-hover:text-text-muted transition-colors">
         {stat.label}
       </div>
     </div>
   ))}
 </div>
 
+<script>
+  const animateValue = (el: HTMLElement, start: number, end: number, suffix: string, duration: number) => {
+    const startTime = performance.now();
+    const isDecimal = end % 1 !== 0;
 
+    const update = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = start + (end - start) * eased;
+
+      if (isDecimal) {
+        el.textContent = current.toFixed(1) + suffix;
+      } else {
+        el.textContent = Math.round(current) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const statValues = entry.target.querySelectorAll('.stat-value');
+          statValues.forEach((el, index) => {
+            const target = parseFloat((el as HTMLElement).dataset.target || '0');
+            const suffix = (el as HTMLElement).dataset.suffix || '';
+
+            setTimeout(() => {
+              (el as HTMLElement).classList.add('stat-count-animate');
+              animateValue(el as HTMLElement, 0, target, suffix, 1800);
+            }, index * 150);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  document.querySelectorAll('.stat-bar').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

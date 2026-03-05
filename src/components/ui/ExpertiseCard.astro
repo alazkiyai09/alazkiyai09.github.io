@@ -1,7 +1,7 @@
 ---
 /**
  * ExpertiseCard - Title, subtitle, achievements list, tags
- * Uses glass-card style with hover effect
+ * Uses glass-card style with enhanced hover glow
  */
 
 interface Props {
@@ -22,16 +22,31 @@ const {
   class: className = ''
 } = Astro.props;
 
+// Icon mapping
+const iconMap: Record<string, string> = {
+  'Federated Learning Security': 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+  'Production Fraud Detection': 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+};
+
+const iconPath = iconMap[title] || 'M13 10V3L4 14h7v7l9-11h-7z';
+
 const cardClass = [
-  'glass-card p-6 md:p-8 flex flex-col',
+  'expertise-card glass-card p-6 md:p-8 flex flex-col group',
   className
 ].filter(Boolean).join(' ');
 ---
 
 <article class={cardClass}>
+  <!-- Icon accent -->
+  <div class="w-10 h-10 rounded-lg bg-accent-bg border border-accent-border flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-glow-sm transition-all duration-300">
+    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={iconPath} />
+    </svg>
+  </div>
+
   <!-- Title with accent border -->
   <div class="mb-3">
-    <h3 class="text-xl md:text-2xl font-bold text-text-primary font-display">
+    <h3 class="text-xl md:text-2xl font-bold text-text-primary font-display group-hover:text-accent-light transition-colors duration-300">
       {title}
     </h3>
     <p class="text-accent text-sm font-medium">{subtitle}</p>
@@ -44,8 +59,10 @@ const cardClass = [
 
   <!-- Key Achievement -->
   {achievement && (
-    <div class="text-accent text-sm font-medium mb-4 flex items-center gap-2">
-      <span class="text-accent">✓</span>
+    <div class="text-accent text-sm font-medium mb-4 flex items-center gap-2 p-2 rounded-lg bg-accent/5">
+      <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
       <span>{achievement}</span>
     </div>
   )}
@@ -54,7 +71,7 @@ const cardClass = [
   {tags.length > 0 && (
     <div class="flex flex-wrap gap-2 mt-auto">
       {tags.map((tag) => (
-        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
+        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full hover:bg-accent/10 hover:text-accent-light transition-colors duration-200 cursor-default">
           {tag}
         </span>
       ))}

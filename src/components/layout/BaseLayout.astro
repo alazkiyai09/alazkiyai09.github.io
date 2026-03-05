@@ -118,6 +118,9 @@ const jsonLdData = structuredData || personSchema;
       Skip to main content
     </a>
 
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress"></div>
+
     <Header />
 
     <main id="main-content" class="flex-1 relative z-10">
@@ -125,6 +128,41 @@ const jsonLdData = structuredData || personSchema;
     </main>
 
     <Footer />
+
+    <!-- Scroll progress bar script -->
+    <script is:inline>
+      const scrollProgress = document.getElementById('scroll-progress');
+      const updateScrollProgress = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+      };
+      let scrollTick = false;
+      window.addEventListener('scroll', () => {
+        if (!scrollTick) {
+          window.requestAnimationFrame(() => {
+            updateScrollProgress();
+            scrollTick = false;
+          });
+          scrollTick = true;
+        }
+      }, { passive: true });
+    </script>
+
+    <!-- Glass card mouse tracking glow -->
+    <script is:inline>
+      document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', x + 'px');
+          card.style.setProperty('--mouse-y', y + 'px');
+        });
+      });
+    </script>
   </body>
 </html>
 

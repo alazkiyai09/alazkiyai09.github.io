@@ -16,7 +16,14 @@ const stats = [
 ---
 
 <section class="min-h-screen flex items-center section-padding relative overflow-hidden">
-  <div class="container-custom">
+  <!-- Animated particle canvas background -->
+  <canvas id="hero-particles" class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;"></canvas>
+
+  <!-- Gradient mesh overlays -->
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+  <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+  <div class="container-custom relative" style="z-index: 1;">
     <div class="max-w-4xl">
       <!-- Avatar + Status Row -->
       <FadeIn delay="1">
@@ -24,6 +31,10 @@ const stats = [
           <Avatar size="md" />
           <div>
             <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-bg text-accent rounded-full text-xs font-mono font-semibold uppercase tracking-wider border border-accent-border">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              </span>
               {status.current}
             </span>
             <p class="text-text-subtle text-sm mt-1">
@@ -33,14 +44,17 @@ const stats = [
         </div>
       </FadeIn>
 
-      <!-- Headline -->
+      <!-- Headline with gradient shimmer -->
       <FadeIn delay="2">
-        <h1 class="text-hero font-display font-extrabold text-text-primary mb-4">
+        <h1 class="text-hero font-display font-extrabold gradient-text-animated mb-4">
           Azka Al Azkiyai
         </h1>
-        <p class="text-2xl md:text-3xl font-semibold text-text-primary mb-6">
-          I secure AI systems before they break.
-        </p>
+        <!-- Typewriter tagline -->
+        <div class="mb-6">
+          <p class="text-2xl md:text-3xl font-semibold text-text-primary typewriter-text inline-block">
+            I secure AI systems before they break.
+          </p>
+        </div>
       </FadeIn>
 
       <!-- Subheadline -->
@@ -65,12 +79,115 @@ const stats = [
         </div>
       </FadeIn>
 
-      <!-- Stats Bar -->
+      <!-- Stats Bar with animated counters -->
       <FadeIn delay="5">
-        <div class="bg-bg-surface border border-border rounded-card p-6 md:p-8">
+        <div class="bg-bg-surface border border-border rounded-card p-6 md:p-8 backdrop-blur-sm">
           <StatBar stats={stats} />
         </div>
       </FadeIn>
     </div>
   </div>
 </section>
+
+<script>
+  // Particle network canvas animation
+  const canvas = document.getElementById('hero-particles') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      let animationId: number;
+      let particles: Array<{
+        x: number;
+        y: number;
+        vx: number;
+        vy: number;
+        radius: number;
+        opacity: number;
+      }> = [];
+
+      const resize = () => {
+        const section = canvas.parentElement;
+        if (section) {
+          canvas.width = section.offsetWidth;
+          canvas.height = section.offsetHeight;
+        }
+      };
+
+      const createParticles = () => {
+        const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 80);
+        particles = [];
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            radius: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.2,
+          });
+        }
+      };
+
+      const drawParticles = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+              const opacity = (1 - dist / 120) * 0.15;
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(14, 165, 233, ${opacity})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw particles
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(14, 165, 233, ${p.opacity})`;
+          ctx.fill();
+
+          // Update position
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Wrap around edges
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+        });
+
+        animationId = requestAnimationFrame(drawParticles);
+      };
+
+      // Respect reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!prefersReducedMotion.matches) {
+        resize();
+        createParticles();
+        drawParticles();
+
+        window.addEventListener('resize', () => {
+          resize();
+          createParticles();
+        });
+      }
+
+      // Cleanup on page navigation
+      document.addEventListener('astro:before-swap', () => {
+        cancelAnimationFrame(animationId);
+      });
+    }
+  }
+</script>

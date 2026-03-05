@@ -1,7 +1,7 @@
 ---
 /**
  * ProjectCard - Title, description, impact callout, tags, link
- * Card with hover effect and cyan left-border impact callout
+ * Card with gradient stripe, hover effects, and animated arrow
  */
 
 interface Props {
@@ -23,44 +23,56 @@ const {
 } = Astro.props;
 
 const cardClass = [
-  'glass-card p-6 md:p-8 flex flex-col h-full',
+  'glass-card flex flex-col h-full group overflow-hidden',
   className
 ].filter(Boolean).join(' ');
 ---
 
 <article class={cardClass}>
-  <!-- Title -->
-  <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-3 font-display">
-    {title}
-  </h3>
+  <!-- Gradient stripe at top -->
+  <div class="h-1 w-full bg-gradient-to-r from-accent via-cyan-400 to-accent-light opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-  <!-- Description -->
-  <p class="text-text-muted leading-relaxed mb-4 flex-grow">
-    {description}
-  </p>
+  <div class="p-6 md:p-8 flex flex-col flex-grow">
+    <!-- Title -->
+    <h3 class="text-xl md:text-2xl font-bold text-text-primary mb-3 font-display group-hover:text-accent-light transition-colors duration-300">
+      {title}
+    </h3>
 
-  <!-- Impact callout with cyan left border -->
-  <div class="impact-callout mb-5">
-    {impact}
-  </div>
+    <!-- Description -->
+    <p class="text-text-muted leading-relaxed mb-4 flex-grow">
+      {description}
+    </p>
 
-  <!-- Tags with subtle variant -->
-  {tags.length > 0 && (
-    <div class="flex flex-wrap gap-2 mb-4">
-      {tags.map((tag) => (
-        <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full">
-          {tag}
-        </span>
-      ))}
+    <!-- Impact callout with cyan left border -->
+    <div class="impact-callout mb-5 group-hover:bg-accent/10 transition-colors duration-300">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+        <span>{impact}</span>
+      </div>
     </div>
-  )}
 
-  <!-- Link with arrow animation -->
-  <a
-    href={href}
-    class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-all duration-200 group self-start"
-  >
-    View on GitHub
-    <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
-  </a>
+    <!-- Tags with subtle variant -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags.map((tag) => (
+          <span class="badge-subtle text-xs px-2.5 py-0.5 rounded-full hover:bg-accent/10 hover:text-accent-light transition-all duration-200 cursor-default">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- Link with animated arrow -->
+    <a
+      href={href}
+      class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-all duration-300 group/link self-start"
+    >
+      <span>View on GitHub</span>
+      <svg class="w-4 h-4 transition-all duration-300 group-hover/link:translate-x-1.5 group-hover/link:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
 </article>
