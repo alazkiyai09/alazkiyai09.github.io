@@ -4,7 +4,13 @@
       "id": "signguard",
       "title": "SignGuard: Cryptographic FL Defense",
       "description": "Novel defense combining ECDSA signatures with anomaly detection and reputation scoring to protect federated learning from poisoning attacks.",
-      "technologies": ["PyTorch", "Flower", "ECDSA", "Reputation Systems", "Anomaly Detection"],
+      "technologies": [
+        "PyTorch",
+        "Flower",
+        "ECDSA",
+        "Reputation Systems",
+        "Anomaly Detection"
+      ],
       "achievements": [
         "94.5% attack detection rate",
         "Multi-layer defense architecture",
@@ -14,7 +20,11 @@
       "status": "completed",
       "year": "2025",
       "repository": "https://github.com/alazkiyai09/signguard",
-      "categories": ["Research", "Federated Learning", "Security"],
+      "categories": [
+        "Research",
+        "Federated Learning",
+        "Security"
+      ],
       "tier": 1,
       "featured": true
     },
@@ -22,7 +32,14 @@
       "id": "fl-security-research-suite",
       "title": "FL Security Research Suite",
       "description": "Comprehensive research implementations: Byzantine attacks, secure aggregation, gradient leakage, differential privacy, and defense benchmarks. 30 implementations, STRIDE-audited.",
-      "technologies": ["PyTorch", "Flower", "FastAPI", "Cryptography", "Differential Privacy", "Secure Aggregation"],
+      "technologies": [
+        "PyTorch",
+        "Flower",
+        "FastAPI",
+        "Cryptography",
+        "Differential Privacy",
+        "Secure Aggregation"
+      ],
       "achievements": [
         "165,000+ lines of research-grade code",
         "30 implementations across 5 categories",
@@ -32,7 +49,12 @@
       "status": "completed",
       "year": "2025",
       "repository": "https://github.com/alazkiyai09/fl-security-research",
-      "categories": ["Research", "Federated Learning", "Security", "Privacy"],
+      "categories": [
+        "Research",
+        "Federated Learning",
+        "Security",
+        "Privacy"
+      ],
       "tier": 1,
       "featured": true
     },
@@ -40,7 +62,14 @@
       "id": "fraudware-analyzer",
       "title": "Fraudware Analyzer",
       "description": "Static analysis framework for banking trojan detection through PE file analysis, API call extraction, YARA rules, and ML classification.",
-      "technologies": ["YARA", "pefile", "XGBoost", "scikit-learn", "Python", "Static Analysis"],
+      "technologies": [
+        "YARA",
+        "pefile",
+        "XGBoost",
+        "scikit-learn",
+        "Python",
+        "Static Analysis"
+      ],
       "achievements": [
         "95.7% accuracy on malware classification",
         "50+ malware families detected",
@@ -50,7 +79,10 @@
       "status": "completed",
       "year": "2025",
       "repository": "https://github.com/alazkiyai09/fraudware-analyzer",
-      "categories": ["Security", "Malware Analysis"],
+      "categories": [
+        "Security",
+        "Malware Analysis"
+      ],
       "tier": 2,
       "featured": true
     },
@@ -58,7 +90,15 @@
       "id": "production-fraud-detection",
       "title": "Production Fraud Detection Pipeline",
       "description": "End-to-end fraud detection: EDA, feature engineering, real-time scoring API, LSTM sequence modeling, anomaly detection, and SHAP explainability. Built from 3+ years of BRI production experience.",
-      "technologies": ["FastAPI", "PyTorch", "LSTM", "SHAP", "Plotly", "XGBoost", "Scikit-learn"],
+      "technologies": [
+        "FastAPI",
+        "PyTorch",
+        "LSTM",
+        "SHAP",
+        "Plotly",
+        "XGBoost",
+        "Scikit-learn"
+      ],
       "achievements": [
         "99.9% SLA compliance",
         "10M+ transactions processed",
@@ -68,7 +108,11 @@
       "status": "completed",
       "year": "2025",
       "repository": null,
-      "categories": ["Production", "Fraud Detection", "ML Engineering"],
+      "categories": [
+        "Production",
+        "Fraud Detection",
+        "ML Engineering"
+      ],
       "tier": 2,
       "featured": true
     },
@@ -76,7 +120,15 @@
       "id": "indonesia-financial-ml",
       "title": "Indonesia Financial ML",
       "description": "Time series forecasting for Indonesian economic indicators and digital assets using LSTM, SVM, and ensemble methods.",
-      "technologies": ["PyTorch", "scikit-learn", "Pandas", "LSTM", "SVM", "KNN", "Ensemble Methods"],
+      "technologies": [
+        "PyTorch",
+        "scikit-learn",
+        "Pandas",
+        "LSTM",
+        "SVM",
+        "KNN",
+        "Ensemble Methods"
+      ],
       "achievements": [
         "Multi-model benchmarking framework",
         "Time series forecasting for economic indicators",
@@ -86,7 +138,11 @@
       "status": "completed",
       "year": "2024",
       "repository": null,
-      "categories": ["ML", "Finance", "Time Series"],
+      "categories": [
+        "ML",
+        "Finance",
+        "Time Series"
+      ],
       "tier": 3,
       "featured": false
     },
@@ -94,7 +150,15 @@
       "id": "steganography-research",
       "title": "Steganography Research",
       "description": "Cryptographic steganography using CTR DRBG and AES methods. Published research implementation.",
-      "technologies": ["Python", "Cryptography", "CTR DRBG", "AES", "OpenCV", "NumPy", "PyCryptodome"],
+      "technologies": [
+        "Python",
+        "Cryptography",
+        "CTR DRBG",
+        "AES",
+        "OpenCV",
+        "NumPy",
+        "PyCryptodome"
+      ],
       "achievements": [
         "Published research paper",
         "1,310 embedding trials evaluated",
@@ -104,7 +168,11 @@
       "status": "completed",
       "year": "2023",
       "repository": "https://github.com/alazkiyai09/pvd-lsb-modulo-steganography",
-      "categories": ["Research", "Cryptography", "Steganography"],
+      "categories": [
+        "Research",
+        "Cryptography",
+        "Steganography"
+      ],
       "tier": 3,
       "featured": false
     },
@@ -112,7 +180,11 @@
       "id": "curator-of-wonder",
       "title": "Curator of Wonder",
       "description": "Roblox game development project demonstrating creative range and full-stack game development skills.",
-      "technologies": ["Roblox Studio", "Lua", "Game Development"],
+      "technologies": [
+        "Roblox Studio",
+        "Lua",
+        "Game Development"
+      ],
       "achievements": [
         "Full game development lifecycle",
         "Creative programming project",
@@ -121,15 +193,82 @@
       "status": "completed",
       "year": "2024",
       "repository": null,
-      "categories": ["Game Dev", "Creative"],
+      "categories": [
+        "Game Dev",
+        "Creative"
+      ],
       "tier": 3,
       "featured": false
+    },
+    {
+      "id": "federated-phishing",
+      "title": "Federated Phishing Detection",
+      "description": "21-project portfolio demonstrating advanced privacy-preserving ML (Homomorphic Encryption, TEEs, Zero-Knowledge Proofs) applied to phishing detection.",
+      "technologies": [
+        "PyTorch",
+        "Flower",
+        "FastAPI",
+        "TenSEAL",
+        "circom",
+        "py-snark"
+      ],
+      "achievements": [
+        "21 advanced implementations",
+        "Homomorphic encrypted ML inference",
+        "Zero-knowledge proof verification",
+        "50,000+ lines of code"
+      ],
+      "status": "completed",
+      "year": "2025",
+      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
+      "categories": [
+        "Research",
+        "Security",
+        "Privacy",
+        "Federated Learning"
+      ],
+      "tier": 2,
+      "featured": true
+    },
+    {
+      "id": "quant-trading-id",
+      "title": "Indonesian Stock Trading System",
+      "description": "Quantitative trading system for IDX stocks combining LSTM/SVR ensembles with technical analysis strategies, featuring walk-forward validation and risk management.",
+      "technologies": [
+        "Python",
+        "LSTM",
+        "SVR",
+        "PostgreSQL",
+        "Pandas",
+        "TA-Lib"
+      ],
+      "achievements": [
+        "Multi-seed prediction ensemble",
+        "GARCH Monte Carlo simulation",
+        "7-day forecasting horizon",
+        "Automated IDX data pipeline"
+      ],
+      "status": "completed",
+      "year": "2024",
+      "repository": "https://github.com/alazkiyai09/quant-trading-id",
+      "categories": [
+        "ML",
+        "Finance",
+        "Production"
+      ],
+      "tier": 2,
+      "featured": true
     },
     {
       "id": "portfolio-website",
       "title": "Portfolio Website",
       "description": "Personal portfolio website showcasing AI security research and production experience.",
-      "technologies": ["React", "TypeScript", "Astro", "GitHub Pages"],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Astro",
+        "GitHub Pages"
+      ],
       "achievements": [
         "Responsive design",
         "Project showcase",
@@ -138,16 +277,32 @@
       "status": "completed",
       "year": "2025",
       "repository": "https://github.com/alazkiyai09/alazkiyai09.github.io",
-      "categories": ["Web", "Portfolio"],
+      "categories": [
+        "Web",
+        "Portfolio"
+      ],
       "tier": 3,
       "featured": false
     }
   ],
   "metadata": {
-    "total_projects": 8,
+    "total_projects": 10,
     "tagline": "Fewer projects. Deeper work.",
     "last_updated": "2026-03-05",
-    "categories": ["Research", "Security", "Production", "ML", "Game Dev", "Web"],
-    "filters": ["All", "Research", "Production", "Security", "Tools"]
+    "categories": [
+      "Research",
+      "Security",
+      "Production",
+      "ML",
+      "Game Dev",
+      "Web"
+    ],
+    "filters": [
+      "All",
+      "Research",
+      "Production",
+      "Security",
+      "Tools"
+    ]
   }
 }
