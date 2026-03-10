@@ -13,19 +13,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ACTIVITY_FILE = path.join(__dirname, '../src/data/activity-log.json');
+const ACTIVITY_CONTRACT_FILE = path.join(__dirname, '../src/data/activity-contract.json');
 
-const ACTIVITY_TYPES = [
-  'project_start',
-  'project_complete',
-  'code_commit',
-  'paper_read',
-  'experiment_run',
-  'blog_post',
-  'skill_learned',
-  'milestone_reached',
-  'publication',
-  'application_sent'
-];
+const contract = JSON.parse(fs.readFileSync(ACTIVITY_CONTRACT_FILE, 'utf8'));
+const ACTIVITY_TYPES = contract.types;
 
 async function prompt(question) {
   const rl = readline.createInterface({
@@ -68,7 +59,7 @@ async function main() {
     console.log(`  ${i + 1}. ${t.replace(/_/g, ' ')}`);
   });
 
-  const typeIndex = parseInt(await prompt('\nSelect type (1-10): ')) - 1;
+  const typeIndex = parseInt(await prompt(`\nSelect type (1-${ACTIVITY_TYPES.length}): `)) - 1;
   const type = ACTIVITY_TYPES[typeIndex] || 'code_commit';
 
   const title = await prompt('Title: ');

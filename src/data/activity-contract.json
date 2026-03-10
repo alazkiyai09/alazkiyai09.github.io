@@ -1,0 +1,107 @@
+{
+  "types": [
+    "project_start",
+    "project_complete",
+    "portfolio_complete",
+    "code_commit",
+    "paper_read",
+    "experiment_run",
+    "blog_post",
+    "skill_learned",
+    "milestone_reached",
+    "publication",
+    "application_sent"
+  ],
+  "typeMeta": {
+    "project_start": {
+      "icon": "rocket",
+      "color": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+    },
+    "project_complete": {
+      "icon": "check-circle",
+      "color": "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+    },
+    "portfolio_complete": {
+      "icon": "target",
+      "color": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
+    },
+    "code_commit": {
+      "icon": "code",
+      "color": "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300"
+    },
+    "paper_read": {
+      "icon": "document",
+      "color": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
+    },
+    "experiment_run": {
+      "icon": "flask",
+      "color": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300"
+    },
+    "blog_post": {
+      "icon": "pencil",
+      "color": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300"
+    },
+    "skill_learned": {
+      "icon": "book",
+      "color": "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300"
+    },
+    "milestone_reached": {
+      "icon": "trophy",
+      "color": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300"
+    },
+    "publication": {
+      "icon": "book-open",
+      "color": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300"
+    },
+    "application_sent": {
+      "icon": "mail",
+      "color": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300"
+    }
+  },
+  "metricMeta": {
+    "linesOfCode": {
+      "icon": "code",
+      "label": "LOC"
+    },
+    "totalLinesOfCode": {
+      "icon": "code",
+      "label": "total LOC"
+    },
+    "experimentsRun": {
+      "icon": "flask",
+      "label": "experiments"
+    },
+    "papersRead": {
+      "icon": "document",
+      "label": "papers"
+    },
+    "hoursSpent": {
+      "icon": "clock",
+      "label": "h spent"
+    },
+    "samplesAnalyzed": {
+      "icon": "beaker",
+      "label": "samples"
+    },
+    "totalProjects": {
+      "icon": "calendar",
+      "label": "projects"
+    },
+    "projectsCompleted": {
+      "icon": "calendar",
+      "label": "projects"
+    },
+    "testCases": {
+      "icon": "check-circle",
+      "label": "tests"
+    },
+    "testFiles": {
+      "icon": "check-circle",
+      "label": "test files"
+    },
+    "totalTests": {
+      "icon": "check-circle",
+      "label": "tests"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 ---
 import activityLog from '../../data/activity-log.json';
+import activityContract from '../../data/activity-contract.json';
 import { formatDistanceToNow } from 'date-fns';
 import Icon from '../ui/Icon.astro';
 
@@ -10,40 +11,16 @@ interface Props {
 
 const { limit = 10, showHeader = true } = Astro.props;
 const activities = activityLog.activities.slice(0, limit);
-
-const typeIcons: Record<string, string> = {
-  'project_start': 'rocket',
-  'project_complete': 'check-circle',
-  'portfolio_complete': 'target',
-  'code_commit': 'code',
-  'paper_read': 'document',
-  'experiment_run': 'flask',
-  'blog_post': 'pencil',
-  'skill_learned': 'book',
-  'milestone_reached': 'trophy',
-  'publication': 'book-open',
-  'application_sent': 'mail',
-};
+const typeMeta = activityContract.typeMeta as Record<string, { icon: string; color: string }>;
+const metricMeta = activityContract.metricMeta as Record<string, { icon: string; label: string }>;
 
 // Validate activity types and log warnings for unknown types
-const validTypes = new Set(Object.keys(typeIcons));
+const validTypes = new Set(Object.keys(typeMeta));
 activities.forEach((activity) => {
   if (!validTypes.has(activity.type)) {
     console.warn(`[ActivityFeed] Unknown activity type: "${activity.type}" in activity "${activity.id}"`);
   }
 });
-
-const typeColors: Record<string, string> = {
-  'project_start': 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
-  'project_complete': 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
-  'portfolio_complete': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
-  'code_commit': 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
-  'paper_read': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
-  'experiment_run': 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
-  'milestone_reached': 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300',
-  'blog_post': 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300',
-  'application_sent': 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300',
-};
 ---
 
 <section class="section">
@@ -63,7 +40,7 @@ const typeColors: Record<string, string> = {
           <!-- Icon -->
           <div class="flex-shrink-0">
             <Icon
-              name={typeIcons[activity.type] || 'star'}
+              name={typeMeta[activity.type]?.icon || 'star'}
               size={28}
               class="text-slate-700 dark:text-slate-300"
             />
@@ -73,7 +50,7 @@ const typeColors: Record<string, string> = {
           <div class="flex-1 min-w-0">
             <!-- Type Badge & Time -->
             <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class={`px-2 py-0.5 rounded-full text-xs font-medium ${typeColors[activity.type] || 'bg-gray-100 text-gray-800'}`}>
+              <span class={`px-2 py-0.5 rounded-full text-xs font-medium ${typeMeta[activity.type]?.color || 'bg-gray-100 text-gray-800'}`}>
                 {activity.type.replace(/_/g, ' ')}
               </span>
               <time class="text-sm text-slate-500">
@@ -103,42 +80,16 @@ const typeColors: Record<string, string> = {
             <!-- Metrics -->
             {activity.metrics && (
               <div class="flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-400">
-                {activity.metrics.linesOfCode && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="code" size={12} />
-                    {activity.metrics.linesOfCode} LOC
-                  </span>
-                )}
-                {activity.metrics.experimentsRun && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="flask" size={12} />
-                    {activity.metrics.experimentsRun} experiments
-                  </span>
-                )}
-                {activity.metrics.papersRead && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="document" size={12} />
-                    {activity.metrics.papersRead} papers
-                  </span>
-                )}
-                {activity.metrics.hoursSpent && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="clock" size={12} />
-                    {activity.metrics.hoursSpent}h spent
-                  </span>
-                )}
-                {activity.metrics.samplesAnalyzed && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="beaker" size={12} />
-                    {activity.metrics.samplesAnalyzed} samples
-                  </span>
-                )}
-                {activity.metrics.totalProjects && (
-                  <span class="inline-flex items-center gap-1">
-                    <Icon name="calendar" size={12} />
-                    {activity.metrics.totalProjects} projects
-                  </span>
-                )}
+                {Object.entries(activity.metrics).map(([key, value]) => {
+                  const meta = metricMeta[key];
+                  if (!meta || value === undefined || value === null || value === '') return null;
+                  return (
+                    <span class="inline-flex items-center gap-1">
+                      <Icon name={meta.icon} size={12} />
+                      {value} {meta.label}
+                    </span>
+                  );
+                })}
               </div>
             )}
 

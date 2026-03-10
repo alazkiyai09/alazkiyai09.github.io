@@ -24,7 +24,7 @@ metrics:
   sharpeRatio: 1.85
 startDate: "2024-01-01"
 completedDate: "2024-06-01"
-repository: "https://github.com/alazkiyai09/quant-trading-id"
+repository: "https://github.com/alazkiyai09/idx-trading-system"
 ---
 
 ## Overview

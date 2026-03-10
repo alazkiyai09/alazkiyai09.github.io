@@ -60,6 +60,13 @@ function main() {
     if (activity.type === 'project_complete') {
       stats.totalProjectsCompleted++;
     }
+    if (activity.type === 'portfolio_complete') {
+      stats.totalProjectsCompleted += Number(
+        activity.metrics?.projectsCompleted ||
+        activity.metrics?.totalProjects ||
+        0
+      );
+    }
 
     // Count metrics
     if (activity.metrics) {

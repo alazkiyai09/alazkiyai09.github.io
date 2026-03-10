@@ -4,6 +4,7 @@
  */
 
 import { z } from 'zod';
+import activityContract from '../data/activity-contract.json';
 
 // ============ Profile Schema ============
 export const LocationSchema = z.object({
@@ -183,18 +184,7 @@ export const ActivityLinkSchema = z.object({
 export const ActivitySchema = z.object({
   id: z.string(),
   date: z.string(),
-  type: z.enum([
-    'project_start',
-    'project_complete',
-    'code_commit',
-    'paper_read',
-    'experiment_run',
-    'blog_post',
-    'skill_learned',
-    'milestone_reached',
-    'publication',
-    'application_sent',
-  ]),
+  type: z.enum(activityContract.types as [string, ...string[]]),
   title: z.string(),
   description: z.string(),
   tags: z.array(z.string()).optional(),

@@ -3,9 +3,20 @@ import BaseLayout from '../../components/layout/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import InteractiveFilter from '../../components/ui/InteractiveFilter.jsx';
+import publications from '../../data/publications.json';
+import activityLog from '../../data/activity-log.json';
 
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
+const featuredProjects = sortedProjects.filter((project) =>
+  ['signguard', 'fl-security-portfolio', 'fed-medicaid'].includes(project.slug)
+);
+const totalPortfolioLoc = activityLog.activities.reduce((sum, activity) => {
+  if (activity.type !== 'portfolio_complete') return sum;
+  return sum + Number(activity.metrics?.linesOfCode || 0);
+}, 0);
+const compactLoc = totalPortfolioLoc >= 1000 ? `${Math.round(totalPortfolioLoc / 1000)}K+` : String(totalPortfolioLoc);
+const publishedResearchCount = publications.publications.length;
 
 // Define filter categories with display labels
 const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
@@ -45,15 +56,15 @@ const description = `${sortedProjects.length} focused research projects showcasi
         <div class="text-sm text-text-muted">Curated Projects</div>
       </div>
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent-light">2</div>
-        <div class="text-sm text-text-muted">Flagship</div>
+        <div class="text-stat text-accent-light">{featuredProjects.length}</div>
+        <div class="text-sm text-text-muted">Featured</div>
       </div>
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent-pale">165K+</div>
+        <div class="text-stat text-accent-pale">{compactLoc}</div>
         <div class="text-sm text-text-muted">Lines of Code</div>
       </div>
       <div class="glass-card p-4 text-center">
-        <div class="text-stat text-accent">1</div>
+        <div class="text-stat text-accent">{publishedResearchCount}</div>
         <div class="text-sm text-text-muted">Published Research</div>
       </div>
     </div>
@@ -62,5 +73,4 @@ const description = `${sortedProjects.length} focused research projects showcasi
     <InteractiveFilter client:load categories={filterCategories} projects={mappedProjects} />
   </div>
 </BaseLayout>
-
 
