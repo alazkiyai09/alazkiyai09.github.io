@@ -29,26 +29,56 @@
       "featured": true
     },
     {
-      "id": "fl-security-research-suite",
-      "title": "FL Security Research Suite",
-      "description": "Comprehensive research implementations: Byzantine attacks, secure aggregation, gradient leakage, differential privacy, and defense benchmarks. 30 implementations, STRIDE-audited.",
+      "id": "enterprise-ai-platform",
+      "title": "Enterprise AI Platform",
+      "description": "Modular enterprise AI platform: multi-agent orchestration, production infrastructure, and hybrid RAG retrieval across three focused repositories.",
+      "technologies": [
+        "FastAPI",
+        "LangGraph",
+        "LangChain",
+        "LlamaIndex",
+        "Docker",
+        "Kubernetes",
+        "Redis"
+      ],
+      "achievements": [
+        "3-module architecture (agents, infra, RAG)",
+        "4 agent types (support, fraud triage, ad insights, LLMOps)",
+        "4 RAG modes (hybrid, multimodal, SQL, domain)",
+        "Kubernetes-ready deployment"
+      ],
+      "status": "completed",
+      "year": "2026",
+      "repository": "https://github.com/alazkiyai09/enterprise-agents",
+      "categories": [
+        "Production",
+        "AI Engineering",
+        "Infrastructure"
+      ],
+      "tier": 1,
+      "featured": true
+    },
+    {
+      "id": "fl-security-ecosystem",
+      "title": "FL Security Ecosystem",
+      "description": "Three-repo federated learning security ecosystem: core algorithms, adversarial attack/defense toolkit, and privacy-preserving ML components.",
       "technologies": [
         "PyTorch",
         "Flower",
-        "FastAPI",
-        "Cryptography",
-        "Differential Privacy",
-        "Secure Aggregation"
+        "PySyft",
+        "Opacus",
+        "TenSEAL",
+        "cryptography.io"
       ],
       "achievements": [
-        "165,000+ lines of research-grade code",
-        "30 implementations across 5 categories",
-        "101 test files with comprehensive coverage",
-        "STRIDE security audit completed"
+        "3 focused repositories from 30+ implementations",
+        "6 attack types simulated and defended",
+        "5 defense strategies benchmarked",
+        "165,000+ lines of research-grade code"
       ],
       "status": "completed",
-      "year": "2025",
-      "repository": "https://github.com/alazkiyai09/fl-security-research",
+      "year": "2026",
+      "repository": "https://github.com/alazkiyai09/federated-learning-core",
       "categories": [
         "Research",
         "Federated Learning",
@@ -87,27 +117,26 @@
       "featured": true
     },
     {
-      "id": "production-fraud-detection",
-      "title": "Production Fraud Detection Pipeline",
-      "description": "End-to-end fraud detection: EDA, feature engineering, real-time scoring API, LSTM sequence modeling, anomaly detection, and SHAP explainability. Built from 3+ years of BRI production experience.",
+      "id": "fraud-detection-engine",
+      "title": "Fraud ML Engine",
+      "description": "End-to-end fraud detection ML system: feature pipelines, multi-family model benchmarking, SHAP/LIME explainability, and real-time scoring API.",
       "technologies": [
         "FastAPI",
-        "PyTorch",
-        "LSTM",
-        "SHAP",
-        "Plotly",
         "XGBoost",
-        "Scikit-learn"
+        "LightGBM",
+        "PyTorch",
+        "SHAP",
+        "LIME"
       ],
       "achievements": [
-        "99.9% SLA compliance",
-        "10M+ transactions processed",
-        "Real-time scoring API",
-        "Model explainability with SHAP"
+        "4 model families benchmarked",
+        "<50ms scoring latency",
+        "SHAP/LIME explainability",
+        "Production-ready API"
       ],
       "status": "completed",
-      "year": "2025",
-      "repository": null,
+      "year": "2026",
+      "repository": "https://github.com/alazkiyai09/fraud-ml-engine",
       "categories": [
         "Production",
         "Fraud Detection",
@@ -117,34 +146,63 @@
       "featured": true
     },
     {
-      "id": "indonesia-financial-ml",
-      "title": "Indonesia Financial ML",
-      "description": "Time series forecasting for Indonesian economic indicators and digital assets using LSTM, SVM, and ensemble methods.",
+      "id": "federated-phishing-platform",
+      "title": "Federated Phishing Detection Platform",
+      "description": "Two-repo platform: federated collaborative detection (FedPhish) and ML-based phishing classification engine with HE, TEE, and ZKP privacy techniques.",
       "technologies": [
         "PyTorch",
-        "scikit-learn",
-        "Pandas",
-        "LSTM",
-        "SVM",
-        "KNN",
-        "Ensemble Methods"
+        "Flower",
+        "TenSEAL",
+        "FastAPI",
+        "React",
+        "gRPC"
       ],
       "achievements": [
-        "Multi-model benchmarking framework",
-        "Time series forecasting for economic indicators",
-        "Digital asset price prediction",
-        "Feature engineering for financial data"
+        "21 privacy-preserving implementations",
+        "Homomorphic encrypted ML inference",
+        "Zero-knowledge proof verification",
+        "50,000+ lines of code"
       ],
       "status": "completed",
-      "year": "2024",
-      "repository": null,
+      "year": "2026",
+      "repository": "https://github.com/alazkiyai09/fedphish-platform",
+      "categories": [
+        "Research",
+        "Security",
+        "Privacy",
+        "Federated Learning"
+      ],
+      "tier": 2,
+      "featured": true
+    },
+    {
+      "id": "idx-trading-system",
+      "title": "IDX AI Trading System",
+      "description": "AI-assisted trading for Indonesia Stock Exchange: signal generation, backtesting, sentiment analysis, and portfolio simulation with LSTM/SVR ensembles.",
+      "technologies": [
+        "Python",
+        "PyTorch",
+        "PostgreSQL",
+        "TA-Lib",
+        "GARCH",
+        "Monte Carlo"
+      ],
+      "achievements": [
+        "Multi-seed prediction ensemble",
+        "GARCH Monte Carlo simulation",
+        "7-day forecasting horizon",
+        "Walk-forward validation"
+      ],
+      "status": "completed",
+      "year": "2026",
+      "repository": "https://github.com/alazkiyai09/idx-trading-system",
       "categories": [
         "ML",
         "Finance",
-        "Time Series"
+        "Production"
       ],
-      "tier": 3,
-      "featured": false
+      "tier": 2,
+      "featured": true
     },
     {
       "id": "steganography-research",
@@ -177,89 +235,6 @@
       "featured": false
     },
     {
-      "id": "curator-of-wonder",
-      "title": "Curator of Wonder",
-      "description": "Roblox game development project demonstrating creative range and full-stack game development skills.",
-      "technologies": [
-        "Roblox Studio",
-        "Lua",
-        "Game Development"
-      ],
-      "achievements": [
-        "Full game development lifecycle",
-        "Creative programming project",
-        "Game mechanics implementation"
-      ],
-      "status": "completed",
-      "year": "2024",
-      "repository": null,
-      "categories": [
-        "Game Dev",
-        "Creative"
-      ],
-      "tier": 3,
-      "featured": false
-    },
-    {
-      "id": "federated-phishing",
-      "title": "Federated Phishing Detection",
-      "description": "21-project portfolio demonstrating advanced privacy-preserving ML (Homomorphic Encryption, TEEs, Zero-Knowledge Proofs) applied to phishing detection.",
-      "technologies": [
-        "PyTorch",
-        "Flower",
-        "FastAPI",
-        "TenSEAL",
-        "circom",
-        "py-snark"
-      ],
-      "achievements": [
-        "21 advanced implementations",
-        "Homomorphic encrypted ML inference",
-        "Zero-knowledge proof verification",
-        "50,000+ lines of code"
-      ],
-      "status": "completed",
-      "year": "2025",
-      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
-      "categories": [
-        "Research",
-        "Security",
-        "Privacy",
-        "Federated Learning"
-      ],
-      "tier": 2,
-      "featured": true
-    },
-    {
-      "id": "quant-trading-id",
-      "title": "Indonesian Stock Trading System",
-      "description": "Quantitative trading system for IDX stocks combining LSTM/SVR ensembles with technical analysis strategies, featuring walk-forward validation and risk management.",
-      "technologies": [
-        "Python",
-        "LSTM",
-        "SVR",
-        "PostgreSQL",
-        "Pandas",
-        "TA-Lib"
-      ],
-      "achievements": [
-        "Multi-seed prediction ensemble",
-        "GARCH Monte Carlo simulation",
-        "7-day forecasting horizon",
-        "Automated IDX data pipeline"
-      ],
-      "status": "completed",
-      "year": "2024",
-      "repository": "https://github.com/alazkiyai09/idx-trading-system",
-      "categories": [
-        "ML",
-        "Finance",
-        "Production"
-      ],
-      "tier": 2,
-      "featured": true
-    },
-    {
       "id": "portfolio-website",
       "title": "Portfolio Website",
       "description": "Personal portfolio website showcasing AI security research and production experience.",
@@ -288,21 +263,22 @@
   "metadata": {
     "total_projects": 10,
     "tagline": "Fewer projects. Deeper work.",
-    "last_updated": "2026-03-05",
+    "last_updated": "2026-03-28",
     "categories": [
       "Research",
       "Security",
       "Production",
       "ML",
-      "Game Dev",
-      "Web"
+      "Web",
+      "Infrastructure"
     ],
     "filters": [
       "All",
       "Research",
       "Production",
       "Security",
-      "Tools"
+      "Infrastructure",
+      "Finance"
     ]
   }
 }

@@ -330,4 +330,4 @@ Effective defense requires understanding the threat landscape, implementing laye
 
 ---
 
-*This post is based on research from my [FL Security Research Suite](https://github.com/alazkiyai09/fl-security-research). For implementation details on cryptographic defenses, see my [SignGuard design article](/blog/signguard-design), and for more on applying these concepts to fraud detection, read [Why Banking Fraud Detection Needs Federated Learning](/blog/banking-fraud-needs-fl).*
+*This post is based on research from my [FL Security Ecosystem](https://github.com/alazkiyai09/federated-learning-core). For implementation details on cryptographic defenses, see my [SignGuard design article](/blog/signguard-design), and for more on applying these concepts to fraud detection, read [Why Banking Fraud Detection Needs Federated Learning](/blog/banking-fraud-needs-fl).*

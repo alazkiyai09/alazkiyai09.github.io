@@ -17,7 +17,7 @@
     {
       "id": "fl-security-portfolio",
       "title": "FL Security Research Portfolio",
-      "description": "Completed comprehensive 31-project research portfolio on federated learning security with 137,770+ lines of production code.",
+      "description": "Evolved FL security work into a 3-repo ecosystem covering core federated algorithms, adversarial security testing, and privacy-preserving ML from 30+ implementations.",
       "metrics": {
         "projects": 31,
         "linesOfCode": 137770,
@@ -32,13 +32,13 @@
         "Security Research (7 projects)"
       ],
       "technologies": ["PyTorch", "Flower", "TensorFlow", "cryptography.io", "FastAPI"],
-      "repository": "https://github.com/alazkiyai09/fl-security-research",
+      "repository": "https://github.com/alazkiyai09/federated-learning-core",
       "category": "portfolio"
     },
     {
       "id": "fedphish-portfolio",
       "title": "FedPhish: Privacy-Preserving Phishing Detection",
-      "description": "21-project portfolio on federated phishing detection with homomorphic encryption, differential privacy, and secure aggregation.",
+      "description": "Two-repo federated phishing platform covering collaborative FL orchestration and dedicated phishing classification engines with privacy-preserving techniques.",
       "metrics": {
         "projects": 21,
         "linesOfCode": 118064,
@@ -52,7 +52,7 @@
         "React dashboard for monitoring"
       ],
       "technologies": ["PyTorch", "TenSEAL", "Opacus", "Intel SGX", "FastAPI", "React"],
-      "repository": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection",
+      "repository": "https://github.com/alazkiyai09/fedphish-platform",
       "demo": "",
       "demoNote": "Demo deployment in progress - see repository for setup instructions",
       "category": "portfolio"
@@ -60,7 +60,7 @@
     {
       "id": "enterprise-ai-portfolio",
       "title": "Enterprise AI Systems Portfolio",
-      "description": "10-project production-grade portfolio featuring RAG systems, LangGraph agents, and LLMOps pipelines.",
+      "description": "Modular enterprise AI platform organized into 3 focused modules: multi-agent orchestration, production infrastructure, and hybrid RAG systems.",
       "metrics": {
         "projects": 10,
         "linesOfCode": 115395,
@@ -74,7 +74,7 @@
         "LLMOps-Eval: LLM evaluation framework"
       ],
       "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "Docker", "ChromaDB", "Qdrant"],
-      "repository": "https://github.com/alazkiyai09/enterprise-ai-systems",
+      "repository": "https://github.com/alazkiyai09/enterprise-agents",
       "category": "portfolio"
     },
     {

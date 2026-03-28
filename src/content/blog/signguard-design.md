@@ -338,4 +338,4 @@ This layered approach is what I believe will make federated learning production-
 
 ---
 
-*See the [SignGuard implementation](/projects/fl-security-portfolio) and related [Byzantine Robustness projects](/projects) in my portfolio.*
+*See the [SignGuard implementation](/projects/signguard) and related [Byzantine Robustness projects](/projects/fl-security-ecosystem) in my portfolio.*

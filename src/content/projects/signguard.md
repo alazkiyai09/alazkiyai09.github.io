@@ -99,6 +99,6 @@ Tested against four major attack categories in a simulated federated learning en
 
 ## Related Work
 
-- [FL Security Research Suite](/projects/fl-security-portfolio) — the broader research portfolio that motivated SignGuard
+- [FL Security Ecosystem](/projects/fl-security-ecosystem) — the broader research ecosystem that motivated SignGuard
 - [Blog: SignGuard Design Decisions](/blog/signguard-design) — deeper technical analysis of the architecture
 - [Blog: Understanding Byzantine Attacks](/blog/understanding-byzantine-attacks) — the attack landscape SignGuard defends against

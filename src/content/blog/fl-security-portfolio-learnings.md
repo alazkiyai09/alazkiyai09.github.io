@@ -189,4 +189,4 @@ If you're considering similar deep-dive research: start with clear questions, bu
 
 ---
 
-*This post summarizes insights from my [FL Security Research Suite](https://github.com/alazkiyai09/fl-security-research). The code is open-source with 165,000+ lines across 30 implementations, all documented with decision logs and validated through a STRIDE security audit.*
+*This post summarizes insights from my [FL Security Ecosystem](https://github.com/alazkiyai09/federated-learning-core). The code is open-source with 165,000+ lines across 30 implementations, all documented with decision logs and validated through a STRIDE security audit.*

@@ -7,12 +7,12 @@ const InteractiveFilter = ({ categories, projects }) => {
 
     const categoryMapping = {
         'All': [],
-        'FL Security': ['federated-learning', 'federated learning', 'fl'],
-        'Fraud Detection': ['fraud-detection', 'fraud detection'],
-        'Production AI': ['production-ai', 'production ai', 'mlops', 'deployment'],
-        'Cryptography': ['cryptography', 'crypto'],
-        'Adversarial Attacks': ['adversarial-attacks', 'adversarial attacks', 'adversarial'],
-        'Privacy ML': ['privacy-preserving-ml', 'privacy-preserving ml', 'privacy ml']
+        'FL Security': ['federated-learning-security', 'federated-learning', 'federated learning', 'fl', 'adversarial', 'privacy-preserving'],
+        'Fraud Detection': ['fraud-detection', 'fraud detection', 'anomaly-detection', 'malware'],
+        'Production AI': ['production-ai', 'production ai', 'llmops', 'rag', 'agents', 'infrastructure'],
+        'Cryptography': ['cryptography', 'crypto', 'ecdsa', 'steganography', 'zero-knowledge'],
+        'Finance': ['financial-ml', 'finance', 'quantitative-finance', 'algorithmic-trading', 'trading', 'idx'],
+        'Healthcare': ['healthcare', 'medicaid', 'clinical', 'public-health']
     };
 
     useEffect(() => {
