@@ -15,7 +15,7 @@
       ],
       "technologies": ["PyTorch", "Flower", "PySyft", "cryptography.io", "DP-SGD", "Opacus", "TenSEAL", "ECDSA", "Shamir's Secret Sharing"],
       "achievements": [
-        "30-project FL Security portfolio (165K+ LOC, STRIDE security audit)",
+        "FL Security Ecosystem: 3 focused repos (core, adversarial, privacy) from 30+ implementations",
         "SignGuard: Novel defense achieving 94.5% detection rate",
         "STRIDE security audit completed",
         "Published research paper on FL security"
@@ -39,7 +39,8 @@
         "Maintained 99.9%+ SLA compliance for production fraud detection systems",
         "10M+ transactions processed",
         "Improved monitoring efficiency by 50% through automation",
-        "Reduced incident response time by 75%"
+        "Reduced incident response time by 75%",
+        "Fraud ML Engine: multi-family model benchmarking with <50ms scoring"
       ]
     },
     {
@@ -91,7 +92,7 @@
       "years": 2,
       "icon": "🚀",
       "type": "industry",
-      "description": "Enterprise-grade AI systems with RAG, LangGraph agents, and LLMOps pipelines for production deployment.",
+      "description": "Modular enterprise AI platform architecture spanning specialized agent orchestration, production infrastructure, and hybrid RAG systems.",
       "highlights": [
         "Multi-modal RAG systems for document intelligence",
         "LangGraph agents for customer support and fraud triage",
@@ -100,9 +101,9 @@
       ],
       "technologies": ["LangChain", "LangGraph", "FastAPI", "React", "TypeScript", "Redis", "Celery", "CLIP", "RAGAS", "Prometheus", "Grafana", "Kubernetes", "Docker"],
       "achievements": [
-        "10-project Enterprise AI portfolio (115K+ LOC, 32 test files)",
-        "3 RAG system implementations",
-        "4 LangGraph agent systems",
+        "Enterprise AI Platform: 3 focused modules (agents, infra, RAG)",
+        "4 agent types: support, fraud triage, ad insights, LLMOps",
+        "4 RAG modes: hybrid, multimodal, SQL, domain-specific",
         "End-to-end LLMOps pipeline with evaluation"
       ]
     },
@@ -121,10 +122,10 @@
       ],
       "technologies": ["PyTorch", "scikit-learn", "Pandas", "NumPy", "LSTM", "SVM", "KNN", "Ensemble Methods", "Time Series Analysis"],
       "achievements": [
-        "Multi-model benchmarking framework",
-        "Time series forecasting for Indonesian economic indicators",
-        "Digital asset price prediction models",
-        "Feature engineering pipeline for financial data"
+        "IDX AI Trading System with signal generation and backtesting",
+        "LSTM/SVR ensemble forecasting for IDX stocks",
+        "GARCH Monte Carlo risk simulation",
+        "Sentiment-enriched feature engineering pipeline"
       ]
     }
   ]

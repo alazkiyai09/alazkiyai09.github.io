@@ -9,7 +9,7 @@ import activityLog from '../../data/activity-log.json';
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
 const featuredProjects = sortedProjects.filter((project) =>
-  ['signguard', 'fl-security-portfolio', 'fed-medicaid'].includes(project.slug)
+  ['signguard', 'fl-security-ecosystem', 'enterprise-ai-platform'].includes(project.slug)
 );
 const totalPortfolioLoc = activityLog.activities.reduce((sum, activity) => {
   if (activity.type !== 'portfolio_complete') return sum;
@@ -19,7 +19,7 @@ const compactLoc = totalPortfolioLoc >= 1000 ? `${Math.round(totalPortfolioLoc /
 const publishedResearchCount = publications.publications.length;
 
 // Define filter categories with display labels
-const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Adversarial Attacks', 'Privacy ML'];
+const filterCategories = ['All', 'FL Security', 'Fraud Detection', 'Production AI', 'Cryptography', 'Finance', 'Healthcare'];
 
 // Map all projects into raw serializable data for React component
 const mappedProjects = sortedProjects.map(p => ({
@@ -35,7 +35,7 @@ const mappedProjects = sortedProjects.map(p => ({
 }));
 
 const title = 'Projects - Azka';
-const description = `${sortedProjects.length} focused research projects showcasing AI security — SignGuard FL defense, malware analysis, fraud detection pipelines, and published cryptographic research.`;
+const description = `${sortedProjects.length} ecosystem-focused projects spanning federated learning security, enterprise AI systems, fraud detection engineering, and IDX trading intelligence.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -44,7 +44,7 @@ const description = `${sortedProjects.length} focused research projects showcasi
     <SectionHeader
       label="Portfolio"
       title="Research Projects"
-      description={`${sortedProjects.length} focused projects showcasing my security research — from Byzantine-robust federated learning to malware analysis and published cryptographic methods`}
+      description={`${sortedProjects.length} focused projects across modular AI ecosystems — federated security, enterprise AI, fraud ML, healthcare AI, and applied cryptographic research`}
       centered={true}
       class="mb-12"
     />
@@ -73,4 +73,3 @@ const description = `${sortedProjects.length} focused research projects showcasi
     <InteractiveFilter client:load categories={filterCategories} projects={mappedProjects} />
   </div>
 </BaseLayout>
-

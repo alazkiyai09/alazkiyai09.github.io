@@ -28,11 +28,11 @@ const { Content, headings } = await project.render();
 
 // Helper to check which diagram to show
 const slug = project.slug;
-const showSignGuard = slug === 'fed-medicaid';
-const showFLResearch = slug === 'fl-security-portfolio';
+const showSignGuard = slug === 'signguard';
+const showFLResearch = slug === 'fl-security-ecosystem';
 const showFraudware = slug === 'malware-analyzer';
-const showFraudDetection = slug === 'production-ai-portfolio';
-const showFinancialML = slug === 'indonesia-financial-ml';
+const showFraudDetection = slug === 'enterprise-ai-platform';
+const showFinancialML = slug === 'idx-trading-system';
 const showStegano = slug === 'paperstego-research';
 const showPortfolioArch = slug === 'portfolio-website';
 const hasDiagram = showSignGuard || showFLResearch || showFraudware || showFraudDetection || showFinancialML || showStegano || showPortfolioArch;

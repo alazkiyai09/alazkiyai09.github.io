@@ -128,4 +128,4 @@ If you're building production ML systems: invest in boring infrastructure, obses
 
 ---
 
-*For my technical work on securing federated learning against adversarial attacks, see [SignGuard](/projects/signguard) and my [FL Security Research Suite](/projects/fl-security-portfolio). For a deeper look at why banking fraud detection specifically needs federated learning, read [Why Banking Fraud Detection Needs Federated Learning](/blog/banking-fraud-needs-fl).*
+*For my technical work on securing federated learning against adversarial attacks, see [SignGuard](/projects/signguard) and my [FL Security Ecosystem](/projects/fl-security-ecosystem). For a deeper look at why banking fraud detection specifically needs federated learning, read [Why Banking Fraud Detection Needs Federated Learning](/blog/banking-fraud-needs-fl).*

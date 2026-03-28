@@ -180,4 +180,4 @@ My 3+ years in banking taught me that the best fraud detection combines local in
 
 ---
 
-*For practical implementation details, see my [Production Fraud Detection](/projects/production-ai-portfolio) and [SignGuard](/projects/fl-security-portfolio) projects.*
+*For practical implementation details, see my [Enterprise AI Platform](/projects/enterprise-ai-platform) and [SignGuard](/projects/signguard) projects.*

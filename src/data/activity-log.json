@@ -1,12 +1,28 @@
 {
   "activities": [
     {
+      "id": "act-2026-03-27-001",
+      "date": "2026-03-27T08:00:00Z",
+      "type": "milestone_reached",
+      "title": "Major Repository Reorganization",
+      "description": "Restructured three monolithic repos into focused, modular ecosystems: enterprise-ai-systems → 3 repos (agents, infra, RAG), fl-security-research → 3 repos (core, adversarial, privacy), privacy-preserving-phishing-detection → 2 repos (fedphish-platform, phishing-detection-engine). Also consolidated 4 finance repos into idx-trading-system.",
+      "tags": ["architecture", "reorganization", "modular-design"],
+      "metrics": {
+        "reposCreated": 10,
+        "reposArchived": 6,
+        "ecosystems": 3
+      },
+      "links": [
+        { "label": "GitHub Profile", "url": "https://github.com/alazkiyai09" }
+      ]
+    },
+    {
       "id": "act-2026-02-06-001",
       "date": "2026-02-06T10:00:00Z",
       "type": "portfolio_complete",
       "title": "Completed Production AI Portfolio",
       "description": "Finalized 10-project enterprise-grade AI portfolio featuring RAG systems, LangGraph agents, LLMOps pipelines, and production infrastructure. 304 Python files with 32 test files.",
-      "projectRef": "enterprise-ai-systems",
+      "projectRef": "enterprise-ai-platform",
       "tags": ["llm", "rag", "langgraph", "llmops", "production"],
       "metrics": {
         "linesOfCode": 85000,
@@ -14,7 +30,7 @@
         "testCases": 32
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/enterprise-ai-systems" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/enterprise-agents" }
       ]
     },
     {
@@ -23,7 +39,7 @@
       "type": "portfolio_complete",
       "title": "Completed privacy-preserving-phishing-detection Portfolio",
       "description": "Finished 21-project privacy-preserving federated phishing detection portfolio. Includes production system with React dashboard and research paper.",
-      "projectRef": "fedphish-portfolio",
+      "projectRef": "federated-phishing-platform",
       "tags": ["federated-learning", "phishing-detection", "privacy", "differential-privacy", "production"],
       "metrics": {
         "linesOfCode": 50000,
@@ -31,7 +47,7 @@
         "testCases": 461
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/privacy-preserving-phishing-detection" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/fedphish-platform" }
       ]
     },
     {
@@ -40,7 +56,7 @@
       "type": "portfolio_complete",
       "title": "Completed Federated Learning Security Portfolio",
       "description": "Finalized comprehensive 30-project portfolio on FL security. Features SignGuard novel defense system achieving 94.5% detection rate. 165,000+ lines of production code.",
-      "projectRef": "fl-security-research",
+      "projectRef": "fl-security-ecosystem",
       "tags": ["federated-learning", "security", "fraud-detection", "signguard", "research"],
       "metrics": {
         "linesOfCode": 165000,
@@ -49,7 +65,7 @@
         "securityAudit": "STRIDE analysis completed"
       },
       "links": [
-        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/fl-security-research" }
+        { "label": "GitHub Repo", "url": "https://github.com/alazkiyai09/federated-learning-core" }
       ]
     },
     {
@@ -114,7 +130,7 @@
       "type": "project_start",
       "title": "Started Byzantine Robustness Research",
       "description": "Beginning research on Byzantine-robust aggregation strategies for federated learning, focusing on Krum, FoolsGold, and multi-layer defenses.",
-      "projectRef": "fl-security-portfolio",
+      "projectRef": "fl-security-ecosystem",
       "tags": ["byzantine-robustness", "federated-learning", "security"],
       "metrics": {
         "hoursSpent": 2
