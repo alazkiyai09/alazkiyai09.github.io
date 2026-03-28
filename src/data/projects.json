@@ -43,9 +43,9 @@
       ],
       "achievements": [
         "3-module architecture (agents, infra, RAG)",
-        "4 agent types (support, fraud triage, ad insights, LLMOps)",
-        "4 RAG modes (hybrid, multimodal, SQL, domain)",
-        "Kubernetes-ready deployment"
+        "5 guardrail scanners (prompt injection, jailbreak, PII, encoding, output)",
+        "4 RAG modes with document/image/table ingestion",
+        "Kubernetes deployment with autoscaling"
       ],
       "status": "completed",
       "year": "2026",
@@ -68,6 +68,7 @@
         "PySyft",
         "Opacus",
         "TenSEAL",
+        "ZK-SNARKs",
         "cryptography.io"
       ],
       "achievements": [
@@ -126,13 +127,15 @@
         "LightGBM",
         "PyTorch",
         "SHAP",
-        "LIME"
+        "LIME",
+        "Plotly Dash",
+        "Streamlit"
       ],
       "achievements": [
         "4 model families benchmarked",
         "<50ms scoring latency",
         "SHAP/LIME explainability",
-        "Production-ready API"
+        "EDA dashboard (Plotly Dash) + explainability UI (Streamlit)"
       ],
       "status": "completed",
       "year": "2026",
@@ -153,14 +156,18 @@
         "PyTorch",
         "Flower",
         "TenSEAL",
+        "HuggingFace Transformers",
+        "XGBoost",
+        "LightGBM",
+        "SHAP",
         "FastAPI",
         "React",
         "gRPC"
       ],
       "achievements": [
-        "21 privacy-preserving implementations",
-        "Homomorphic encrypted ML inference",
-        "Zero-knowledge proof verification",
+        "Red-team/blue-team coevolution simulator",
+        "Transformer + ensemble phishing detection",
+        "Multi-agent explainability pipeline",
         "50,000+ lines of code"
       ],
       "status": "completed",
@@ -178,20 +185,20 @@
     {
       "id": "idx-trading-system",
       "title": "IDX AI Trading System",
-      "description": "AI-assisted trading for Indonesia Stock Exchange: signal generation, backtesting, sentiment analysis, and portfolio simulation with LSTM/SVR ensembles.",
+      "description": "Full-stack AI trading platform for IDX: FastAPI backend, 12-page Streamlit dashboard, IMSS multi-agent simulator, ML pipelines, and research workspaces.",
       "technologies": [
         "Python",
-        "PyTorch",
-        "PostgreSQL",
-        "TA-Lib",
-        "GARCH",
-        "Monte Carlo"
+        "FastAPI",
+        "Streamlit",
+        "TensorFlow",
+        "SQLite",
+        "Playwright"
       ],
       "achievements": [
-        "Multi-seed prediction ensemble",
-        "GARCH Monte Carlo simulation",
-        "7-day forecasting horizon",
-        "Walk-forward validation"
+        "12-page Streamlit dashboard",
+        "15+ API route groups",
+        "IMSS multi-agent market simulator",
+        "Walk-forward backtesting with Monte Carlo uncertainty"
       ],
       "status": "completed",
       "year": "2026",

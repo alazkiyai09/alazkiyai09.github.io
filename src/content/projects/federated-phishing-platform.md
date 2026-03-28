@@ -9,6 +9,8 @@ tags:
   - phishing-detection
   - homomorphic-encryption
   - zero-knowledge-proofs
+  - adversarial-coevolution
+  - transformers
 summary: "Two-repo phishing detection platform: fedphish-platform for federated collaborative detection, and phishing-detection-engine for URL/domain/content-based ML classification."
 technologies:
   - PyTorch
@@ -18,7 +20,11 @@ technologies:
   - FastAPI
   - React
   - gRPC
-  - NLP
+  - HuggingFace Transformers
+  - XGBoost
+  - LightGBM
+  - SHAP
+  - WebSocket
 metrics:
   repos: 2
   implementations: 21
@@ -42,7 +48,25 @@ Repository: [fedphish-platform](https://github.com/alazkiyai09/fedphish-platform
 
 Repository: [phishing-detection-engine](https://github.com/alazkiyai09/phishing-detection-engine)
 
-`phishing-detection-engine` focuses on detection quality and classification pipelines. It implements URL feature analysis, domain intelligence enrichment, and content-based ML/NLP classification for phishing signals. This module centralizes feature extraction, model training and inference behavior, and scoring workflows that can be reused across both federated and standalone deployments. Splitting the engine from orchestration makes the model stack easier to benchmark and evolve while keeping interfaces stable for the platform layer.
+`phishing-detection-engine` implements a layered detection pipeline combining classical ML and deep learning. Feature extraction covers URL structure, domain WHOIS intelligence, email header analysis, and content-based NLP signals. The model stack includes:
+
+- **Classical ensemble** — XGBoost and LightGBM for fast tabular classification
+- **Transformer models** — HuggingFace-based fine-tuned models for content and URL understanding
+- **Multi-agent explainability** — multiple specialized analysis agents produce narrative explanations of detection decisions, suitable for analyst review workflows
+- **Ensemble scoring** — weighted combination across model families for robust detection
+
+The engine exposes `POST /api/v1/analyze/url`, `POST /api/v1/analyze/email`, and `POST /api/v1/explain/{id}` endpoints for integration with the FedPhish platform or standalone deployment.
+
+## Security Coevolution & Game Theory
+
+`fedphish-platform` includes a red-team/blue-team coevolution simulator where attacker and defender models evolve iteratively against each other. The system supports:
+
+- **Coevolution runs** — automated adversarial cycles where phishing attack strategies and detection models adapt in response to each other
+- **Game theory analysis** — Nash equilibrium and strategy dominance computation for attack-defense interactions
+- **Vertical FL workflows** — cross-organizational federated learning where participants hold different feature sets (e.g., URL features at one organization, email content features at another)
+- **API-driven orchestration** — `POST /api/v1/security/coevolution/run`, `GET /api/v1/security/game-theory`, and `WS /ws/simulation` for real-time monitoring
+
+This approach goes beyond static model evaluation to capture the dynamic arms-race between phishing evolution and detection adaptation.
 
 ## Privacy Techniques
 
