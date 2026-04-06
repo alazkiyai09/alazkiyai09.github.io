@@ -10,25 +10,32 @@ const totalProjects = allProjects.length;
 
 const projects = [
   {
-    title: 'SignGuard: Cryptographic FL Defense',
-    description: 'Novel defense combining ECDSA signatures with anomaly detection and reputation scoring to protect federated learning from poisoning attacks.',
-    impact: '94.5% attack detection rate with minimal overhead on honest participants',
-    tags: ['PyTorch', 'Flower', 'ECDSA', 'Reputation Systems'],
-    href: 'https://github.com/alazkiyai09/signguard'
+    title: 'FraudShield RAG',
+    description: 'Retrieval-augmented fraud investigation workflow with FastAPI + Streamlit, Qdrant vector search, reranking, and source-grounded answers.',
+    impact: '2 live services (API + UI) with latest deployment on April 5, 2026',
+    tags: ['FastAPI', 'LangChain', 'Qdrant', 'Streamlit'],
+    href: 'https://github.com/alazkiyai09/fraudshield-rag'
   },
   {
-    title: 'FL Security Ecosystem',
-    description: 'Three-repository ecosystem covering core FL algorithms, adversarial attack/defense benchmarking with API-driven security testing, and privacy-preserving ML with CKKS/BFV encryption, TEE simulation, and ZK proof verification.',
-    impact: '30+ implementations · 165,000+ lines · 5 crypto primitives',
-    tags: ['PyTorch', 'Flower', 'TenSEAL', 'ZK-SNARKs'],
-    href: 'https://github.com/alazkiyai09/federated-learning-core'
+    title: 'MedicaidGuard Deploy',
+    description: 'Cloud Run-ready healthcare fraud inference stack with FastAPI endpoints, operational metrics, and Streamlit analyst demo workflow.',
+    impact: '10/10 core P0 scenarios validated; 2 live services (API + UI)',
+    tags: ['FastAPI', 'XGBoost', 'Cloud Run', 'Streamlit'],
+    href: 'https://github.com/alazkiyai09/medicaidguard-deploy'
   },
   {
-    title: 'Enterprise AI Platform',
-    description: 'Modular enterprise AI platform: multi-agent orchestration with 4 agent types, 5 guardrail scanners, and hybrid RAG retrieval across three independently deployable repositories.',
-    impact: '3 modules · 5 guardrails · 4 RAG modes · Kubernetes-ready',
-    tags: ['FastAPI', 'LangGraph', 'LlamaIndex', 'Kubernetes'],
-    href: 'https://github.com/alazkiyai09/enterprise-agents'
+    title: 'Fraud Agent Monitor',
+    description: 'LangGraph orchestration pipeline with 4 specialized agents for transaction analysis, pattern detection, risk scoring, and SAR-ready report generation.',
+    impact: '4-agent pipeline live with API + dashboard deployment on Cloud Run',
+    tags: ['LangGraph', 'FastAPI', 'Streamlit', 'Docker'],
+    href: 'https://github.com/alazkiyai09/fraud-agent-monitor'
+  },
+  {
+    title: 'Fraud LLM Finetune',
+    description: 'QLoRA fine-tuning and inference workflow for 3-class fraud narrative classification, deployed with a public interactive demo.',
+    impact: '3-class classifier live on Cloud Run with April 5, 2026 latest revision',
+    tags: ['QLoRA', 'Transformers', 'Gradio', 'FastAPI'],
+    href: 'https://github.com/alazkiyai09/fraud-llm-finetune'
   }
 ];
 ---
@@ -39,7 +46,7 @@ const projects = [
       <SectionHeader
         label="PROVEN RESULTS"
         title="Selected Projects"
-        description="My most impactful work in AI security and fraud detection."
+        description="Current live fraud AI systems with synchronized GitHub and Cloud Run deployments."
       />
     </FadeIn>
 
