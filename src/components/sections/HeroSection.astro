@@ -5,13 +5,13 @@ import StatBar from '../ui/StatBar.astro';
 import FadeIn from '../ui/FadeIn.astro';
 import profile from '../../data/profile.json';
 
-const { location, status, social } = profile;
+const { location, status } = profile;
 
 const stats = [
-  { value: 4, suffix: '+', label: 'Years Production ML' },
-  { value: 54, suffix: '', label: 'Jurisdictions Scaled' },
-  { value: 99.9, suffix: '%', label: 'SLA Maintained' },
-  { value: 10, suffix: 'M+', label: 'Transactions Protected' },
+  { value: 5, suffix: '', label: 'GitHub Repos Synced' },
+  { value: 7, suffix: '', label: 'Cloud Run Services Live' },
+  { value: 3, suffix: '', label: 'API Services' },
+  { value: 4, suffix: '', label: 'UI Services' },
 ];
 ---
 
@@ -60,7 +60,7 @@ const stats = [
       <!-- Subheadline -->
       <FadeIn delay="3">
         <p class="text-lg md:text-xl text-text-muted max-w-[580px] mb-8 leading-relaxed">
-          Indonesia's AI security researcher specializing in federated learning security and fraud detection systems. I find vulnerabilities in ML pipelines and build the defenses to stop them.
+          AI security engineer shipping fraud detection systems from code to live infrastructure. Current production stack: 5 synced repos and 7 Cloud Run services across API and UI workloads.
         </p>
       </FadeIn>
 

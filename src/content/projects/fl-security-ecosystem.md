@@ -18,6 +18,7 @@ technologies:
   - PySyft
   - Opacus
   - TenSEAL
+  - ZK-SNARKs
   - cryptography.io
   - FastAPI
   - scikit-learn
@@ -46,11 +47,21 @@ Repository: [fl-adversarial-security](https://github.com/alazkiyai09/fl-adversar
 
 `fl-adversarial-security` focuses on attacker behavior and defense robustness under realistic threat models. It includes poisoning attacks (label, model, and backdoor variants), inference attacks for privacy leakage evaluation, Byzantine disruption strategies, and defense pipelines spanning Krum-family methods, anomaly-based rejection, and secure aggregation hardening tests. The module is structured around benchmark repeatability, making attack-defense comparisons easier to track across model versions and data regimes. Decoupling this repository from baseline FL logic removed hidden coupling between threat simulations and protocol code, which improved experimental clarity. It now serves as the adversarial stress-testing layer for the ecosystem.
 
+The module exposes API surfaces for programmatic security testing: `POST /api/v1/attacks/simulate` for attack execution, `POST /api/v1/defenses/evaluate` for defense benchmarking, `POST /api/v1/benchmark/run` for end-to-end benchmark orchestration, and `POST /api/v1/predict` for model inference under adversarial conditions. These enable automated security validation in CI pipelines.
+
 ## Module 3: Privacy-Preserving ML (`privacy-preserving-ml`)
 
 Repository: [privacy-preserving-ml](https://github.com/alazkiyai09/privacy-preserving-ml)
 
-`privacy-preserving-ml` isolates privacy-specific engineering: differential privacy pipelines, homomorphic encryption experiments, secure training workflows, and compliance-oriented data handling patterns. This module focuses on practical privacy controls that can be combined with both core FL training and adversarial defenses. By separating privacy components from broad attack benchmarking, it became easier to evaluate utility-privacy tradeoffs and operational overhead in controlled settings. The repository also captures policy-facing and audit-facing implementation choices needed for production adoption in sensitive domains. In combination with the other modules, it enables a defense-in-depth posture where confidentiality, integrity, and robustness can be measured independently.
+`privacy-preserving-ml` implements five major privacy primitives beyond basic differential privacy:
+
+- **Homomorphic Encryption (CKKS/BFV)** — encrypted inference and training using lattice-based schemes, supporting both approximate (CKKS) and exact (BFV) arithmetic on encrypted data
+- **TEE Simulation** — trusted execution environment patterns with hybrid HE+TEE protocols that combine cryptographic and hardware-based protection
+- **Zero-Knowledge Proofs** — ZK-SNARK verification flows for proving model update integrity without revealing the updates themselves
+- **Commitment Schemes** — cryptographic commitment and verification protocols for federated round integrity
+- **Encrypted GBDT** — gradient boosted decision tree training under homomorphic encryption, enabling tree-based models on sensitive data without decryption
+
+Each primitive has runnable experiment scripts (`run_he_benchmark.py`, `run_tee_benchmark.py`, `run_hybrid_benchmark.py`, `run_zkp_verification.py`, `run_commitment_fl.py`, `run_encrypted_gbdt.py`) and deployment-oriented module boundaries. By separating privacy engineering from attack benchmarking, utility-privacy tradeoffs and operational overhead can be evaluated in controlled settings without confounding adversarial variables.
 
 ## Relationship to SignGuard
 

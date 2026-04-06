@@ -8,8 +8,15 @@ import activityLog from '../../data/activity-log.json';
 
 const allProjects = await getCollection('projects');
 const sortedProjects = allProjects.sort((a, b) => (a.data.title || '').localeCompare(b.data.title || ''));
+const featuredSlugs = [
+  'fraudshield-rag',
+  'medicaidguard-deploy',
+  'fraud-agent-monitor',
+  'fraud-llm-finetune',
+  'fraud-ai-portfolio'
+];
 const featuredProjects = sortedProjects.filter((project) =>
-  ['signguard', 'fl-security-ecosystem', 'enterprise-ai-platform'].includes(project.slug)
+  featuredSlugs.includes(project.slug)
 );
 const totalPortfolioLoc = activityLog.activities.reduce((sum, activity) => {
   if (activity.type !== 'portfolio_complete') return sum;
@@ -35,7 +42,7 @@ const mappedProjects = sortedProjects.map(p => ({
 }));
 
 const title = 'Projects - Azka';
-const description = `${sortedProjects.length} ecosystem-focused projects spanning federated learning security, enterprise AI systems, fraud detection engineering, and IDX trading intelligence.`;
+const description = `${sortedProjects.length} projects spanning deployed fraud AI systems, security research, and production ML engineering.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -44,7 +51,7 @@ const description = `${sortedProjects.length} ecosystem-focused projects spannin
     <SectionHeader
       label="Portfolio"
       title="Research Projects"
-      description={`${sortedProjects.length} focused projects across modular AI ecosystems — federated security, enterprise AI, fraud ML, healthcare AI, and applied cryptographic research`}
+      description={`${sortedProjects.length} projects with an active fraud AI launch stack: 5 synced repos and 7 live Cloud Run services`}
       centered={true}
       class="mb-12"
     />
