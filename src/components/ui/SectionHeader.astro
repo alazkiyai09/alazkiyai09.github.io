@@ -12,6 +12,7 @@ interface Props {
   title: string;
   description?: string;
   centered?: boolean;
+  level?: 1 | 2 | 3;
   class?: string;
 }
 
@@ -20,17 +21,20 @@ const {
   title,
   description,
   centered = false,
+  level = 2,
   class: className = ''
 } = Astro.props;
+
+const HeadingTag = (`h${level}` as 'h1' | 'h2' | 'h3');
 ---
 
 <div class:list={['space-y-3', centered && 'text-center', className]}>
   <p class="section-label">
     {label}
   </p>
-  <h2 class="font-display font-bold text-text-primary text-3xl md:text-4xl">
+  <HeadingTag class="font-display font-bold text-text-primary text-3xl md:text-4xl">
     {title}
-  </h2>
+  </HeadingTag>
   {description && (
     <p class:list={['text-text-muted max-w-prose', centered && 'mx-auto']}>
       {description}

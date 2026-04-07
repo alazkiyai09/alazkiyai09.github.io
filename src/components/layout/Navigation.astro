@@ -7,15 +7,20 @@ const { mobile = false } = Astro.props;
 
 const navItems = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Research', href: '/research' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/about/' },
+  { name: 'Projects', href: '/projects/' },
+  { name: 'Research', href: '/research/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Contact', href: '/contact/' },
 ];
 
+const normalizePath = (value: string) => {
+  if (value === '/') return '/';
+  return value.replace(/\/+$/, '');
+};
+
 const isActive = (href: string) => {
-  return Astro.url.pathname === href;
+  return normalizePath(Astro.url.pathname) === normalizePath(href);
 };
 ---
 

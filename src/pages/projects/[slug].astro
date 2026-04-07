@@ -65,16 +65,16 @@ const projectSchema = {
       <article class="max-w-4xl mx-auto">
         <!-- Breadcrumb -->
         <nav class="mb-8 text-sm">
-          <ol class="flex items-center gap-2">
+          <ol class="flex flex-wrap items-center gap-2">
             <li>
               <a href="/" class="text-text-muted hover:text-accent transition-colors">Home</a>
             </li>
             <li class="text-text-subtle">/</li>
             <li>
-              <a href="/projects" class="text-text-muted hover:text-accent transition-colors">Projects</a>
+              <a href="/projects/" class="text-text-muted hover:text-accent transition-colors">Projects</a>
             </li>
             <li class="text-text-subtle">/</li>
-            <li class="text-text-primary font-medium">{project.data.title}</li>
+            <li class="text-text-primary font-medium break-words">{project.data.title}</li>
           </ol>
         </nav>
 

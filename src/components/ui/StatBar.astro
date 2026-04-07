@@ -1,7 +1,7 @@
 ---
 /**
- * StatBar component - Animated counter stats
- * Numbers count up when scrolled into view
+ * StatBar component - Server-trusted stat display.
+ * Values are rendered directly to avoid transient "0" states when JS is delayed.
  */
 
 interface StatItem {
@@ -32,10 +32,8 @@ const {
     >
       <div
         class="stat-value font-mono font-bold text-2xl md:text-stat gradient-text-animated"
-        data-target={stat.value}
-        data-suffix={stat.suffix || ''}
       >
-        0{stat.suffix || ''}
+        {stat.value}{stat.suffix || ''}
       </div>
       <div class="stat-label text-xs uppercase tracking-wider text-text-subtle mt-1 group-hover:text-text-muted transition-colors">
         {stat.label}
@@ -43,56 +41,3 @@ const {
     </div>
   ))}
 </div>
-
-<script>
-  const animateValue = (el: HTMLElement, start: number, end: number, suffix: string, duration: number) => {
-    const startTime = performance.now();
-    const isDecimal = end % 1 !== 0;
-
-    const update = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = start + (end - start) * eased;
-
-      if (isDecimal) {
-        el.textContent = current.toFixed(1) + suffix;
-      } else {
-        el.textContent = Math.round(current) + suffix;
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      }
-    };
-
-    requestAnimationFrame(update);
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const statValues = entry.target.querySelectorAll('.stat-value');
-          statValues.forEach((el, index) => {
-            const target = parseFloat((el as HTMLElement).dataset.target || '0');
-            const suffix = (el as HTMLElement).dataset.suffix || '';
-
-            setTimeout(() => {
-              (el as HTMLElement).classList.add('stat-count-animate');
-              animateValue(el as HTMLElement, 0, target, suffix, 1800);
-            }, index * 150);
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  document.querySelectorAll('.stat-bar').forEach((el) => {
-    observer.observe(el);
-  });
-</script>

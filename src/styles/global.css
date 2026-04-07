@@ -59,6 +59,7 @@
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: 'opsz' 14;
     letter-spacing: -0.005em;
+    overflow-x: hidden;
   }
 
   /* Typography */
@@ -481,6 +482,16 @@
   animation:
     typewriter 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.8s forwards,
     blinkCaret 0.75s step-end 6;
+}
+
+@media (max-width: 768px) {
+  .typewriter-text {
+    white-space: normal;
+    overflow: visible;
+    width: auto;
+    border-right: 0;
+    animation: none;
+  }
 }
 
 /* Rotating gradient border */

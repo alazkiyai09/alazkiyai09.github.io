@@ -49,11 +49,17 @@ const InteractiveFilter = ({ categories, projects }) => {
     return (
         <div className="w-full">
             {/* Filter Bar */}
-            <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-10">
+            <div
+                className="flex flex-wrap gap-2 md:gap-3 justify-center mb-10"
+                role="toolbar"
+                aria-label="Project category filters"
+            >
                 {categories.map((category) => (
                     <button
                         key={category}
                         onClick={() => setActiveCategory(category)}
+                        aria-pressed={activeCategory === category}
+                        aria-label={`Filter projects by ${category}`}
                         className={`px-3 py-1.5 md:px-4 md:py-2 rounded-pill text-xs md:text-sm font-medium transition-all duration-200 whitespace-nowrap ${activeCategory === category
                                 ? 'bg-accent text-white shadow-glow-sm'
                                 : 'bg-bg-surface text-text-subtle hover:text-text-primary hover:bg-bg-surface-hover border border-border'
@@ -161,6 +167,19 @@ const InteractiveFilter = ({ categories, projects }) => {
                     ))}
                 </AnimatePresence>
             </motion.div>
+
+            {filteredProjects.length === 0 && (
+                <div className="glass-card p-8 mt-6 text-center">
+                    <p className="text-text-primary font-semibold mb-2">No projects match this filter.</p>
+                    <p className="text-text-muted text-sm mb-4">Try another category or reset to show all projects.</p>
+                    <button
+                        onClick={() => setActiveCategory('All')}
+                        className="px-4 py-2 rounded-btn bg-accent text-white text-sm font-medium hover:bg-accent-light transition-colors"
+                    >
+                        Show All Projects
+                    </button>
+                </div>
+            )}
         </div>
     );
 };
