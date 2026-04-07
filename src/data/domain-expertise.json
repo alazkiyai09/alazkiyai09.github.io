@@ -15,8 +15,8 @@
       ],
       "technologies": ["PyTorch", "Flower", "PySyft", "cryptography.io", "DP-SGD", "Opacus", "TenSEAL", "ECDSA", "Shamir's Secret Sharing"],
       "achievements": [
-        "FL Security Ecosystem: 3 focused repos (core, adversarial, privacy) from 30+ implementations",
-        "SignGuard: Novel defense achieving 94.5% detection rate",
+        "FL Security Ecosystem: 3 focused repos (core, adversarial, privacy) from 31 implementations",
+        "SignGuard: Layered defense achieving 94.5% detection rate",
         "STRIDE security audit completed",
         "Published research paper on FL security"
       ]

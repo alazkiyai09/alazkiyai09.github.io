@@ -10,12 +10,12 @@ tags:
   - byzantine-robustness
   - reputation-systems
   - anomaly-detection
-summary: "Novel multi-layer defense system combining ECDSA digital signatures, multi-factor anomaly detection, and time-decay reputation scoring to protect federated learning from Byzantine poisoning attacks."
+summary: "Layered defense system combining ECDSA digital signatures, multi-factor anomaly detection, and time-decay reputation scoring to protect federated learning from Byzantine poisoning attacks."
 technologies:
   - Python
   - PyTorch
   - Flower (Flwr)
-  - ECDSA (secp256k1)
+  - ECDSA (secp256r1 / P-256)
   - cryptography.io
   - NumPy
   - scikit-learn
@@ -38,7 +38,7 @@ SignGuard uses a **three-layer defense architecture** that combines cryptographi
 
 ### Layer 1: ECDSA Digital Signatures
 
-Every model update is signed with the client's private key using ECDSA on the secp256k1 curve. The server verifies each signature before processing, which:
+Every model update is signed with the client's private key using ECDSA on the secp256r1 (NIST P-256) curve. The server verifies each signature before processing, which:
 
 - **Prevents impersonation**: A client can't submit updates pretending to be another
 - **Ensures integrity**: Tampered updates fail signature verification

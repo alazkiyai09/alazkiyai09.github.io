@@ -74,7 +74,7 @@ When a client joins the FL system:
 class ClientRegistration:
     def register_client(self, client_id: str) -> KeyPair:
         # Generate ECDSA keypair
-        private_key = ec.generate_private_key(ec.SECP256K1())
+        private_key = ec.generate_private_key(ec.SECP256R1())
         public_key = private_key.public_key()
 
         # Store public key server-side
@@ -131,7 +131,7 @@ def verify_update(
 
 ### Signature Performance
 
-ECDSA on secp256k1:
+ECDSA on secp256r1 (NIST P-256):
 
 - **Signing**: ~0.5ms per update
 - **Verification**: ~1ms per update

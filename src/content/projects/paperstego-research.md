@@ -7,7 +7,7 @@ tags:
   - "research"
   - "publication"
   - "image-processing"
-summary: "My published peer-reviewed research natively hiding data within images using advanced cryptographic encodings to mathematically defeat detection tools."
+summary: "Published steganography research implementing PVD+LSB+Modulo encoding with CTR_DRBG randomization and empirical image-quality evaluation."
 technologies:
   - Python
   - OpenCV
@@ -29,7 +29,7 @@ Published research in Springer LNNS (vol 285) on improving steganography imperce
 
 ## Project Details
 
-This project is part of the research portfolio focusing on security-research.
+This project documents the implementation behind my Springer LNNS publication on image steganography imperceptibility.
 
 ## Technologies Used
 
@@ -45,13 +45,12 @@ Full source code available on GitHub: [https://github.com/alazkiyai09/pvd-lsb-mo
 
 ## Key Features
 
-- Production-ready implementation
-- Comprehensive documentation
-- Unit tests and integration tests
-- Docker support for containerization
+- Combined PVD, LSB, and modulo encoding workflow
+- NIST SP 800-90A CTR_DRBG randomization (AES-128)
+- Reproducible evaluation using PSNR, MSE, and SSIM
 
 ## Results
 
-- Successfully deployed and tested
-- Meets all project requirements
-- Documented with comprehensive README
+- 1,310 total embedding trials (131 images × 10 message sizes)
+- Quantitative quality comparison using PSNR, MSE, and SSIM
+- Peer-reviewed publication in Springer LNNS volume 285

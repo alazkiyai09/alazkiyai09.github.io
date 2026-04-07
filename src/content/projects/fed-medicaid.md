@@ -26,7 +26,7 @@ repository: "https://github.com/alazkiyai09/fed-medicaid"
 
 Machine learning is a critical tool for identifying anomalous provider behavior in national healthcare systems. However, centralizing highly sensitive claims data (like Medicare/Medicaid) poses severe compliance and privacy risks (HIPAA). **Federated Learning (FL)** offers a paradigm to collaboratively train fraud detection models across decentralized institutional silos (US states) without transferring raw patient histories.
 
-However, Vanilla FL is wildly vulnerable to **Byzantine failures** and **Data Poisoning** via Sybil networks. This repository contains the implementation of **SignGuard**, a hybrid cryptographic defense mechanism evaluated against the largest public healthcare dataset to date—227 million real-world HHS Medicaid provider claims partitioned across 54 United States jurisdictions.
+However, vanilla FL is vulnerable to **Byzantine failures** and **data poisoning** via Sybil networks. This repository contains an implementation of **SignGuard**, a hybrid cryptographic defense mechanism evaluated against a large public healthcare dataset—227 million HHS Medicaid provider claims partitioned across 54 United States jurisdictions.
 
 ## 🔐 The SignGuard Architecture
 
@@ -58,6 +58,6 @@ The real-world implementation applied to Medicaid stems from the core theoretica
 Federated Learning (FL) is vulnerable to Byzantine attacks where malicious clients submit poisoned model updates. Existing solutions (Krum, Multi-Krum) lack cryptographic verification of client identity. 
 
 SignGuard introduces three core algorithmic components under the hood:
-1. **Signature Generator**: Clients sign their model updates using ECDSA private keys (SECP256R1), ensuring absolute identity non-repudiation.
+1. **Signature Generator**: Clients sign their model updates using ECDSA private keys (SECP256R1), ensuring client authentication and non-repudiation.
 2. **Verification Engine**: The central aggregator verifies ECDSA signatures in ~1.2ms per client before performing any compute-heavy aggregation logic, instantly dropping unauthenticated packets.
 3. **Reputation Manager**: Verified updates undergo statistical anomaly detection. Anomalous vectors immediately decay trust exponentially, permanently isolating Sybil participants over multiple rounds.

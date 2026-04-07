@@ -5,7 +5,7 @@ import PublicationsSection from '../components/sections/Publications.astro';
 import publications from '../data/publications.json';
 
 const title = 'Publications - Azka Al Azkiyai';
-const description = 'Publications in federated learning security, steganography, and AI systems.';
+const description = 'Peer-reviewed publications (2020-2021) and ongoing applied research in federated learning security and AI systems.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -14,12 +14,16 @@ const description = 'Publications in federated learning security, steganography,
       <SectionHeader
         label="PUBLICATIONS"
         title="Research Publications"
-        description="Peer-reviewed research in AI security and privacy-preserving machine learning"
+        description="Peer-reviewed publications plus current open-source research tracks"
         centered={true}
         level={1}
       />
 
       <PublicationsSection publications={publications.publications} />
+
+      <p class="max-w-3xl mx-auto mt-8 text-sm text-text-subtle">
+        Peer-reviewed publications listed here are from 2020-2021. Current federated learning security work is tracked as open-source project documentation and working-paper material in the Projects and Blog sections.
+      </p>
     </div>
   </div>
 </BaseLayout>

@@ -61,7 +61,7 @@
         "end": null,
         "current": true
       },
-      "description": "Conducting research in federated learning security and adversarial machine learning. Developing SignGuard, a novel defense mechanism against poisoning attacks in FL systems, and exploring privacy-preserving AI techniques.",
+      "description": "Conducting research in federated learning security and adversarial machine learning. Developing SignGuard, a layered defense mechanism against poisoning attacks in FL systems, and exploring privacy-preserving AI techniques.",
       "responsibilities": [
         "Research and implement Byzantine-resilient federated learning algorithms",
         "Develop cryptographic verification mechanisms for model updates",

@@ -3,7 +3,7 @@
     {
       "id": "signguard",
       "title": "SignGuard: Cryptographic FL Defense",
-      "description": "Novel defense combining ECDSA signatures with anomaly detection and reputation scoring to protect federated learning from poisoning attacks.",
+      "description": "Layered defense combining ECDSA signatures with anomaly detection and reputation scoring to protect federated learning from poisoning attacks.",
       "technologies": [
         "PyTorch",
         "Flower",
@@ -72,7 +72,7 @@
         "cryptography.io"
       ],
       "achievements": [
-        "3 focused repositories from 30+ implementations",
+        "3 focused repositories from 31 implementations",
         "6 attack types simulated and defended",
         "5 defense strategies benchmarked",
         "165,000+ lines of research-grade code"
@@ -185,7 +185,7 @@
     {
       "id": "idx-trading-system",
       "title": "IDX AI Trading System",
-      "description": "Full-stack AI trading platform for IDX: FastAPI backend, 12-page Streamlit dashboard, IMSS multi-agent simulator, ML pipelines, and research workspaces.",
+      "description": "Full-stack AI trading platform for IDX: FastAPI backend, 13-page Streamlit dashboard, IMSS multi-agent simulator, ML pipelines, and research workspaces.",
       "technologies": [
         "Python",
         "FastAPI",
@@ -195,7 +195,7 @@
         "Playwright"
       ],
       "achievements": [
-        "12-page Streamlit dashboard",
+        "13-page Streamlit dashboard",
         "15+ API route groups",
         "IMSS multi-agent market simulator",
         "Walk-forward backtesting with Monte Carlo uncertainty"
@@ -228,7 +228,7 @@
         "Published research paper",
         "1,310 embedding trials evaluated",
         "PSNR, MSE, SSIM metrics",
-        "Novel PVD+LSB+Modulo encoding"
+        "PVD+LSB+Modulo encoding"
       ],
       "status": "completed",
       "year": "2023",
@@ -268,9 +268,12 @@
     }
   ],
   "metadata": {
-    "total_projects": 9,
+    "total_projects": 17,
+    "curated_subset_size": 9,
+    "source_of_truth": "src/content/projects",
+    "deprecation_note": "Legacy curated subset; site pages are generated from src/content/projects.",
     "tagline": "Fewer projects. Deeper work.",
-    "last_updated": "2026-03-28",
+    "last_updated": "2026-04-07",
     "categories": [
       "Research",
       "Security",

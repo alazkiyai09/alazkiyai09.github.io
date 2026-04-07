@@ -149,7 +149,7 @@ This portfolio transformed my technical trajectory:
 Concrete outcomes:
 - Conference presentations on FL security
 - Collaborations with academic researchers
-- SignGuard as a novel contribution with measurable results
+- SignGuard as a core applied contribution with measurable results
 - Deeper understanding of my fraud detection work through the security lens
 
 ## What I'd Do Differently
@@ -189,4 +189,4 @@ If you're considering similar deep-dive research: start with clear questions, bu
 
 ---
 
-*This post summarizes insights from my [FL Security Ecosystem](https://github.com/alazkiyai09/federated-learning-core). The code is open-source with 165,000+ lines across 30 implementations, all documented with decision logs and validated through a STRIDE security audit.*
+*This post summarizes insights from my [FL Security Ecosystem](https://github.com/alazkiyai09/federated-learning-core). The code is open-source with 165,000+ lines across 31 implementations, all documented with decision logs and validated through a STRIDE security audit.*

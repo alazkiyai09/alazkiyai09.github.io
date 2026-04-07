@@ -33,7 +33,7 @@ repository: "https://github.com/alazkiyai09/federated-learning-core"
 
 ## Overview
 
-The original `fl-security-research` repository validated the full research direction, but scaling experiments in one monolith slowed progress. The ecosystem now separates core protocols, adversarial testing, and privacy engineering into purpose-specific repositories. This split preserves the historical depth of the work, including 165,000+ lines of code across 30 implementations, while making future research easier to maintain and extend. Each module now has clearer objectives, cleaner dependency boundaries, and reproducible evaluation paths.
+The original `fl-security-research` repository validated the full research direction, but scaling experiments in one monolith slowed progress. The ecosystem now separates core protocols, adversarial testing, and privacy engineering into purpose-specific repositories. This split preserves the historical depth of the work, including 165,000+ lines of code across 31 implementations, while making future research easier to maintain and extend. Each module now has clearer objectives, cleaner dependency boundaries, and reproducible evaluation paths.
 
 ## Module 1: Federated Learning Core (`federated-learning-core`)
 

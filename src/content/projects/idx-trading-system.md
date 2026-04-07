@@ -10,7 +10,7 @@ tags:
   - quantitative-finance
   - indonesia-stock-exchange
   - multi-agent-simulation
-summary: "Full-stack AI trading platform for the Indonesia Stock Exchange — FastAPI backend, 12-page Streamlit dashboard, IMSS multi-agent market simulator, ML prediction pipelines, and research workspaces with Playwright E2E coverage."
+summary: "Full-stack AI trading platform for the Indonesia Stock Exchange — FastAPI backend, 13-page Streamlit dashboard, IMSS multi-agent market simulator, ML prediction pipelines, and research workspaces with Playwright E2E coverage."
 technologies:
   - Python
   - FastAPI
@@ -23,7 +23,7 @@ technologies:
   - TA-Lib
   - Playwright
 metrics:
-  dashboardPages: 12
+  dashboardPages: 13
   apiRouteGroups: 15
   simulatorAgents: "multi-agent"
   forecastHorizon: "7 days"
@@ -50,7 +50,7 @@ Daily Jobs + SQLite (trading.db, imss.db)
                          (12 pages)
 ```
 
-## Dashboard (12 Pages)
+## Dashboard (13 Pages)
 
 The Streamlit dashboard provides a complete operator interface:
 

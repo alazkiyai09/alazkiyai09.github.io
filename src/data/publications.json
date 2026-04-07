@@ -11,7 +11,7 @@
       "doi": "10.1007/978-3-030-80129-8_57",
       "type": "journal",
       "url": "https://doi.org/10.1007/978-3-030-80129-8_57",
-      "description": "Novel steganographic method combining PVD, LSB substitution, and modulo encoding with NIST SP 800-90A CTR_DRBG for improved imperceptibility."
+      "description": "Proposed steganographic method combining PVD, LSB substitution, and modulo encoding with NIST SP 800-90A CTR_DRBG for improved imperceptibility."
     },
     {
       "id": "crypto-2020",
