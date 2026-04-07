@@ -36,7 +36,7 @@ FraudShield RAG is a document-grounded assistant for fraud investigations. It in
 - UI: https://fraudshield-demo-5tphgb6fsa-as.a.run.app
 - API docs: https://fraudshield-api-5tphgb6fsa-as.a.run.app/docs
 - Latest ready revisions:
-  - `fraudshield-demo-00003-vtx`
+  - `fraudshield-demo-00004-z9d`
   - `fraudshield-api-00013-fz7`
 - Traffic split: 100% on latest revisions
 

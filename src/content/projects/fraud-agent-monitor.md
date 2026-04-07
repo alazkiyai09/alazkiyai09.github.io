@@ -40,7 +40,7 @@ Fraud Agent Monitor orchestrates four task-specific agents to score suspicious f
 - UI: https://fraud-monitor-demo-5tphgb6fsa-as.a.run.app
 - API docs: https://fraud-monitor-api-5tphgb6fsa-as.a.run.app/docs
 - Latest ready revisions:
-  - `fraud-monitor-demo-00006-blb`
+  - `fraud-monitor-demo-00007-5n4`
   - `fraud-monitor-api-00004-55b`
 - Traffic split: 100% on latest revisions
 

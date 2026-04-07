@@ -19,7 +19,7 @@ metrics:
   cloudRunServices: 1
   classes: 3
   p0Checks: "6/6"
-  latestRevision: "00006"
+  latestRevision: "00009"
 startDate: "2026-03-28"
 completedDate: "2026-04-05"
 repository: "https://github.com/alazkiyai09/fraud-llm-finetune"
@@ -39,7 +39,7 @@ Target classes:
 ## Live Deployment
 
 - UI: https://fraud-llm-demo-5tphgb6fsa-as.a.run.app
-- Latest ready revision: `fraud-llm-demo-00006-c55`
+- Latest ready revision: `fraud-llm-demo-00009-wsh`
 - Traffic split: 100% on latest revision
 
 This project currently exposes a public demo UI and does not publish a separate public API service endpoint.

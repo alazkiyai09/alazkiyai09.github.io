@@ -35,7 +35,7 @@ MedicaidGuard Deploy packages healthcare fraud modeling into a deployable FastAP
 - UI: https://medicaidguard-demo-5tphgb6fsa-as.a.run.app
 - API docs: https://medicaidguard-api-5tphgb6fsa-as.a.run.app/docs
 - Latest ready revisions:
-  - `medicaidguard-demo-00004-wql`
+  - `medicaidguard-demo-00005-c5d`
   - `medicaidguard-api-00004-5lz`
 - Traffic split: 100% on latest revisions
 

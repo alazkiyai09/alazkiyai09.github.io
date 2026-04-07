@@ -46,16 +46,16 @@ Current deployment state:
 
 - Region: `asia-southeast1`
 - 7/7 services route 100% traffic to latest ready revision
-- Most recent rollout timestamp: April 6, 2026 (UTC)
+- Most recent rollout timestamp: April 7, 2026 (UTC)
 - Latest API revisions:
   - `fraudshield-api-00013-fz7`
   - `medicaidguard-api-00004-5lz`
   - `fraud-monitor-api-00004-55b`
 - Latest UI revisions:
-  - `fraudshield-demo-00003-vtx`
-  - `medicaidguard-demo-00004-wql`
-  - `fraud-monitor-demo-00006-blb`
-  - `fraud-llm-demo-00006-c55`
+  - `fraudshield-demo-00004-z9d`
+  - `medicaidguard-demo-00005-c5d`
+  - `fraud-monitor-demo-00007-5n4`
+  - `fraud-llm-demo-00009-wsh`
 
 ## GitHub Repository Map
 
